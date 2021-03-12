@@ -1,0 +1,22 @@
+﻿using System;
+using System.Collections.Generic;
+
+// Code scaffolded by EF Core assumes nullable reference types (NRTs) are not used or disabled.
+// If you have enabled NRTs for your project, then un-comment the following line:
+// #nullable disable
+
+namespace VS_CRM.Models
+{
+    public partial class WshopPlanIzg
+    {
+        public int IdRec { get; set; }
+        public int NDate { get; set; }
+        public int Smena { get; set; }
+        public string Det { get; set; }
+        public string KodIzgot { get; set; }
+        public string TypeWork { get; set; }
+        public decimal KolS { get; set; }
+        public decimal KolZ { get; set; }
+        public int IdIzgot { get; set; }
+    }
+}

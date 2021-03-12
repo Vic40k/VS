@@ -1,0 +1,17 @@
+﻿using System;
+using System.Collections.Generic;
+
+// Code scaffolded by EF Core assumes nullable reference types (NRTs) are not used or disabled.
+// If you have enabled NRTs for your project, then un-comment the following line:
+// #nullable disable
+
+namespace VS_CRM.Models
+{
+    public partial class PrnLabelParams
+    {
+        public string ParamName { get; set; }
+        public int Type { get; set; }
+        public string Description { get; set; }
+        public int? SortOrder { get; set; }
+    }
+}
