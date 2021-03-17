@@ -1,0 +1,31 @@
+import { Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { FactoryComponent } from './factoryComponent';
+
+@Injectable()
+export class DataService {
+
+  private url = "/api/factoryComponents";
+
+  constructor(private http: HttpClient) {
+  }
+
+  getFactoryComponents() {
+    return this.http.get(this.url);
+  }
+
+  getFactoryComponent(articul: string) {
+    return this.http.get(this.url + '/' + articul);
+  }
+
+  createFactoryComponent(FactoryComponent: FactoryComponent) {
+    return this.http.post(this.url, FactoryComponent);
+  }
+  updateProduct(FactoryComponent: FactoryComponent) {
+
+    return this.http.put(this.url, FactoryComponent);
+  }
+  deleteProduct(articul: string) {
+    return this.http.delete(this.url + '/' + articul);
+  }
+}
