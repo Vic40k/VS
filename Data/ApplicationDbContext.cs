@@ -10,9 +10,9 @@ using VS_CRM.Models;
 
 namespace VS_CRM.Data
 {
-    public class ApplicationDbContext : ApiAuthorizationDbContext<ApplicationUser>
+    public class DefaultDbContext : ApiAuthorizationDbContext<ApplicationUser>
     {
-        public ApplicationDbContext(
+        public DefaultDbContext(
             DbContextOptions options,
             IOptions<OperationalStoreOptions> operationalStoreOptions) : base(options, operationalStoreOptions)
         {

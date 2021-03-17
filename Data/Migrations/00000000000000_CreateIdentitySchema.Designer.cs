@@ -9,7 +9,7 @@ using VS_CRM.Data;
 
 namespace VS_CRM.Data.Migrations
 {
-    [DbContext(typeof(ApplicationDbContext))]
+    [DbContext(typeof(DefaultDbContext))]
     [Migration("00000000000000_CreateIdentitySchema")]
     partial class CreateIdentitySchema
     {

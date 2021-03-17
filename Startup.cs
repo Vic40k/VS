@@ -10,6 +10,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using VS_CRM.Data;
+using VS_CRM.Model;
 using VS_CRM.Models;
 
 namespace VS_CRM
@@ -26,21 +27,25 @@ namespace VS_CRM
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddDbContext<ApplicationDbContext>(options =>
+            services.AddDbContext<DefaultDbContext>(options =>
                 options.UseSqlServer(
                     Configuration.GetConnectionString("DefaultConnection")));
-            
-            services.AddDbContext<ApplicationDbContext>(options =>
+
+            services.AddDbContext<TestDBContext>(options =>
+                options.UseSqlServer(
+                    Configuration.GetConnectionString("DefaultConnection")));
+
+            services.AddDbContext<ASUPSQLContext>(options =>
                 options.UseSqlServer(
                     Configuration.GetConnectionString("ASUPSQLConnection")));
 
             services.AddDefaultIdentity<ApplicationUser>(options => options.SignIn.RequireConfirmedAccount = true)
-                .AddEntityFrameworkStores<ApplicationDbContext>();
+                .AddEntityFrameworkStores<DefaultDbContext>();
 
             services.AddControllers();
 
             services.AddIdentityServer()
-                .AddApiAuthorization<ApplicationUser, ApplicationDbContext>();
+                .AddApiAuthorization<ApplicationUser, DefaultDbContext>();
 
             services.AddAuthentication()
                 .AddIdentityServerJwt();
