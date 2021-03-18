@@ -18,7 +18,7 @@ export class FetchDataComponent {
       this.forecasts = result;
 
       this.dataService.getFactoryComponents()
-        .subscribe((data: FactoryComponent[]) => { console.log(data); this.factoryComponent = data; });
+        .subscribe((data: FactoryComponent[]) => this.factoryComponent = data );
       console.log(this.factoryComponent);
 
     }, error => console.error(error));
