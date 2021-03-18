@@ -29,12 +29,11 @@ import { AuthorizeInterceptor } from 'src/api-authorization/authorize.intercepto
     FormsModule,
     ApiAuthorizationModule,
     RouterModule.forRoot([
-      { path: '', component: HomeComponent, pathMatch: 'full' },
-      { path: 'factoryComponents', component: FactoryComponentsComponent },
-      { path: 'counter', component: CounterComponent },
-      { path: 'fetch-data', component: FetchDataComponent, canActivate: [AuthorizeGuard] },
-      //{ path: '**', component: 'PageNotFoundComponent' }
-    ])
+    { path: '', component: HomeComponent, pathMatch: 'full' },
+    { path: 'factoryComponents', component: FactoryComponentsComponent },
+    { path: 'counter', component: CounterComponent },
+    { path: 'fetch-data', component: FetchDataComponent, canActivate: [AuthorizeGuard] },
+], { relativeLinkResolution: 'legacy' })
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: AuthorizeInterceptor, multi: true }
