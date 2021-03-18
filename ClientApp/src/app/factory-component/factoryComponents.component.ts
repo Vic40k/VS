@@ -19,10 +19,10 @@ export class FactoryComponentsComponent implements OnInit {
   constructor(private ref: ChangeDetectorRef, private dataService: DataService) { }
 
   ngOnInit() {
-    this.loadProducts();    // загрузка данных при старте компонента  
+    this.loadFactoryComponents();    // загрузка данных при старте компонента  
   }
   // получаем данные через сервис
-  loadProducts() {
+  loadFactoryComponents() {
     //this.factoryComponents.push({ articul: '1', asCh: 2, asVvod: 3 });
     this.dataService.getFactoryComponents()
       .subscribe((data: FactoryComponent[]) => { this.factoryComponents = data; this.ref.detectChanges(); console.log(this.factoryComponents); });
@@ -30,32 +30,32 @@ export class FactoryComponentsComponent implements OnInit {
    
     //console.log(this.factoryComponents);
   }
+
   // сохранение данных
-  /*
   save() {
-    if (this.product.id == null) {
-      this.dataService.createProduct(this.product)
-        .subscribe((data: Product) => this.products.push(data));
+    if (this.factoryComponent.articul == null) {
+      this.dataService.createFactoryComponent(this.factoryComponent)
+        .subscribe((data: FactoryComponent) => this.factoryComponents.push(data));
     } else {
-      this.dataService.updateProduct(this.product)
-        .subscribe(data => this.loadProducts());
+      this.dataService.updateFactoryComponent(this.factoryComponent)
+        .subscribe(data => this.loadFactoryComponents());
     }
     this.cancel();
   }
-  editProduct(p: Product) {
-    this.product = p;
+  editFactoryComponent(p: FactoryComponent) {
+    this.factoryComponent = p;
   }
   cancel() {
-    this.product = new Product();
+    this.factoryComponent = new FactoryComponent();
     this.tableMode = true;
   }
-  delete(p: Product) {
-    this.dataService.deleteProduct(p.id)
-      .subscribe(data => this.loadProducts());
+  delete(p: FactoryComponent) {
+    this.dataService.deleteFactoryComponent(p.articul)
+      .subscribe(data => this.loadFactoryComponents());
   }
   add() {
     this.cancel();
     this.tableMode = false;
   }
-  */
+
 }

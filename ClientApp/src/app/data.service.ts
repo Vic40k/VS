@@ -21,11 +21,11 @@ export class DataService {
   createFactoryComponent(FactoryComponent: FactoryComponent) {
     return this.http.post(this.url, FactoryComponent);
   }
-  updateProduct(FactoryComponent: FactoryComponent) {
+  updateFactoryComponent(FactoryComponent: FactoryComponent) {
 
     return this.http.put(this.url, FactoryComponent);
   }
-  deleteProduct(articul: string) {
+  deleteFactoryComponent(articul: string) {
     return this.http.delete(this.url + '/' + articul);
   }
 }
