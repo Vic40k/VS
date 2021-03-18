@@ -3,7 +3,7 @@ import { DataService } from '../data.service';
 import { FactoryComponent } from '../factoryComponent';
 
 @Component({
-  selector: 'app',
+  selector: 'app-factory-components',
   templateUrl: './factoryComponents.component.html',
   providers: [DataService]
 })
