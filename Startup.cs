@@ -33,7 +33,7 @@ namespace VS_CRM
 
             services.AddDbContext<TestDBContext>(options =>
                 options.UseSqlServer(
-                    Configuration.GetConnectionString("DefaultConnection")));
+                    Configuration.GetConnectionString("DATAConnection")));
 
             services.AddDbContext<ASUPSQLContext>(options =>
                 options.UseSqlServer(

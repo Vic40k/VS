@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.Mvc;
 using VS_CRM.Data;
 using VS_CRM.Model;
 using VS_CRM.Models;
+using VS_CRM.Models.DATA_DB_Model;
 
 namespace VS_CRM.Controllers
 {
@@ -11,15 +12,16 @@ namespace VS_CRM.Controllers
     [Route("api/factoryComponents")]
     public class FactoryComponentsController : Controller
     {
-        TestDBContext db;
+        TestDBContext dbTestDB;
+        //DATAContext dbDATA;
         public FactoryComponentsController(TestDBContext context)
         {
-            db = context;
+            dbTestDB = context;
             /*
-            if (!db.Det1.Any())
+            if (!dbTestDB.Det1.Any())
             {
-                //db.Det1.Add(new Det1 { Name = "X", Company = "A", Price = 79900 });
-                //db.SaveChanges();
+                //dbTestDB.Det1.Add(new Det1 { Name = "X", Company = "A", Price = 79900 });
+                //dbTestDB.SaveChanges();
             }
             */
 
@@ -27,14 +29,14 @@ namespace VS_CRM.Controllers
         [HttpGet]
         public IEnumerable<FactoryComponents> Get()
         {
-            var result = db.FactoryComponents.ToList();
+            var result = dbTestDB.FactoryComponents.ToList();
             return result;
         }
 
         [HttpGet("{articul}")]
         public FactoryComponents Get(string articul)
         {
-            FactoryComponents factoryComponent = db.FactoryComponents.FirstOrDefault(x => x.Articul == articul);
+            FactoryComponents factoryComponent = dbTestDB.FactoryComponents.FirstOrDefault(x => x.Articul == articul);
             return factoryComponent;
         }
 
@@ -43,8 +45,8 @@ namespace VS_CRM.Controllers
         {
             if (ModelState.IsValid)
             {
-                db.FactoryComponents.Add(factoryComponent);
-                db.SaveChanges();
+                dbTestDB.FactoryComponents.Add(factoryComponent);
+                dbTestDB.SaveChanges();
                 return Ok(factoryComponent);
             }
             return BadRequest(ModelState);
@@ -55,8 +57,8 @@ namespace VS_CRM.Controllers
         {
             if (ModelState.IsValid)
             {
-                db.Update(factoryComponent);
-                db.SaveChanges();
+                dbTestDB.Update(factoryComponent);
+                dbTestDB.SaveChanges();
                 return Ok(factoryComponent);
             }
             return BadRequest(ModelState);
@@ -65,11 +67,11 @@ namespace VS_CRM.Controllers
         [HttpDelete("{articul}")]
         public IActionResult Delete(string articul)
         {
-            FactoryComponents factoryComponent = db.FactoryComponents.FirstOrDefault(x => x.Articul == articul);
+            FactoryComponents factoryComponent = dbTestDB.FactoryComponents.FirstOrDefault(x => x.Articul == articul);
             if (factoryComponent != null)
             {
-                db.FactoryComponents.Remove(factoryComponent);
-                db.SaveChanges();
+                dbTestDB.FactoryComponents.Remove(factoryComponent);
+                dbTestDB.SaveChanges();
             }
             return Ok(factoryComponent);
         }
