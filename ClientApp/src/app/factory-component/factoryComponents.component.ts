@@ -23,12 +23,13 @@ export class FactoryComponentsComponent implements OnInit {
   }
   // получаем данные через сервис
   loadFactoryComponents() {
-    //this.factoryComponents.push({ articul: '1', asCh: 2, asVvod: 3 });
+    // disable
+    /*
     this.dataService.getFactoryComponents()
       .subscribe((data: FactoryComponent[]) => { this.factoryComponents = data; this.ref.detectChanges(); console.log(this.factoryComponents); });
-
-   
-    //console.log(this.factoryComponents);
+    */
+    this.dataService.getInfoScreensStorage()
+      .subscribe((data: FactoryComponent[]) => { this.factoryComponents = data; this.ref.detectChanges(); console.log(data, 'is'); });
   }
 
   // сохранение данных
