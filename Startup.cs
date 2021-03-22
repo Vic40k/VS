@@ -17,7 +17,7 @@ namespace VS_CRM
 {
     //TODO
     // Data connection protection
-    // Angular on 4200 port
+
     public class Startup
     {
         public Startup(IConfiguration configuration)
@@ -28,6 +28,8 @@ namespace VS_CRM
         public IConfiguration Configuration { get; }
 
         // This method gets called by the runtime. Use this method to add services to the container.
+        const bool useCLI = false;
+
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddDbContext<DefaultDbContext>(options =>
@@ -105,8 +107,14 @@ namespace VS_CRM
 
                 if (env.IsDevelopment())
                 {
-                    spa.UseAngularCliServer(npmScript: "start");
-                    //spa.UseProxyToSpaDevelopmentServer("http://localhost:4200");
+                    if (useCLI)
+                        #pragma warning disable CS0162 
+                        spa.UseAngularCliServer(npmScript: "start");
+                        #pragma warning restore CS0162 
+                    else
+                        #pragma warning disable CS0162 
+                        spa.UseProxyToSpaDevelopmentServer("http://localhost:4200");
+                        #pragma warning restore CS0162 
                 }
             });
         }
