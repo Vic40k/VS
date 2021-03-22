@@ -15,6 +15,8 @@ using VS_CRM.Models.DATA_DB_Model;
 
 namespace VS_CRM
 {
+    //TODO
+    // Data connection protection
     public class Startup
     {
         public Startup(IConfiguration configuration)
