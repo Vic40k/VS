@@ -10,8 +10,8 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using VS_CRM.Data;
-using VS_CRM.Model;
 using VS_CRM.Models;
+using VS_CRM.Models.DATA_DB_Model;
 
 namespace VS_CRM
 {
@@ -30,11 +30,11 @@ namespace VS_CRM
             services.AddDbContext<DefaultDbContext>(options =>
                 options.UseSqlServer(
                     Configuration.GetConnectionString("DefaultConnection")));
-
-            services.AddDbContext<TestDBContext>(options =>
+            
+            services.AddDbContext<DATAContext>(options =>
                 options.UseSqlServer(
                     Configuration.GetConnectionString("DATAConnection")));
-
+            
             services.AddDbContext<ASUPSQLContext>(options =>
                 options.UseSqlServer(
                     Configuration.GetConnectionString("ASUPSQLConnection")));
