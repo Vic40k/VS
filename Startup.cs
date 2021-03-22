@@ -17,6 +17,7 @@ namespace VS_CRM
 {
     //TODO
     // Data connection protection
+    // Angular on 4200 port
     public class Startup
     {
         public Startup(IConfiguration configuration)
