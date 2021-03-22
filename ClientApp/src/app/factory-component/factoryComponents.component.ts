@@ -28,7 +28,7 @@ export class FactoryComponentsComponent implements OnInit {
     this.dataService.getFactoryComponents()
       .subscribe((data: FactoryComponent[]) => { this.factoryComponents = data; this.ref.detectChanges(); console.log(this.factoryComponents); });
     */
-    this.dataService.getInfoScreensStorage()
+    this.dataService.getWarehouseInfo()
       .subscribe((data: FactoryComponent[]) => { this.factoryComponents = data; this.ref.detectChanges(); console.log(data, 'is'); });
   }
 

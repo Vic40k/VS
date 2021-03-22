@@ -14,10 +14,10 @@ export class DataService {
   }
 
   // ------------------------------------------------------- INFORMATION SCREENS -------------------------------------------------------- //
-  getInfoScreensStorage() {
+  getWarehouseInfo() {
     return this.http.get(this.infoScreenURL);
   }
-  
+
 
   // ------------------------------------------ DEV ----
   getFactoryComponents() {
