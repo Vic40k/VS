@@ -7,9 +7,19 @@ export class DataService {
 
   private url = "/api/factoryComponents";
 
+  // Information screens controller
+  private infoScreenURL = "/api/infoScreens";
+
   constructor(private http: HttpClient) {
   }
 
+  // ------------------------------------------------------- INFORMATION SCREENS -------------------------------------------------------- //
+  getInfoScreensStorage() {
+    return this.http.get(this.infoScreenURL);
+  }
+  
+
+  // ------------------------------------------ DEV ----
   getFactoryComponents() {
     return this.http.get(this.url);
   }
