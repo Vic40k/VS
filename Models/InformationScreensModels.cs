@@ -13,14 +13,13 @@ namespace VS_CRM.Models
 		public int Region { get; set; }
 		public decimal? Orderquantity { get; set; }
 		public DateTime? OrderDate { get; set; }
-		public int ProducedQuantity { get; set; }
+		public decimal? ProducedQuantity { get; set; }
 		public DateTime? WarehouseDate { get; set; }
 		public int ShipmentQuantity { get; set; }
 		public DateTime? ShipmentDate { get; set; }
 		public int StatusId { get; set; }
 		public string Status { get; set; }
 		public string Client { get; set; }
-		public int Reason { get; set; } 
 		public string Comment { get; set; }
 		public DateTime? DelayDate { get; set; }
     }

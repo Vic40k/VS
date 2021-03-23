@@ -17,7 +17,7 @@ using VS_CRM.Models.DATA_DB_Model;
 namespace VS_CRM.Controllers
 {
     [ApiController]
-    //[Route("api/infoScreens")]
+    [Route("api/infoScreens")]
     public class InformationScreensController : Controller
     {
         DATAContext dbDATA;
@@ -27,7 +27,7 @@ namespace VS_CRM.Controllers
         }
 
         [HttpGet]
-        [Route("api/infoScreens/getWarehouseInfoEF")]
+        [Route("getWarehouseInfoEF")]
         public IEnumerable<InformationScreenViewModel> GetWarehouseInfoEF()
         {
             // TODO async
@@ -68,7 +68,7 @@ namespace VS_CRM.Controllers
                              public int Reason { get; set; }
                              public string Coment { get; set; }
                              public DateTime DelayDate { get; set; }
-                                                                     */
+                             */
                          }).ToList();
 
             arrivalList = (from zak in orderList
@@ -87,7 +87,7 @@ namespace VS_CRM.Controllers
         }
 
         [HttpGet]
-        [Route("api/infoScreens/getWarehouseInfo")]
+        [Route("getWarehouseInfo")]
         public IEnumerable<InformationScreenViewModel> GetWarehouseInfo()
         {
             // TODO async
@@ -100,32 +100,29 @@ namespace VS_CRM.Controllers
                 sqcmd.Parameters.Add("IdIzgot", SqlDbType.Int).Value = 44;
                 sqcmd.Parameters.Add("IdSubGroup", SqlDbType.Int).Value = 0;
                 sqcmd.Parameters.Add("IdGroup", SqlDbType.Int).Value = 99;
-                //SqlDataAdapter da = new SqlDataAdapter(sqcmd);
                 DBConection.Open();
-                //da.Fill(ds, "Tmp");
-                //var result = sqcmd.ExecuteScalar();
                 var reader = sqcmd.ExecuteReader();
                 if (reader.HasRows)
                 {
-                    Console.WriteLine("{0}\t{1}\t{2}", reader.GetName(0), reader.GetName(1), reader.GetName(2));
-
                     while (reader.Read())
                     {
+                        // var name = reader.GetName(11);
+                        // var type = reader.GetProviderSpecificFieldType(11);
                         procedureList.Add(new InformationScreenViewModel
                         {
-                            Order = reader.GetInt32(0),
-                            Region = reader.GetInt32(1),
-                            Orderquantity = reader.GetDecimal(2),
-                            OrderDate = reader.GetDateTime(3),
-                            //ProducedQuantity = reader.GetInt32(4),
-                            //WarehouseDate = reader.GetDateTime(5),
-                            //ShipmentQuantity = reader.GetInt32(6),
-                            //ShipmentDate = reader.GetDateTime(7),
-                            //StatusId = reader.GetInt32(8),
-                            //Status = reader.GetString(9),
-                            //Client = reader.GetString(10),
-                            //Reason = reader.GetInt32(11),
-                            //Comment = reader.GetString(12),                            
+                            Order = reader.IsDBNull(0) ? 0 : reader.GetInt32(0),
+                            Region = reader.IsDBNull(1) ? 0 : reader.GetInt32(1),
+                            Orderquantity = reader.IsDBNull(2) ? (decimal?)null : reader.GetDecimal(2),
+                            OrderDate = reader.IsDBNull(3) ? (DateTime?)null : reader.GetDateTime(3),
+                            ProducedQuantity = reader.IsDBNull(4) ? (decimal?)null : reader.GetDecimal(4),
+                            WarehouseDate = reader.IsDBNull(5) ? (DateTime?)null : reader.GetDateTime(5),
+                            ShipmentQuantity = reader.IsDBNull(6) ? 0 : reader.GetInt32(6),
+                            ShipmentDate = reader.IsDBNull(7) ? (DateTime?)null : reader.GetDateTime(7),
+                            StatusId = reader.IsDBNull(8) ? 0 : reader.GetInt32(8),
+                            Status = reader.IsDBNull(9) ? "" : reader.GetString(9),
+                            Client = reader.IsDBNull(10) ? "" : reader.GetString(10),
+                            Comment = reader.IsDBNull(11) ? "" : reader.GetString(11),
+                            DelayDate = reader.IsDBNull(12) ? (DateTime?)null : reader.GetDateTime(12),                            
                         });
                     }
                 }
