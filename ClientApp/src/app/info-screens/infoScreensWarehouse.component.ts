@@ -25,7 +25,7 @@ export class infoScreensWarehouseComponent implements OnInit {
   // получаем данные через сервис
   loadinfoScreensWarehouse() {
     this.dataService.getWarehouseInfo()
-      .subscribe((data: []) => { this.rowData = data; this.ref.detectChanges(); console.log(data); });
+      .subscribe((data: []) => { this.rowData = data; this.ref.detectChanges(); console.log(this.rowData); });
   }
 
   /*
