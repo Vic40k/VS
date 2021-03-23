@@ -8,7 +8,7 @@ export class DataService {
   private url = "/api/factoryComponents";
 
   // Information screens controller
-  private infoScreenURL = "/api/infoScreens/getWarehouseInfo";
+  private infoScreenURL = "/api/info-screens/getWarehouseInfo";
 
   constructor(private http: HttpClient) {
   }

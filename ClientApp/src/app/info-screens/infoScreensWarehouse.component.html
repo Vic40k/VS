@@ -1,19 +1,19 @@
-<h1>Список деталей</h1>
+<h1>Склад</h1>
 <input type="button" value="Добавить" class="btn btn-default" (click) = "add()" />
 <!--  <table * ngIf="tableMode; else create" class="table table-striped" > -->
   <table class="table table-striped" > 
     <thead>
         <tr>
-            <td>Артикул</td>
-            <td>Что там</td>
-            <td>Что там 2</td>
+            <td>Номер</td>
+            <td>Что-то там</td>
+            <td>Что-то там 2</td>
             <td></td>
         </tr>
     </thead>
     <tbody>
-        <tr *ngFor="let f of factoryComponents">
-            <ng-template [ngIf]="factoryComponent?.id != f.id" [ngIfElse]="edit">
-                <td>{{f?.articul}}</td>
+        <tr *ngFor="let f of rowData">
+            <ng-template [ngIf]="rowData?.id != f.id" [ngIfElse]="edit">
+                <td>{{f?.order}}</td>
                 <td>{{f?.asCh}}</td>
                 <td>{{f?.asVyvod}}</td>
                 <td>
@@ -25,7 +25,7 @@
     </tbody >
 </table >
 
-<!--шаблон для редактирования-->
+<!--шаблон для редактирования
 <ng-template #edit>
     <td>
         <input type="text" [(ngModel)]="factoryComponent.name" class="form-control" />
@@ -42,7 +42,7 @@
     </td>
 </ng-template>
  
-<!--шаблон для добавления -->
+шаблон для добавления 
   <ng-template #create>
     <div class="form-group">
       <label>Модель</label>
@@ -61,3 +61,4 @@
         <input type="button" value="Отмена" (click)="cancel()" class="btn btn-warning" />
     </div>
   </ng-template>
+-->

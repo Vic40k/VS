@@ -17,7 +17,7 @@ using VS_CRM.Models.DATA_DB_Model;
 namespace VS_CRM.Controllers
 {
     [ApiController]
-    [Route("api/infoScreens")]
+    [Route("api/info-screens")]
     public class InformationScreensController : Controller
     {
         DATAContext dbDATA;

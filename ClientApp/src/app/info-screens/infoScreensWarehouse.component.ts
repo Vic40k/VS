@@ -5,41 +5,43 @@ import { DataService } from '../data.service';
 import { FactoryComponent } from '../factoryComponent';
 
 @Component({
-  selector: 'app-factory-components',
-  templateUrl: './factoryComponents.component.html',
+  selector: 'app-info-screens',
+  templateUrl: './infoScreensWarehouse.component.html',
   providers: [DataService],
   //changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class FactoryComponentsComponent implements OnInit {
+export class infoScreensWarehouseComponent implements OnInit {
 
   factoryComponent: FactoryComponent = new FactoryComponent();   // изменяемый 
-  factoryComponents: FactoryComponent[];                // массив 
+  infoScreensWarehouse: FactoryComponent[];                // массив 
+  rowData: [];
   tableMode: boolean = true;          // табличный режим
 
   constructor(private ref: ChangeDetectorRef, private dataService: DataService) { }
 
   ngOnInit() {
-    this.loadFactoryComponents();    // загрузка данных при старте компонента  
+    this.loadinfoScreensWarehouse();    // загрузка данных при старте компонента  
   }
   // получаем данные через сервис
-  loadFactoryComponents() {
+  loadinfoScreensWarehouse() {
     // disable
     /*
-    this.dataService.getFactoryComponents()
-      .subscribe((data: FactoryComponent[]) => { this.factoryComponents = data; this.ref.detectChanges(); console.log(this.factoryComponents); });
+    this.dataService.getinfoScreensWarehouse()
+      .subscribe((data: FactoryComponent[]) => { this.infoScreensWarehouse = data; this.ref.detectChanges(); console.log(this.infoScreensWarehouse); });
     */
+
     this.dataService.getWarehouseInfo()
-      .subscribe((data: FactoryComponent[]) => { this.factoryComponents = data; this.ref.detectChanges(); console.log(data, 'is'); });
+      .subscribe((data: []) => { this.rowData = data; this.ref.detectChanges(); console.log(data, 'is'); });
   }
 
   // сохранение данных
   save() {
     if (this.factoryComponent.articul == null) {
       this.dataService.createFactoryComponent(this.factoryComponent)
-        .subscribe((data: FactoryComponent) => this.factoryComponents.push(data));
+        .subscribe((data: FactoryComponent) => this.infoScreensWarehouse.push(data));
     } else {
       this.dataService.updateFactoryComponent(this.factoryComponent)
-        .subscribe(data => this.loadFactoryComponents());
+        .subscribe(data => this.loadinfoScreensWarehouse());
     }
     this.cancel();
   }
@@ -52,7 +54,7 @@ export class FactoryComponentsComponent implements OnInit {
   }
   delete(p: FactoryComponent) {
     this.dataService.deleteFactoryComponent(p.articul)
-      .subscribe(data => this.loadFactoryComponents());
+      .subscribe(data => this.loadinfoScreensWarehouse());
   }
   add() {
     this.cancel();
