@@ -1,7 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Entity.Core.EntityClient;
+using System.Data.Entity.Core.Objects;
+using System.Data.Entity.Infrastructure;
 using System.Linq;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Data.SqlClient;
+using Microsoft.Web.Administration;
 using VS_CRM.Data;
 using VS_CRM.Model;
 using VS_CRM.Models;
@@ -22,43 +27,59 @@ namespace VS_CRM.Controllers
         public IEnumerable<InformationScreenViewModel> GetWarehouseInfo()
         {
             // TODO async
-            var infoScreensWarehouseData = new List<InformationScreenViewModel>();
-            var startDate = DateTime.Now.AddMonths(-3).Date.Add(new TimeSpan(0,0,0)); 
+            var orderList = new List<InformationScreenViewModel>();
+            var arrivalList = new List<InformationScreenViewModel>();
+            var startDate = DateTime.Now.AddMonths(-3).Date.Add(new TimeSpan(0, 0, 0));
 
-            infoScreensWarehouseData = (from zak in dbDATA.ЗаказыРегион
-                                        join reg in dbDATA.ТоварВЗаказеРегион on zak.Номер equals reg.НомерПокупателя
-                                        join nom in dbDATA.НоменклатураТоваров on reg.IdТовара equals nom.IdТовара
-                                        join grp in dbDATA.СписокПодгрупп on nom.IdПодгруппы equals grp.IdПодгруппы
-                                        where zak.Завод == 44 
-                                        && zak.ДатаКогдаПроставилоПроизводство != null
-                                        && zak.Дата > startDate
-                                        && zak.NSub != null
-                                        && zak.Регион != 1603
-                                        && zak.ДатаКогдаПроставилоПроизводство != null
-                                        && grp.IdГруппы == 99
-                                        && zak.Регион == reg.Регион
-                                        //group zak.Номер, zak.ДатаОжидаемая, zak.ДатаКогдаПроставилоПроизводство, reg.IdТовара into zakg
-                                        // let a = t.L != null ? t.L : t.A
-                                        select new InformationScreenViewModel
-                                        {
-                                            Order = zak.Номер,
-                                            Region = zak.Регион,
-                                            Orderquantity = reg.Количество,
-                                            OrderDate = zak.ДатаОжидаемая,
-                                            ProducedQuantity = 0,
-                                            WarehouseDate = (DateTime?)null,
-                                            ShipmentQuantity = 0,
-                                            ShipmentDate = (DateTime?)null,
-                                            StatusId = 0,
-                                            Status = null,
-                                            /*
-                                            public string Client { get; set; }
-                                            public int Reason { get; set; }
-                                            public string Coment { get; set; }
-                                            public DateTime DelayDate { get; set; }
-                                                                                    */
-                                        }).ToList();
-            return infoScreensWarehouseData;
+            orderList = (from zak in dbDATA.ЗаказыРегион
+                         join reg in dbDATA.ТоварВЗаказеРегион on new { CustomerNumber = zak.Номер, Region = zak.Регион } equals new { CustomerNumber = reg.НомерПокупателя, Region = reg.Регион }
+                         join nom in dbDATA.НоменклатураТоваров on reg.IdТовара equals nom.IdТовара
+                         join grp in dbDATA.СписокПодгрупп on nom.IdПодгруппы equals grp.IdПодгруппы
+                         where zak.Дата > startDate
+                         && zak.Завод == 44
+                         && zak.NSub != null
+                         && zak.Регион != 1603
+                         && zak.ДатаКогдаПроставилоПроизводство != null
+                         && zak.ДатаКогдаПроставилоПроизводство != null
+                         && grp.IdГруппы == 99
+                         && zak.Регион == reg.Регион
+                         //group zak.Номер, zak.ДатаОжидаемая, zak.ДатаКогдаПроставилоПроизводство, reg.IdТовара into zakg
+                         // let a = t.L != null ? t.L : t.A
+                         select new InformationScreenViewModel
+                         {
+                             Order = zak.Номер,
+                             Region = zak.Регион,
+                             Orderquantity = reg.Количество,
+                             OrderDate = zak.ДатаОжидаемая,
+
+                             ProducedQuantity = 0,
+                             WarehouseDate = (DateTime?)null,
+                             ShipmentQuantity = 0,
+                             ShipmentDate = (DateTime?)null,
+                             StatusId = 0,
+                             Status = null,
+                             /*
+                             public string Client { get; set; }
+                             public int Reason { get; set; }
+                             public string Coment { get; set; }
+                             public DateTime DelayDate { get; set; }
+                                                                     */
+                         }).ToList();
+
+            arrivalList = (from zak in orderList
+                           join arr in dbDATA.ПриходТовараРегион on zak.Order equals arr.НомерЗаказа
+                           select new InformationScreenViewModel
+                           {
+                               Order = zak.Order,
+                               Region = zak.Region,
+                               /*
+                               A.IDgoods,
+                               SUM(B.Количество) AS KolIzgot,
+                               MAX(B.[Дата прихода]) AS DateSklad
+                               */
+                           }).ToList();
+
+            return orderList;
         }
     }
 }
