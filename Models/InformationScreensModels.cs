@@ -11,7 +11,7 @@ namespace VS_CRM.Models
     {
         public int Order { get; set; }
 		public int Region { get; set; }
-		public float? Orderquantity { get; set; }
+		public decimal? Orderquantity { get; set; }
 		public DateTime? OrderDate { get; set; }
 		public int ProducedQuantity { get; set; }
 		public DateTime? WarehouseDate { get; set; }
@@ -21,7 +21,7 @@ namespace VS_CRM.Models
 		public string Status { get; set; }
 		public string Client { get; set; }
 		public int Reason { get; set; } 
-		public string Coment { get; set; }
+		public string Comment { get; set; }
 		public DateTime? DelayDate { get; set; }
     }
 }
