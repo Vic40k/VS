@@ -12,8 +12,8 @@ import { FactoryComponent } from '../factoryComponent';
 })
 export class infoScreensWarehouseComponent implements OnInit {
 
-  factoryComponent: FactoryComponent = new FactoryComponent();   // изменяемый 
-  infoScreensWarehouse: FactoryComponent[];                // массив 
+  //factoryComponent: FactoryComponent = new FactoryComponent();
+  //infoScreensWarehouse: FactoryComponent[];
   rowData: [];
   tableMode: boolean = true;          // табличный режим
 
@@ -24,16 +24,11 @@ export class infoScreensWarehouseComponent implements OnInit {
   }
   // получаем данные через сервис
   loadinfoScreensWarehouse() {
-    // disable
-    /*
-    this.dataService.getinfoScreensWarehouse()
-      .subscribe((data: FactoryComponent[]) => { this.infoScreensWarehouse = data; this.ref.detectChanges(); console.log(this.infoScreensWarehouse); });
-    */
-
     this.dataService.getWarehouseInfo()
-      .subscribe((data: []) => { this.rowData = data; this.ref.detectChanges(); console.log(data, 'is'); });
+      .subscribe((data: []) => { this.rowData = data; this.ref.detectChanges(); console.log(data); });
   }
 
+  /*
   // сохранение данных
   save() {
     if (this.factoryComponent.articul == null) {
@@ -60,5 +55,5 @@ export class infoScreensWarehouseComponent implements OnInit {
     this.cancel();
     this.tableMode = false;
   }
-
+  */
 }
