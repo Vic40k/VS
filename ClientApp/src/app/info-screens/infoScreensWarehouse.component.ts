@@ -7,6 +7,7 @@ import { FactoryComponent } from '../factoryComponent';
 @Component({
   selector: 'app-info-screens',
   templateUrl: './infoScreensWarehouse.component.html',
+  styleUrls: ['./infoScreensWarehouse.component.css'],
   providers: [DataService],
   //changeDetection: ChangeDetectionStrategy.OnPush,
 })
