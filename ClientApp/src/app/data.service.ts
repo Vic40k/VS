@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 import { FactoryComponent } from './factoryComponent';
 
 @Injectable()
@@ -15,7 +15,11 @@ export class DataService {
 
   // ------------------------------------------------------- INFORMATION SCREENS -------------------------------------------------------- //
   getWarehouseInfo() {
-    return this.http.get(this.infoScreenURL);
+    const params = new HttpParams()
+    .set('factoryId', '44')
+    .set('productGroupId', '0')
+    .set('productSubGroupId', '99');
+    return this.http.get(this.infoScreenURL, {params});
   }
 
 

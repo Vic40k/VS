@@ -27,6 +27,7 @@ namespace VS_CRM.Controllers
         }
 
         [HttpGet]
+        //[ActionName("GetWarehouseInfoEF")]
         public IEnumerable<InformationScreenViewModel> GetWarehouseInfoEF()
         {
             // TODO async
@@ -86,7 +87,7 @@ namespace VS_CRM.Controllers
         }
 
         [HttpGet]
-        public IEnumerable<InformationScreenViewModel> GetWarehouseInfo()
+        public IEnumerable<InformationScreenViewModel> GetWarehouseInfo(int factoryId, int productGroupId, int productSubGroupId)
         {
             // TODO async
             var procedureList = new List<InformationScreenViewModel>();
@@ -95,9 +96,9 @@ namespace VS_CRM.Controllers
             {
                 SqlCommand sqcmd = new SqlCommand("ASUPSQL.dbo.[sp_ASUPTablo]", DBConection);
                 sqcmd.CommandType = CommandType.StoredProcedure;
-                sqcmd.Parameters.Add("IdIzgot", SqlDbType.Int).Value = 44;
-                sqcmd.Parameters.Add("IdSubGroup", SqlDbType.Int).Value = 0;
-                sqcmd.Parameters.Add("IdGroup", SqlDbType.Int).Value = 99;
+                sqcmd.Parameters.Add("IdIzgot", SqlDbType.Int).Value = factoryId;
+                sqcmd.Parameters.Add("IdSubGroup", SqlDbType.Int).Value = productGroupId;
+                sqcmd.Parameters.Add("IdGroup", SqlDbType.Int).Value = productSubGroupId;
                 DBConection.Open();
                 var reader = sqcmd.ExecuteReader();
                 if (reader.HasRows)
