@@ -1,7 +1,18 @@
 
 .warehouse-table-header{
+    font-weight: bold;
     background-color: lightgray;
 }
-.td-green{
-    color: green;
+.td_order{
+    font-weight: bold;
+}
+
+.tr_onTime{
+    background-color: lightgreen;
+}
+.tr_delayed{
+    background-color: rgb(255, 204, 204);
+}
+.tr_delay{
+    background-color: lightcoral;
 }

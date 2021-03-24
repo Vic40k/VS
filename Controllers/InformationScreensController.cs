@@ -136,7 +136,7 @@ namespace VS_CRM.Controllers
             // Define order delay 
             foreach (var item in procedureList)
             {
-                if (item.OrderDate.HasValue && item.ShipmentDate.HasValue && item.OrderDate.Value >= item.ShipmentDate.Value)
+                if (item.OrderDate.HasValue && item.WarehouseDate.HasValue && item.OrderDate.Value >= item.WarehouseDate.Value)
                     item.IsOnTime = true;
                 else if (item.OrderDate.HasValue && item.OrderDate.Value < now)
                 {
