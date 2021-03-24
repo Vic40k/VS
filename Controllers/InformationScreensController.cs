@@ -17,7 +17,7 @@ using VS_CRM.Models.DATA_DB_Model;
 namespace VS_CRM.Controllers
 {
     [ApiController]
-    [Route("api/info-screens")]
+    [Route("api/info-screens/{action}")]
     public class InformationScreensController : Controller
     {
         DATAContext dbDATA;
@@ -27,7 +27,6 @@ namespace VS_CRM.Controllers
         }
 
         [HttpGet]
-        [Route("getWarehouseInfoEF")]
         public IEnumerable<InformationScreenViewModel> GetWarehouseInfoEF()
         {
             // TODO async
@@ -87,7 +86,6 @@ namespace VS_CRM.Controllers
         }
 
         [HttpGet]
-        [Route("getWarehouseInfo")]
         public IEnumerable<InformationScreenViewModel> GetWarehouseInfo()
         {
             // TODO async
