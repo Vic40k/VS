@@ -88,7 +88,7 @@ namespace VS_CRM.Controllers
         }
 
         [HttpGet]
-        public async Task<IEnumerable<InformationScreenViewModel>> GetWarehouseInfo(int factoryId, int productGroupId, int productSubGroupId)
+        public async Task<List<InformationScreenViewModel>> GetWarehouseInfo(int factoryId, int productGroupId, int productSubGroupId)
         {
             var procedureList = new List<InformationScreenViewModel>();
 
