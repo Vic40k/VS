@@ -1,6 +1,8 @@
 //import { ChangeDetectionStrategy } from '@angular/compiler/src/core';
 import { ChangeDetectorRef } from '@angular/core';
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { Subscription } from 'rxjs';
 import { DataService } from '../data.service';
 
 @Component({
@@ -11,16 +13,19 @@ import { DataService } from '../data.service';
   //changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class infoScreensWarehouseComponent implements OnInit {
+  id: number; // Screen id
   rowData: [];
+  private subscription: Subscription;
   //tableMode: boolean = true; 
   updatePeriod: number = 60; // seconds
   timeLeft: number = this.updatePeriod;
   interval;
   updateTime: Date = new Date();
 
-  constructor(private ref: ChangeDetectorRef, private dataService: DataService) { }
+  constructor(private ref: ChangeDetectorRef, private dataService: DataService, private activateRoute: ActivatedRoute) { }
 
   ngOnInit() {
+    this.subscription = this.activateRoute.params.subscribe(params => this.id = params['id']);
     this.loadinfoScreensWarehouse();    // загрузка данных при старте компонента  
     this.startTimer();
   }

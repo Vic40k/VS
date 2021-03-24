@@ -17,7 +17,7 @@ namespace VS_CRM
 {
     //TODO
     // Data connection protection
-    // Better routing
+
 
     public class Startup
     {
