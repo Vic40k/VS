@@ -18,6 +18,8 @@ namespace VS_CRM
     //TODO
     // Data connection protection
 
+    // DatePerenos - wtf?
+    // Доп. цвета? отгружено = синий,  
 
     public class Startup
     {

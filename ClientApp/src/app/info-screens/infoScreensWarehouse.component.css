@@ -10,6 +10,9 @@
 .tr_onTime{
     background-color: lightgreen;
 }
+.tr_delayRisk{
+    background-color: yellow;
+}
 .tr_delayed{
     background-color: rgb(255, 204, 204);
 }

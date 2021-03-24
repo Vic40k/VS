@@ -90,7 +90,9 @@ namespace VS_CRM.Controllers
         [HttpGet]
         public async Task<List<InformationScreenViewModel>> GetWarehouseInfo(int factoryId, int productGroupId, int productSubGroupId)
         {
-            var now = DateTime.Now;
+            const int delayRiskDays = 3;
+            DateTime today = DateTime.Now;
+
             var procedureList = new List<InformationScreenViewModel>();
 
             using (SqlConnection DBConection = (SqlConnection)dbDATA.Database.GetDbConnection())
@@ -125,7 +127,8 @@ namespace VS_CRM.Controllers
                             DelayDate = reader.IsDBNull(12) ? (DateTime?)null : reader.GetDateTime(12),
                             IsDelayed = false,
                             IsDelay = false,
-                            IsOnTime = false
+                            IsOnTime = false,
+                            IsDelayRisk = false
                         });
                     }
                 }
@@ -136,13 +139,18 @@ namespace VS_CRM.Controllers
             // Define order delay 
             foreach (var item in procedureList)
             {
-                if (item.OrderDate.HasValue && item.WarehouseDate.HasValue && item.OrderDate.Value >= item.WarehouseDate.Value)
-                    item.IsOnTime = true;
-                else if (item.OrderDate.HasValue && item.OrderDate.Value < now)
+                if (item.OrderDate.HasValue)
                 {
-                    item.IsDelayed = true;
-                    if (item.WarehouseDate.HasValue && item.WarehouseDate.Value < now)
-                        item.IsDelay = true;
+                    if (item.WarehouseDate.HasValue && item.OrderDate.Value.Date >= item.WarehouseDate.Value.Date)
+                        item.IsOnTime = true;
+                    else if (item.OrderDate.Value.AddDays(-delayRiskDays).Date < today.Date && item.OrderDate.Value.Date > today.Date)
+                        item.IsDelayRisk = true;
+                    else if (item.OrderDate.Value.Date <= today.Date)
+                    {
+                        item.IsDelayed = true;
+                        if (item.WarehouseDate.HasValue && item.WarehouseDate.Value < today)
+                            item.IsDelay = true;
+                    }
                 }
             }
 

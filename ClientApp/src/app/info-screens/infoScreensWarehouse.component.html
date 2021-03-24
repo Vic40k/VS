@@ -16,7 +16,7 @@
   </thead>
   <tbody>
       <tr *ngFor="let o of rowData" 
-      [ngClass]="{tr_onTime: o?.isOnTime, tr_delayed: (o?.isDelayed && !o?.isDelay), tr_delay: (o?.isDelayed && o?.isDelay)}">
+      [ngClass]="{tr_onTime: o?.isOnTime, tr_delayRisk: o?.isDelayRisk, tr_delayed: (o?.isDelayed && !o?.isDelay), tr_delay: (o?.isDelayed && o?.isDelay)}">
           <td class="td_order">{{o?.order}}</td>
           <td>{{o?.client}}</td>
           <td>{{o?.orderDate | date:'d LLLL':'ru-RU'}}</td>

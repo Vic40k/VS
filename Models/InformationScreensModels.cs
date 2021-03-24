@@ -25,5 +25,6 @@ namespace VS_CRM.Models
         public bool IsDelayed { get; set; }
         public bool IsDelay { get; set; }
         public bool IsOnTime { get; set; }
+        public bool IsDelayRisk { get; set; }
     }
 }

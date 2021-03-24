@@ -44,7 +44,7 @@ export class infoScreensWarehouseComponent implements OnInit {
       { 
         this.rowData = data; 
         this.ref.detectChanges(); 
-        //console.log(this.rowData); 
+        console.log(this.rowData); 
       });
   }
 
