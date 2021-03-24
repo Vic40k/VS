@@ -13,9 +13,10 @@ import { DataService } from '../data.service';
 export class infoScreensWarehouseComponent implements OnInit {
   rowData: [];
   //tableMode: boolean = true; 
-  updateTime: number = 60; // seconds
-  timeLeft: number = this.updateTime;
+  updatePeriod: number = 60; // seconds
+  timeLeft: number = this.updatePeriod;
   interval;
+  updateTime: Date = new Date();
 
   constructor(private ref: ChangeDetectorRef, private dataService: DataService) { }
 
@@ -30,7 +31,7 @@ export class infoScreensWarehouseComponent implements OnInit {
       { 
         this.rowData = data; 
         this.ref.detectChanges(); 
-        console.log(this.rowData); 
+        //console.log(this.rowData); 
       });
   }
 
@@ -40,8 +41,10 @@ export class infoScreensWarehouseComponent implements OnInit {
       if(this.timeLeft > 0) {
         this.timeLeft--;
       } else {
-        this.timeLeft = this.updateTime;
+        this.timeLeft = this.updatePeriod;
         this.loadinfoScreensWarehouse();
+        this.updateTime = new Date();
+        console.log(this.updateTime);
       }
     },1000)
   }
