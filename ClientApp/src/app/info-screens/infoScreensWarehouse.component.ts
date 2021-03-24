@@ -2,7 +2,6 @@
 import { ChangeDetectorRef } from '@angular/core';
 import { Component, OnInit } from '@angular/core';
 import { DataService } from '../data.service';
-import { FactoryComponent } from '../factoryComponent';
 
 @Component({
   selector: 'app-info-screens',

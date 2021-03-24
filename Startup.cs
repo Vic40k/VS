@@ -18,7 +18,7 @@ namespace VS_CRM
     //TODO
     // Data connection protection
     // Better routing
-    // Date localization
+
     public class Startup
     {
         public Startup(IConfiguration configuration)
