@@ -5,6 +5,7 @@ using System.Data.Entity.Core.EntityClient;
 using System.Data.Entity.Core.Objects;
 using System.Data.Entity.Infrastructure;
 using System.Linq;
+using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Data.SqlClient;
 using Microsoft.EntityFrameworkCore;
@@ -87,9 +88,8 @@ namespace VS_CRM.Controllers
         }
 
         [HttpGet]
-        public IEnumerable<InformationScreenViewModel> GetWarehouseInfo(int factoryId, int productGroupId, int productSubGroupId)
+        public async Task<IEnumerable<InformationScreenViewModel>> GetWarehouseInfo(int factoryId, int productGroupId, int productSubGroupId)
         {
-            // TODO async
             var procedureList = new List<InformationScreenViewModel>();
 
             using (SqlConnection DBConection = (SqlConnection)dbDATA.Database.GetDbConnection())
@@ -100,7 +100,7 @@ namespace VS_CRM.Controllers
                 sqcmd.Parameters.Add("IdSubGroup", SqlDbType.Int).Value = productGroupId;
                 sqcmd.Parameters.Add("IdGroup", SqlDbType.Int).Value = productSubGroupId;
                 DBConection.Open();
-                var reader = sqcmd.ExecuteReader();
+                var reader = await sqcmd.ExecuteReaderAsync();
                 if (reader.HasRows)
                 {
                     while (reader.Read())
