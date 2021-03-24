@@ -11,23 +11,44 @@ import { DataService } from '../data.service';
   //changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class infoScreensWarehouseComponent implements OnInit {
-
-  //factoryComponent: FactoryComponent = new FactoryComponent();
-  //infoScreensWarehouse: FactoryComponent[];
   rowData: [];
-  tableMode: boolean = true;          // табличный режим
+  //tableMode: boolean = true; 
+  updateTime: number = 60; // seconds
+  timeLeft: number = this.updateTime;
+  interval;
 
   constructor(private ref: ChangeDetectorRef, private dataService: DataService) { }
 
   ngOnInit() {
     this.loadinfoScreensWarehouse();    // загрузка данных при старте компонента  
+    this.startTimer();
   }
   // получаем данные через сервис
   loadinfoScreensWarehouse() {
     this.dataService.getWarehouseInfo()
-      .subscribe((data: []) => { this.rowData = data; this.ref.detectChanges(); console.log(this.rowData); });
+      .subscribe((data: []) => 
+      { 
+        this.rowData = data; 
+        this.ref.detectChanges(); 
+        console.log(this.rowData); 
+      });
   }
 
+  // - Update info by timer
+  startTimer() {
+    this.interval = setInterval(() => {
+      if(this.timeLeft > 0) {
+        this.timeLeft--;
+      } else {
+        this.timeLeft = this.updateTime;
+        this.loadinfoScreensWarehouse();
+      }
+    },1000)
+  }
+
+  pauseTimer() {
+    clearInterval(this.interval);
+  }
   /*
   // сохранение данных
   save() {
