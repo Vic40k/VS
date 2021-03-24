@@ -22,5 +22,8 @@ namespace VS_CRM.Models
 		public string Client { get; set; }
 		public string Comment { get; set; }
 		public DateTime? DelayDate { get; set; }
+        public bool IsDelayed { get; set; }
+        public bool IsDelay { get; set; }
+        public bool IsOnTime { get; set; }
     }
 }

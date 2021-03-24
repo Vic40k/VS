@@ -90,6 +90,7 @@ namespace VS_CRM.Controllers
         [HttpGet]
         public async Task<List<InformationScreenViewModel>> GetWarehouseInfo(int factoryId, int productGroupId, int productSubGroupId)
         {
+            var now = DateTime.Now;
             var procedureList = new List<InformationScreenViewModel>();
 
             using (SqlConnection DBConection = (SqlConnection)dbDATA.Database.GetDbConnection())
@@ -121,12 +122,28 @@ namespace VS_CRM.Controllers
                             Status = reader.IsDBNull(9) ? "" : reader.GetString(9),
                             Client = reader.IsDBNull(10) ? "" : reader.GetString(10),
                             Comment = reader.IsDBNull(11) ? "" : reader.GetString(11),
-                            DelayDate = reader.IsDBNull(12) ? (DateTime?)null : reader.GetDateTime(12),                            
+                            DelayDate = reader.IsDBNull(12) ? (DateTime?)null : reader.GetDateTime(12),
+                            IsDelayed = false,
+                            IsDelay = false,
+                            IsOnTime = false
                         });
                     }
                 }
                 reader.Close();
                 DBConection.Close();
+            }
+
+            // Define order delay 
+            foreach (var item in procedureList)
+            {
+                if (item.OrderDate.HasValue && item.ShipmentDate.HasValue && item.OrderDate.Value >= item.ShipmentDate.Value)
+                    item.IsOnTime = true;
+                else if (item.OrderDate.HasValue && item.OrderDate.Value < now)
+                {
+                    item.IsDelayed = true;
+                    if (item.WarehouseDate.HasValue && item.WarehouseDate.Value < now)
+                        item.IsDelay = true;
+                }
             }
 
             return procedureList;
