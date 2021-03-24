@@ -14,8 +14,10 @@ import { DataService } from '../data.service';
 })
 export class infoScreensWarehouseComponent implements OnInit {
   id: number; // Screen id
+  resultQty: number; // Max results on screen
   rowData: [];
   private subscription: Subscription;
+  private querySubscription: Subscription;
   //tableMode: boolean = true; 
   updatePeriod: number = 60; // seconds
   timeLeft: number = this.updatePeriod;
@@ -26,6 +28,12 @@ export class infoScreensWarehouseComponent implements OnInit {
 
   ngOnInit() {
     this.subscription = this.activateRoute.params.subscribe(params => this.id = params['id']);
+    this.querySubscription = this.activateRoute.queryParams.subscribe(
+      (queryParam: any) => {
+          this.resultQty = queryParam['resultQty'];
+      }
+    );
+
     this.loadinfoScreensWarehouse();    // загрузка данных при старте компонента  
     this.startTimer();
   }
