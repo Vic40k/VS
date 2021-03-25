@@ -143,7 +143,7 @@ namespace VS_CRM.Controllers
                 {
                     if (item.WarehouseDate.HasValue && item.OrderDate.Value.Date >= item.WarehouseDate.Value.Date)
                         item.IsOnTime = true;
-                    else if (item.OrderDate.Value.AddDays(-delayRiskDays).Date < today.Date && item.OrderDate.Value.Date > today.Date)
+                    else if (item.OrderDate.Value.AddDays(-delayRiskDays).Date <= today.Date && item.OrderDate.Value.Date > today.Date)
                         item.IsDelayRisk = true;
                     else if (item.OrderDate.Value.Date <= today.Date)
                     {
