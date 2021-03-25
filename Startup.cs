@@ -17,6 +17,7 @@ namespace VS_CRM
 {
     //TODO
     // Data connection protection
+    //404
 
     // DatePerenos - wtf?
     // Доп. цвета? отгружено = синий,  
