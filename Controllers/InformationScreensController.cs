@@ -125,21 +125,22 @@ namespace VS_CRM.Controllers
                             Client = reader.IsDBNull(10) ? "" : reader.GetString(10),
                             Comment = reader.IsDBNull(11) ? "" : reader.GetString(11),
                             DelayDate = reader.IsDBNull(12) ? (DateTime?)null : reader.GetDateTime(12),
+                            ReadyForShipmentPercent = 0,
                             IsDelayed = false,
                             IsDelay = false,
                             IsOnTime = false,
                             IsDelayRisk = false,
                             IsShipped = false,
-                        });
+                        }); 
                     }
                 }
                 reader.Close();
                 DBConection.Close();
             }
 
-            // Define order delay 
             foreach (var item in procedureList)
             {
+                // Define order delay 
                 if (item.OrderDate.HasValue)
                 {
                     if (item.Status == "Отгружено")
@@ -155,6 +156,9 @@ namespace VS_CRM.Controllers
                             item.IsDelay = true;
                     }
                 }
+                // Calculation of the percentage of goods ready for shipment
+                if (item.Orderquantity.HasValue && item.ProducedQuantity.HasValue && item.ProducedQuantity != 0)
+                    item.ReadyForShipmentPercent = item.ProducedQuantity.Value / item.Orderquantity.Value * 100;
             }
 
             return procedureList;

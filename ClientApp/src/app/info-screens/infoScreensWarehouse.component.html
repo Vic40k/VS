@@ -12,6 +12,7 @@
           <td>Статус</td>
           <td>Склад</td>
           <td>Комментарий</td>
+          <td>% Выполнения</td>
       </tr>
   </thead>
   <tbody>
@@ -23,6 +24,7 @@
           <td>{{o?.status}}</td>
           <td>{{o?.warehouseDate | date:'d LLLL':'ru-RU'}}</td>
           <td>{{o?.comment}}</td>
+          <td>{{o?.readyForShipmentPercent | number:'1.0-0'}}%</td>
           <!--
           <td>
               <button class="btn btn-sm btn-primary" (click)="editfactoryComponent(p)">Изменить</button>
