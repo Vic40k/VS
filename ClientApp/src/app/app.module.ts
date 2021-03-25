@@ -14,6 +14,7 @@ import { ApiAuthorizationModule } from 'src/api-authorization/api-authorization.
 import { AuthorizeGuard } from 'src/api-authorization/authorize.guard';
 import { AuthorizeInterceptor } from 'src/api-authorization/authorize.interceptor';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatProgressBarModule } from '@angular/material/progress-bar';
 
 import localeRu from '@angular/common/locales/ru';
 import { registerLocaleData } from '@angular/common';
@@ -29,7 +30,7 @@ registerLocaleData(localeRu);
     HomeComponent,
     CounterComponent,
     FetchDataComponent,
-    infoScreensWarehouseComponent
+    infoScreensWarehouseComponent,
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
@@ -47,7 +48,8 @@ registerLocaleData(localeRu);
     { path: 'counter', component: CounterComponent },
     { path: 'fetch-data', component: FetchDataComponent, canActivate: [AuthorizeGuard] },
 ], { relativeLinkResolution: 'legacy' }),
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    MatProgressBarModule
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: AuthorizeInterceptor, multi: true },
