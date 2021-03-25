@@ -20,7 +20,6 @@ namespace VS_CRM
     //404
 
     // DatePerenos - wtf?
-    // Доп. цвета? отгружено = синий,  
 
     public class Startup
     {

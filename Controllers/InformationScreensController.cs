@@ -128,7 +128,8 @@ namespace VS_CRM.Controllers
                             IsDelayed = false,
                             IsDelay = false,
                             IsOnTime = false,
-                            IsDelayRisk = false
+                            IsDelayRisk = false,
+                            IsShipped = false,
                         });
                     }
                 }
@@ -141,6 +142,8 @@ namespace VS_CRM.Controllers
             {
                 if (item.OrderDate.HasValue)
                 {
+                    if (item.Status == "Отгружено")
+                        item.IsShipped = true;
                     if (item.WarehouseDate.HasValue && item.OrderDate.Value.Date >= item.WarehouseDate.Value.Date)
                         item.IsOnTime = true;
                     else if (item.OrderDate.Value.AddDays(-delayRiskDays).Date <= today.Date && item.OrderDate.Value.Date > today.Date)
