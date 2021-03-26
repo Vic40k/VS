@@ -12,19 +12,19 @@
           <td>Статус</td>
           <td>Склад</td>
           <td>Комментарий</td>
-          <td>% Выполнения</td>
+          <td>Сделано&nbsp;всего</td>
       </tr>
   </thead>
   <tbody>
       <tr *ngFor="let o of rowData" 
       [ngClass]="{tr_onTime: o?.isOnTime, tr_shipped: o?.isShipped, tr_delayRisk: o?.isDelayRisk, tr_delayed: (o?.isDelayed && !o?.isDelay), tr_delay: (o?.isDelayed && o?.isDelay)}">
-          <td class="td_order">{{o?.order}}</td>
-          <td>{{o?.client}}</td>
-          <td>{{o?.orderDate | date:'d LLLL':'ru-RU'}}</td>
-          <td>{{o?.status}}</td>
-          <td>{{o?.warehouseDate | date:'d LLLL':'ru-RU'}}</td>
-          <td>{{o?.comment}}</td>
-          <td>{{o?.readyForShipmentPercent | number:'1.0-0'}}%</td>
+          <td width="5%" class="td_order">{{o?.order}}</td>
+          <td width="30%">{{o?.client}}</td>
+          <td width="10%">{{o?.orderDate | date:'d LLLL':'ru-RU'}}</td>
+          <td width="10%">{{o?.status}}</td>
+          <td width="10%">{{o?.warehouseDate | date:'d LLLL':'ru-RU'}}</td>
+          <td width="20%">{{o?.comment}}</td>
+          <td width=15%>{{o?.readyForShipmentPercent | number:'1.0-0'}}%</td>
           <!--
           <td>
               <button class="btn btn-sm btn-primary" (click)="editfactoryComponent(p)">Изменить</button>
