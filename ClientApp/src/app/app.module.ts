@@ -38,16 +38,16 @@ registerLocaleData(localeRu);
     FormsModule,
     ApiAuthorizationModule,
     RouterModule.forRoot([
-    { path: '', component: HomeComponent, pathMatch: 'full' },
-    //Warehouse routes
-    { path: 'infoScreensWarehouse/:id', component: infoScreensWarehouseComponent }, // full route
-    { path: 'sklad/:id', component: infoScreensWarehouseComponent }, // pseudonym
-    { path: 'склад/:id', component: infoScreensWarehouseComponent }, // pseudonym ru
+      { path: '', component: HomeComponent, pathMatch: 'full' },
+      //Warehouse routes
+      { path: 'infoScreensWarehouse/:id', component: infoScreensWarehouseComponent }, // full route
+      { path: 'sklad/:id', component: infoScreensWarehouseComponent }, // pseudonym
+      { path: 'склад/:id', component: infoScreensWarehouseComponent }, // pseudonym ru
 
-    // debug garbage
-    { path: 'counter', component: CounterComponent },
-    { path: 'fetch-data', component: FetchDataComponent, canActivate: [AuthorizeGuard] },
-], { relativeLinkResolution: 'legacy' }),
+      // debug garbage
+      { path: 'counter', component: CounterComponent },
+      { path: 'fetch-data', component: FetchDataComponent, canActivate: [AuthorizeGuard] },
+    ], { relativeLinkResolution: 'legacy' }),
     BrowserAnimationsModule,
     MatProgressBarModule
   ],
