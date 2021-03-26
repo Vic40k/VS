@@ -16,7 +16,7 @@
       </tr>
   </thead>
   <tbody>
-      <tr *ngFor="let o of rowData" 
+      <tr *ngFor="let o of dataShow"
       [ngClass]="{tr_onTime: o?.isOnTime, tr_shipped: o?.isShipped, tr_delayRisk: o?.isDelayRisk, tr_delayed: (o?.isDelayed && !o?.isDelay), tr_delay: (o?.isDelayed && o?.isDelay)}">
           <td width="5%" class="td_order">{{o?.order}}</td>
           <td width="30%">{{o?.client}}</td>
