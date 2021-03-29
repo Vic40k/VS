@@ -62,8 +62,11 @@ export class infoScreensWarehouseComponent implements OnInit {
       { 
         this.dataStorage = data; 
         // Count pages if needed
-        if (this.isScrol) 
-          this.pageCount = Math.round(this.dataStorage.length / this.maxResultsPerPage) + 1;
+        if (this.isScrol) {
+          this.pageCount = Math.round(this.dataStorage.length / this.maxResultsPerPage);
+          if (this.dataStorage.length % this.maxResultsPerPage != 0)
+            this.pageCount++;
+        }
         console.log(this.pageCount);
         console.log(this.dataStorage);
         // Fill array to show in first time
