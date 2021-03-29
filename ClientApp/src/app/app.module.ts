@@ -17,6 +17,7 @@ import { AuthorizeGuard } from 'src/api-authorization/authorize.guard';
 import { AuthorizeInterceptor } from 'src/api-authorization/authorize.interceptor';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
+import { MatButtonModule } from '@angular/material/button';
 
 import localeRu from '@angular/common/locales/ru';
 import { registerLocaleData } from '@angular/common';
@@ -58,7 +59,8 @@ registerLocaleData(localeRu);
     ], { relativeLinkResolution: 'legacy' }),
     MDBBootstrapModule.forRoot(),
     BrowserAnimationsModule,
-    MatProgressBarModule
+    MatProgressBarModule,
+    MatButtonModule
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: AuthorizeInterceptor, multi: true },
