@@ -70,11 +70,24 @@ export class infoScreensWarehouseComponent implements OnInit {
         console.log(this.pageCount);
         console.log(this.dataStorage);
         // Fill array to show in first time
-        if (!this.dataShow)
+        if (!this.isScrol)
           this.dataShow = Object.assign([], this.dataStorage);
+        else 
+          this.goToPage(1);
         // Update view
         this.ref.detectChanges(); 
       });
+  }
+
+  // - Go to page
+  goToPage(pageCounter: number){
+    let self = this;
+    this.dataShow = this.dataStorage.filter(function (item, index) {
+      if (index >= (self.maxResultsPerPage * (pageCounter - 1)) && index < (self.maxResultsPerPage * pageCounter) ) {
+        return item;
+      }
+    });
+    console.log(this.dataShow);
   }
 
   // - Update info by timer
@@ -90,13 +103,7 @@ export class infoScreensWarehouseComponent implements OnInit {
             else
               this.pageCounter = 1;
             console.log('scrol to page #' + this.pageCounter);
-            let self = this;
-            this.dataShow = this.dataStorage.filter(function (item, index) {
-              if (index >= (self.maxResultsPerPage * (self.pageCounter - 1)) && index < (self.maxResultsPerPage * self.pageCounter) ) {
-                return item;
-              }
-            });
-            console.log(this.dataShow);
+            this.goToPage(this.pageCounter);
           }
         }
       } else {
