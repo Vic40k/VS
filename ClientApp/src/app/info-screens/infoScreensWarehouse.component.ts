@@ -3,7 +3,6 @@ import { ChangeDetectorRef } from '@angular/core';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Subscription } from 'rxjs';
-import { max } from 'rxjs/operators';
 import { DataService } from '../data.service';
 
 @Component({
@@ -16,20 +15,20 @@ import { DataService } from '../data.service';
 export class infoScreensWarehouseComponent implements OnInit {
   id: number; // Screen id
   resultQty: number; // Max results on screen
-  dataStorage: [];
-  dataShow: [];
+  dataStorage: any[];
+  dataShow: any[];
   private subscription: Subscription;
   private querySubscription: Subscription;
   //tableMode: boolean = true; 
   updatePeriod: number = 60; // seconds
   timeLeft: number = this.updatePeriod;
-  interval;
+  interval: NodeJS.Timeout;
 
   isScrol = true;
   scrolInterval = 5; // seconds, must be less than 60 
-  maxResultsPerPage = 20;
-  pageCount = 1;
-  pageCounter = 1;
+  maxResultsPerPage: number = 20;
+  pageCount: number = 1;
+  pageCounter: number = 1;
 
   isTableVisible = true;
 
@@ -46,20 +45,27 @@ export class infoScreensWarehouseComponent implements OnInit {
       }
     );
 
+    this.definePreferences();
     this.loadinfoScreensWarehouse();    // загрузка данных при старте компонента  
     this.startTimer();
   }
+
+  // Some actions before loading data
+  definePreferences() {
+    // TODO self
+  }
+
   // получаем данные через сервис
   loadinfoScreensWarehouse() {
     this.dataService.getWarehouseInfo()
       .subscribe((data: []) => 
       { 
         this.dataStorage = data; 
-        console.log(this.dataStorage);
         // Count pages if needed
-        if (this.isScrol)
+        if (this.isScrol) 
           this.pageCount = Math.round(this.dataStorage.length / this.maxResultsPerPage) + 1;
         console.log(this.pageCount);
+        console.log(this.dataStorage);
         // Fill array to show in first time
         if (!this.dataShow)
           this.dataShow = Object.assign([], this.dataStorage);
@@ -81,7 +87,13 @@ export class infoScreensWarehouseComponent implements OnInit {
             else
               this.pageCounter = 1;
             console.log('scrol to page #' + this.pageCounter);
-            //this.isTableVisible = !this.isTableVisible;
+            let self = this;
+            this.dataShow = this.dataStorage.filter(function (item, index) {
+              if (index >= (self.maxResultsPerPage * (self.pageCounter - 1)) && index <= (self.maxResultsPerPage * self.pageCounter) ) {
+                return item;
+              }
+            });
+            console.log(this.dataShow);
           }
         }
       } else {
