@@ -2,16 +2,22 @@
     <thead>
       <tr>
         <th scope="col" class="zone_col">Склад</th>
-        <th scope="col" class="screen_col hint_col" colspan="3">Выберите экран для отображения или настройте новый</th>
+        <th scope="col" class="screen_col hint_col" colspan="2">Выберите экран для отображения или настройте новый</th>
         <th scope="col" class="screen_col"></th>
-        <th scope="col" class="screen_col"></th>
+        <th scope="col" class="screen_col"><button mat-button disabled color="primary"> + Добавить</button></th>
       </tr>
     </thead>
     <tbody>
       <tr>
         <th scope="row">1</th>
-        <td>Mark
-            <div class="monitor_ctrl_icon" (click)="goToWarehouseScreen(0)" [ngStyle]="{ 'background-image': 'url(../assets/img/infoScreens/monitor-2.png)' }"></div>
+        <td>
+            <div class="monitor_ctrl_icon" (click)="goToWarehouseScreen(0)" [ngStyle]="{ 'background-image': 'url(../assets/img/infoScreens/monitor-2.png)' }">
+                <div>
+                    <div>Промотка: Да</div>
+                    <div>Страницы: Все</div>
+                    <div>Результаты: Все</div>
+                </div>
+            </div>
         </td>
         <td>Ot-to</td>
         <td>@mdo</td>
