@@ -42,10 +42,10 @@ registerLocaleData(localeRu);
     RouterModule.forRoot([
       { path: '', component: HomeComponent, pathMatch: 'full' },
       //Screen chooser
-      { path: 'screenChooser', component: InfoScreensWarehouseComponent }, // full route
-      { path: 'screenChoose', component: InfoScreensWarehouseComponent }, // pseudonym
-      { path: 'screens', component: InfoScreensWarehouseComponent }, // pseudonym
-      { path: 'экраны', component: InfoScreensWarehouseComponent }, // pseudonym ru
+      { path: 'screenChooser', component: ScreenChooserComponent }, // full route
+      { path: 'screenChoose', component: ScreenChooserComponent }, // pseudonym
+      { path: 'screens', component: ScreenChooserComponent }, // pseudonym
+      { path: 'экраны', component: ScreenChooserComponent }, // pseudonym ru
       //Warehouse routes
       { path: 'infoScreensWarehouse/:id', component: InfoScreensWarehouseComponent }, // full route
       { path: 'sklad/:id', component: InfoScreensWarehouseComponent }, // pseudonym
