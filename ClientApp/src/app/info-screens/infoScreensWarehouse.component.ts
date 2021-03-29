@@ -92,7 +92,7 @@ export class infoScreensWarehouseComponent implements OnInit {
             console.log('scrol to page #' + this.pageCounter);
             let self = this;
             this.dataShow = this.dataStorage.filter(function (item, index) {
-              if (index >= (self.maxResultsPerPage * (self.pageCounter - 1)) && index <= (self.maxResultsPerPage * self.pageCounter) ) {
+              if (index >= (self.maxResultsPerPage * (self.pageCounter - 1)) && index < (self.maxResultsPerPage * self.pageCounter) ) {
                 return item;
               }
             });
