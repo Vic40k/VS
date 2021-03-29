@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-counter-component',
@@ -6,9 +7,10 @@ import { Component } from '@angular/core';
   styleUrls: ['./screenChooser.component.css'],
 })
 export class ScreenChooserComponent {
-  
+  constructor(private router: Router) {}
+
   goToWarehouseScreen(warehouseMonitorId: number = 0) {
-    alert(warehouseMonitorId);
+    this.router.navigateByUrl('/sklad/' + warehouseMonitorId);  
   }
 }
 
