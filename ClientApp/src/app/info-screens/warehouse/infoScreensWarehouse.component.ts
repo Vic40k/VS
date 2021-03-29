@@ -23,6 +23,7 @@ export class InfoScreensWarehouseComponent implements OnInit {
 
   id: number; // Screen id
   resultQty: number; // Max results on screen
+  isUIoff: boolean = false;
 
   isScrol = true;
   scrolInterval = 5; // seconds, must be less than 60 
