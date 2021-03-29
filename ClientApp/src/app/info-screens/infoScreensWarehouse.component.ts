@@ -24,7 +24,7 @@ export class infoScreensWarehouseComponent implements OnInit {
   timeLeft: number = this.updatePeriod;
   interval: NodeJS.Timeout;
 
-  isScrol = false;
+  isScrol = true;
   scrolInterval = 5; // seconds, must be less than 60 
   maxResultsPerPage: number = 20;
   pageCount: number = 1;
@@ -52,7 +52,7 @@ export class infoScreensWarehouseComponent implements OnInit {
 
   // Some actions before loading data
   definePreferences() {
-    // TODO self
+    // 
   }
 
   // получаем данные через сервис
@@ -117,10 +117,6 @@ export class infoScreensWarehouseComponent implements OnInit {
 
   pauseTimer() {
     clearInterval(this.interval);
-  }
-
-  currentShow() {
-    console.log('!');
   }
 
   /*
