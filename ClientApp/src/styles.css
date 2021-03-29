@@ -17,3 +17,26 @@ code {
 
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+.custom_container{
+  padding: 0 5px 5px 0;
+}
+/*
+@media (min-width: 1200px) {
+  .custom_container{
+    width: 1000px;
+  }
+}
+
+@media (min-width: 992px) {
+  .custom_container{
+    width: 800px;
+  }
+}
+
+@media (min-width: 768px) {
+  .custom_container{
+    width: 650px;
+  }
+}
+*/
