@@ -19,7 +19,7 @@ html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 
 .custom_container{
-  padding: 0 5px 5px 0;
+  padding: 0 20px 0 20px;
 }
 /*
 @media (min-width: 1200px) {
