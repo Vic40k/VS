@@ -5,6 +5,8 @@ import { ActivatedRoute } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { DataService } from '../../data.service';
 
+//TODO loading overlay ?
+
 @Component({
   selector: 'app-info-screens',
   templateUrl: './infoScreensWarehouse.component.html',
@@ -17,6 +19,7 @@ export class InfoScreensWarehouseComponent implements OnInit {
   dataShow: any[];
   private routeSubscription: Subscription;
   private querySubscription: Subscription;
+  isLoadComplete: boolean = false;
   updatePeriod: number = 60; // seconds
   timeLeft: number = this.updatePeriod;
   interval: NodeJS.Timeout;
@@ -50,7 +53,6 @@ export class InfoScreensWarehouseComponent implements OnInit {
 
     this.definePreferences();
     this.loadinfoScreensWarehouse();    // загрузка данных при старте компонента  
-    this.startTimer();
   }
 
   // Some actions before loading data
@@ -73,6 +75,11 @@ export class InfoScreensWarehouseComponent implements OnInit {
             this.goToPage(this.pageToShow);
           else
             this.goToPage(1);
+        }
+        // Go timer! 
+        if (!this.isLoadComplete){
+          this.startTimer();
+          this.isLoadComplete = true;
         }
         console.log(this.pageCount);
         console.log(this.dataStorage);
