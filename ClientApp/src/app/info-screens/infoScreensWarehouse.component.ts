@@ -17,14 +17,14 @@ export class infoScreensWarehouseComponent implements OnInit {
   resultQty: number; // Max results on screen
   dataStorage: any[];
   dataShow: any[];
-  private subscription: Subscription;
+  private routeSubscription: Subscription;
   private querySubscription: Subscription;
   //tableMode: boolean = true; 
   updatePeriod: number = 60; // seconds
   timeLeft: number = this.updatePeriod;
   interval: NodeJS.Timeout;
 
-  isScrol = true;
+  isScrol = false;
   scrolInterval = 5; // seconds, must be less than 60 
   maxResultsPerPage: number = 20;
   pageCount: number = 1;
@@ -38,7 +38,7 @@ export class infoScreensWarehouseComponent implements OnInit {
 
   ngOnInit() {
     // Define params from URL
-    this.subscription = this.activateRoute.params.subscribe(params => this.id = params['id']);
+    this.routeSubscription = this.activateRoute.params.subscribe(params => this.id = params['id']);
     this.querySubscription = this.activateRoute.queryParams.subscribe(
       (queryParam: any) => {
           this.resultQty = queryParam['resultQty'];

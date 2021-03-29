@@ -1,5 +1,7 @@
 
-.warehouse-table-header{
+.warehouse_table{
+}
+.warehouse_table_header{
     font-weight: bold;
     background-color: lightgray;
 }
