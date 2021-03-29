@@ -15,6 +15,8 @@ import { FetchDataComponent } from './fetch-data/fetch-data.component';
 import { ApiAuthorizationModule } from 'src/api-authorization/api-authorization.module';
 import { AuthorizeGuard } from 'src/api-authorization/authorize.guard';
 import { AuthorizeInterceptor } from 'src/api-authorization/authorize.interceptor';
+import { Page404Component } from './servicePages/page404/page404.component'
+
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { MatButtonModule } from '@angular/material/button';
@@ -35,6 +37,7 @@ registerLocaleData(localeRu);
     FetchDataComponent,
     ScreenChooserComponent,
     InfoScreensWarehouseComponent,
+    Page404Component
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
@@ -56,6 +59,8 @@ registerLocaleData(localeRu);
       // debug garbage
       { path: 'counter', component: CounterComponent },
       { path: 'fetch-data', component: FetchDataComponent, canActivate: [AuthorizeGuard] },
+
+      { path: '**', component: Page404Component },  // Wildcard route for a 404 page
     ], { relativeLinkResolution: 'legacy' }),
     MDBBootstrapModule.forRoot(),
     BrowserAnimationsModule,
