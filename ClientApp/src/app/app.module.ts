@@ -7,7 +7,8 @@ import { RouterModule } from '@angular/router';
 import { AppComponent } from './app.component';
 import { NavMenuComponent } from './nav-menu/nav-menu.component';
 import { HomeComponent } from './home/home.component';
-import { infoScreensWarehouseComponent } from './info-screens/warehouse/infoScreensWarehouse.component';
+import { ScreenChooserComponent } from './info-screens/screen-chooser/screenChooser.component';
+import { InfoScreensWarehouseComponent } from './info-screens/warehouse/infoScreensWarehouse.component';
 import { CounterComponent } from './counter/counter.component';
 import { FetchDataComponent } from './fetch-data/fetch-data.component';
 import { ApiAuthorizationModule } from 'src/api-authorization/api-authorization.module';
@@ -30,7 +31,8 @@ registerLocaleData(localeRu);
     HomeComponent,
     CounterComponent,
     FetchDataComponent,
-    infoScreensWarehouseComponent,
+    ScreenChooserComponent,
+    InfoScreensWarehouseComponent,
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
@@ -39,10 +41,15 @@ registerLocaleData(localeRu);
     ApiAuthorizationModule,
     RouterModule.forRoot([
       { path: '', component: HomeComponent, pathMatch: 'full' },
+      //Screen chooser
+      { path: 'screenChooser', component: InfoScreensWarehouseComponent }, // full route
+      { path: 'screenChoose', component: InfoScreensWarehouseComponent }, // pseudonym
+      { path: 'screens', component: InfoScreensWarehouseComponent }, // pseudonym
+      { path: 'экраны', component: InfoScreensWarehouseComponent }, // pseudonym ru
       //Warehouse routes
-      { path: 'infoScreensWarehouse/:id', component: infoScreensWarehouseComponent }, // full route
-      { path: 'sklad/:id', component: infoScreensWarehouseComponent }, // pseudonym
-      { path: 'склад/:id', component: infoScreensWarehouseComponent }, // pseudonym ru
+      { path: 'infoScreensWarehouse/:id', component: InfoScreensWarehouseComponent }, // full route
+      { path: 'sklad/:id', component: InfoScreensWarehouseComponent }, // pseudonym
+      { path: 'склад/:id', component: InfoScreensWarehouseComponent }, // pseudonym ru
 
       // debug garbage
       { path: 'counter', component: CounterComponent },

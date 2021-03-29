@@ -12,17 +12,17 @@ import { DataService } from '../../data.service';
   providers: [DataService],
   //changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class infoScreensWarehouseComponent implements OnInit {
-  id: number; // Screen id
-  resultQty: number; // Max results on screen
+export class InfoScreensWarehouseComponent implements OnInit {
   dataStorage: any[];
   dataShow: any[];
   private routeSubscription: Subscription;
   private querySubscription: Subscription;
-  //tableMode: boolean = true; 
   updatePeriod: number = 60; // seconds
   timeLeft: number = this.updatePeriod;
   interval: NodeJS.Timeout;
+
+  id: number; // Screen id
+  resultQty: number; // Max results on screen
 
   isScrol = true;
   scrolInterval = 5; // seconds, must be less than 60 
@@ -30,8 +30,10 @@ export class infoScreensWarehouseComponent implements OnInit {
   pageCount: number = 1;
   pageCounter: number = 1;
 
-  isTableVisible = true;
+  // TODO from - to ?
+  pageToShow: number = 0; // 0 or nothing - All
 
+  isTableVisible = true;
   updateTime: Date = new Date();
 
   constructor(private ref: ChangeDetectorRef, private dataService: DataService, private activateRoute: ActivatedRoute) { }
@@ -66,14 +68,16 @@ export class infoScreensWarehouseComponent implements OnInit {
           this.pageCount = Math.round(this.dataStorage.length / this.maxResultsPerPage);
           if (this.dataStorage.length % this.maxResultsPerPage != 0)
             this.pageCount++;
+          if (this.pageToShow !== 0)
+            this.goToPage(this.pageToShow);
+          else
+            this.goToPage(1);
         }
         console.log(this.pageCount);
         console.log(this.dataStorage);
         // Fill array to show in first time
         if (!this.isScrol)
           this.dataShow = Object.assign([], this.dataStorage);
-        else 
-          this.goToPage(1);
         // Update view
         this.ref.detectChanges(); 
       });
