@@ -31,6 +31,8 @@ export class infoScreensWarehouseComponent implements OnInit {
   pageCount = 1;
   pageCounter = 1;
 
+  isTableVisible = true;
+
   updateTime: Date = new Date();
 
   constructor(private ref: ChangeDetectorRef, private dataService: DataService, private activateRoute: ActivatedRoute) { }
@@ -79,6 +81,7 @@ export class infoScreensWarehouseComponent implements OnInit {
             else
               this.pageCounter = 1;
             console.log('scrol to page #' + this.pageCounter);
+            //this.isTableVisible = !this.isTableVisible;
           }
         }
       } else {
