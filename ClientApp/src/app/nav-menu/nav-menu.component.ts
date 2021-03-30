@@ -9,19 +9,56 @@ import { UserIntarfaceService } from '../services/userInterface.service';
 })
 export class NavMenuComponent implements OnInit{
   constructor(private _ui: UserIntarfaceService) { }
-  isExpanded: boolean = false;
-  isVisible: boolean = true;
-  
+  // Navbar
+  isNavbarExpanded: boolean = false;
+  isNavbarVisible: boolean = true;
+  // Progressbar
+  progressbarValue: number = 10;
+  progressbarMode: string = 'determinate';
   ngOnInit() {
-    this._ui.navbar.subscribe((load: boolean) => { this.isVisible = load });
+    this.resetAllUI();
+    this._ui.navbar.subscribe((isVisible: boolean) => { this.navbarSetVisible(isVisible) });
   }
 
-  // ---- Internal functions
-  collapse() {
-    this.isExpanded = false;
+  // ---- Common internal functions
+  resetAllUI() {
+    this.isNavbarExpanded = false;
+    this.isNavbarVisible = true;
+    this.progressbarValue = 0;
+    this.progressbarMode = 'determinate';
   }
 
-  toggle() {
-    this.isExpanded = !this.isExpanded;
+  // ---- Navbar internal functions
+  navbarSetVisible(isVisible: boolean) {
+    this.isNavbarVisible = isVisible;
+  }
+
+  navbarCollapse() {
+    this.isNavbarExpanded = false;
+  }
+
+  navbarToggle() {
+    this.isNavbarExpanded = !this.isNavbarExpanded;
+  }
+
+  // ----- Progressbar internal functions
+  progressbarSetValue(value: number) {
+    this.progressbarValue = value;
+  }
+
+  progressbarSetDetrminate() {
+    this.progressbarMode = 'determinate';
+  }
+
+  progressbarSetIndetrminate() {
+    this.progressbarMode = 'indeterminate';
+  }
+
+  progressbarSetBuffer() {
+    this.progressbarMode = 'buffer';
+  }
+
+  progressbarSetQuery() {
+    this.progressbarMode = 'query';
   }
 }
