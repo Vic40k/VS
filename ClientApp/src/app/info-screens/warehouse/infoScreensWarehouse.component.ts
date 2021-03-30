@@ -88,12 +88,18 @@ export class InfoScreensWarehouseComponent implements OnInit {
       .subscribe((data: []) => 
       { 
         this.dataStorage = data; 
-        // Count pages if needed
+        // Count pages 
+        this.pageCount = Math.round(this.dataStorage.length / this.maxResultsPerPage);
+        // AutoScrolling
         if (this.isScrol) {
-          this.pageCount = Math.round(this.dataStorage.length / this.maxResultsPerPage);
           if (this.dataStorage.length % this.maxResultsPerPage != 0)
             this.pageCount++;
-          if (this.pageToShow !== 0)
+          // ignore pageToShow param and go to first page
+          this.goToPage(1);
+        } else {
+          // Fill array to show in first time
+          this.dataShow = Object.assign([], this.dataStorage);
+          if (this.pageToShow !== 0 && this.pageToShow <= this.pageCount)
             this.goToPage(this.pageToShow);
           else
             this.goToPage(1);
@@ -107,13 +113,11 @@ export class InfoScreensWarehouseComponent implements OnInit {
             this.startTimer();
           this.isLoadComplete = true;
         }
+        // Toggle update window
+        this.ref.detectChanges(); 
+
         console.log(this.pageCount + ' pages in total');
         console.log(this.dataStorage);
-        // Fill array to show in first time
-        if (!this.isScrol)
-          this.dataShow = Object.assign([], this.dataStorage);
-        // Update view
-        this.ref.detectChanges(); 
       });
   }
 
