@@ -6,8 +6,6 @@ import { Subscription } from 'rxjs';
 import { UserIntarfaceService } from 'src/app/services/userInterface.service';
 import { DataService } from '../../data.service';
 
-//TODO loading overlay ?
-
 @Component({
   selector: 'app-info-screens',
   templateUrl: './infoScreensWarehouse.component.html',
@@ -49,26 +47,32 @@ export class InfoScreensWarehouseComponent implements OnInit {
   updateTime: Date = new Date();
 
   ngOnInit() {
-    // Define params from URL
-    this.routeSubscription = this.activateRoute.params.subscribe(params => this.id = params['id']);
-    this.querySubscription = this.activateRoute.queryParams.subscribe(
-      (queryParam: any) => {
-          this.resultQty = queryParam['resultQty'];
-      }
-    );
-
     // Disable navbar
     this._ui.setNavbarVisible(false); 
     // Show loading anim while waiting query
     this._ui.setProgressBarNormalLoading();
 
+    // Handle preferences and load after
     this.definePreferences();
-    this.loadinfoScreensWarehouse();    // загрузка данных при старте компонента  
   }
 
   // Some actions before loading data
   definePreferences() {
-    // 
+    // Define params from URL
+    this.routeSubscription = this.activateRoute.params.subscribe(params => this.id = params['id']);
+    this.querySubscription = this.activateRoute.queryParams.subscribe(
+      (queryParam: any) => {
+          this.resultQty = queryParam['resultQty'];
+          let isScrollparam:string = queryParam['autoScroll']; 
+          if (isScrollparam && typeof isScrollparam === 'string') {
+            this.isScrol = isScrollparam.toLowerCase() === 'true';
+            if (isScrollparam.toLowerCase() === 'false')
+              this.isScrol = false;
+          }
+          // Main routine
+          this.loadinfoScreensWarehouse();  
+      }
+    );
   }
 
   // получаем данные через сервис
@@ -92,7 +96,8 @@ export class InfoScreensWarehouseComponent implements OnInit {
           // Disable loading anim
           this._ui.stopProgressBarLoading();
           // Go timer! 
-          this.startTimer();
+          if (this.isScrol)
+            this.startTimer();
           this.isLoadComplete = true;
         }
         console.log(this.pageCount);
