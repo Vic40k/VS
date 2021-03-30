@@ -117,6 +117,9 @@ export class InfoScreensWarehouseComponent implements OnInit {
   // - Go to page
   goToPage(pageCounter: number){
     let self = this;
+    // Progressbar
+    this._ui.setProgressbarValue(pageCounter / this.pageCount * 100);
+    // Set page results
     this.dataShow = this.dataStorage.filter(function (item, index) {
       if (index >= (self.maxResultsPerPage * (pageCounter - 1)) && index < (self.maxResultsPerPage * pageCounter) ) {
         return item;
