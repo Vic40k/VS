@@ -68,11 +68,14 @@ export class InfoScreensWarehouseComponent implements OnInit {
         (queryParam: any) => {
             this.resultQty = queryParam['resultQty'];
             let isScrollparam:string = queryParam['autoScroll']; 
-            if (isScrollparam && typeof isScrollparam === 'string') {
+            if (isScrollparam && typeof isScrollparam === 'string'){
               this.isScrol = isScrollparam.toLowerCase() === 'true';
               if (isScrollparam.toLowerCase() === 'false')
                 this.isScrol = false;
             }
+            let pageToShowParam:number = +queryParam['pageToShow']; 
+            if (pageToShowParam && typeof pageToShowParam === 'number' && pageToShowParam > 0)
+              this.pageToShow = Math.ceil(pageToShowParam);
         }
       );
     });
