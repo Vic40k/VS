@@ -57,8 +57,10 @@ export class InfoScreensWarehouseComponent implements OnInit {
       }
     );
 
-    this._ui.setNavbarVisible(false); // this will set the loader value
-    //this._ui.setProgressbarValue(50);
+    // Disable navbar
+    this._ui.setNavbarVisible(false); 
+    // Show loading anim while waiting query
+    this._ui.setProgressBarNormalLoading();
 
     this.definePreferences();
     this.loadinfoScreensWarehouse();    // загрузка данных при старте компонента  
@@ -85,8 +87,11 @@ export class InfoScreensWarehouseComponent implements OnInit {
           else
             this.goToPage(1);
         }
-        // Go timer! 
+        // On first load complete
         if (!this.isLoadComplete){
+          // Disable loading anim
+          this._ui.stopProgressBarLoading();
+          // Go timer! 
           this.startTimer();
           this.isLoadComplete = true;
         }
