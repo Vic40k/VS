@@ -9,14 +9,26 @@ export class UserIntarfaceService {
     public navbar = this._loaderSource.asObservable();
     public progressbar = this._loaderSource.asObservable();
 
-    //Upper main navigation bar
-    setNavbarVisible(isVisible: boolean){
-    this._loaderSource.next(isVisible);
+    private progressbarMode:number = 0; 
+
+    // ------- Upper main navigation bar
+    setNavbarVisible(isNavbarVisible: boolean){
+        this._loaderSource.next(isNavbarVisible);
     }
 
-    //Upper main progress bar
-    setProgressbarValue(value: number){
-        if (value >= 0 && value <= 100)
-            this._loaderSource.next(value);
+    // --------- Upper main progress bar
+    setProgressbarValue(progressbarValue: number){
+        if (progressbarValue >= 0 && progressbarValue <= 100)
+            this._loaderSource.next(progressbarValue);
+    }
+
+    setProgressBarNormalLoading(){
+        this.progressbarMode = 1
+        this._loaderSource.next(this.progressbarMode);
+    }
+
+    stopProgressBarLoading(){
+        this.progressbarMode = 0
+        this._loaderSource.next(this.progressbarMode);
     }
 }

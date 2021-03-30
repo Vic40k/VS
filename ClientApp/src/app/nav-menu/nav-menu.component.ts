@@ -17,9 +17,28 @@ export class NavMenuComponent implements OnInit{
   progressbarMode: string = 'determinate';
   ngOnInit() {
     this.resetAllUI();
-    this._ui.navbar.subscribe((isVisible: boolean) => { this.navbarSetVisible(isVisible) });
-    this._ui.progressbar.subscribe((value: number) => { this.progressbarSetValue(value) });
-    //this._ui.progressbar.subscribe((isVisible: boolean) => { this.navbarSetVisible(isVisible) });
+    this._ui.navbar.subscribe((isNavbarVisible: boolean) => { this.navbarSetVisible(isNavbarVisible) });
+    this._ui.progressbar.subscribe((progressbarValue: number) => { this.progressbarSetValue(progressbarValue) });
+    this._ui.progressbar.subscribe((progressbarMode: number) => { 
+      console.log(progressbarMode);
+      switch(progressbarMode) {
+        case (0):
+          this.progressbarSetDetrminate();
+          this.progressbarSetValue(0);
+          break;
+        case (1):
+          this.progressbarSetIndetrminate();
+          break;
+        case (2):
+          this.progressbarSetBuffer();
+          break;
+        case (3):
+          this.progressbarSetQuery();
+          break;
+        default:
+          break;
+      }
+    });
   }
 
   // ---- Common internal functions
