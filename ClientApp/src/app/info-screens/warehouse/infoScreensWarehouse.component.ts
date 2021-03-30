@@ -54,25 +54,29 @@ export class InfoScreensWarehouseComponent implements OnInit {
 
     // Handle preferences and load after
     this.definePreferences();
+
+    // Main routine
+    this.loadinfoScreensWarehouse();
   }
 
   // Some actions before loading data
-  definePreferences() {
+  async definePreferences() {
     // Define params from URL
-    this.routeSubscription = this.activateRoute.params.subscribe(params => this.id = params['id']);
-    this.querySubscription = this.activateRoute.queryParams.subscribe(
-      (queryParam: any) => {
-          this.resultQty = queryParam['resultQty'];
-          let isScrollparam:string = queryParam['autoScroll']; 
-          if (isScrollparam && typeof isScrollparam === 'string') {
-            this.isScrol = isScrollparam.toLowerCase() === 'true';
-            if (isScrollparam.toLowerCase() === 'false')
-              this.isScrol = false;
-          }
-          // Main routine
-          this.loadinfoScreensWarehouse();  
-      }
-    );
+    let promise = new Promise(() => {
+      this.routeSubscription = this.activateRoute.params.subscribe(params => this.id = params['id']);
+      this.querySubscription = this.activateRoute.queryParams.subscribe(
+        (queryParam: any) => {
+            this.resultQty = queryParam['resultQty'];
+            let isScrollparam:string = queryParam['autoScroll']; 
+            if (isScrollparam && typeof isScrollparam === 'string') {
+              this.isScrol = isScrollparam.toLowerCase() === 'true';
+              if (isScrollparam.toLowerCase() === 'false')
+                this.isScrol = false;
+            }
+        }
+      );
+    });
+    return await promise;
   }
 
   // получаем данные через сервис
@@ -100,7 +104,7 @@ export class InfoScreensWarehouseComponent implements OnInit {
             this.startTimer();
           this.isLoadComplete = true;
         }
-        console.log(this.pageCount);
+        console.log(this.pageCount + ' pages in total');
         console.log(this.dataStorage);
         // Fill array to show in first time
         if (!this.isScrol)
