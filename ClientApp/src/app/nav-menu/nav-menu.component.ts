@@ -20,7 +20,6 @@ export class NavMenuComponent implements OnInit{
     this._ui.navbar.subscribe((isNavbarVisible: boolean) => { this.navbarSetVisible(isNavbarVisible) });
     this._ui.progressbar.subscribe((progressbarValue: number) => { this.progressbarSetValue(progressbarValue) });
     this._ui.progressbar.subscribe((progressbarMode: number) => { 
-      console.log(progressbarMode);
       switch(progressbarMode) {
         case (0):
           this.progressbarSetDetrminate();

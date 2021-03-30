@@ -19,7 +19,6 @@ export class FetchDataComponent {
 
       this.dataService.getFactoryComponents()
         .subscribe((data: FactoryComponent[]) => this.factoryComponent = data );
-      console.log(this.factoryComponent);
 
     }, error => console.error(error));
   }
