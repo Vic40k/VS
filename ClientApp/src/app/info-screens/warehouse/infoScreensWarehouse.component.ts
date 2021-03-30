@@ -58,6 +58,7 @@ export class InfoScreensWarehouseComponent implements OnInit {
     );
 
     this._ui.setNavbarVisible(false); // this will set the loader value
+    //this._ui.setProgressbarValue(50);
 
     this.definePreferences();
     this.loadinfoScreensWarehouse();    // загрузка данных при старте компонента  

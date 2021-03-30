@@ -18,6 +18,8 @@ export class NavMenuComponent implements OnInit{
   ngOnInit() {
     this.resetAllUI();
     this._ui.navbar.subscribe((isVisible: boolean) => { this.navbarSetVisible(isVisible) });
+    this._ui.progressbar.subscribe((value: number) => { this.progressbarSetValue(value) });
+    //this._ui.progressbar.subscribe((isVisible: boolean) => { this.navbarSetVisible(isVisible) });
   }
 
   // ---- Common internal functions
