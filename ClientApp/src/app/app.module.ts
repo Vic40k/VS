@@ -15,7 +15,9 @@ import { FetchDataComponent } from './fetch-data/fetch-data.component';
 import { ApiAuthorizationModule } from 'src/api-authorization/api-authorization.module';
 import { AuthorizeGuard } from 'src/api-authorization/authorize.guard';
 import { AuthorizeInterceptor } from 'src/api-authorization/authorize.interceptor';
-import { Page404Component } from './servicePages/page404/page404.component'
+import { Page404Component } from './servicePages/page404/page404.component';
+
+import { UserIntarfaceService } from './services/userInterface.service';
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
@@ -69,7 +71,8 @@ registerLocaleData(localeRu);
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: AuthorizeInterceptor, multi: true },
-    { provide: LOCALE_ID, useValue: 'ru' }
+    { provide: LOCALE_ID, useValue: 'ru' },
+    UserIntarfaceService
   ],
   bootstrap: [AppComponent]
 })

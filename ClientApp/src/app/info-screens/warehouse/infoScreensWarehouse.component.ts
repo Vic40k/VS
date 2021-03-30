@@ -3,6 +3,7 @@ import { ChangeDetectorRef } from '@angular/core';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Subscription } from 'rxjs';
+import { UserIntarfaceService } from 'src/app/services/userInterface.service';
 import { DataService } from '../../data.service';
 
 //TODO loading overlay ?
@@ -15,6 +16,13 @@ import { DataService } from '../../data.service';
   //changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class InfoScreensWarehouseComponent implements OnInit {
+  constructor(
+    private ref: ChangeDetectorRef, 
+    private dataService: DataService, 
+    private activateRoute: ActivatedRoute,
+    private _ui: UserIntarfaceService
+  ) { }
+
   dataStorage: any[];
   dataShow: any[];
   private routeSubscription: Subscription;
@@ -40,8 +48,6 @@ export class InfoScreensWarehouseComponent implements OnInit {
   isTableVisible = true;
   updateTime: Date = new Date();
 
-  constructor(private ref: ChangeDetectorRef, private dataService: DataService, private activateRoute: ActivatedRoute) { }
-
   ngOnInit() {
     // Define params from URL
     this.routeSubscription = this.activateRoute.params.subscribe(params => this.id = params['id']);
@@ -50,6 +56,8 @@ export class InfoScreensWarehouseComponent implements OnInit {
           this.resultQty = queryParam['resultQty'];
       }
     );
+
+    this._ui.setNavbarVisible(false); // this will set the loader value
 
     this.definePreferences();
     this.loadinfoScreensWarehouse();    // загрузка данных при старте компонента  
@@ -111,7 +119,7 @@ export class InfoScreensWarehouseComponent implements OnInit {
           // Time to scrol to next page
           if (this.timeLeft % this.scrolInterval === 0) {
             if (this.pageCounter < this.pageCount)
-              this.pageCounter ++;
+              this.pageCounter++;
             else
               this.pageCounter = 1;
             console.log('scrol to page #' + this.pageCounter);
