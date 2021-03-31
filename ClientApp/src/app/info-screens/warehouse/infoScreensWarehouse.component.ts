@@ -2,7 +2,7 @@
 import { ChangeDetectorRef } from '@angular/core';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { NEVER, Subscription } from 'rxjs';
+import { Subscription } from 'rxjs';
 import { UserIntarfaceService } from 'src/app/services/userInterface.service';
 import { DataService } from '../../data.service';
 
@@ -165,6 +165,7 @@ export class InfoScreensWarehouseComponent implements OnInit {
               this.pageCounter = this.pageToShowFrom === 0 ? 1 : this.pageToShowFrom;
             //console.log('scrol to page #' + this.pageCounter);
             this.goToPage(this.pageCounter);
+            console.log(this);
           }
         }
       } else {

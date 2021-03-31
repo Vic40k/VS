@@ -1,28 +1,44 @@
 <table class="table align-middle">
+  <thead>
+    <tr>
+      <th scope="col" class="zone_col">Склад</th>
+      <th scope="col" class="screen_col hint_col" colspan="4">Выберите экран для отображения или настройте новый</th>
+      <th scope="col" class="screen_col"></th>
+      <th scope="col" class="screen_col"><button mat-button disabled color="primary"> + Добавить</button></th>
+    </tr>
+  </thead>
+</table>
+
+
+<table class="table align-middle">
     <thead>
       <tr>
-        <th scope="col" class="zone_col">Склад</th>
-        <th scope="col" class="screen_col hint_col" colspan="2">Выберите экран для отображения или настройте новый</th>
-        <th scope="col" class="screen_col"></th>
-        <th scope="col" class="screen_col"><button mat-button disabled color="primary"> + Добавить</button></th>
+        <th scope="col"></th>
+        <th scope="col">Имя</th>
+        <th scope="col">Перемотка</th>
+        <th scope="col">Скорость перемотки</th>
+        <th scope="col">Конкретная страница</th>
+        <th scope="col">Интервал страниц</th>
+        <th scope="col">Интервал обновления данных</th>
       </tr>
     </thead>
     <tbody>
       <tr>
-        <th scope="row">1) 
-          <fa-icon [icon]="faDesktop"></fa-icon>
+        <th scope="row">
+          <fa-icon class="monitor_ctrl_icon" (click)="goToWarehouseScreen(0)" [icon]="faDesktop"></fa-icon>
         </th>
+        <th scope="row">Основной</th>
         <td>
             <div class="monitor_ctrl_icon" (click)="goToWarehouseScreen(0)" [ngStyle]="{ 'background-image': 'url(../assets/img/infoScreens/monitor-2.png)' }">
                 <div>
-                    <div>Промотка: Да</div>
-                    <div>Страницы: Все</div>
-                    <div>Результаты: Все</div>
+                    <div>Да</div>
                 </div>
             </div>
         </td>
-        <td>Ot-to</td>
-        <td>@mdo</td>
+        <td>5 секунд</td>
+        <td>Все</td>
+        <td>5 секунд</td>
+        <td>60 секунд</td>
       </tr>
       <tr class="align-bottom">
         <th scope="row">2</th>
