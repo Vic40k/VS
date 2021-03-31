@@ -165,7 +165,6 @@ export class InfoScreensWarehouseComponent implements OnInit {
               this.pageCounter = this.pageToShowFrom === 0 ? 1 : this.pageToShowFrom;
             //console.log('scrol to page #' + this.pageCounter);
             this.goToPage(this.pageCounter);
-            console.log(this);
           }
         }
       } else {
