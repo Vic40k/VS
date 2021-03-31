@@ -36,7 +36,7 @@ export class InfoScreensWarehouseComponent implements OnInit {
 
   isScrol = true;
   scrolInterval = 5; // seconds, must be less than 60 
-  maxResultsPerPage: number = 20;
+  maxResultsPerPage: number = 15;
   pageCount: number = 1;
   pageCounter: number = 1;
 
