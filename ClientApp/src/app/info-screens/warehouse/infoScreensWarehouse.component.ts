@@ -89,11 +89,11 @@ export class InfoScreensWarehouseComponent implements OnInit {
       { 
         this.dataStorage = data; 
         // Count pages 
-        this.pageCount = Math.round(this.dataStorage.length / this.maxResultsPerPage);
+        this.pageCount = Math.trunc(this.dataStorage.length / this.maxResultsPerPage);
+        if (this.dataStorage.length % this.maxResultsPerPage != 0)
+          this.pageCount++;
         // AutoScrolling
         if (this.isScrol) {
-          if (this.dataStorage.length % this.maxResultsPerPage != 0)
-            this.pageCount++;
           // ignore pageToShow param and go to first page
           this.goToPage(1);
         } else {
@@ -101,8 +101,10 @@ export class InfoScreensWarehouseComponent implements OnInit {
           this.dataShow = Object.assign([], this.dataStorage);
           if (this.pageToShow !== 0 && this.pageToShow <= this.pageCount)
             this.goToPage(this.pageToShow);
+          /*
           else
             this.goToPage(1);
+          */
         }
         // On first load complete
         if (!this.isLoadComplete){
