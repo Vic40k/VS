@@ -1,6 +1,14 @@
 
 
+html, body{
+    height: 100%;
+}
+
+.warehouse_table_container{
+    height: 100%;
+}
 .warehouse_table{
+    height: 10%;
 }
 .warehouse_table_header{
     font-weight: bold;
