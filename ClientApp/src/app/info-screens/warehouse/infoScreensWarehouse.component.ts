@@ -2,7 +2,7 @@
 import { ChangeDetectorRef } from '@angular/core';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { Subscription } from 'rxjs';
+import { NEVER, Subscription } from 'rxjs';
 import { UserIntarfaceService } from 'src/app/services/userInterface.service';
 import { DataService } from '../../data.service';
 
@@ -39,8 +39,9 @@ export class InfoScreensWarehouseComponent implements OnInit {
   maxResultsPerPage: number = 15;
   pageCount: number = 1;
   pageCounter: number = 1;
+  pageToShowFrom: number = 1;
+  pageToShowTo: number = 0;  // 0 or nothing - All
 
-  // TODO from - to ?
   pageToShow: number = 0; // 0 or nothing - All
 
   isTableVisible = true;
@@ -82,6 +83,12 @@ export class InfoScreensWarehouseComponent implements OnInit {
             let pageToShowParam:number = +queryParam['pageToShow']; 
             if (pageToShowParam && typeof pageToShowParam === 'number' && pageToShowParam > 0)
               this.pageToShow = Math.ceil(pageToShowParam);
+            let pageToShowFromParam:number = +queryParam['pageToShowFrom']; 
+            if (pageToShowFromParam && typeof pageToShowFromParam === 'number' && pageToShowFromParam > 0)
+              this.pageToShowFrom = Math.ceil(pageToShowFromParam);
+            let pageToShowToParam:number = +queryParam['pageToShowTo']; 
+            if (pageToShowToParam && typeof pageToShowToParam === 'number' && pageToShowToParam > 0 && pageToShowParam != this.pageToShowFrom)
+              this.pageToShowTo = Math.ceil(pageToShowToParam);
         }
       );
     });
@@ -100,8 +107,11 @@ export class InfoScreensWarehouseComponent implements OnInit {
           this.pageCount++;
         // AutoScrolling
         if (this.isScrol) {
-          // ignore pageToShow param and go to first page
-          this.goToPage(1);
+          // ignore pageToShow param
+          if (this.pageToShowFrom != 0 && this.pageToShowFrom <= this.pageCount)
+            this.goToPage(this.pageToShowFrom);
+          else
+            this.goToPage(1);
         } else {
           // Fill array to show in first time
           this.dataShow = Object.assign([], this.dataStorage);
@@ -151,10 +161,10 @@ export class InfoScreensWarehouseComponent implements OnInit {
         if (this.isScrol) {
           // Time to scrol to next page
           if (this.timeLeft % this.scrolInterval === 0) {
-            if (this.pageCounter < this.pageCount)
+            if (this.pageCounter < this.pageCount && this.pageToShowTo === 0 ? true : this.pageCounter < this.pageToShowTo)
               this.pageCounter++;
             else
-              this.pageCounter = 1;
+              this.pageCounter = this.pageToShowFrom === 0 ? 1 : this.pageToShowFrom;
             console.log('scrol to page #' + this.pageCounter);
             this.goToPage(this.pageCounter);
           }
