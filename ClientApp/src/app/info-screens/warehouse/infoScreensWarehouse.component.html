@@ -25,7 +25,16 @@
             <td width="10%">{{o?.status}}</td>
             <td width="10%">{{o?.warehouseDate | date:'d LLLL':'ru-RU'}}</td>
             <td width="20%">{{o?.comment}}</td>
-            <td width="15%">{{o?.readyForShipmentPercent | number:'1.0-0'}}%</td>
+            <td width="15%">
+              <div class="order_percent_block">
+                <div class="order_progress">
+                  <div class="order_bar" [style.width]="o?.readyForShipmentPercent > 100 ? '100%' : o?.readyForShipmentPercent +'%'"></div>
+                </div>
+                <div class="order_percent_numbers">
+                  {{o?.readyForShipmentPercent | number:'1.0-0'}}%
+                </div>
+              </div>
+            </td>
             <!--
             <td>
                 <button class="btn btn-sm btn-primary" (click)="editfactoryComponent(p)">Изменить</button>

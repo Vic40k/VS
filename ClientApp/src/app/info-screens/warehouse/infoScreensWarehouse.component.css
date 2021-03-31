@@ -1,9 +1,5 @@
 
 
-html, body{
-    height: 100%;
-}
-
 .warehouse_table_container{
     height: 100%;
 }
@@ -32,4 +28,24 @@ html, body{
 }
 .tr_shipped{
     background-color: lightblue;
+}
+
+.order_percent_block {
+    display: flex;
+}
+
+.order_progress {
+    width: 100%;
+    background-color: lightgray;
+}
+  
+.order_bar {
+    width: 0%;
+    height: 30px;
+    background-color: green;
+}
+
+.order_percent_numbers {
+    width: 70px;
+    text-align: right;
 }
