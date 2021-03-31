@@ -27,6 +27,7 @@ import localeRu from '@angular/common/locales/ru';
 import { registerLocaleData } from '@angular/common';
 
 import '@angular/common/locales/global/ru';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 registerLocaleData(localeRu);
 
@@ -67,7 +68,8 @@ registerLocaleData(localeRu);
     MDBBootstrapModule.forRoot(),
     BrowserAnimationsModule,
     MatProgressBarModule,
-    MatButtonModule
+    MatButtonModule,
+    FontAwesomeModule
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: AuthorizeInterceptor, multi: true },
