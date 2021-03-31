@@ -124,8 +124,6 @@ export class InfoScreensWarehouseComponent implements OnInit {
         }
         // On first load complete
         if (!this.isLoadComplete){
-          // Disable loading anim
-          this._ui.stopProgressBarLoading();
           // Go timer! 
           if (this.isScrol)
             this.startTimer();
