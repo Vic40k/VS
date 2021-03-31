@@ -1,34 +1,41 @@
-<table class="table warehouse_table" *ngIf = "isTableVisible"> 
-  <thead class="warehouse_table_header">
+<div class="warehouse_table_container">
+  <table class="table warehouse_table" *ngIf = "isTableVisible"> 
+    <thead class="warehouse_table_header">
+        <tr>
+            <td>Заказ</td>
+            <td>Заказчик</td>
+            <td>План</td>
+            <td>Статус</td>
+            <td>Склад</td>
+            <td>Комментарий</td>
+            <td>Сделано&nbsp;всего</td>
+        </tr>
+    </thead>
+    <tfoot>
       <tr>
-          <td>Заказ</td>
-          <td>Заказчик</td>
-          <td>План</td>
-          <td>Статус</td>
-          <td>Склад</td>
-          <td>Комментарий</td>
-          <td>Сделано&nbsp;всего</td>
+        <td colspan="2"><b>Последнее обновление:</b> {{getLastUpdateTime()}} </td>
       </tr>
-  </thead>
-  <tbody>
-      <tr *ngFor="let o of dataShow"
-      [ngClass]="{tr_onTime: o?.isOnTime, tr_shipped: o?.isShipped, tr_delayRisk: o?.isDelayRisk, tr_delayed: (o?.isDelayed && !o?.isDelay), tr_delay: (o?.isDelayed && o?.isDelay)}">
-          <td width="5%" class="td_order">{{o?.order}}</td>
-          <td width="30%">{{o?.client}}</td>
-          <td width="10%">{{o?.orderDate | date:'d LLLL':'ru-RU'}}</td>
-          <td width="10%">{{o?.status}}</td>
-          <td width="10%">{{o?.warehouseDate | date:'d LLLL':'ru-RU'}}</td>
-          <td width="20%">{{o?.comment}}</td>
-          <td width=15%>{{o?.readyForShipmentPercent | number:'1.0-0'}}%</td>
-          <!--
-          <td>
-              <button class="btn btn-sm btn-primary" (click)="editfactoryComponent(p)">Изменить</button>
-              <button class="btn btn-sm btn-danger" (click)="delete(p)">Удалить</button>
-          </td >
-          -->
-      </tr >
-  </tbody >
-</table >
+    </tfoot>
+    <tbody>
+        <tr *ngFor="let o of dataShow"
+        [ngClass]="{tr_onTime: o?.isOnTime, tr_shipped: o?.isShipped, tr_delayRisk: o?.isDelayRisk, tr_delayed: (o?.isDelayed && !o?.isDelay), tr_delay: (o?.isDelayed && o?.isDelay)}">
+            <td width="5%" class="td_order">{{o?.order}}</td>
+            <td width="30%">{{o?.client}}</td>
+            <td width="10%">{{o?.orderDate | date:'d LLLL':'ru-RU'}}</td>
+            <td width="10%">{{o?.status}}</td>
+            <td width="10%">{{o?.warehouseDate | date:'d LLLL':'ru-RU'}}</td>
+            <td width="20%">{{o?.comment}}</td>
+            <td width="15%">{{o?.readyForShipmentPercent | number:'1.0-0'}}%</td>
+            <!--
+            <td>
+                <button class="btn btn-sm btn-primary" (click)="editfactoryComponent(p)">Изменить</button>
+                <button class="btn btn-sm btn-danger" (click)="delete(p)">Удалить</button>
+            </td >
+            -->
+        </tr >
+    </tbody >
+  </table >
+</div>
 
 <!--шаблон для редактирования
 <ng-template #edit>
