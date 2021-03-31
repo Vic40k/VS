@@ -73,6 +73,9 @@ export class InfoScreensWarehouseComponent implements OnInit {
               if (isScrollparam.toLowerCase() === 'false')
                 this.isScrol = false;
             }
+            let scrolIntervalParam:number = +queryParam['scrolInterval']; 
+            if (scrolIntervalParam && typeof scrolIntervalParam === 'number' && scrolIntervalParam > 1 && scrolIntervalParam < 60)
+              this.scrolInterval = Math.trunc(scrolIntervalParam);
             let pageToShowParam:number = +queryParam['pageToShow']; 
             if (pageToShowParam && typeof pageToShowParam === 'number' && pageToShowParam > 0)
               this.pageToShow = Math.ceil(pageToShowParam);
