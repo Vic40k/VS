@@ -75,7 +75,10 @@ export class InfoScreensWarehouseComponent implements OnInit {
             }
             let scrolIntervalParam:number = +queryParam['scrolInterval']; 
             if (scrolIntervalParam && typeof scrolIntervalParam === 'number' && scrolIntervalParam > 1 && scrolIntervalParam < 60)
-              this.scrolInterval = Math.trunc(scrolIntervalParam);
+              this.scrolInterval = Math.trunc(scrolIntervalParam);              
+            let updatePeriodParam:number = +queryParam['updatePeriod']; 
+            if (updatePeriodParam && typeof updatePeriodParam === 'number' && updatePeriodParam >= 60 && updatePeriodParam < 43200) // from minute to 12 hours
+              this.updatePeriod = Math.trunc(updatePeriodParam);              
             let pageToShowParam:number = +queryParam['pageToShow']; 
             if (pageToShowParam && typeof pageToShowParam === 'number' && pageToShowParam > 0)
               this.pageToShow = Math.ceil(pageToShowParam);
