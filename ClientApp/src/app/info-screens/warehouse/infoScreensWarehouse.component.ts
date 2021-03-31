@@ -132,8 +132,8 @@ export class InfoScreensWarehouseComponent implements OnInit {
         // Toggle update window
         this.ref.detectChanges(); 
 
-        console.log(this.pageCount + ' pages in total');
-        console.log(this.dataStorage);
+        //console.log(this.pageCount + ' pages in total');
+        //console.log(this.dataStorage);
       });
   }
 
@@ -148,7 +148,7 @@ export class InfoScreensWarehouseComponent implements OnInit {
         return item;
       }
     });
-    console.log(this.dataShow);
+    //console.log(this.dataShow);
   }
 
   // - Update info by timer
@@ -163,7 +163,7 @@ export class InfoScreensWarehouseComponent implements OnInit {
               this.pageCounter++;
             else
               this.pageCounter = this.pageToShowFrom === 0 ? 1 : this.pageToShowFrom;
-            console.log('scrol to page #' + this.pageCounter);
+            //console.log('scrol to page #' + this.pageCounter);
             this.goToPage(this.pageCounter);
           }
         }
