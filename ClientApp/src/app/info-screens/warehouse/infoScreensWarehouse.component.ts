@@ -157,13 +157,32 @@ export class InfoScreensWarehouseComponent implements OnInit {
         this.timeLeft = this.updatePeriod;
         this.loadinfoScreensWarehouse();
         this.updateTime = new Date();
-        console.log(this.updateTime);
       }
     },1000)
   }
 
   pauseTimer() {
     clearInterval(this.interval);
+  }
+
+  getLastUpdateTime() {
+    let result: string;
+    let now: Date = new Date();
+    if (this.isLoadComplete) {
+      let hours:number = this.updateTime.getHours();
+      let hoursString:string = hours.toString();
+      let minutes:number = this.updateTime.getMinutes();
+      let minutesString:string = minutes.toString();
+      if (minutes < 10)
+        minutesString = '0' + minutesString;
+      if ( (this.updateTime.getDay.toString() + this.updateTime.getMonth.toString() + this.updateTime.getFullYear.toString()) === (now.getDay.toString() + now.getMonth.toString() + now.getFullYear.toString()))
+        result = 'сегодня в ' + hoursString + ':' + minutesString;
+      else
+        result = this.updateTime.toLocaleString('ru-RU');
+    } else {
+      result = "в процессе..."
+    }
+    return result;
   }
 
   /*
