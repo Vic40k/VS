@@ -30,4 +30,10 @@ namespace VS_CRM.Models
         public bool IsDelayRisk { get; set; }
         public bool IsShipped { get; set; }
     }
+
+	public class InformationScreensWarehouseNotification
+    {
+		public bool IsNeedForceUpdateWindow { get; set; }
+		public bool IsNeedForceUpdateData { get; set; }
+    }
 }

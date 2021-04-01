@@ -9,6 +9,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using NET5SignalR.Models;
 using VS_CRM.Data;
 using VS_CRM.Models;
 using VS_CRM.Models.DATA_DB_Model;
@@ -60,6 +61,7 @@ namespace VS_CRM
             services.AddControllersWithViews();
             services.AddRazorPages();
             services.AddDatabaseDeveloperPageExceptionFilter();
+            services.AddSignalR();
 
             // In production, the Angular files will be served from this directory
             services.AddSpaStaticFiles(configuration =>
@@ -101,6 +103,7 @@ namespace VS_CRM
                     name: "default",
                     pattern: "{controller}/{action=Index}/{id?}");
                 endpoints.MapRazorPages();
+                endpoints.MapHub<BroadcastHub>("/notify");
             });
 
             app.UseSpa(spa =>

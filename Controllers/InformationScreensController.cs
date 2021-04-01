@@ -10,10 +10,12 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.Data.SqlClient;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Web.Administration;
+using Microsoft.AspNetCore.SignalR;
 using VS_CRM.Data;
 using VS_CRM.Model;
 using VS_CRM.Models;
 using VS_CRM.Models.DATA_DB_Model;
+using NET5SignalR.Models;
 
 namespace VS_CRM.Controllers
 {
@@ -21,10 +23,12 @@ namespace VS_CRM.Controllers
     [Route("api/info-screens/{action}")]
     public class InformationScreensController : Controller
     {
-        DATAContext dbDATA;
-        public InformationScreensController(DATAContext context)
+        private readonly DATAContext dbDATA;
+        private readonly IHubContext<BroadcastHub, IHubClient> _hubContext;
+        public InformationScreensController(DATAContext context, IHubContext<BroadcastHub, IHubClient> hubContext)
         {
             dbDATA = context;
+            _hubContext = hubContext;
         }
 
         [HttpGet]
@@ -162,6 +166,17 @@ namespace VS_CRM.Controllers
             }
 
             return procedureList;
+        }
+
+        [HttpGet]
+        public async Task<bool> ForceUpdateAllWarehouseScreens()
+        {
+            InformationScreensWarehouseNotification notification = new InformationScreensWarehouseNotification()
+            {
+                IsNeedForceUpdateWindow = true
+            };
+            await _hubContext.Clients.All.BroadcastMessage();
+            return true;
         }
     }
 }
