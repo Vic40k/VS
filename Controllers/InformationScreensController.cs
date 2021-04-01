@@ -24,8 +24,8 @@ namespace VS_CRM.Controllers
     public class InformationScreensController : Controller
     {
         private readonly DATAContext dbDATA;
-        private readonly IHubContext<BroadcastHub, IHubClient> _hubContext;
-        public InformationScreensController(DATAContext context, IHubContext<BroadcastHub, IHubClient> hubContext)
+        private readonly IHubContext<BroadcastHub> _hubContext;
+        public InformationScreensController(DATAContext context, IHubContext<BroadcastHub> hubContext)
         {
             dbDATA = context;
             _hubContext = hubContext;
@@ -169,14 +169,42 @@ namespace VS_CRM.Controllers
         }
 
         [HttpGet]
-        public async Task<bool> ForceUpdateAllWarehouseScreens()
+        public async Task<IActionResult> ForceUpdateAllWarehouseScreens()
         {
             InformationScreensWarehouseNotification notification = new InformationScreensWarehouseNotification()
             {
                 IsNeedForceUpdateWindow = true
             };
-            await _hubContext.Clients.All.BroadcastMessage();
-            return true;
+            //await _hubContext.Clients.All.BroadcastMessage();
+            //return NoContent();
+
+            var timerManager = new TimerManager(() => _hubContext.Clients.All.SendAsync("transferchartdata", DataManager.GetData()));
+            return Ok(new { Message = "Request Completed" });
+        }
+
+        public class ChartModel
+        {
+            public List<int> Data { get; set; }
+            public string Label { get; set; }
+
+            public ChartModel()
+            {
+                Data = new List<int>();
+            }
+        }
+        public static class DataManager
+        {
+            public static List<ChartModel> GetData()
+            {
+                var r = new Random();
+                return new List<ChartModel>()
+        {
+           new ChartModel { Data = new List<int> { r.Next(1, 40) }, Label = "Data1" },
+           new ChartModel { Data = new List<int> { r.Next(1, 40) }, Label = "Data2" },
+           new ChartModel { Data = new List<int> { r.Next(1, 40) }, Label = "Data3" },
+           new ChartModel { Data = new List<int> { r.Next(1, 40) }, Label = "Data4" }
+        };
+            }
         }
     }
 }
