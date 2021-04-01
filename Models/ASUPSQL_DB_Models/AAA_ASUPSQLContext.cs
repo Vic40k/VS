@@ -661,13 +661,13 @@ namespace VS_CRM.Models
                 entity.HasComment("Таблица служит для хранения начислений заработной платы по сотрудникам");
 
                 entity.HasIndex(e => e.Tab)
-                    .HasName("Accounts_IX3");
+                    .HasDatabaseName("Accounts_IX3");
 
                 entity.HasIndex(e => new { e.IdIzgot, e.Period })
-                    .HasName("Accounts_IX1");
+                    .HasDatabaseName("Accounts_IX1");
 
                 entity.HasIndex(e => new { e.Account, e.OrgId, e.Days, e.Hours, e.Value, e.IdIzgot, e.KodIzgot, e.Period, e.Tab })
-                    .HasName("Accounts_IX2");
+                    .HasDatabaseName("Accounts_IX2");
 
                 entity.Property(e => e.Account).HasComment("Вид начисления из таблицы AccountTypes");
 
@@ -737,7 +737,7 @@ namespace VS_CRM.Models
                 entity.ToTable("AND.FACT");
 
                 entity.HasIndex(e => e.Idrec)
-                    .HasName("UQ__AND.FACT__A68686DC63D999CC")
+                    .HasDatabaseName("UQ__AND.FACT__A68686DC63D999CC")
                     .IsUnique();
 
                 entity.Property(e => e.Shift).HasColumnName("SHIFT");
@@ -767,7 +767,7 @@ namespace VS_CRM.Models
                 entity.ToTable("AND.PLANING");
 
                 entity.HasIndex(e => e.Idrec)
-                    .HasName("UQ__AND.PLAN__A68686DC7D996BCF")
+                    .HasDatabaseName("UQ__AND.PLAN__A68686DC7D996BCF")
                     .IsUnique();
 
                 entity.Property(e => e.Idizgot).HasColumnName("IDIZGOT");
@@ -794,7 +794,7 @@ namespace VS_CRM.Models
                 entity.ToTable("Applications", "service");
 
                 entity.HasIndex(e => e.Name)
-                    .HasName("UQ__Applicat__737584F6C425C4F2")
+                    .HasDatabaseName("UQ__Applicat__737584F6C425C4F2")
                     .IsUnique();
 
                 entity.Property(e => e.Id)
@@ -844,19 +844,19 @@ namespace VS_CRM.Models
                 entity.ToTable("ART.ART_1C_To_Delete");
 
                 entity.HasIndex(e => e.Art1c)
-                    .HasName("ART_1C_IX1");
+                    .HasDatabaseName("ART_1C_IX1");
 
                 entity.HasIndex(e => e.ArtNew)
-                    .HasName("ART_1C_IX2");
+                    .HasDatabaseName("ART_1C_IX2");
 
                 entity.HasIndex(e => e.ArtTo)
-                    .HasName("ART_1C_IX3");
+                    .HasDatabaseName("ART_1C_IX3");
 
                 entity.HasIndex(e => new { e.Articul, e.Art1c })
-                    .HasName("ART_1C_IX5");
+                    .HasDatabaseName("ART_1C_IX5");
 
                 entity.HasIndex(e => new { e.Articul, e.ArtNew })
-                    .HasName("ART_1C_IX4");
+                    .HasDatabaseName("ART_1C_IX4");
 
                 entity.Property(e => e.Idrec).HasColumnName("IDREC");
 
@@ -919,22 +919,22 @@ namespace VS_CRM.Models
                 entity.ToTable("ART.ARTIC_D");
 
                 entity.HasIndex(e => e.Articulext1)
-                    .HasName("ARTIC_D_IX3");
+                    .HasDatabaseName("ARTIC_D_IX3");
 
                 entity.HasIndex(e => e.IdArticul)
-                    .HasName("ID_ARTICUL");
+                    .HasDatabaseName("ID_ARTICUL");
 
                 entity.HasIndex(e => new { e.Det, e.Articul, e.DopCod })
-                    .HasName("ARTIC_D_IX2");
+                    .HasDatabaseName("ARTIC_D_IX2");
 
                 entity.HasIndex(e => new { e.Articul, e.DopCod, e.Nam, e.Idizgot, e.Delrecord, e.Det })
-                    .HasName("IDIZGOT_DELRECORD_DET");
+                    .HasDatabaseName("IDIZGOT_DELRECORD_DET");
 
                 entity.HasIndex(e => new { e.Articulext1, e.Idizgot, e.Nam, e.Articul, e.DopCod, e.Delrecord })
-                    .HasName("ARTIC_D_IX1");
+                    .HasDatabaseName("ARTIC_D_IX1");
 
                 entity.HasIndex(e => new { e.Datsavesql, e.Def, e.Det, e.ArticulExt, e.Articulext1, e.EanCode, e.Ros, e.NamB, e.NamK, e.DopCod, e.Idizgot, e.NamKk, e.Rostyp, e.Idrec, e.Price, e.Price1, e.Price2, e.KrNam, e.Prim, e.Delrecord, e.Articul, e.Nam })
-                    .HasName("IND_AUTO_BY_EXECUTE_PLAN_ARTIC_D");
+                    .HasDatabaseName("IND_AUTO_BY_EXECUTE_PLAN_ARTIC_D");
 
                 entity.Property(e => e.Idrec).HasColumnName("IDREC");
 
@@ -1146,7 +1146,7 @@ namespace VS_CRM.Models
                 entity.ToTable("ART.ARTIC_MODEL");
 
                 entity.HasIndex(e => new { e.Articul, e.DopCod })
-                    .HasName("IX_ART.ARTIC_MODEL_Column")
+                    .HasDatabaseName("IX_ART.ARTIC_MODEL_Column")
                     .IsUnique();
 
                 entity.Property(e => e.Articul)
@@ -1171,7 +1171,7 @@ namespace VS_CRM.Models
                 entity.ToTable("ART.ARTIC_NM1");
 
                 entity.HasIndex(e => new { e.Articul, e.DopCod })
-                    .HasName("ARTIC_NM1_IX1");
+                    .HasDatabaseName("ARTIC_NM1_IX1");
 
                 entity.Property(e => e.Idrec).HasColumnName("IDREC");
 
@@ -1214,7 +1214,7 @@ namespace VS_CRM.Models
                 entity.ToTable("ART.ARTIC_NM3");
 
                 entity.HasIndex(e => new { e.Articul, e.DopCod })
-                    .HasName("ARTIC_NM3_IX1");
+                    .HasDatabaseName("ARTIC_NM3_IX1");
 
                 entity.Property(e => e.Idrec).HasColumnName("IDREC");
 
@@ -1250,13 +1250,13 @@ namespace VS_CRM.Models
                 entity.ToTable("ART.ARTIC_PR");
 
                 entity.HasIndex(e => new { e.Articul, e.DopCod })
-                    .HasName("ARTIC_PR_IX2");
+                    .HasDatabaseName("ARTIC_PR_IX2");
 
                 entity.HasIndex(e => new { e.Price, e.Idizgot, e.Articul, e.DopCod, e.Delrecord })
-                    .HasName("ARTICUL_PRICE_BY_IZGOT");
+                    .HasDatabaseName("ARTICUL_PRICE_BY_IZGOT");
 
                 entity.HasIndex(e => new { e.Articul, e.DopCod, e.Price, e.Price1, e.Price2, e.PriceM })
-                    .HasName("ARTIC_PR_IX1");
+                    .HasDatabaseName("ARTIC_PR_IX1");
 
                 entity.Property(e => e.Idrec).HasColumnName("IDREC");
 
@@ -1319,7 +1319,7 @@ namespace VS_CRM.Models
                 entity.ToTable("ART.ARTIC_PR_ARCHIVE");
 
                 entity.HasIndex(e => e.Id)
-                    .HasName("ART.ARTIC_PR_ARCHIVE_uq")
+                    .HasDatabaseName("ART.ARTIC_PR_ARCHIVE_uq")
                     .IsUnique();
 
                 entity.Property(e => e.Id).HasColumnName("ID");
@@ -1355,11 +1355,11 @@ namespace VS_CRM.Models
                 entity.ToTable("ART.ARTIC_PR_HISTORY");
 
                 entity.HasIndex(e => e.Idrec)
-                    .HasName("ART.ARTIC_PR_HISTORY_UQ")
+                    .HasDatabaseName("ART.ARTIC_PR_HISTORY_UQ")
                     .IsUnique();
 
                 entity.HasIndex(e => new { e.Articul, e.DopCod, e.Price, e.Idrec, e.Articulext, e.Idizgot, e.Year, e.Month })
-                    .HasName("IDIZGOT_YEAR_MONTH");
+                    .HasDatabaseName("IDIZGOT_YEAR_MONTH");
 
                 entity.Property(e => e.Idizgot).HasColumnName("IDIZGOT");
 
@@ -1410,7 +1410,7 @@ namespace VS_CRM.Models
                 entity.ToTable("ART.ARTIC_PR_LOG");
 
                 entity.HasIndex(e => e.Id)
-                    .HasName("ART.ARTIC_PR_LOG_uq")
+                    .HasDatabaseName("ART.ARTIC_PR_LOG_uq")
                     .IsUnique();
 
                 entity.Property(e => e.Id).HasColumnName("ID");
@@ -1442,13 +1442,13 @@ namespace VS_CRM.Models
                 entity.ToTable("ART.ARTIC_PR_nov2015");
 
                 entity.HasIndex(e => new { e.Articul, e.DopCod })
-                    .HasName("ARTIC_PR_IX2");
+                    .HasDatabaseName("ARTIC_PR_IX2");
 
                 entity.HasIndex(e => new { e.Price, e.Idizgot, e.Articul, e.DopCod, e.Delrecord })
-                    .HasName("ARTICUL_PRICE_BY_IZGOT");
+                    .HasDatabaseName("ARTICUL_PRICE_BY_IZGOT");
 
                 entity.HasIndex(e => new { e.Articul, e.DopCod, e.Price, e.Price1, e.Price2, e.PriceM })
-                    .HasName("ARTIC_PR_IX1");
+                    .HasDatabaseName("ARTIC_PR_IX1");
 
                 entity.Property(e => e.Idrec).HasColumnName("IDREC");
 
@@ -1577,10 +1577,10 @@ namespace VS_CRM.Models
                 entity.ToTable("ART.ARTIC_SH1");
 
                 entity.HasIndex(e => e.Articul)
-                    .HasName("ARTIC_SH1_IX1");
+                    .HasDatabaseName("ARTIC_SH1_IX1");
 
                 entity.HasIndex(e => new { e.FrmType, e.Articul })
-                    .HasName("ARTIC_SH1_IX2");
+                    .HasDatabaseName("ARTIC_SH1_IX2");
 
                 entity.Property(e => e.Idrec).HasColumnName("IDREC");
 
@@ -1613,7 +1613,7 @@ namespace VS_CRM.Models
                 entity.ToTable("ART.ARTICUL");
 
                 entity.HasIndex(e => e.Articul)
-                    .HasName("ART.ARTICUL_IX1");
+                    .HasDatabaseName("ART.ARTICUL_IX1");
 
                 entity.Property(e => e.Idrec).HasColumnName("IDREC");
 
@@ -1988,16 +1988,16 @@ namespace VS_CRM.Models
                 entity.ToTable("ART.DET_LAB_ART");
 
                 entity.HasIndex(e => e.Datsavesql)
-                    .HasName("DET_LAB_ART_IX2");
+                    .HasDatabaseName("DET_LAB_ART_IX2");
 
                 entity.HasIndex(e => e.Idizgot)
-                    .HasName("DET_LAB_ART_IX3");
+                    .HasDatabaseName("DET_LAB_ART_IX3");
 
                 entity.HasIndex(e => e.Idrec)
-                    .HasName("DET_LAB_ART_IX4");
+                    .HasDatabaseName("DET_LAB_ART_IX4");
 
                 entity.HasIndex(e => new { e.Articul, e.DopCod })
-                    .HasName("DET_LAB_ART_IX1");
+                    .HasDatabaseName("DET_LAB_ART_IX1");
 
                 entity.Property(e => e.Articul)
                     .HasColumnName("ARTICUL")
@@ -2099,7 +2099,7 @@ namespace VS_CRM.Models
                 entity.ToTable("ART.DET_LABE");
 
                 entity.HasIndex(e => e.Det)
-                    .HasName("DET_LABE_IX1");
+                    .HasDatabaseName("DET_LABE_IX1");
 
                 entity.Property(e => e.Idrec).HasColumnName("IDREC");
 
@@ -2184,10 +2184,10 @@ namespace VS_CRM.Models
                 entity.ToTable("ART.DET_LABR");
 
                 entity.HasIndex(e => e.Det)
-                    .HasName("DET_LABR_IX1");
+                    .HasDatabaseName("DET_LABR_IX1");
 
                 entity.HasIndex(e => new { e.Det, e.Idizgot })
-                    .HasName("IX_ART.DET_LABR")
+                    .HasDatabaseName("IX_ART.DET_LABR")
                     .IsUnique();
 
                 entity.Property(e => e.Idrec).HasColumnName("IDREC");
@@ -2282,13 +2282,13 @@ namespace VS_CRM.Models
                 entity.HasComment("Сколько ЗП приходится на каждый выпущенный артикул (в разрезе участков)");
 
                 entity.HasIndex(e => new { e.IdIzgot, e.KodIzgot })
-                    .HasName("ART.KODIZGOT1_ОтборПоПлощадке");
+                    .HasDatabaseName("ART.KODIZGOT1_ОтборПоПлощадке");
 
                 entity.HasIndex(e => new { e.IdIzgot, e.Articul, e.DopCod })
-                    .HasName("ARTICUL_DOP_COD_IDIZGOT");
+                    .HasDatabaseName("ARTICUL_DOP_COD_IDIZGOT");
 
                 entity.HasIndex(e => new { e.IdIzgot, e.KodIzgot, e.Articul, e.DopCod, e.Operation })
-                    .HasName("ART.KODIZGOT_UI")
+                    .HasDatabaseName("ART.KODIZGOT_UI")
                     .IsUnique();
 
                 entity.Property(e => e.Articul)
@@ -2489,10 +2489,10 @@ namespace VS_CRM.Models
                 entity.ToTable("ART.PR_TYPE");
 
                 entity.HasIndex(e => e.Litera)
-                    .HasName("PR_TYPE_IX1");
+                    .HasDatabaseName("PR_TYPE_IX1");
 
                 entity.HasIndex(e => e.PrType)
-                    .HasName("PR_TYPE_IX2");
+                    .HasDatabaseName("PR_TYPE_IX2");
 
                 entity.Property(e => e.Idrec).HasColumnName("IDREC");
 
@@ -2520,10 +2520,10 @@ namespace VS_CRM.Models
                 entity.HasNoKey();
 
                 entity.HasIndex(e => e.GoodId)
-                    .HasName("ArticulComplectation_IX_GoodID");
+                    .HasDatabaseName("ArticulComplectation_IX_GoodID");
 
                 entity.HasIndex(e => new { e.GoodId, e.Detail })
-                    .HasName("ArticulComplectation_IX_Det")
+                    .HasDatabaseName("ArticulComplectation_IX_Det")
                     .IsUnique();
 
                 entity.Property(e => e.CustomName)
@@ -2565,7 +2565,7 @@ namespace VS_CRM.Models
                 entity.HasComment("Операции и расценки для каждой модели артикула");
 
                 entity.HasIndex(e => e.KodIzgot)
-                    .HasName("ArticulModelCost_idx1");
+                    .HasDatabaseName("ArticulModelCost_idx1");
 
                 entity.Property(e => e.IdIzgot)
                     .HasDefaultValueSql("((44))")
@@ -2624,7 +2624,7 @@ namespace VS_CRM.Models
                 entity.HasComment("Операции и расценки для каждой модели артикула");
 
                 entity.HasIndex(e => e.KodIzgot)
-                    .HasName("ArticulModelCost_idx1");
+                    .HasDatabaseName("ArticulModelCost_idx1");
 
                 entity.Property(e => e.IdIzgot)
                     .HasDefaultValueSql("((44))")
@@ -2697,11 +2697,11 @@ namespace VS_CRM.Models
                 entity.ToTable("aspnet_Applications");
 
                 entity.HasIndex(e => e.ApplicationName)
-                    .HasName("UQ__aspnet_A__309103312B155265")
+                    .HasDatabaseName("UQ__aspnet_A__309103312B155265")
                     .IsUnique();
 
                 entity.HasIndex(e => e.LoweredApplicationName)
-                    .HasName("aspnet_Applications_Index")
+                    .HasDatabaseName("aspnet_Applications_Index")
                     .IsClustered();
 
                 entity.Property(e => e.ApplicationId).HasDefaultValueSql("(newid())");
@@ -2726,7 +2726,7 @@ namespace VS_CRM.Models
                 entity.ToTable("aspnet_Membership");
 
                 entity.HasIndex(e => new { e.ApplicationId, e.LoweredEmail })
-                    .HasName("aspnet_Membership_index")
+                    .HasDatabaseName("aspnet_Membership_index")
                     .IsClustered();
 
                 entity.Property(e => e.UserId).ValueGeneratedNever();
@@ -2787,7 +2787,7 @@ namespace VS_CRM.Models
                 entity.ToTable("aspnet_Paths");
 
                 entity.HasIndex(e => new { e.ApplicationId, e.LoweredPath })
-                    .HasName("aspnet_Paths_index")
+                    .HasDatabaseName("aspnet_Paths_index")
                     .IsUnique()
                     .IsClustered();
 
@@ -2839,12 +2839,12 @@ namespace VS_CRM.Models
                 entity.ToTable("aspnet_PersonalizationPerUser");
 
                 entity.HasIndex(e => new { e.PathId, e.UserId })
-                    .HasName("aspnet_PersonalizationPerUser_index1")
+                    .HasDatabaseName("aspnet_PersonalizationPerUser_index1")
                     .IsUnique()
                     .IsClustered();
 
                 entity.HasIndex(e => new { e.UserId, e.PathId })
-                    .HasName("aspnet_PersonalizationPerUser_ncindex2")
+                    .HasDatabaseName("aspnet_PersonalizationPerUser_ncindex2")
                     .IsUnique();
 
                 entity.Property(e => e.Id).HasDefaultValueSql("(newid())");
@@ -2905,7 +2905,7 @@ namespace VS_CRM.Models
                 entity.ToTable("aspnet_Roles");
 
                 entity.HasIndex(e => new { e.ApplicationId, e.LoweredRoleName })
-                    .HasName("aspnet_Roles_index1")
+                    .HasDatabaseName("aspnet_Roles_index1")
                     .IsUnique()
                     .IsClustered();
 
@@ -2949,10 +2949,10 @@ namespace VS_CRM.Models
                 entity.ToTable("aspnet_Users");
 
                 entity.HasIndex(e => new { e.ApplicationId, e.LastActivityDate })
-                    .HasName("aspnet_Users_Index2");
+                    .HasDatabaseName("aspnet_Users_Index2");
 
                 entity.HasIndex(e => new { e.ApplicationId, e.LoweredUserName })
-                    .HasName("aspnet_Users_Index")
+                    .HasDatabaseName("aspnet_Users_Index")
                     .IsUnique()
                     .IsClustered();
 
@@ -2985,7 +2985,7 @@ namespace VS_CRM.Models
                 entity.ToTable("aspnet_UsersInRoles");
 
                 entity.HasIndex(e => e.RoleId)
-                    .HasName("aspnet_UsersInRoles_index");
+                    .HasDatabaseName("aspnet_UsersInRoles_index");
 
                 entity.HasOne(d => d.Role)
                     .WithMany(p => p.AspnetUsersInRoles)
@@ -3079,7 +3079,7 @@ namespace VS_CRM.Models
                 entity.ToTable("Att.HCh");
 
                 entity.HasIndex(e => new { e.IdAtt, e.HidCh })
-                    .HasName("IX_Att.HCh")
+                    .HasDatabaseName("IX_Att.HCh")
                     .IsUnique();
 
                 entity.Property(e => e.HidCh).HasColumnName("HID_CH");
@@ -3214,7 +3214,7 @@ namespace VS_CRM.Models
                 entity.ToTable("BSC.Target");
 
                 entity.HasIndex(e => e.IdWork)
-                    .HasName("IX_BSC.Target_Column");
+                    .HasDatabaseName("IX_BSC.Target_Column");
 
                 entity.Property(e => e.NamTarget).IsRequired();
 
@@ -3236,7 +3236,7 @@ namespace VS_CRM.Models
                 entity.ToTable("BSC.Value");
 
                 entity.HasIndex(e => new { e.IdTarget, e.Month, e.Year })
-                    .HasName("IX_BSC.Value_Column");
+                    .HasDatabaseName("IX_BSC.Value_Column");
 
                 entity.Property(e => e.UserInput).HasColumnName("User_Input");
 
@@ -3384,19 +3384,19 @@ namespace VS_CRM.Models
                 entity.ToTable("CAT.CAT_GR");
 
                 entity.HasIndex(e => e.Cat)
-                    .HasName("CAT_GR_IX1");
+                    .HasDatabaseName("CAT_GR_IX1");
 
                 entity.HasIndex(e => e.CatGr)
-                    .HasName("CAT_GR");
+                    .HasDatabaseName("CAT_GR");
 
                 entity.HasIndex(e => new { e.Idrec, e.Nam, e.Delrecord })
-                    .HasName("DELRECORD");
+                    .HasDatabaseName("DELRECORD");
 
                 entity.HasIndex(e => new { e.Contr, e.Idizgot, e.Delrecord, e.AsVyvod })
-                    .HasName("CompoundOne");
+                    .HasDatabaseName("CompoundOne");
 
                 entity.HasIndex(e => new { e.CatGr, e.Idizgot, e.Nam, e.AsVyvod, e.Delrecord })
-                    .HasName("CAT_GR_IX2");
+                    .HasDatabaseName("CAT_GR_IX2");
 
                 entity.Property(e => e.Idrec).HasColumnName("IDREC");
 
@@ -3450,7 +3450,7 @@ namespace VS_CRM.Models
                 entity.ToTable("Cat.CatMashPrice");
 
                 entity.HasIndex(e => e.IdMash)
-                    .HasName("IX_Cat.CatMashPrice");
+                    .HasDatabaseName("IX_Cat.CatMashPrice");
 
                 entity.Property(e => e.IdPrice).ValueGeneratedNever();
 
@@ -3479,13 +3479,13 @@ namespace VS_CRM.Models
                 entity.ToTable("Cat.catgr");
 
                 entity.HasIndex(e => e.Articul)
-                    .HasName("IX_Cat.catgr_2");
+                    .HasDatabaseName("IX_Cat.catgr_2");
 
                 entity.HasIndex(e => new { e.Idcat, e.Idsubcat })
-                    .HasName("IX_Cat.catgr");
+                    .HasDatabaseName("IX_Cat.catgr");
 
                 entity.HasIndex(e => new { e.Idsubcat, e.Idcat })
-                    .HasName("IX_Cat.catgr_1");
+                    .HasDatabaseName("IX_Cat.catgr_1");
 
                 entity.Property(e => e.Articul)
                     .IsRequired()
@@ -3567,10 +3567,10 @@ namespace VS_CRM.Models
                 entity.ToTable("Cat.CatЗ");
 
                 entity.HasIndex(e => e.Articul)
-                    .HasName("IX_Cat.CatЗ_1");
+                    .HasDatabaseName("IX_Cat.CatЗ_1");
 
                 entity.HasIndex(e => e.Idmain)
-                    .HasName("IX_Cat.CatЗ");
+                    .HasDatabaseName("IX_Cat.CatЗ");
 
                 entity.Property(e => e.Iddet)
                     .HasColumnName("IDDet")
@@ -3641,7 +3641,7 @@ namespace VS_CRM.Models
                 entity.ToTable("Cat.DocFile");
 
                 entity.HasIndex(e => new { e.IdDoc, e.IdAs })
-                    .HasName("IX_Cat.DocFile")
+                    .HasDatabaseName("IX_Cat.DocFile")
                     .IsUnique();
 
                 entity.Property(e => e.DataMail).HasColumnType("datetime");
@@ -3669,7 +3669,7 @@ namespace VS_CRM.Models
                 entity.ToTable("CAT.ED_IZM");
 
                 entity.HasIndex(e => e.EdIzm)
-                    .HasName("ED_IZM_IX1");
+                    .HasDatabaseName("ED_IZM_IX1");
 
                 entity.Property(e => e.Idrec).HasColumnName("IDREC");
 
@@ -3695,13 +3695,13 @@ namespace VS_CRM.Models
                 entity.ToTable("CAT.LSK_RULON");
 
                 entity.HasIndex(e => e.Idrul)
-                    .HasName("LSK_RULON_IX2");
+                    .HasDatabaseName("LSK_RULON_IX2");
 
                 entity.HasIndex(e => e.Nam)
-                    .HasName("LSK_RULON_IX3");
+                    .HasDatabaseName("LSK_RULON_IX3");
 
                 entity.HasIndex(e => new { e.Idrul, e.Nam })
-                    .HasName("LSK_RULON_IX1");
+                    .HasDatabaseName("LSK_RULON_IX1");
 
                 entity.Property(e => e.Idrec).HasColumnName("IDREC");
 
@@ -3732,7 +3732,7 @@ namespace VS_CRM.Models
                 entity.ToTable("Cat.Mash");
 
                 entity.HasIndex(e => e.Idob)
-                    .HasName("IX_Cat.Mash");
+                    .HasDatabaseName("IX_Cat.Mash");
 
                 entity.Property(e => e.Idmash)
                     .HasColumnName("IDmash")
@@ -3802,7 +3802,7 @@ namespace VS_CRM.Models
                 entity.ToTable("Cat.Value");
 
                 entity.HasIndex(e => new { e.IdCat, e.Value })
-                    .HasName("IX_Cat.Value_Column_1");
+                    .HasDatabaseName("IX_Cat.Value_Column_1");
 
                 entity.Property(e => e.Nam).IsRequired();
 
@@ -3910,7 +3910,7 @@ namespace VS_CRM.Models
                 entity.ToTable("Conf.DbfSQL");
 
                 entity.HasIndex(e => e.Sqlname)
-                    .HasName("IX_Con.DbfSQL")
+                    .HasDatabaseName("IX_Con.DbfSQL")
                     .IsUnique();
 
                 entity.Property(e => e.DbfName).HasMaxLength(50);
@@ -3995,7 +3995,7 @@ namespace VS_CRM.Models
                 entity.ToTable("Conf.Files");
 
                 entity.HasIndex(e => e.NamFile)
-                    .HasName("IX_Conf.Files_Column")
+                    .HasDatabaseName("IX_Conf.Files_Column")
                     .IsUnique();
 
                 entity.Property(e => e.DocBin)
@@ -4023,7 +4023,7 @@ namespace VS_CRM.Models
 Автор: Сергеев А.В.");
 
                 entity.HasIndex(e => new { e.FormState, e.Bai, e.IdIzgot, e.Period, e.Range, e.FormName })
-                    .HasName("FormState_UQ")
+                    .HasDatabaseName("FormState_UQ")
                     .IsUnique();
 
                 entity.Property(e => e.Bai)
@@ -4077,7 +4077,7 @@ namespace VS_CRM.Models
                 entity.ToTable("Conf.Izgot");
 
                 entity.HasIndex(e => new { e.Flag, e.Nam, e.Path, e.IdIzgot, e.Priznak, e.Logica })
-                    .HasName("IX_Conf.Izgot");
+                    .HasDatabaseName("IX_Conf.Izgot");
 
                 entity.Property(e => e.Flag).HasMaxLength(1);
 
@@ -4115,13 +4115,13 @@ namespace VS_CRM.Models
             modelBuilder.Entity<ConstrSpecifications>(entity =>
             {
                 entity.HasIndex(e => e.Deleted)
-                    .HasName("NonClusteredIndex-20160728-163939");
+                    .HasDatabaseName("NonClusteredIndex-20160728-163939");
 
                 entity.HasIndex(e => e.Detail)
-                    .HasName("NonClusteredIndex-20160728-163850");
+                    .HasDatabaseName("NonClusteredIndex-20160728-163850");
 
                 entity.HasIndex(e => e.Node)
-                    .HasName("NonClusteredIndex-20160728-163841");
+                    .HasDatabaseName("NonClusteredIndex-20160728-163841");
 
                 entity.Property(e => e.Id)
                     .HasColumnName("ID")
@@ -4176,7 +4176,7 @@ namespace VS_CRM.Models
                 entity.HasComment("Перечень наименований нормативов выдачи спецодежды");
 
                 entity.HasIndex(e => e.Name)
-                    .HasName("CoverallsNorm_uq")
+                    .HasDatabaseName("CoverallsNorm_uq")
                     .IsUnique();
 
                 entity.Property(e => e.Id).HasColumnName("ID");
@@ -4197,7 +4197,7 @@ namespace VS_CRM.Models
                 entity.HasComment("Списка нормативов для должности");
 
                 entity.HasIndex(e => new { e.PositionId, e.NormId1 })
-                    .HasName("CoverallsPositions_uq")
+                    .HasDatabaseName("CoverallsPositions_uq")
                     .IsUnique();
 
                 entity.Property(e => e.Count).HasComment("Количество для выдачи");
@@ -4229,10 +4229,10 @@ namespace VS_CRM.Models
                 entity.HasComment("Движения номенклатуры в эксплуатации");
 
                 entity.HasIndex(e => e.DocId)
-                    .HasName("CoverallsWorkflow_idx");
+                    .HasDatabaseName("CoverallsWorkflow_idx");
 
                 entity.HasIndex(e => new { e.ItemName, e.ItemId })
-                    .HasName("CoverallsWorkflow_ItemName");
+                    .HasDatabaseName("CoverallsWorkflow_ItemName");
 
                 entity.Property(e => e.Date)
                     .HasColumnType("date")
@@ -4281,16 +4281,16 @@ namespace VS_CRM.Models
                 entity.ToTable("DET_1");
 
                 entity.HasIndex(e => e.Det)
-                    .HasName("Det_1_ByDet");
+                    .HasDatabaseName("Det_1_ByDet");
 
                 entity.HasIndex(e => new { e.Dbenennung, e.AsVyvod, e.Delrecord, e.Det })
-                    .HasName("DET_1_IX1");
+                    .HasDatabaseName("DET_1_IX1");
 
                 entity.HasIndex(e => new { e.Det, e.Dbenennung, e.Idizgot, e.AsVyvod, e.Delrecord })
-                    .HasName("DET_1_DetailListByIzgot");
+                    .HasDatabaseName("DET_1_DetailListByIzgot");
 
                 entity.HasIndex(e => new { e.Dbenennung, e.Price, e.Mat, e.Ob, e.Det, e.AsVyvod, e.Delrecord })
-                    .HasName("DET_MAIN");
+                    .HasDatabaseName("DET_MAIN");
 
                 entity.Property(e => e.Idrec).HasColumnName("IDREC");
 
@@ -4773,7 +4773,7 @@ namespace VS_CRM.Models
                 entity.ToTable("Dok.Det");
 
                 entity.HasIndex(e => new { e.Det, e.NamDoc })
-                    .HasName("IX_Dok.Det");
+                    .HasDatabaseName("IX_Dok.Det");
 
                 entity.Property(e => e.Bai).HasMaxLength(10);
 
@@ -4793,7 +4793,7 @@ namespace VS_CRM.Models
                 entity.ToTable("Draft_List_Details");
 
                 entity.HasIndex(e => new { e.HeaderId, e.Articul, e.DopCod })
-                    .HasName("IX_Draft_List_Details")
+                    .HasDatabaseName("IX_Draft_List_Details")
                     .IsUnique();
 
                 entity.Property(e => e.Id).HasColumnName("ID");
@@ -4825,7 +4825,7 @@ namespace VS_CRM.Models
                 entity.ToTable("Draft_List_Header");
 
                 entity.HasIndex(e => new { e.Date, e.Cell, e.Smena, e.FactoryId })
-                    .HasName("IX_Draft_List_Header")
+                    .HasDatabaseName("IX_Draft_List_Header")
                     .IsUnique();
 
                 entity.Property(e => e.Id).HasColumnName("ID");
@@ -4848,7 +4848,7 @@ namespace VS_CRM.Models
                 entity.ToTable("Draft_List_ZoneList");
 
                 entity.HasIndex(e => new { e.FactoryId, e.Zone })
-                    .HasName("IX_Draft_List_ZoneList")
+                    .HasDatabaseName("IX_Draft_List_ZoneList")
                     .IsUnique();
 
                 entity.Property(e => e.Id).HasColumnName("ID");
@@ -4897,10 +4897,10 @@ namespace VS_CRM.Models
                 entity.ToTable("Econom.InitialCalculationItems");
 
                 entity.HasIndex(e => e.Idarticle)
-                    .HasName("IDArticle");
+                    .HasDatabaseName("IDArticle");
 
                 entity.HasIndex(e => e.Iditem)
-                    .HasName("IDItem");
+                    .HasDatabaseName("IDItem");
 
                 entity.Property(e => e.Id).HasColumnName("ID");
 
@@ -4936,10 +4936,10 @@ namespace VS_CRM.Models
                 entity.ToTable("Econom.InitialCalculationOwnItems");
 
                 entity.HasIndex(e => e.Idarticle)
-                    .HasName("IDArticle");
+                    .HasDatabaseName("IDArticle");
 
                 entity.HasIndex(e => e.Iditem)
-                    .HasName("IDItem");
+                    .HasDatabaseName("IDItem");
 
                 entity.Property(e => e.Id).HasColumnName("ID");
 
@@ -5013,7 +5013,7 @@ namespace VS_CRM.Models
                 entity.ToTable("Edu.Game1");
 
                 entity.HasIndex(e => new { e.IdTr, e.Comp, e.Smena, e.Nam })
-                    .HasName("IX_Edu.Game1")
+                    .HasDatabaseName("IX_Edu.Game1")
                     .IsUnique();
 
                 entity.Property(e => e.DateSave).HasColumnType("datetime");
@@ -5036,7 +5036,7 @@ namespace VS_CRM.Models
                 entity.ToTable("Edu.Game2");
 
                 entity.HasIndex(e => new { e.IdTr, e.Comp, e.Smena, e.Articul })
-                    .HasName("IX_Edu.Game2")
+                    .HasDatabaseName("IX_Edu.Game2")
                     .IsUnique();
 
                 entity.Property(e => e.Articul)
@@ -5051,7 +5051,7 @@ namespace VS_CRM.Models
                 entity.ToTable("Edu.Game3");
 
                 entity.HasIndex(e => new { e.Articul, e.ArtKom })
-                    .HasName("IX_Edu.Game3")
+                    .HasDatabaseName("IX_Edu.Game3")
                     .IsUnique();
 
                 entity.Property(e => e.ArtKom)
@@ -5073,7 +5073,7 @@ namespace VS_CRM.Models
                 entity.ToTable("Edu.Game4");
 
                 entity.HasIndex(e => new { e.Articul, e.ArtKom, e.Operaciya })
-                    .HasName("IX_Edu.Game4")
+                    .HasDatabaseName("IX_Edu.Game4")
                     .IsUnique();
 
                 entity.Property(e => e.ArtKom)
@@ -5099,7 +5099,7 @@ namespace VS_CRM.Models
                 entity.ToTable("Edu.Game5");
 
                 entity.HasIndex(e => new { e.IdTr, e.Comp, e.Cikl, e.ArtKom })
-                    .HasName("IX_Edu.Game5")
+                    .HasDatabaseName("IX_Edu.Game5")
                     .IsUnique();
 
                 entity.Property(e => e.ArtKom)
@@ -5116,7 +5116,7 @@ namespace VS_CRM.Models
                 entity.ToTable("Edu.Game6");
 
                 entity.HasIndex(e => new { e.IdTr, e.Comp, e.Cikl, e.Operaciya, e.ArtKom })
-                    .HasName("IX_Edu.Game6")
+                    .HasDatabaseName("IX_Edu.Game6")
                     .IsUnique();
 
                 entity.Property(e => e.ArtKom)
@@ -5137,7 +5137,7 @@ namespace VS_CRM.Models
                 entity.ToTable("Edu.Prez");
 
                 entity.HasIndex(e => new { e.IdTr, e.Pos })
-                    .HasName("IX_Edu.Prez")
+                    .HasDatabaseName("IX_Edu.Prez")
                     .IsUnique();
 
                 entity.Property(e => e.Ext)
@@ -5154,7 +5154,7 @@ namespace VS_CRM.Models
                 entity.ToTable("Edu.Role");
 
                 entity.HasIndex(e => e.Id)
-                    .HasName("IX_Edu.Role");
+                    .HasDatabaseName("IX_Edu.Role");
 
                 entity.Property(e => e.Ball).HasDefaultValueSql("((5))");
 
@@ -5172,7 +5172,7 @@ namespace VS_CRM.Models
                 entity.ToTable("Edu.Skl");
 
                 entity.HasIndex(e => e.Articul)
-                    .HasName("IX_Edu.Skl")
+                    .HasDatabaseName("IX_Edu.Skl")
                     .IsUnique();
 
                 entity.Property(e => e.Articul)
@@ -5186,7 +5186,7 @@ namespace VS_CRM.Models
                 entity.ToTable("EK.TRUD");
 
                 entity.HasIndex(e => new { e.Articul, e.KodIzgot })
-                    .HasName("IX_EK.TRUD_Column")
+                    .HasDatabaseName("IX_EK.TRUD_Column")
                     .IsUnique();
 
                 entity.Property(e => e.Articul)
@@ -5207,11 +5207,11 @@ namespace VS_CRM.Models
                     .HasName("Equipment_uq_Equipment");
 
                 entity.HasIndex(e => e.InvNumber)
-                    .HasName("Equipment_uq_inv")
+                    .HasDatabaseName("Equipment_uq_inv")
                     .IsUnique();
 
                 entity.HasIndex(e => new { e.IdIzgot, e.KodIzgot })
-                    .HasName("Equipment_ByStruc");
+                    .HasDatabaseName("Equipment_ByStruc");
 
                 entity.Property(e => e.IdRec).HasComment("ИД записи");
 
@@ -5360,10 +5360,10 @@ namespace VS_CRM.Models
                     .HasName("EquipmentEvents_pk_EquipmentEvents");
 
                 entity.HasIndex(e => e.InvNumber)
-                    .HasName("EquipmentEvents_idx");
+                    .HasDatabaseName("EquipmentEvents_idx");
 
                 entity.HasIndex(e => new { e.InvNumber, e.DateStart })
-                    .HasName("EquipmentEvents_idx2");
+                    .HasDatabaseName("EquipmentEvents_idx2");
 
                 entity.Property(e => e.Counter).HasComment("Счетчик оборудования");
 
@@ -5446,7 +5446,7 @@ namespace VS_CRM.Models
                 entity.HasComment("Справочник моделей оборудования");
 
                 entity.HasIndex(e => e.Name)
-                    .HasName("EquipmentModels_uq")
+                    .HasDatabaseName("EquipmentModels_uq")
                     .IsUnique();
 
                 entity.Property(e => e.Id)
@@ -5507,7 +5507,7 @@ namespace VS_CRM.Models
                 entity.HasComment("Статьи затрат (разрез экспериментальных работ)");
 
                 entity.HasIndex(e => e.Name)
-                    .HasName("UQ_ExperimentalStatesNames")
+                    .HasDatabaseName("UQ_ExperimentalStatesNames")
                     .IsUnique();
 
                 entity.Property(e => e.Id).HasColumnName("ID");
@@ -5656,7 +5656,7 @@ namespace VS_CRM.Models
                 entity.ToTable("Good.List");
 
                 entity.HasIndex(e => new { e.IdParent, e.IdVparent, e.IdGood, e.IdVgood })
-                    .HasName("IX_Good.List")
+                    .HasDatabaseName("IX_Good.List")
                     .IsUnique();
 
                 entity.Property(e => e.IdVparent).HasColumnName("IdVParent");
@@ -5675,7 +5675,7 @@ namespace VS_CRM.Models
                 entity.ToTable("Good.Prop");
 
                 entity.HasIndex(e => e.NamProp)
-                    .HasName("IX_Good.Prop");
+                    .HasDatabaseName("IX_Good.Prop");
 
                 entity.Property(e => e.LogCh).HasDefaultValueSql("(0)");
 
@@ -5689,7 +5689,7 @@ namespace VS_CRM.Models
                 entity.ToTable("Good.Spec");
 
                 entity.HasIndex(e => new { e.IdPrj, e.IdGood, e.IdVgood })
-                    .HasName("IX_Good.Spec")
+                    .HasDatabaseName("IX_Good.Spec")
                     .IsUnique();
 
                 entity.Property(e => e.IdVgood).HasColumnName("IdVGood");
@@ -5704,7 +5704,7 @@ namespace VS_CRM.Models
                 entity.ToTable("Graid.Group");
 
                 entity.HasIndex(e => e.KrNam)
-                    .HasName("IX_Graid.Group")
+                    .HasDatabaseName("IX_Graid.Group")
                     .IsUnique();
 
                 entity.Property(e => e.FullNam).HasMaxLength(250);
@@ -5719,7 +5719,7 @@ namespace VS_CRM.Models
                 entity.ToTable("Graid.Ind");
 
                 entity.HasIndex(e => new { e.IdProff, e.Hid })
-                    .HasName("IX_Graid.Ind")
+                    .HasDatabaseName("IX_Graid.Ind")
                     .IsUnique();
             });
 
@@ -5730,7 +5730,7 @@ namespace VS_CRM.Models
                 entity.ToTable("Graid.Lim");
 
                 entity.HasIndex(e => e.IdGraid)
-                    .HasName("IX_Graid.Lim");
+                    .HasDatabaseName("IX_Graid.Lim");
 
                 entity.Property(e => e.BallF).HasColumnName("Ball_f");
 
@@ -5751,7 +5751,7 @@ namespace VS_CRM.Models
                 entity.ToTable("Graid.Proff");
 
                 entity.HasIndex(e => new { e.KrNam, e.KodProff })
-                    .HasName("IX_Graid.Proff")
+                    .HasDatabaseName("IX_Graid.Proff")
                     .IsUnique();
 
                 entity.Property(e => e.Ball1).HasColumnName("Ball_1");
@@ -5797,7 +5797,7 @@ namespace VS_CRM.Models
                 entity.ToTable("Graid.Zp");
 
                 entity.HasIndex(e => new { e.IdProff, e.IdIzgot })
-                    .HasName("IX_Graid.Zp");
+                    .HasDatabaseName("IX_Graid.Zp");
 
                 entity.Property(e => e.Obzor).HasColumnType("numeric(9, 2)");
 
@@ -5815,7 +5815,7 @@ namespace VS_CRM.Models
                 entity.ToTable("Graid.ZpHid");
 
                 entity.HasIndex(e => new { e.Year, e.Month, e.Hid })
-                    .HasName("IX_Graid.ZpHid")
+                    .HasDatabaseName("IX_Graid.ZpHid")
                     .IsUnique();
 
                 entity.Property(e => e.Hid).HasColumnName("HID");
@@ -5843,13 +5843,13 @@ namespace VS_CRM.Models
                 entity.ToTable("HIS_FRG");
 
                 entity.HasIndex(e => e.As)
-                    .HasName("HIS_FRG_IX1");
+                    .HasDatabaseName("HIS_FRG_IX1");
 
                 entity.HasIndex(e => new { e.Det, e.As })
-                    .HasName("HIS_FRG_IX2");
+                    .HasDatabaseName("HIS_FRG_IX2");
 
                 entity.HasIndex(e => new { e.Kem, e.Det })
-                    .HasName("HIS_FRG_IX3");
+                    .HasDatabaseName("HIS_FRG_IX3");
 
                 entity.Property(e => e.Idrec).HasColumnName("IDREC");
 
@@ -5898,10 +5898,10 @@ namespace VS_CRM.Models
                 entity.ToTable("HIST.HIS_TECH");
 
                 entity.HasIndex(e => new { e.Det, e.As })
-                    .HasName("HIS_TECH_IX1");
+                    .HasDatabaseName("HIS_TECH_IX1");
 
                 entity.HasIndex(e => new { e.Kem, e.Det })
-                    .HasName("HIS_TECH_IX2");
+                    .HasDatabaseName("HIS_TECH_IX2");
 
                 entity.Property(e => e.Idrec).HasColumnName("IDREC");
 
@@ -5949,13 +5949,13 @@ namespace VS_CRM.Models
                 entity.ToTable("Hist.Kem");
 
                 entity.HasIndex(e => e.Kem)
-                    .HasName("IX_Hist.Kem");
+                    .HasDatabaseName("IX_Hist.Kem");
 
                 entity.HasIndex(e => new { e.IdIzgot, e.DataSt })
-                    .HasName("IX_Hist.Kem_1");
+                    .HasDatabaseName("IX_Hist.Kem_1");
 
                 entity.HasIndex(e => new { e.IdIzgot, e.Kem })
-                    .HasName("IX_Hist.Kem_2");
+                    .HasDatabaseName("IX_Hist.Kem_2");
 
                 entity.Property(e => e.DataFin).HasColumnType("datetime");
 
@@ -5989,7 +5989,7 @@ namespace VS_CRM.Models
                 entity.ToTable("Hist.SoglIzg");
 
                 entity.HasIndex(e => new { e.IdKem, e.IdSoglIzgot })
-                    .HasName("IX_Hist.SoglIzg");
+                    .HasDatabaseName("IX_Hist.SoglIzg");
 
                 entity.Property(e => e.DataSogl).HasColumnType("datetime");
 
@@ -6003,7 +6003,7 @@ namespace VS_CRM.Models
                 entity.ToTable("Hist.SoglUp");
 
                 entity.HasIndex(e => new { e.UpCod, e.IdIzgot })
-                    .HasName("IX_Hist.SoglUp")
+                    .HasDatabaseName("IX_Hist.SoglUp")
                     .IsUnique();
 
                 entity.Property(e => e.DateMen).HasColumnType("datetime");
@@ -6031,7 +6031,7 @@ namespace VS_CRM.Models
                 entity.ToTable("Hist.Sps");
 
                 entity.HasIndex(e => new { e.IdDet, e.AsSps })
-                    .HasName("IX_Hist.Sps");
+                    .HasDatabaseName("IX_Hist.Sps");
 
                 entity.Property(e => e.DataChange).HasColumnType("datetime");
 
@@ -6046,7 +6046,7 @@ namespace VS_CRM.Models
                 entity.ToTable("HIST.ST_HIST");
 
                 entity.HasIndex(e => e.Kem)
-                    .HasName("ST_HIST_IX1");
+                    .HasDatabaseName("ST_HIST_IX1");
 
                 entity.Property(e => e.Idrec).HasColumnName("IDREC");
 
@@ -6152,28 +6152,28 @@ namespace VS_CRM.Models
                 entity.ToTable("HR.IND_KART");
 
                 entity.HasIndex(e => e.Id)
-                    .HasName("IND_KART_IX2");
+                    .HasDatabaseName("IND_KART_IX2");
 
                 entity.HasIndex(e => e.Propusk)
-                    .HasName("Propusk");
+                    .HasDatabaseName("Propusk");
 
                 entity.HasIndex(e => new { e.Brigada, e.Idizgot })
-                    .HasName("IND_KART_IX5");
+                    .HasDatabaseName("IND_KART_IX5");
 
                 entity.HasIndex(e => new { e.Idizgot, e.Bai })
-                    .HasName("ActualUsers");
+                    .HasDatabaseName("ActualUsers");
 
                 entity.HasIndex(e => new { e.TabN, e.Delrecord })
-                    .HasName("IND_KART_IX1");
+                    .HasDatabaseName("IND_KART_IX1");
 
                 entity.HasIndex(e => new { e.Dateu, e.Idizgot, e.KodIzgot, e.Delrecord })
-                    .HasName("IND_KART_IX3");
+                    .HasDatabaseName("IND_KART_IX3");
 
                 entity.HasIndex(e => new { e.Idizgot, e.Datep, e.Dateu, e.Delrecord })
-                    .HasName("IND_KART_IX4");
+                    .HasDatabaseName("IND_KART_IX4");
 
                 entity.HasIndex(e => new { e.KodIzgot, e.Delrecord, e.Idrec, e.Fio })
-                    .HasName("Unique_FIO_IND_KART")
+                    .HasDatabaseName("Unique_FIO_IND_KART")
                     .IsUnique();
 
                 entity.Property(e => e.Idrec).HasColumnName("IDREC");
@@ -6452,28 +6452,28 @@ namespace VS_CRM.Models
                 entity.ToTable("HR.IND_KART_test");
 
                 entity.HasIndex(e => e.Id)
-                    .HasName("IND_KART_IX2");
+                    .HasDatabaseName("IND_KART_IX2");
 
                 entity.HasIndex(e => new { e.Delrecord, e.Fio })
-                    .HasName("ActualPeople");
+                    .HasDatabaseName("ActualPeople");
 
                 entity.HasIndex(e => new { e.Delrecord, e.Propusk })
-                    .HasName("Propusk");
+                    .HasDatabaseName("Propusk");
 
                 entity.HasIndex(e => new { e.Idizgot, e.Bai })
-                    .HasName("ActualUsers");
+                    .HasDatabaseName("ActualUsers");
 
                 entity.HasIndex(e => new { e.Idizgot, e.Delrecord })
-                    .HasName("IND_KART_ByIzgot");
+                    .HasDatabaseName("IND_KART_ByIzgot");
 
                 entity.HasIndex(e => new { e.TabN, e.Delrecord })
-                    .HasName("IND_KART_IX1");
+                    .HasDatabaseName("IND_KART_IX1");
 
                 entity.HasIndex(e => new { e.Idizgot, e.KodIzgot, e.Delrecord })
-                    .HasName("IND_KART_IX3");
+                    .HasDatabaseName("IND_KART_IX3");
 
                 entity.HasIndex(e => new { e.Idizgot, e.Datep, e.Dateu, e.Delrecord })
-                    .HasName("IND_KART_IX4");
+                    .HasDatabaseName("IND_KART_IX4");
 
                 entity.Property(e => e.Idrec).HasColumnName("IDREC");
 
@@ -6724,10 +6724,10 @@ namespace VS_CRM.Models
                 entity.ToTable("HR.IND_KVAL");
 
                 entity.HasIndex(e => new { e.Fam, e.Name, e.Otch, e.KodIzgot })
-                    .HasName("IND_KVAL_IX1");
+                    .HasDatabaseName("IND_KVAL_IX1");
 
                 entity.HasIndex(e => new { e.Kval, e.Idizgot, e.KodIzgot, e.Fio, e.Delrecord })
-                    .HasName("IND_KVAL_IX2");
+                    .HasDatabaseName("IND_KVAL_IX2");
 
                 entity.Property(e => e.Idrec).HasColumnName("IDREC");
 
@@ -6791,22 +6791,22 @@ namespace VS_CRM.Models
                 entity.ToTable("HR.IND_TAB");
 
                 entity.HasIndex(e => e.Fio)
-                    .HasName("IND_TAB_IX2");
+                    .HasDatabaseName("IND_TAB_IX2");
 
                 entity.HasIndex(e => e.Id)
-                    .HasName("IND_TAB_IX3");
+                    .HasDatabaseName("IND_TAB_IX3");
 
                 entity.HasIndex(e => e.TabNom)
-                    .HasName("IND_TAB_IX6");
+                    .HasDatabaseName("IND_TAB_IX6");
 
                 entity.HasIndex(e => new { e.Id, e.Idapax })
-                    .HasName("IND_TAB_IX4");
+                    .HasDatabaseName("IND_TAB_IX4");
 
                 entity.HasIndex(e => new { e.Id, e.Idrec, e.IdrecIndk })
-                    .HasName("IND_TAB_IX5");
+                    .HasDatabaseName("IND_TAB_IX5");
 
                 entity.HasIndex(e => new { e.Fio, e.TabNom, e.TabNoms, e.Id, e.Idapax, e.Idrec, e.IdrecIndk })
-                    .HasName("IND_TAB_IX1");
+                    .HasDatabaseName("IND_TAB_IX1");
 
                 entity.Property(e => e.Idrec).HasColumnName("IDREC");
 
@@ -6845,10 +6845,10 @@ namespace VS_CRM.Models
                 entity.ToTable("HR.KVAL");
 
                 entity.HasIndex(e => new { e.KodIzgot, e.Tarif })
-                    .HasName("KVAL_IX2");
+                    .HasDatabaseName("KVAL_IX2");
 
                 entity.HasIndex(e => new { e.Tarif, e.Idizgot, e.KodIzgot, e.Kval, e.Delrecord })
-                    .HasName("KVAL_IX1");
+                    .HasDatabaseName("KVAL_IX1");
 
                 entity.Property(e => e.Idrec).HasColumnName("IDREC");
 
@@ -6889,10 +6889,10 @@ namespace VS_CRM.Models
                 entity.ToTable("HR.OTPUSK");
 
                 entity.HasIndex(e => new { e.Fio, e.DateSt })
-                    .HasName("OTPUSK_IX2");
+                    .HasDatabaseName("OTPUSK_IX2");
 
                 entity.HasIndex(e => new { e.Fam, e.Nam, e.Otch, e.DateSt })
-                    .HasName("OTPUSK_IX1");
+                    .HasDatabaseName("OTPUSK_IX1");
 
                 entity.Property(e => e.Idrec).HasColumnName("IDREC");
 
@@ -6954,7 +6954,7 @@ namespace VS_CRM.Models
                 entity.ToTable("HR.OtpuskNew");
 
                 entity.HasIndex(e => new { e.EdTab, e.Dbeg })
-                    .HasName("IX_HR.OtpuskNew_Column")
+                    .HasDatabaseName("IX_HR.OtpuskNew_Column")
                     .IsUnique();
 
                 entity.Property(e => e.Dbeg)
@@ -6978,7 +6978,7 @@ namespace VS_CRM.Models
                 entity.ToTable("HR.PR_FIO");
 
                 entity.HasIndex(e => new { e.DataPr, e.Summa, e.Typ, e.Prikaz, e.Fio, e.Delrecord })
-                    .HasName("PR_FIO_IX1");
+                    .HasDatabaseName("PR_FIO_IX1");
 
                 entity.Property(e => e.Idrec).HasColumnName("IDREC");
 
@@ -7032,7 +7032,7 @@ namespace VS_CRM.Models
                 entity.ToTable("HR.Selection");
 
                 entity.HasIndex(e => new { e.IdIzgot, e.Status, e.DateOpen })
-                    .HasName("IX_HR.Selection_Column");
+                    .HasDatabaseName("IX_HR.Selection_Column");
 
                 entity.Property(e => e.Code)
                     .IsRequired()
@@ -7061,19 +7061,19 @@ namespace VS_CRM.Models
                 entity.ToTable("HR.SM_TABLE");
 
                 entity.HasIndex(e => new { e.Idrec, e.DocId })
-                    .HasName("SM_TABLE_DOCID");
+                    .HasDatabaseName("SM_TABLE_DOCID");
 
                 entity.HasIndex(e => new { e.Time, e.Data, e.Fio, e.Delrecord })
-                    .HasName("SM_TABLE_IX2");
+                    .HasDatabaseName("SM_TABLE_IX2");
 
                 entity.HasIndex(e => new { e.Fio, e.Time, e.Delrecord, e.Idizgot, e.KodIzgot, e.Data, e.Smena })
-                    .HasName("SM_TABLE_IX3");
+                    .HasDatabaseName("SM_TABLE_IX3");
 
                 entity.HasIndex(e => new { e.KodIzgot, e.Time, e.Delrecord, e.TimeN, e.Idizgot, e.Idrec, e.Data, e.Smena, e.Fio })
-                    .HasName("SM_TABLE_IX1");
+                    .HasDatabaseName("SM_TABLE_IX1");
 
                 entity.HasIndex(e => new { e.Smena, e.KodIzgot, e.Koeff, e.Prim, e.Time, e.Idizgot, e.Data, e.Fio, e.Delrecord })
-                    .HasName("SM_TABLE_IX5");
+                    .HasDatabaseName("SM_TABLE_IX5");
 
                 entity.Property(e => e.Idrec).HasColumnName("IDREC");
 
@@ -7169,7 +7169,7 @@ namespace VS_CRM.Models
                 entity.ToTable("HR.SMENA");
 
                 entity.HasIndex(e => new { e.Data, e.Smena })
-                    .HasName("Date_Turn");
+                    .HasDatabaseName("Date_Turn");
 
                 entity.Property(e => e.Idrec).HasColumnName("IDREC");
 
@@ -7298,10 +7298,10 @@ namespace VS_CRM.Models
                 entity.ToTable("HR.ZP_YEAR");
 
                 entity.HasIndex(e => new { e.Fio, e.Year, e.Month })
-                    .HasName("ZP_YEAR_IX1");
+                    .HasDatabaseName("ZP_YEAR_IX1");
 
                 entity.HasIndex(e => new { e.Year, e.Month, e.Fio })
-                    .HasName("ZP_YEAR_IX2");
+                    .HasDatabaseName("ZP_YEAR_IX2");
 
                 entity.Property(e => e.Idrec).HasColumnName("IDREC");
 
@@ -7506,7 +7506,7 @@ namespace VS_CRM.Models
                 entity.ToTable("Hron.Setup");
 
                 entity.HasIndex(e => new { e.Dolg, e.TypeWork })
-                    .HasName("IX_Hron.Setup_Column")
+                    .HasDatabaseName("IX_Hron.Setup_Column")
                     .IsUnique();
 
                 entity.Property(e => e.Dolg)
@@ -7525,7 +7525,7 @@ namespace VS_CRM.Models
                 entity.ToTable("IND_KARTPROC");
 
                 entity.HasIndex(e => e.Fio)
-                    .HasName("IND_KARTPROC_IX1");
+                    .HasDatabaseName("IND_KARTPROC_IX1");
 
                 entity.Property(e => e.Idrec).HasColumnName("IDREC");
 
@@ -7555,7 +7555,7 @@ namespace VS_CRM.Models
                 entity.ToTable("KACH.KART_DEF");
 
                 entity.HasIndex(e => new { e.NomKartPrv, e.Fio })
-                    .HasName("KART_DEF_IX1");
+                    .HasDatabaseName("KART_DEF_IX1");
 
                 entity.Property(e => e.Idrec).HasColumnName("IDREC");
 
@@ -7620,7 +7620,7 @@ namespace VS_CRM.Models
                 entity.ToTable("KACH.KART_DET");
 
                 entity.HasIndex(e => new { e.NomKartPrv, e.Det, e.NppOper })
-                    .HasName("KART_DET_IX1");
+                    .HasDatabaseName("KART_DET_IX1");
 
                 entity.Property(e => e.Idrec).HasColumnName("IDREC");
 
@@ -7702,13 +7702,13 @@ namespace VS_CRM.Models
                 entity.ToTable("KACH.KART_MAT");
 
                 entity.HasIndex(e => e.DetailListId)
-                    .HasName("DETAIL_LIST_ID");
+                    .HasDatabaseName("DETAIL_LIST_ID");
 
                 entity.HasIndex(e => e.NomKart)
-                    .HasName("Nom_Kart");
+                    .HasDatabaseName("Nom_Kart");
 
                 entity.HasIndex(e => e.NomKartPrv)
-                    .HasName("KART_MAT_IX1");
+                    .HasDatabaseName("KART_MAT_IX1");
 
                 entity.Property(e => e.Idrec).HasColumnName("IDREC");
 
@@ -7786,13 +7786,13 @@ namespace VS_CRM.Models
                 entity.ToTable("KACH.KART_OTV");
 
                 entity.HasIndex(e => e.Fio)
-                    .HasName("FIO");
+                    .HasDatabaseName("FIO");
 
                 entity.HasIndex(e => e.IdPerson)
-                    .HasName("IDPerson");
+                    .HasDatabaseName("IDPerson");
 
                 entity.HasIndex(e => new { e.DataSt, e.DataFin, e.Delrecord })
-                    .HasName("Dates");
+                    .HasDatabaseName("Dates");
 
                 entity.Property(e => e.Idrec).HasColumnName("IDREC");
 
@@ -7844,13 +7844,13 @@ namespace VS_CRM.Models
                 entity.ToTable("KACH.KART_OTV1");
 
                 entity.HasIndex(e => e.Fio)
-                    .HasName("FIO");
+                    .HasDatabaseName("FIO");
 
                 entity.HasIndex(e => e.IdPerson)
-                    .HasName("IDPerson");
+                    .HasDatabaseName("IDPerson");
 
                 entity.HasIndex(e => new { e.DataSt, e.DataFin, e.NomKartPrv })
-                    .HasName("Dates");
+                    .HasDatabaseName("Dates");
 
                 entity.Property(e => e.Idrec).HasColumnName("IDREC");
 
@@ -7907,13 +7907,13 @@ namespace VS_CRM.Models
                 entity.ToTable("KACH.KART_R");
 
                 entity.HasIndex(e => e.NomKart)
-                    .HasName("Nom_Kart");
+                    .HasDatabaseName("Nom_Kart");
 
                 entity.HasIndex(e => e.NomKartPrv)
-                    .HasName("KART_R_IX2");
+                    .HasDatabaseName("KART_R_IX2");
 
                 entity.HasIndex(e => new { e.DataDef, e.SmDef })
-                    .HasName("KART_R_IX1");
+                    .HasDatabaseName("KART_R_IX1");
 
                 entity.Property(e => e.Idrec).HasColumnName("IDREC");
 
@@ -8135,10 +8135,10 @@ namespace VS_CRM.Models
                 entity.ToTable("KAT.ED_MAT");
 
                 entity.HasIndex(e => new { e.EdIzm, e.Koeff, e.Mat, e.Delrecord, e.Idizgot })
-                    .HasName("ED_MAT_IX2");
+                    .HasDatabaseName("ED_MAT_IX2");
 
                 entity.HasIndex(e => new { e.Koeff, e.Mat, e.EdIzm, e.Idizgot, e.Delrecord })
-                    .HasName("ED_MAT_IX1");
+                    .HasDatabaseName("ED_MAT_IX1");
 
                 entity.Property(e => e.Idrec).HasColumnName("IDREC");
 
@@ -8173,28 +8173,28 @@ namespace VS_CRM.Models
                 entity.ToTable("KON.BZ_BAU_");
 
                 entity.HasIndex(e => e.Det)
-                    .HasName("DET");
+                    .HasDatabaseName("DET");
 
                 entity.HasIndex(e => e.Uzel)
-                    .HasName("UZEL");
+                    .HasDatabaseName("UZEL");
 
                 entity.HasIndex(e => new { e.Det, e.Uzel })
-                    .HasName("BZ_BAU__IX2");
+                    .HasDatabaseName("BZ_BAU__IX2");
 
                 entity.HasIndex(e => new { e.Uzel, e.Det })
-                    .HasName("BZ_BAU__IX5");
+                    .HasDatabaseName("BZ_BAU__IX5");
 
                 entity.HasIndex(e => new { e.Uzel, e.PosSb })
-                    .HasName("BZ_BAU__IX3");
+                    .HasDatabaseName("BZ_BAU__IX3");
 
                 entity.HasIndex(e => new { e.Uzel, e.Det, e.AsVyvod })
-                    .HasName("BZ_BAU__IX1");
+                    .HasDatabaseName("BZ_BAU__IX1");
 
                 entity.HasIndex(e => new { e.Uzel, e.Rec, e.Det })
-                    .HasName("BZ_BAU__IX4");
+                    .HasDatabaseName("BZ_BAU__IX4");
 
                 entity.HasIndex(e => new { e.Uzel, e.Lit, e.AsVyvod, e.Delrecord })
-                    .HasName("Node_Output_NotDeleted");
+                    .HasDatabaseName("Node_Output_NotDeleted");
 
                 entity.Property(e => e.Idrec).HasColumnName("IDREC");
 
@@ -8266,7 +8266,7 @@ namespace VS_CRM.Models
                 entity.ToTable("Kon.Det_kodZ");
 
                 entity.HasIndex(e => new { e.Date, e.Det, e.FactoryId, e.Num })
-                    .HasName("IX_Kon.Det_kodZ")
+                    .HasDatabaseName("IX_Kon.Det_kodZ")
                     .IsUnique();
 
                 entity.Property(e => e.Id).HasColumnName("ID");
@@ -8303,10 +8303,10 @@ namespace VS_CRM.Models
                 entity.ToTable("Kon.Det_To_Delete");
 
                 entity.HasIndex(e => e.SmCh)
-                    .HasName("IX_Kon.Det_1");
+                    .HasDatabaseName("IX_Kon.Det_1");
 
                 entity.HasIndex(e => new { e.Det, e.IdAs })
-                    .HasName("IX_Kon.Det");
+                    .HasDatabaseName("IX_Kon.Det");
 
                 entity.Property(e => e.DataChange).HasColumnType("datetime");
 
@@ -8371,7 +8371,7 @@ namespace VS_CRM.Models
                 entity.ToTable("Kon.DetVes");
 
                 entity.HasIndex(e => e.Det)
-                    .HasName("IX_Kon.DetVes")
+                    .HasDatabaseName("IX_Kon.DetVes")
                     .IsUnique();
 
                 entity.Property(e => e.BaiVes)
@@ -8399,10 +8399,10 @@ namespace VS_CRM.Models
                 entity.ToTable("KON.HIS_SPS");
 
                 entity.HasIndex(e => new { e.Det, e.As })
-                    .HasName("HIS_SPS_IX1");
+                    .HasDatabaseName("HIS_SPS_IX1");
 
                 entity.HasIndex(e => new { e.Kem, e.Det })
-                    .HasName("HIS_SPS_IX2");
+                    .HasDatabaseName("HIS_SPS_IX2");
 
                 entity.Property(e => e.Idrec).HasColumnName("IDREC");
 
@@ -8861,11 +8861,11 @@ namespace VS_CRM.Models
                 entity.HasComment("Объекты, используемые в учете металла: листы, штрипсы, контейнеры с отходами");
 
                 entity.HasIndex(e => e.ObjectId)
-                    .HasName("IX_MET.ACCOUNTING_OBJECTS")
+                    .HasDatabaseName("IX_MET.ACCOUNTING_OBJECTS")
                     .IsUnique();
 
                 entity.HasIndex(e => new { e.ObjectType, e.Width, e.Length, e.Thickness })
-                    .HasName("AK_UNIQUE")
+                    .HasDatabaseName("AK_UNIQUE")
                     .IsUnique();
 
                 entity.Property(e => e.ObjectId)
@@ -9064,7 +9064,7 @@ namespace VS_CRM.Models
                 entity.ToTable("Mob.CalcPay");
 
                 entity.HasIndex(e => new { e.Year, e.Month, e.IdReg })
-                    .HasName("IX_Mob.CalcPay")
+                    .HasDatabaseName("IX_Mob.CalcPay")
                     .IsUnique();
 
                 entity.Property(e => e.SummNds).HasColumnType("numeric(10, 2)");
@@ -9135,7 +9135,7 @@ namespace VS_CRM.Models
                 entity.ToTable("Mob.Org");
 
                 entity.HasIndex(e => new { e.IdIzgot, e.IdRec })
-                    .HasName("IX_Mob.Org")
+                    .HasDatabaseName("IX_Mob.Org")
                     .IsUnique();
 
                 entity.Property(e => e.NamOrg).HasMaxLength(50);
@@ -9180,11 +9180,11 @@ namespace VS_CRM.Models
                 entity.ToTable("Mob.Tel");
 
                 entity.HasIndex(e => e.Tnum)
-                    .HasName("IX_Mob.Tel")
+                    .HasDatabaseName("IX_Mob.Tel")
                     .IsUnique();
 
                 entity.HasIndex(e => new { e.IdIzgot, e.IdOrg, e.Tnum })
-                    .HasName("IX_Mob.Tel_1");
+                    .HasDatabaseName("IX_Mob.Tel_1");
 
                 entity.Property(e => e.IdOrg).HasComment("Id оргазинации из dbo.[Mob.Tel]");
 
@@ -9287,7 +9287,7 @@ namespace VS_CRM.Models
                 entity.ToTable("ObjectPositionRules", "cargo");
 
                 entity.HasIndex(e => e.Name)
-                    .HasName("ObjectPositionRules_UQ")
+                    .HasDatabaseName("ObjectPositionRules_UQ")
                     .IsUnique();
 
                 entity.Property(e => e.Id).HasColumnName("ID");
@@ -9322,7 +9322,7 @@ namespace VS_CRM.Models
                 entity.ToTable("Ol.secMhid");
 
                 entity.HasIndex(e => new { e.Hid, e.RibbonId, e.TabId, e.GroupId, e.ItemId })
-                    .HasName("IX_Ol.secMhid_Column")
+                    .HasDatabaseName("IX_Ol.secMhid_Column")
                     .IsUnique();
 
                 entity.Property(e => e.Dostup).HasDefaultValueSql("((1))");
@@ -9349,7 +9349,7 @@ namespace VS_CRM.Models
                 entity.ToTable("Ol.secMpos");
 
                 entity.HasIndex(e => new { e.IdPos, e.RibbonId, e.TabId, e.GroupId, e.ItemId })
-                    .HasName("IX_Ol.secMpos_Column")
+                    .HasDatabaseName("IX_Ol.secMpos_Column")
                     .IsUnique();
 
                 entity.Property(e => e.GroupId)
@@ -9376,7 +9376,7 @@ namespace VS_CRM.Models
                 entity.HasComment("Коэф. к операциям по спецзаказам разных категорий и производств");
 
                 entity.HasIndex(e => new { e.Koeff, e.IdIzgot, e.KodIzgot, e.Category, e.Operation })
-                    .HasName("UQ_OpCatCorrection")
+                    .HasDatabaseName("UQ_OpCatCorrection")
                     .IsUnique();
 
                 entity.Property(e => e.Category)
@@ -9406,7 +9406,7 @@ namespace VS_CRM.Models
                 entity.ToTable("OpCatCorrection", "fortests");
 
                 entity.HasIndex(e => new { e.Koeff, e.IdIzgot, e.KodIzgot, e.Category, e.Operation })
-                    .HasName("UQ_OpCatCorrection")
+                    .HasDatabaseName("UQ_OpCatCorrection")
                     .IsUnique();
 
                 entity.Property(e => e.Category)
@@ -9434,7 +9434,7 @@ namespace VS_CRM.Models
                 entity.ToTable("outlabel.BindingTemplates");
 
                 entity.HasIndex(e => new { e.FactoryId, e.Articul, e.Zakaz })
-                    .HasName("IX_outlabel.BindingTemplates");
+                    .HasDatabaseName("IX_outlabel.BindingTemplates");
 
                 entity.Property(e => e.Id).HasColumnName("ID");
 
@@ -9771,7 +9771,7 @@ namespace VS_CRM.Models
                 entity.ToTable("PLAN.DetailsBySections");
 
                 entity.HasIndex(e => new { e.Unit, e.Section, e.Detail })
-                    .HasName("Detail")
+                    .HasDatabaseName("Detail")
                     .IsUnique();
 
                 entity.Property(e => e.Id).HasColumnName("ID");
@@ -9795,7 +9795,7 @@ namespace VS_CRM.Models
                 entity.ToTable("PLAN.NEW");
 
                 entity.HasIndex(e => new { e.Articul, e.DeadLine, e.IdSpec, e.Flag })
-                    .HasName("IX_PLAN.NEW_Column")
+                    .HasDatabaseName("IX_PLAN.NEW_Column")
                     .IsUnique();
 
                 entity.Property(e => e.Articul)
@@ -9815,7 +9815,7 @@ namespace VS_CRM.Models
                 entity.ToTable("PLAN.PL_HOLIDAY");
 
                 entity.HasIndex(e => e.Data)
-                    .HasName("PL_HOLIDAY_IX1");
+                    .HasDatabaseName("PL_HOLIDAY_IX1");
 
                 entity.Property(e => e.Idrec).HasColumnName("IDREC");
 
@@ -9844,7 +9844,7 @@ namespace VS_CRM.Models
                 entity.ToTable("PLAN.PLANSOGL");
 
                 entity.HasIndex(e => new { e.Year, e.Month, e.Typ })
-                    .HasName("PLANSOGL_IX1");
+                    .HasDatabaseName("PLANSOGL_IX1");
 
                 entity.Property(e => e.Idrec).HasColumnName("IDREC");
 
@@ -9907,10 +9907,10 @@ namespace VS_CRM.Models
                 entity.ToTable("PLAN.PULL_COM");
 
                 entity.HasIndex(e => new { e.Det, e.KodIzgot, e.Mash, e.Nn })
-                    .HasName("PULL_COM_IX1");
+                    .HasDatabaseName("PULL_COM_IX1");
 
                 entity.HasIndex(e => new { e.Nam, e.Idrec, e.Idizgot, e.KodIzgot, e.Det, e.Delrecord })
-                    .HasName("PLAN.PULL_COM_IX2");
+                    .HasDatabaseName("PLAN.PULL_COM_IX2");
 
                 entity.Property(e => e.Idrec).HasColumnName("IDREC");
 
@@ -9987,13 +9987,13 @@ namespace VS_CRM.Models
                 entity.ToTable("PLAN.PULL_F_D");
 
                 entity.HasIndex(e => new { e.Year, e.Month, e.Day, e.Sm, e.KodIzgot, e.Complect, e.Det })
-                    .HasName("PULL_F_D_IX1");
+                    .HasDatabaseName("PULL_F_D_IX1");
 
                 entity.HasIndex(e => new { e.Det, e.KodIzgot, e.Mash, e.Nn, e.Year, e.Month, e.Day, e.Sm })
-                    .HasName("PULL_F_D_IX2");
+                    .HasDatabaseName("PULL_F_D_IX2");
 
                 entity.HasIndex(e => new { e.Year, e.Month, e.Day, e.Sm, e.Det, e.KodIzgot, e.Mash, e.Nn })
-                    .HasName("PULL_F_D_IX3");
+                    .HasDatabaseName("PULL_F_D_IX3");
 
                 entity.Property(e => e.Idrec).HasColumnName("IDREC");
 
@@ -10068,7 +10068,7 @@ namespace VS_CRM.Models
                 entity.ToTable("PLAN.PULL_FACT");
 
                 entity.HasIndex(e => new { e.IdPullPl, e.SectionNumber })
-                    .HasName("ID_Pull_Pl");
+                    .HasDatabaseName("ID_Pull_Pl");
 
                 entity.Property(e => e.Idrec).HasColumnName("IDREC");
 
@@ -10096,7 +10096,7 @@ namespace VS_CRM.Models
 No refs");
 
                 entity.HasIndex(e => new { e.Idizgot, e.Delrecord, e.Year, e.Month, e.Day, e.Sm, e.KodIzgot, e.Det })
-                    .HasName("PULL_P_D_IX1");
+                    .HasDatabaseName("PULL_P_D_IX1");
 
                 entity.Property(e => e.Idrec).HasColumnName("IDREC");
 
@@ -10239,13 +10239,13 @@ No refs");
                 entity.ToTable("PLAN.PULL_PL");
 
                 entity.HasIndex(e => new { e.Articul, e.Dop, e.Year, e.Month, e.Day })
-                    .HasName("PULL_PL_IX1");
+                    .HasDatabaseName("PULL_PL_IX1");
 
                 entity.HasIndex(e => new { e.Delrecord, e.Idizgot, e.Year, e.Month, e.Day })
-                    .HasName("PULL_PL_IX3");
+                    .HasDatabaseName("PULL_PL_IX3");
 
                 entity.HasIndex(e => new { e.Year, e.Month, e.Day, e.Articul, e.Dop })
-                    .HasName("PULL_PL_IX2");
+                    .HasDatabaseName("PULL_PL_IX2");
 
                 entity.Property(e => e.Idrec).HasColumnName("IDREC");
 
@@ -10304,10 +10304,10 @@ No refs");
                 entity.ToTable("PLAN.PULL_PLAN");
 
                 entity.HasIndex(e => new { e.Articul, e.DopCod, e.Year, e.Week })
-                    .HasName("PULL_PLAN_IX2");
+                    .HasDatabaseName("PULL_PLAN_IX2");
 
                 entity.HasIndex(e => new { e.Year, e.Week, e.Articul, e.DopCod })
-                    .HasName("PULL_PLAN_IX3");
+                    .HasDatabaseName("PULL_PLAN_IX3");
 
                 entity.Property(e => e.Idrec).HasColumnName("IDREC");
 
@@ -10355,10 +10355,10 @@ No refs");
                 entity.ToTable("PLAN.PULL_UP");
 
                 entity.HasIndex(e => new { e.DataPlan, e.Sm, e.Nn, e.UpCod })
-                    .HasName("PULL_UP_IX1");
+                    .HasDatabaseName("PULL_UP_IX1");
 
                 entity.HasIndex(e => new { e.Nn, e.DataPlan, e.Sm, e.UpCod })
-                    .HasName("PULL_UP_IX2");
+                    .HasDatabaseName("PULL_UP_IX2");
 
                 entity.Property(e => e.Idrec).HasColumnName("IDREC");
 
@@ -10551,7 +10551,7 @@ No refs");
                 entity.ToTable("PLAN.TaskSectionWork");
 
                 entity.HasIndex(e => e.Idtask)
-                    .HasName("IDTask");
+                    .HasDatabaseName("IDTask");
 
                 entity.Property(e => e.Id).HasColumnName("ID");
 
@@ -10687,7 +10687,7 @@ No refs");
                 entity.ToTable("PR.PROJECT_ST");
 
                 entity.HasIndex(e => e.ProjName)
-                    .HasName("PROJECT_ST_IX1");
+                    .HasDatabaseName("PROJECT_ST_IX1");
 
                 entity.Property(e => e.Idrec).HasColumnName("IDREC");
 
@@ -10821,16 +10821,16 @@ No refs");
                 entity.ToTable("PRJ.PROJECT_ID");
 
                 entity.HasIndex(e => new { e.PrLPNam, e.PrLPId })
-                    .HasName("PROJECT_ID_IX2");
+                    .HasDatabaseName("PROJECT_ID_IX2");
 
                 entity.HasIndex(e => new { e.PrUPNam, e.PrUPId })
-                    .HasName("PROJECT_ID_IX3");
+                    .HasDatabaseName("PROJECT_ID_IX3");
 
                 entity.HasIndex(e => new { e.ProjName, e.ParentId, e.ProjNom })
-                    .HasName("PROJECT_ID_IX1");
+                    .HasDatabaseName("PROJECT_ID_IX1");
 
                 entity.HasIndex(e => new { e.ProjName, e.ProjId, e.ParentId })
-                    .HasName("PROJECT_ID_IX4");
+                    .HasDatabaseName("PROJECT_ID_IX4");
 
                 entity.Property(e => e.Idrec).HasColumnName("IDREC");
 
@@ -11016,7 +11016,7 @@ No refs");
                 entity.HasNoKey();
 
                 entity.HasIndex(e => new { e.IdIzgot, e.Smena, e.Date })
-                    .HasName("ProductionCalendar_PK")
+                    .HasDatabaseName("ProductionCalendar_PK")
                     .IsUnique()
                     .IsClustered();
 
@@ -11196,10 +11196,10 @@ No refs");
                 entity.HasNoKey();
 
                 entity.HasIndex(e => new { e.IdIzgot, e.KodIzgot })
-                    .HasName("ProductionSetupCache_IX1");
+                    .HasDatabaseName("ProductionSetupCache_IX1");
 
                 entity.HasIndex(e => new { e.Method, e.Source, e.UsePremium, e.OrgId, e.IdIzgot, e.KodIzgot, e.Brigada })
-                    .HasName("ProductionSetupCache_PK")
+                    .HasDatabaseName("ProductionSetupCache_PK")
                     .IsUnique();
 
                 entity.Property(e => e.CuratorTo1)
@@ -11259,16 +11259,16 @@ No refs");
                 entity.ToTable("Red.Bz_bau_");
 
                 entity.HasIndex(e => e.IdRec)
-                    .HasName("IX_Red.Bz_bau__2");
+                    .HasDatabaseName("IX_Red.Bz_bau__2");
 
                 entity.HasIndex(e => new { e.Det, e.Uzel, e.AsVyvod })
-                    .HasName("IX_Red.Bz_bau__1");
+                    .HasDatabaseName("IX_Red.Bz_bau__1");
 
                 entity.HasIndex(e => new { e.Uzel, e.Det, e.AsVyvod })
-                    .HasName("IX_Red.Bz_bau_");
+                    .HasDatabaseName("IX_Red.Bz_bau_");
 
                 entity.HasIndex(e => new { e.Uzel, e.Lit, e.AsVyvod, e.DelRecord })
-                    .HasName("NodeLitNumberOutputDelrecord");
+                    .HasDatabaseName("NodeLitNumberOutputDelrecord");
 
                 entity.Property(e => e.Id).HasColumnName("ID");
 
@@ -11345,10 +11345,10 @@ No refs");
                 entity.ToTable("Red.Det_1");
 
                 entity.HasIndex(e => e.IdRec)
-                    .HasName("IDRec");
+                    .HasDatabaseName("IDRec");
 
                 entity.HasIndex(e => e.Mat)
-                    .HasName("Material");
+                    .HasDatabaseName("Material");
 
                 entity.Property(e => e.Id).HasColumnName("ID");
 
@@ -11514,10 +11514,10 @@ No refs");
                 entity.ToTable("Red.SpecHist");
 
                 entity.HasIndex(e => e.Det)
-                    .HasName("IX_Red.SpecHist");
+                    .HasDatabaseName("IX_Red.SpecHist");
 
                 entity.HasIndex(e => e.IdGood)
-                    .HasName("IDGood");
+                    .HasDatabaseName("IDGood");
 
                 entity.Property(e => e.BaiEcbs)
                     .HasColumnName("Bai_Ecbs")
@@ -11708,7 +11708,7 @@ No refs");
                 entity.ToTable("Red.SpecHist_");
 
                 entity.HasIndex(e => new { e.Det, e.Stage })
-                    .HasName("NonClusteredIndex-20160728-163651");
+                    .HasDatabaseName("NonClusteredIndex-20160728-163651");
 
                 entity.Property(e => e.BaiEcbs)
                     .HasColumnName("Bai_Ecbs")
@@ -12045,7 +12045,7 @@ No refs");
                 entity.ToTable("Red.SpecHistDop");
 
                 entity.HasIndex(e => new { e.IdSpec, e.IdGood })
-                    .HasName("IX_Red.SpecHistDop")
+                    .HasDatabaseName("IX_Red.SpecHistDop")
                     .IsUnique();
             });
 
@@ -12056,7 +12056,7 @@ No refs");
                 entity.ToTable("Red.SpecHistSogl");
 
                 entity.HasIndex(e => new { e.IdSpec, e.IdIzgot })
-                    .HasName("IX_Red.SpecHistSogl")
+                    .HasDatabaseName("IX_Red.SpecHistSogl")
                     .IsUnique();
 
                 entity.Property(e => e.DataFint)
@@ -12090,7 +12090,7 @@ No refs");
                 entity.ToTable("Red.SpecReestr");
 
                 entity.HasIndex(e => new { e.IdSpec, e.Det, e.TypCh })
-                    .HasName("IX_Red.SpecReestr")
+                    .HasDatabaseName("IX_Red.SpecReestr")
                     .IsUnique();
 
                 entity.Property(e => e.Det)
@@ -12129,7 +12129,7 @@ No refs");
                 entity.ToTable("Red.SpecSource");
 
                 entity.HasIndex(e => new { e.IdSource, e.IdSpec })
-                    .HasName("IX_Red.SpecSource_Column")
+                    .HasDatabaseName("IX_Red.SpecSource_Column")
                     .IsUnique();
             });
 
@@ -12216,7 +12216,7 @@ No refs");
             modelBuilder.Entity<ResourseExpense>(entity =>
             {
                 entity.HasIndex(e => e.Idresourse)
-                    .HasName("IDResourse");
+                    .HasDatabaseName("IDResourse");
 
                 entity.Property(e => e.Id).HasColumnName("ID");
 
@@ -12289,7 +12289,7 @@ No refs");
                 entity.ToTable("scan.Version");
 
                 entity.HasIndex(e => e.AppName)
-                    .HasName("IX_scan.Version")
+                    .HasDatabaseName("IX_scan.Version")
                     .IsUnique();
 
                 entity.Property(e => e.AppName)
@@ -12342,7 +12342,7 @@ No refs");
                 entity.ToTable("SEC.USER");
 
                 entity.HasIndex(e => e.UserPrim)
-                    .HasName("SEC.USER_UQ1")
+                    .HasDatabaseName("SEC.USER_UQ1")
                     .IsUnique();
 
                 entity.Property(e => e.IdIzgot).HasComment("код площадки");
@@ -12378,14 +12378,14 @@ No refs");
                 entity.ToTable("SEC.USER_PAS");
 
                 entity.HasIndex(e => e.Hid)
-                    .HasName("IX_SEC.USER_PAS_1")
+                    .HasDatabaseName("IX_SEC.USER_PAS_1")
                     .IsUnique();
 
                 entity.HasIndex(e => e.Name)
-                    .HasName("USER_PAS_IX1");
+                    .HasDatabaseName("USER_PAS_IX1");
 
                 entity.HasIndex(e => e.User)
-                    .HasName("USER_PAS_IX2");
+                    .HasDatabaseName("USER_PAS_IX2");
 
                 entity.Property(e => e.Idrec).HasColumnName("IDREC");
 
@@ -12569,7 +12569,7 @@ No refs");
                 entity.ToTable("Sec.UserPass");
 
                 entity.HasIndex(e => e.User)
-                    .HasName("IX_Sec.UserPass");
+                    .HasDatabaseName("IX_Sec.UserPass");
 
                 entity.Property(e => e.Dopusk)
                     .IsRequired()
@@ -12751,19 +12751,19 @@ No refs");
                 entity.ToTable("SKLAD.SKL_HIST");
 
                 entity.HasIndex(e => new { e.Articul, e.DopCod })
-                    .HasName("SKL_HIST_IX1");
+                    .HasDatabaseName("SKL_HIST_IX1");
 
                 entity.HasIndex(e => new { e.Start, e.Tara })
-                    .HasName("SKL_HIST_IX4");
+                    .HasDatabaseName("SKL_HIST_IX4");
 
                 entity.HasIndex(e => new { e.Tara, e.Articul, e.DopCod })
-                    .HasName("SKL_HIST_IX5");
+                    .HasDatabaseName("SKL_HIST_IX5");
 
                 entity.HasIndex(e => new { e.NSub, e.Articul, e.DopCod, e.OrderNo })
-                    .HasName("SKL_HIST_IX2");
+                    .HasDatabaseName("SKL_HIST_IX2");
 
                 entity.HasIndex(e => new { e.NSub, e.Num, e.NRekl, e.Kodizgot, e.Idizgot, e.Articul, e.DopCod, e.Delrecord })
-                    .HasName("SKL_HIST_IX3");
+                    .HasDatabaseName("SKL_HIST_IX3");
 
                 entity.Property(e => e.Idrec).HasColumnName("IDREC");
 
@@ -12933,13 +12933,13 @@ No refs");
                 entity.ToTable("SKLAD.SKLAD");
 
                 entity.HasIndex(e => new { e.Articul, e.DopCod, e.Tara })
-                    .HasName("SKLAD_IX1");
+                    .HasDatabaseName("SKLAD_IX1");
 
                 entity.HasIndex(e => new { e.NSub, e.Articul, e.DopCod })
-                    .HasName("SKLAD_IX2");
+                    .HasDatabaseName("SKLAD_IX2");
 
                 entity.HasIndex(e => new { e.Tara, e.Articul, e.DopCod })
-                    .HasName("SKLAD_IX3");
+                    .HasDatabaseName("SKLAD_IX3");
 
                 entity.Property(e => e.Idrec).HasColumnName("IDREC");
 
@@ -13191,7 +13191,7 @@ No refs");
                 entity.ToTable("Tablo.Cfg");
 
                 entity.HasIndex(e => e.IdTablo)
-                    .HasName("IX_Tablo.Cfg_Column")
+                    .HasDatabaseName("IX_Tablo.Cfg_Column")
                     .IsUnique();
 
                 entity.Property(e => e.FontSize).HasDefaultValueSql("((3))");
@@ -13252,7 +13252,7 @@ No refs");
                 entity.HasComment("Сообщения и задачи для пользователей и групп");
 
                 entity.HasIndex(e => new { e.ToUserId, e.Type, e.UntilDate, e.Done })
-                    .HasName("TasksAndMessages_Done");
+                    .HasDatabaseName("TasksAndMessages_Done");
 
                 entity.Property(e => e.Author).HasComment("Автор задания/сообщения");
 
@@ -13313,7 +13313,7 @@ No refs");
                 entity.ToTable("TECH.COMPL_D");
 
                 entity.HasIndex(e => new { e.Kol, e.Complect, e.Det, e.Delrecord })
-                    .HasName("COMPL_D_IX1");
+                    .HasDatabaseName("COMPL_D_IX1");
 
                 entity.Property(e => e.Idrec).HasColumnName("IDREC");
 
@@ -13369,10 +13369,10 @@ No refs");
                 entity.ToTable("TECH.COMPLECT");
 
                 entity.HasIndex(e => e.Complect)
-                    .HasName("COMPLECT_IX1");
+                    .HasDatabaseName("COMPLECT_IX1");
 
                 entity.HasIndex(e => new { e.Tim, e.Idizgot, e.KodIzgot, e.Complect, e.Delrecord })
-                    .HasName("COMPLECT_IX2");
+                    .HasDatabaseName("COMPLECT_IX2");
 
                 entity.Property(e => e.Idrec).HasColumnName("IDREC");
 
@@ -13435,13 +13435,13 @@ No refs");
                 entity.ToTable("TECH.COMPON");
 
                 entity.HasIndex(e => e.Component)
-                    .HasName("COMPON_IX1");
+                    .HasDatabaseName("COMPON_IX1");
 
                 entity.HasIndex(e => new { e.Component, e.Idrec, e.Idizgot, e.KodIzgot, e.Delrecord })
-                    .HasName("ActualComponentsByStructure");
+                    .HasDatabaseName("ActualComponentsByStructure");
 
                 entity.HasIndex(e => new { e.Tim, e.Log, e.Idizgot, e.KodIzgot, e.Component, e.Delrecord, e.Oper })
-                    .HasName("COMPON_IX2");
+                    .HasDatabaseName("COMPON_IX2");
 
                 entity.Property(e => e.Idrec).HasColumnName("IDREC");
 
@@ -13557,25 +13557,25 @@ No refs");
                 entity.ToTable("TECH.DET_AP");
 
                 entity.HasIndex(e => e.Det)
-                    .HasName("Detail");
+                    .HasDatabaseName("Detail");
 
                 entity.HasIndex(e => e.Operaciya)
-                    .HasName("Operation");
+                    .HasDatabaseName("Operation");
 
                 entity.HasIndex(e => new { e.AsVyvod, e.Idizgot, e.Delrecord })
-                    .HasName("ActualTPByUnit");
+                    .HasDatabaseName("ActualTPByUnit");
 
                 entity.HasIndex(e => new { e.AsVvod, e.AsVyvod, e.Det, e.Idizgot })
-                    .HasName("det_ap1");
+                    .HasDatabaseName("det_ap1");
 
                 entity.HasIndex(e => new { e.AsVyvod, e.Idizgot, e.KodIzgot, e.Delrecord })
-                    .HasName("ActualTPByStructure");
+                    .HasDatabaseName("ActualTPByStructure");
 
                 entity.HasIndex(e => new { e.AsVyvod, e.Det, e.Idizgot, e.Delrecord, e.Operaciya })
-                    .HasName("DET_AP");
+                    .HasDatabaseName("DET_AP");
 
                 entity.HasIndex(e => new { e.Datsavesql, e.Operaciya, e.Idizgot, e.Det, e.NppOper, e.AsVyvod, e.Delrecord })
-                    .HasName("DET_AP_IX1");
+                    .HasDatabaseName("DET_AP_IX1");
 
                 entity.Property(e => e.Idrec).HasColumnName("IDREC");
 
@@ -13835,13 +13835,13 @@ No refs");
                 entity.ToTable("TECH.DET_AP_AS");
 
                 entity.HasIndex(e => e.Det)
-                    .HasName("DET_AP_AS1_IX1");
+                    .HasDatabaseName("DET_AP_AS1_IX1");
 
                 entity.HasIndex(e => new { e.Det, e.DetAs })
-                    .HasName("DET_AP_AS1_IX2");
+                    .HasDatabaseName("DET_AP_AS1_IX2");
 
                 entity.HasIndex(e => new { e.Det, e.DetAs, e.Row })
-                    .HasName("DET_AP_AS1_IX3");
+                    .HasDatabaseName("DET_AP_AS1_IX3");
 
                 entity.Property(e => e.Idrec).HasColumnName("IDREC");
 
@@ -13883,7 +13883,7 @@ No refs");
                 entity.ToTable("TECH.DET_APDATA");
 
                 entity.HasIndex(e => new { e.Det, e.As, e.IdIzgot })
-                    .HasName("IX_TECH.DET_APDATA")
+                    .HasDatabaseName("IX_TECH.DET_APDATA")
                     .IsUnique();
 
                 entity.Property(e => e.As).HasDefaultValueSql("((1))");
@@ -14024,7 +14024,7 @@ No refs");
                 entity.ToTable("TECH.DET_OSN_");
 
                 entity.HasIndex(e => e.Det)
-                    .HasName("DET");
+                    .HasDatabaseName("DET");
 
                 entity.Property(e => e.Idrec).HasColumnName("IDREC");
 
@@ -14153,7 +14153,7 @@ No refs");
                 entity.ToTable("TECH.DOC_EXP");
 
                 entity.HasIndex(e => e.Doc)
-                    .HasName("DOC_EXP_IX1");
+                    .HasDatabaseName("DOC_EXP_IX1");
 
                 entity.Property(e => e.Idrec).HasColumnName("IDREC");
 
@@ -14220,13 +14220,13 @@ No refs");
                 entity.ToTable("TECH.EK_DET");
 
                 entity.HasIndex(e => new { e.Det, e.KodIzgot })
-                    .HasName("EK_DET_IX1");
+                    .HasDatabaseName("EK_DET_IX1");
 
                 entity.HasIndex(e => new { e.KodIzgot, e.Mash })
-                    .HasName("EK_DET_IX2");
+                    .HasDatabaseName("EK_DET_IX2");
 
                 entity.HasIndex(e => new { e.Det, e.KodIzgot, e.Mash, e.Brigada, e.Data })
-                    .HasName("EK_DET_IX3");
+                    .HasDatabaseName("EK_DET_IX3");
 
                 entity.Property(e => e.Idrec).HasColumnName("IDREC");
 
@@ -14485,10 +14485,10 @@ No refs");
                 entity.ToTable("TECH.MACH");
 
                 entity.HasIndex(e => e.Mash)
-                    .HasName("MASH_IX1");
+                    .HasDatabaseName("MASH_IX1");
 
                 entity.HasIndex(e => new { e.Cpu, e.Mash, e.Idizgot, e.Delrecord })
-                    .HasName("MASH_IX2");
+                    .HasDatabaseName("MASH_IX2");
 
                 entity.Property(e => e.Idrec).HasColumnName("IDREC");
 
@@ -14567,16 +14567,16 @@ No refs");
                 entity.ToTable("TECH.MASH_NN");
 
                 entity.HasIndex(e => e.Nn)
-                    .HasName("MASH_NN_IX4");
+                    .HasDatabaseName("MASH_NN_IX4");
 
                 entity.HasIndex(e => new { e.Mash, e.KodIzgot })
-                    .HasName("MASH_NN_IX2");
+                    .HasDatabaseName("MASH_NN_IX2");
 
                 entity.HasIndex(e => new { e.Mash, e.Nn })
-                    .HasName("MASH_NN_IX3");
+                    .HasDatabaseName("MASH_NN_IX3");
 
                 entity.HasIndex(e => new { e.KodIzgot, e.Mash, e.Nn })
-                    .HasName("MASH_NN_IX1");
+                    .HasDatabaseName("MASH_NN_IX1");
 
                 entity.Property(e => e.Idrec).HasColumnName("IDREC");
 
@@ -14681,7 +14681,7 @@ No refs");
                 entity.ToTable("TECH.MASH_OP");
 
                 entity.HasIndex(e => new { e.Mash, e.Operaciya })
-                    .HasName("MASH_OP_IX1");
+                    .HasDatabaseName("MASH_OP_IX1");
 
                 entity.Property(e => e.Idrec).HasColumnName("IDREC");
 
@@ -14731,13 +14731,13 @@ No refs");
                 entity.ToTable("TECH.MASH_STOP");
 
                 entity.HasIndex(e => new { e.Data, e.Smena })
-                    .HasName("MASH_STOP_IX1");
+                    .HasDatabaseName("MASH_STOP_IX1");
 
                 entity.HasIndex(e => new { e.Nn, e.Data, e.Smena })
-                    .HasName("MASH_STOP_IX3");
+                    .HasDatabaseName("MASH_STOP_IX3");
 
                 entity.HasIndex(e => new { e.Mash, e.Nn, e.Data, e.Smena })
-                    .HasName("MASH_STOP_IX2");
+                    .HasDatabaseName("MASH_STOP_IX2");
 
                 entity.Property(e => e.Idrec).HasColumnName("IDREC");
 
@@ -14796,10 +14796,10 @@ No refs");
                 entity.ToTable("TECH.MATERIAL_ARTICLE");
 
                 entity.HasIndex(e => e.Idmaterial)
-                    .HasName("IDMaterial");
+                    .HasDatabaseName("IDMaterial");
 
                 entity.HasIndex(e => e.Idproduction)
-                    .HasName("IDProduction");
+                    .HasDatabaseName("IDProduction");
 
                 entity.Property(e => e.Id).HasColumnName("ID");
 
@@ -14904,7 +14904,7 @@ No refs");
                 entity.ToTable("TECH.Osnastka.KatOsn");
 
                 entity.HasIndex(e => e.Snom)
-                    .HasName("snom")
+                    .HasDatabaseName("snom")
                     .IsUnique();
 
                 entity.Property(e => e.Key).HasColumnName("key");
@@ -14989,7 +14989,7 @@ No refs");
                 entity.ToTable("TECH.Osnastka.KatOsnItems");
 
                 entity.HasIndex(e => e.Keyorder)
-                    .HasName("KeyOrder");
+                    .HasDatabaseName("KeyOrder");
 
                 entity.Property(e => e.Key).HasColumnName("key");
 
@@ -15354,7 +15354,7 @@ No refs");
                 entity.ToTable("TECH.PAINT");
 
                 entity.HasIndex(e => new { e.Data, e.Smena })
-                    .HasName("PAINT_IX1");
+                    .HasDatabaseName("PAINT_IX1");
 
                 entity.Property(e => e.Idrec).HasColumnName("IDREC");
 
@@ -15396,13 +15396,13 @@ No refs");
                 entity.ToTable("TECH.PAINT_DET");
 
                 entity.HasIndex(e => e.Det)
-                    .HasName("Detail");
+                    .HasDatabaseName("Detail");
 
                 entity.HasIndex(e => new { e.Data, e.Smena, e.Det })
-                    .HasName("PAINT_DET_IX1");
+                    .HasDatabaseName("PAINT_DET_IX1");
 
                 entity.HasIndex(e => new { e.Data, e.Smena, e.Idizgot, e.Delrecord })
-                    .HasName("DateTurn");
+                    .HasDatabaseName("DateTurn");
 
                 entity.Property(e => e.Idrec).HasColumnName("IDREC");
 
@@ -15482,7 +15482,7 @@ No refs");
                 entity.ToTable("TECH.ST_IZG");
 
                 entity.HasIndex(e => new { e.Cell, e.Nam, e.Idrec, e.Lider, e.Vis, e.SectorType, e.Idizgot, e.Izg, e.Delrecord })
-                    .HasName("ST_IZG_IX1");
+                    .HasDatabaseName("ST_IZG_IX1");
 
                 entity.Property(e => e.Idrec).HasColumnName("IDREC");
 
@@ -15607,7 +15607,7 @@ No refs");
                 entity.ToTable("TECH.ST_OPER");
 
                 entity.HasIndex(e => new { e.Priznak, e.Operaciya, e.Idizgot, e.Delrecord })
-                    .HasName("ST_OPER_IX1");
+                    .HasDatabaseName("ST_OPER_IX1");
 
                 entity.Property(e => e.Idrec).HasColumnName("IDREC");
 
@@ -15935,11 +15935,11 @@ No refs");
 по задаче ""Аудит ТО1""");
 
                 entity.HasIndex(e => new { e.Data, e.Smena, e.IdIzgot, e.KodIzgot, e.Fio })
-                    .HasName("TECH.TO_UQ1")
+                    .HasDatabaseName("TECH.TO_UQ1")
                     .IsUnique();
 
                 entity.HasIndex(e => new { e.Mark, e.IdIzgot, e.Data, e.Smena, e.Fio })
-                    .HasName("TECH.TO_IDX1");
+                    .HasDatabaseName("TECH.TO_IDX1");
 
                 entity.Property(e => e.Bai)
                     .HasColumnName("BAI")
@@ -15972,7 +15972,7 @@ No refs");
                 entity.ToTable("TECH.TO_CHECKLIST");
 
                 entity.HasIndex(e => new { e.IdIzgot, e.Equipment, e.Responsible })
-                    .HasName("TECH.TO_CHECKLIST_UniqueEquipment_TECH.TO_CHECKLIST")
+                    .HasDatabaseName("TECH.TO_CHECKLIST_UniqueEquipment_TECH.TO_CHECKLIST")
                     .IsUnique();
 
                 entity.Property(e => e.Cell)
@@ -16010,7 +16010,7 @@ No refs");
                 entity.HasComment("Предназначена для хранения списков депремированных сотрудников после того, как заполнение карточек завершено");
 
                 entity.HasIndex(e => new { e.IdIzgot, e.Period, e.Fio })
-                    .HasName("TO_HRLIST_UQ")
+                    .HasDatabaseName("TO_HRLIST_UQ")
                     .IsUnique();
 
                 entity.Property(e => e.AvgMark)
@@ -16058,7 +16058,7 @@ No refs");
                 entity.ToTable("TECH.TO_MARKS");
 
                 entity.HasIndex(e => new { e.IdIzgot, e.Data, e.Smena, e.Equipment })
-                    .HasName("TECH.TO_MARKS_UQ_TECH.TO_MARKS")
+                    .HasDatabaseName("TECH.TO_MARKS_UQ_TECH.TO_MARKS")
                     .IsUnique();
 
                 entity.Property(e => e.Data)
@@ -16156,7 +16156,7 @@ No refs");
                 entity.ToTable("TECH.ToolDocCatalogue");
 
                 entity.HasIndex(e => e.Idtool)
-                    .HasName("IDTool");
+                    .HasDatabaseName("IDTool");
 
                 entity.Property(e => e.Id)
                     .HasColumnName("ID")
@@ -16255,7 +16255,7 @@ No refs");
                 entity.ToTable("Tech.TU");
 
                 entity.HasIndex(e => new { e.IdRtu, e.Izgot, e.TypeWork, e.TuType, e.Operaciya, e.AsVvod, e.AsVyvod })
-                    .HasName("IX_Tech.TU2");
+                    .HasDatabaseName("IX_Tech.TU2");
 
                 entity.Property(e => e.AsVvod)
                     .HasColumnName("AS_VVOD")
@@ -16298,7 +16298,7 @@ No refs");
                 entity.ToTable("Tech.TUData");
 
                 entity.HasIndex(e => new { e.IdRtu, e.Izgot, e.TypeWork, e.TypeDoc })
-                    .HasName("IX_Tech.TUData");
+                    .HasDatabaseName("IX_Tech.TUData");
 
                 entity.Property(e => e.Bai).HasMaxLength(10);
 
@@ -16387,13 +16387,13 @@ No refs");
                 entity.ToTable("TECH.UP_DET");
 
                 entity.HasIndex(e => e.Det)
-                    .HasName("UP_DET_IX1");
+                    .HasDatabaseName("UP_DET_IX1");
 
                 entity.HasIndex(e => new { e.UpCod, e.Det, e.NppOper })
-                    .HasName("UP_DET_IX2");
+                    .HasDatabaseName("UP_DET_IX2");
 
                 entity.HasIndex(e => new { e.Kol, e.Det, e.Idizgot, e.UpCod, e.Delrecord })
-                    .HasName("UP_DET_IX3");
+                    .HasDatabaseName("UP_DET_IX3");
 
                 entity.Property(e => e.Idrec).HasColumnName("IDREC");
 
@@ -16475,10 +16475,10 @@ No refs");
                 entity.ToTable("TECH.UP_ST");
 
                 entity.HasIndex(e => e.UpCod)
-                    .HasName("UP_ST_IX1");
+                    .HasDatabaseName("UP_ST_IX1");
 
                 entity.HasIndex(e => new { e.EdVr, e.Tmash, e.UpNam, e.Wid, e.Heig, e.KolR, e.Mat, e.UpCod, e.Idizgot, e.Delrecord })
-                    .HasName("UP_ST_IX2");
+                    .HasDatabaseName("UP_ST_IX2");
 
                 entity.Property(e => e.Idrec).HasColumnName("IDREC");
 
@@ -16630,13 +16630,13 @@ No refs");
                 entity.ToTable("TECH.VMT_BAZA");
 
                 entity.HasIndex(e => new { e.Det, e.NppOper })
-                    .HasName("VMT_BAZA_IX1");
+                    .HasDatabaseName("VMT_BAZA_IX1");
 
                 entity.HasIndex(e => new { e.Mat, e.Det })
-                    .HasName("VMT_BAZA_IX3");
+                    .HasDatabaseName("VMT_BAZA_IX3");
 
                 entity.HasIndex(e => new { e.Det, e.NppOper, e.Mat })
-                    .HasName("VMT_BAZA_IX2");
+                    .HasDatabaseName("VMT_BAZA_IX2");
 
                 entity.Property(e => e.Idrec).HasColumnName("IDREC");
 
@@ -16692,7 +16692,7 @@ No refs");
             modelBuilder.Entity<TimeRatePrices>(entity =>
             {
                 entity.HasIndex(e => e.Section)
-                    .HasName("Section")
+                    .HasDatabaseName("Section")
                     .IsUnique();
 
                 entity.Property(e => e.Id).HasColumnName("ID");
@@ -16712,7 +16712,7 @@ No refs");
                 entity.ToTable("Tmp.Config");
 
                 entity.HasIndex(e => new { e.IdIzgot, e.Priznak })
-                    .HasName("IX_Tmp.Config");
+                    .HasDatabaseName("IX_Tmp.Config");
 
                 entity.Property(e => e.DataChange).HasColumnType("datetime");
 
@@ -16772,7 +16772,7 @@ No refs");
             modelBuilder.Entity<TmpMed>(entity =>
             {
                 entity.HasIndex(e => new { e.Article, e.Mark })
-                    .HasName("IX_TmpMed")
+                    .HasDatabaseName("IX_TmpMed")
                     .IsUnique();
 
                 entity.Property(e => e.Id).HasColumnName("ID");
@@ -16817,7 +16817,7 @@ No refs");
                 entity.ToTable("TO.CustomerAppointment");
 
                 entity.HasIndex(e => new { e.IdBranch, e.Hid })
-                    .HasName("IX_TO.CustomerAppointment_Column");
+                    .HasDatabaseName("IX_TO.CustomerAppointment_Column");
 
                 entity.Property(e => e.CreationTime).HasColumnType("datetime");
 
@@ -16841,7 +16841,7 @@ No refs");
                 entity.ToTable("TO.CustomerContact");
 
                 entity.HasIndex(e => new { e.IdBranch, e.FullName })
-                    .HasName("IX_TO.CustomerContact_Column")
+                    .HasDatabaseName("IX_TO.CustomerContact_Column")
                     .IsUnique();
 
                 entity.Property(e => e.Birthday).HasColumnType("date");
@@ -16953,10 +16953,10 @@ No refs");
                 entity.ToTable("ToolsPY_Developers");
 
                 entity.HasIndex(e => e.Idperson)
-                    .HasName("IDPerson");
+                    .HasDatabaseName("IDPerson");
 
                 entity.HasIndex(e => e.IdtoolPy)
-                    .HasName("IDToolPY");
+                    .HasDatabaseName("IDToolPY");
 
                 entity.Property(e => e.Id).HasColumnName("ID");
 
@@ -16997,7 +16997,7 @@ No refs");
                 entity.ToTable("UP.DATA");
 
                 entity.HasIndex(e => new { e.UpCod, e.IdIzgot })
-                    .HasName("IX_UP.DATA")
+                    .HasDatabaseName("IX_UP.DATA")
                     .IsUnique();
 
                 entity.Property(e => e.Id).HasColumnName("ID");
@@ -17036,7 +17036,7 @@ No refs");
                 entity.ToTable("UP.DATA_ARCHIVE");
 
                 entity.HasIndex(e => new { e.UpCod, e.IdIzgot })
-                    .HasName("IX_UP.DATA_ARCHIVE")
+                    .HasDatabaseName("IX_UP.DATA_ARCHIVE")
                     .IsUnique();
 
                 entity.Property(e => e.Id).HasColumnName("ID");
@@ -19320,7 +19320,7 @@ No refs");
                 entity.ToTable("WSHOP.IZG_Brak");
 
                 entity.HasIndex(e => e.RecId)
-                    .HasName("IX_WSHOP_IZG_Brak_RecID");
+                    .HasDatabaseName("IX_WSHOP_IZG_Brak_RecID");
 
                 entity.Property(e => e.Count).HasColumnType("decimal(18, 2)");
 
@@ -19350,25 +19350,25 @@ No refs");
                 entity.ToTable("WSHOP.IZG_DAY");
 
                 entity.HasIndex(e => new { e.CodUp, e.Data, e.Sm })
-                    .HasName("IZG_DAY_IX2");
+                    .HasDatabaseName("IZG_DAY_IX2");
 
                 entity.HasIndex(e => new { e.Data, e.Sm, e.NomBirk })
-                    .HasName("IZG_DAY_IX5");
+                    .HasDatabaseName("IZG_DAY_IX5");
 
                 entity.HasIndex(e => new { e.Det, e.Data, e.Sm })
-                    .HasName("IZG_DAY_IX4");
+                    .HasDatabaseName("IZG_DAY_IX4");
 
                 entity.HasIndex(e => new { e.KolPr, e.CodUp, e.Det, e.Idizgot, e.Delrecord })
-                    .HasName("IZG_DAY_IX8");
+                    .HasDatabaseName("IZG_DAY_IX8");
 
                 entity.HasIndex(e => new { e.IzgMem, e.Idrec, e.Date, e.KolPr, e.Idizgot, e.KodIzgot, e.Data, e.Sm, e.CodUp, e.Delrecord })
-                    .HasName("IZG_DAY_FAST_UP");
+                    .HasDatabaseName("IZG_DAY_FAST_UP");
 
                 entity.HasIndex(e => new { e.Sm, e.NppOper, e.LustOper, e.Idrec, e.KolPr, e.Idizgot, e.KodIzgot, e.Data, e.Det, e.Delrecord })
-                    .HasName("IZG_DAY_IX9");
+                    .HasDatabaseName("IZG_DAY_IX9");
 
                 entity.HasIndex(e => new { e.Det, e.Idrec, e.KodIzgot, e.KolPr, e.Dest, e.LustOper, e.NppOper, e.Sm, e.Idizgot, e.Delrecord, e.Data })
-                    .HasName("IZG_DAY_IX1");
+                    .HasDatabaseName("IZG_DAY_IX1");
 
                 entity.Property(e => e.Idrec).HasColumnName("IDREC");
 
@@ -19503,11 +19503,11 @@ No refs");
                 entity.ToTable("WSHOP_IZG_DAY_copy");
 
                 entity.HasIndex(e => e.Idrec)
-                    .HasName("IX_WSHOP_IZG_DAY_copy_1")
+                    .HasDatabaseName("IX_WSHOP_IZG_DAY_copy_1")
                     .IsUnique();
 
                 entity.HasIndex(e => new { e.Data, e.Sm, e.CodUp, e.Fio })
-                    .HasName("IX_WSHOP_IZG_DAY_copy");
+                    .HasDatabaseName("IX_WSHOP_IZG_DAY_copy");
 
                 entity.Property(e => e.Idrec)
                     .HasColumnName("IDREC")
@@ -19656,7 +19656,7 @@ No refs");
                 entity.ToTable("WSHOP.IZG_DAY_Spec");
 
                 entity.HasIndex(e => new { e.IdRep, e.IdSpec, e.FlagSpec, e.IdPlan })
-                    .HasName("IX_WSHOP.IZG_DAY_Spec_Column")
+                    .HasDatabaseName("IX_WSHOP.IZG_DAY_Spec_Column")
                     .IsUnique();
 
                 entity.Property(e => e.IdPlan)
@@ -19672,13 +19672,13 @@ No refs");
                 entity.ToTable("WSHOP.IZG_DAYF");
 
                 entity.HasIndex(e => e.Idrec)
-                    .HasName("IZG_DAYF_IX3");
+                    .HasDatabaseName("IZG_DAYF_IX3");
 
                 entity.HasIndex(e => new { e.Data, e.Sm, e.Idrec, e.Idizgot, e.Fio })
-                    .HasName("IZG_DAYF_IX2");
+                    .HasDatabaseName("IZG_DAYF_IX2");
 
                 entity.HasIndex(e => new { e.Idrec, e.Idizgot, e.Data, e.Sm, e.Fio })
-                    .HasName("IZG_DAYF_IX1");
+                    .HasDatabaseName("IZG_DAYF_IX1");
 
                 entity.Property(e => e.Fio)
                     .HasColumnName("FIO")
@@ -19706,16 +19706,16 @@ No refs");
                 entity.ToTable("WSHOP.IZG_LSKM");
 
                 entity.HasIndex(e => new { e.Data, e.Sm, e.NomBirk })
-                    .HasName("IZG_LSK_M_IX4");
+                    .HasDatabaseName("IZG_LSK_M_IX4");
 
                 entity.HasIndex(e => new { e.Det, e.Data, e.Sm })
-                    .HasName("IZG_LSK_M_IX2");
+                    .HasDatabaseName("IZG_LSK_M_IX2");
 
                 entity.HasIndex(e => new { e.Data, e.Sm, e.Fio, e.Det })
-                    .HasName("IZG_LSK_M_IX1");
+                    .HasDatabaseName("IZG_LSK_M_IX1");
 
                 entity.HasIndex(e => new { e.Data, e.Sm, e.NomBirk, e.Fio })
-                    .HasName("IZG_LSK_M_IX3");
+                    .HasDatabaseName("IZG_LSK_M_IX3");
 
                 entity.Property(e => e.Idrec).HasColumnName("IDREC");
 
@@ -19829,16 +19829,16 @@ No refs");
                 entity.ToTable("WSHOP.IZG_OKR");
 
                 entity.HasIndex(e => new { e.Data, e.Sm, e.NomBirk })
-                    .HasName("IZG_OKR_IX4");
+                    .HasDatabaseName("IZG_OKR_IX4");
 
                 entity.HasIndex(e => new { e.Det, e.Izd, e.Data, e.Sm })
-                    .HasName("IZG_OKR_IX2");
+                    .HasDatabaseName("IZG_OKR_IX2");
 
                 entity.HasIndex(e => new { e.Data, e.Sm, e.Fio, e.Det, e.Izd })
-                    .HasName("IZG_OKR_IX1");
+                    .HasDatabaseName("IZG_OKR_IX1");
 
                 entity.HasIndex(e => new { e.Data, e.Sm, e.NomBirk, e.Fio, e.Det, e.Izd })
-                    .HasName("IZG_OKR_IX3");
+                    .HasDatabaseName("IZG_OKR_IX3");
 
                 entity.Property(e => e.Idrec).HasColumnName("IDREC");
 
@@ -19947,7 +19947,7 @@ No refs");
                 entity.ToTable("WSHOP.KodIzgot_Tarif");
 
                 entity.HasIndex(e => new { e.IdIzgot, e.KodIzgot })
-                    .HasName("IX_WSHOP.KodIzgot_Tarif_Column")
+                    .HasDatabaseName("IX_WSHOP.KodIzgot_Tarif_Column")
                     .IsUnique();
 
                 entity.Property(e => e.DateCh).HasColumnType("date");
@@ -19964,14 +19964,14 @@ No refs");
                 entity.ToTable("WSHOP.MOD_ART");
 
                 entity.HasIndex(e => new { e.Articul, e.DopCod })
-                    .HasName("IX_WSHOP.MOD_ART_Column")
+                    .HasDatabaseName("IX_WSHOP.MOD_ART_Column")
                     .IsUnique();
 
                 entity.HasIndex(e => new { e.IdMod, e.Articul, e.DopCod })
-                    .HasName("IX_WSHOP.MOD_ART_Column_2");
+                    .HasDatabaseName("IX_WSHOP.MOD_ART_Column_2");
 
                 entity.HasIndex(e => new { e.IdMod, e.IdIzgot, e.KodIzgot, e.Articul, e.DopCod })
-                    .HasName("IX_WSHOP.MOD_ART_Column_1");
+                    .HasDatabaseName("IX_WSHOP.MOD_ART_Column_1");
 
                 entity.Property(e => e.Articul)
                     .IsRequired()
@@ -19991,7 +19991,7 @@ No refs");
                 entity.ToTable("WSHOP_MODELS");
 
                 entity.HasIndex(e => e.Model)
-                    .HasName("IX_WSHOP_MODELS_Column");
+                    .HasDatabaseName("IX_WSHOP_MODELS_Column");
 
                 entity.Property(e => e.Lit)
                     .IsRequired()
@@ -20009,11 +20009,11 @@ No refs");
                 entity.ToTable("WSHOP.NORM");
 
                 entity.HasIndex(e => new { e.IdPar, e.Det, e.NppOper })
-                    .HasName("IX_WSHOP.NORM_Column")
+                    .HasDatabaseName("IX_WSHOP.NORM_Column")
                     .IsUnique();
 
                 entity.HasIndex(e => new { e.Carent, e.KodIzgot, e.Det, e.NppOper, e.IdIzgot })
-                    .HasName("IX_WSHOP.NORM_Column_1")
+                    .HasDatabaseName("IX_WSHOP.NORM_Column_1")
                     .IsUnique();
 
                 entity.Property(e => e.Carent).HasMaxLength(20);
@@ -20038,7 +20038,7 @@ No refs");
                 entity.ToTable("WSHOP.NORM_ADD");
 
                 entity.HasIndex(e => new { e.Articul, e.New, e.IdPar, e.Det, e.NppOper })
-                    .HasName("IX_WSHOP.NORM_ADD_Column")
+                    .HasDatabaseName("IX_WSHOP.NORM_ADD_Column")
                     .IsUnique();
 
                 entity.Property(e => e.Articul)
@@ -20061,7 +20061,7 @@ No refs");
                 entity.ToTable("WSHOP.PLAN_IZG");
 
                 entity.HasIndex(e => new { e.IdIzgot, e.NDate, e.Smena, e.Det, e.KodIzgot, e.TypeWork })
-                    .HasName("IX_WSHOP.PLAN_IZG")
+                    .HasDatabaseName("IX_WSHOP.PLAN_IZG")
                     .IsUnique();
 
                 entity.Property(e => e.Det)
@@ -20092,7 +20092,7 @@ No refs");
                 entity.ToTable("WSHOP.SP_A_TECH");
 
                 entity.HasIndex(e => new { e.IdArt, e.IdWp })
-                    .HasName("IX_WSHOP.SP_A_TECH_Column")
+                    .HasDatabaseName("IX_WSHOP.SP_A_TECH_Column")
                     .IsUnique();
 
                 entity.Property(e => e.IdWp).HasColumnName("IdWP");
@@ -20103,7 +20103,7 @@ No refs");
                 entity.ToTable("WSHOP.SP_TECH");
 
                 entity.HasIndex(e => new { e.IdMod, e.IdArt, e.IdPar, e.Id })
-                    .HasName("IX_WSHOP.SP_TECH_Column")
+                    .HasDatabaseName("IX_WSHOP.SP_TECH_Column")
                     .IsUnique();
 
                 entity.Property(e => e.KodIzgot)
@@ -20127,7 +20127,7 @@ No refs");
                 entity.ToTable("WSHOP.SP_TECH_A_CELL");
 
                 entity.HasIndex(e => e.IdCell)
-                    .HasName("IX_WSHOP.SP_TECH_A_CELL_Column")
+                    .HasDatabaseName("IX_WSHOP.SP_TECH_A_CELL_Column")
                     .IsUnique();
 
                 entity.Property(e => e.Id).ValueGeneratedNever();
@@ -20140,7 +20140,7 @@ No refs");
                 entity.ToTable("WSHOP.SP_TECH_A_OPER");
 
                 entity.HasIndex(e => e.IdOper)
-                    .HasName("IX_WSHOP.SP_TECH_A_OPER_Column")
+                    .HasDatabaseName("IX_WSHOP.SP_TECH_A_OPER_Column")
                     .IsUnique();
 
                 entity.Property(e => e.TimCorr).HasColumnType("numeric(8, 4)");
@@ -20151,7 +20151,7 @@ No refs");
                 entity.ToTable("WSHOP.SP_TECH_CELL");
 
                 entity.HasIndex(e => new { e.IdWp, e.IdArt, e.IdIzgot, e.Component, e.KodIzgot })
-                    .HasName("IX_WSHOP.SP_TECH_CELL_Column")
+                    .HasDatabaseName("IX_WSHOP.SP_TECH_CELL_Column")
                     .IsUnique();
 
                 entity.Property(e => e.Component)
@@ -20170,7 +20170,7 @@ No refs");
                 entity.ToTable("WSHOP.SP_TECH_OPER");
 
                 entity.HasIndex(e => new { e.IdWp, e.IdArt, e.Det, e.NppOper, e.IdIzgot })
-                    .HasName("IX_WSHOP.SP_TECH_OPER_Column")
+                    .HasDatabaseName("IX_WSHOP.SP_TECH_OPER_Column")
                     .IsUnique();
 
                 entity.Property(e => e.Det)
@@ -20187,7 +20187,7 @@ No refs");
                 entity.ToTable("WSHOP.SPART");
 
                 entity.HasIndex(e => new { e.IdMod, e.Articul })
-                    .HasName("IX_WSHOP.SPART_Column");
+                    .HasDatabaseName("IX_WSHOP.SPART_Column");
 
                 entity.Property(e => e.Articul)
                     .IsRequired()
@@ -20203,7 +20203,7 @@ No refs");
                 entity.ToTable("WSHOP.SPCOM");
 
                 entity.HasIndex(e => new { e.Articul, e.IdPar, e.Corr, e.Det, e.KodIzgot })
-                    .HasName("IX_WSHOP.SPCOM_Column")
+                    .HasDatabaseName("IX_WSHOP.SPCOM_Column")
                     .IsUnique();
 
                 entity.Property(e => e.Articul)
@@ -20233,7 +20233,7 @@ No refs");
                 entity.ToTable("WSHOP.SPEC");
 
                 entity.HasIndex(e => new { e.IdIzgot, e.LitPar, e.Parent, e.KodPar, e.LitCar, e.Carent, e.KodIzgot, e.NppOper })
-                    .HasName("IX_WSHOP.SPEC_Column")
+                    .HasDatabaseName("IX_WSHOP.SPEC_Column")
                     .IsUnique();
 
                 entity.Property(e => e.Carent).HasMaxLength(20);
@@ -20264,7 +20264,7 @@ No refs");
                 entity.ToTable("WSHOP.SPOPER");
 
                 entity.HasIndex(e => new { e.Articul, e.IdModOper })
-                    .HasName("IX_WSHOP.SPOPER_Column")
+                    .HasDatabaseName("IX_WSHOP.SPOPER_Column")
                     .IsUnique();
 
                 entity.Property(e => e.Articul)
@@ -20285,7 +20285,7 @@ No refs");
                 entity.ToTable("WSHP.SP_TECH_A_OPER");
 
                 entity.HasIndex(e => new { e.IdArt, e.IdWp, e.IdOper })
-                    .HasName("IX_WSHP.SP_TECH_A_OPER_Column")
+                    .HasDatabaseName("IX_WSHP.SP_TECH_A_OPER_Column")
                     .IsUnique();
 
                 entity.Property(e => e.IdWp).HasColumnName("IdWP");
@@ -20301,13 +20301,13 @@ No refs");
                 entity.ToTable("ZAK.ARTIC_MGR");
 
                 entity.HasIndex(e => new { e.Articul, e.DopCod })
-                    .HasName("ARTIC_MGR_IX1");
+                    .HasDatabaseName("ARTIC_MGR_IX1");
 
                 entity.HasIndex(e => new { e.Articul, e.DopCod, e.Groupnew })
-                    .HasName("ARTIC_MGR_IX2");
+                    .HasDatabaseName("ARTIC_MGR_IX2");
 
                 entity.HasIndex(e => new { e.Articul, e.DopCod, e.Idizgot, e.Delrecord })
-                    .HasName("IX_ZAK.ARTIC_MGR1")
+                    .HasDatabaseName("IX_ZAK.ARTIC_MGR1")
                     .IsUnique();
 
                 entity.Property(e => e.Idrec).HasColumnName("IDREC");
@@ -20401,7 +20401,7 @@ No refs");
                 entity.ToTable("ZAK.DET_LABR");
 
                 entity.HasIndex(e => e.Det)
-                    .HasName("Det");
+                    .HasDatabaseName("Det");
 
                 entity.Property(e => e.Idrec).HasColumnName("IDREC");
 
@@ -20464,7 +20464,7 @@ No refs");
                 entity.ToTable("Zak.HisSvSp");
 
                 entity.HasIndex(e => e.IdGood)
-                    .HasName("IX_Zak.HisSvSp")
+                    .HasDatabaseName("IX_Zak.HisSvSp")
                     .IsUnique();
 
                 entity.Property(e => e.DataSave).HasColumnType("datetime");
@@ -20475,7 +20475,7 @@ No refs");
                 entity.ToTable("ZAK.KodIzgot");
 
                 entity.HasIndex(e => new { e.IdIzgot, e.NSub, e.Articul, e.DopCod })
-                    .HasName("IX_Table_Column")
+                    .HasDatabaseName("IX_Table_Column")
                     .IsUnique();
 
                 entity.Property(e => e.Articul)
@@ -20506,7 +20506,7 @@ No refs");
                 entity.ToTable("Zak.Link");
 
                 entity.HasIndex(e => new { e.NSub, e.IdIzgot })
-                    .HasName("IX_Zak.Link_Column")
+                    .HasDatabaseName("IX_Zak.Link_Column")
                     .IsUnique();
 
                 entity.Property(e => e.DateFin).HasColumnType("datetime");
@@ -20534,7 +20534,7 @@ No refs");
                 entity.ToTable("ZAK.MAT_MET");
 
                 entity.HasIndex(e => e.Mat)
-                    .HasName("MAT_MET_IX1");
+                    .HasDatabaseName("MAT_MET_IX1");
 
                 entity.Property(e => e.Idrec).HasColumnName("IDREC");
 
@@ -20560,7 +20560,7 @@ No refs");
                 entity.ToTable("ZAK.NAK_ART_DS");
 
                 entity.HasIndex(e => new { e.Nakl, e.Articul, e.DopCod })
-                    .HasName("NAK_ARTIC_DS_IX1");
+                    .HasDatabaseName("NAK_ARTIC_DS_IX1");
 
                 entity.Property(e => e.Idrec).HasColumnName("IDREC");
 
@@ -20608,13 +20608,13 @@ No refs");
                 entity.ToTable("ZAK.NAK_ARTIC");
 
                 entity.HasIndex(e => e.OrderNo)
-                    .HasName("OrderNo");
+                    .HasDatabaseName("OrderNo");
 
                 entity.HasIndex(e => new { e.Articul, e.DopCod })
-                    .HasName("NAK_ARTIC_IX1");
+                    .HasDatabaseName("NAK_ARTIC_IX1");
 
                 entity.HasIndex(e => new { e.NSub, e.Number, e.Delrecord })
-                    .HasName("IX_ZAK.NAK_ARTIC");
+                    .HasDatabaseName("IX_ZAK.NAK_ARTIC");
 
                 entity.Property(e => e.Idrec).HasColumnName("IDREC");
 
@@ -20717,13 +20717,13 @@ No refs");
                 entity.ToTable("ZAK.NAKL_ST");
 
                 entity.HasIndex(e => new { e.Log, e.Nakl })
-                    .HasName("ZAK.NAKL_ST_IX2");
+                    .HasDatabaseName("ZAK.NAKL_ST_IX2");
 
                 entity.HasIndex(e => new { e.NSub, e.Number })
-                    .HasName("IX_ZAK.NAKL_ST");
+                    .HasDatabaseName("IX_ZAK.NAKL_ST");
 
                 entity.HasIndex(e => new { e.NSub, e.Number, e.Idizgot, e.Delrecord, e.Data })
-                    .HasName("ZAK.NAKL_ST_IX1");
+                    .HasDatabaseName("ZAK.NAKL_ST_IX1");
 
                 entity.Property(e => e.Idrec).HasColumnName("IDREC");
 
@@ -20793,13 +20793,13 @@ No refs");
                 entity.ToTable("ZAK.REKLAMAC_Arhive");
 
                 entity.HasIndex(e => e.Rekl)
-                    .HasName("REKLAMAC_IX3");
+                    .HasDatabaseName("REKLAMAC_IX3");
 
                 entity.HasIndex(e => new { e.Articul, e.DopCod })
-                    .HasName("REKLAMAC_IX2");
+                    .HasDatabaseName("REKLAMAC_IX2");
 
                 entity.HasIndex(e => new { e.Rekl, e.Articul, e.DopCod, e.Kol })
-                    .HasName("REKLAMAC_IX1");
+                    .HasDatabaseName("REKLAMAC_IX1");
 
                 entity.Property(e => e.Idrec).HasColumnName("IDREC");
 
@@ -20877,7 +20877,7 @@ No refs");
                 entity.ToTable("Zak.Spec");
 
                 entity.HasIndex(e => new { e.IdIzgot, e.Priznak, e.IdZak })
-                    .HasName("IX_Zak.Spec");
+                    .HasDatabaseName("IX_Zak.Spec");
 
                 entity.Property(e => e.Bai)
                     .IsRequired()
@@ -20907,7 +20907,7 @@ No refs");
                 entity.ToTable("Zak.SpecArt");
 
                 entity.HasIndex(e => new { e.IdZak, e.IdGood })
-                    .HasName("IX_Zak.SpecArt")
+                    .HasDatabaseName("IX_Zak.SpecArt")
                     .IsUnique();
 
                 entity.Property(e => e.DataR).HasColumnType("datetime");
@@ -20948,13 +20948,13 @@ No refs");
                 entity.ToTable("ZAK.ST_KOM");
 
                 entity.HasIndex(e => e.Articul)
-                    .HasName("ST_KOM_IX1");
+                    .HasDatabaseName("ST_KOM_IX1");
 
                 entity.HasIndex(e => e.Kom)
-                    .HasName("ST_KOM_IX2");
+                    .HasDatabaseName("ST_KOM_IX2");
 
                 entity.HasIndex(e => e.Nam)
-                    .HasName("ST_KOM_IX3");
+                    .HasDatabaseName("ST_KOM_IX3");
 
                 entity.Property(e => e.Idrec).HasColumnName("IDREC");
 
@@ -21030,16 +21030,16 @@ No refs");
                 entity.ToTable("ZAK.ST_MAT");
 
                 entity.HasIndex(e => e.Articul)
-                    .HasName("ST_MAT_IX1");
+                    .HasDatabaseName("ST_MAT_IX1");
 
                 entity.HasIndex(e => e.Mat)
-                    .HasName("ST_MAT_IX2");
+                    .HasDatabaseName("ST_MAT_IX2");
 
                 entity.HasIndex(e => e.NamR)
-                    .HasName("ST_MAT_IX3");
+                    .HasDatabaseName("ST_MAT_IX3");
 
                 entity.HasIndex(e => new { e.NamR, e.Mat, e.Delrecord, e.Idizgot })
-                    .HasName("ST_MAT_IX4");
+                    .HasDatabaseName("ST_MAT_IX4");
 
                 entity.Property(e => e.Idrec).HasColumnName("IDREC");
 
@@ -21132,13 +21132,13 @@ No refs");
                 entity.ToTable("ZAK.ST_NORM");
 
                 entity.HasIndex(e => e.Articul)
-                    .HasName("ST_NORM_IX1");
+                    .HasDatabaseName("ST_NORM_IX1");
 
                 entity.HasIndex(e => e.Nam)
-                    .HasName("ST_NORM_IX2");
+                    .HasDatabaseName("ST_NORM_IX2");
 
                 entity.HasIndex(e => e.Norm)
-                    .HasName("ST_NORM_IX3");
+                    .HasDatabaseName("ST_NORM_IX3");
 
                 entity.Property(e => e.Idrec).HasColumnName("IDREC");
 
@@ -21213,7 +21213,7 @@ No refs");
                 entity.ToTable("Zak.SvSp");
 
                 entity.HasIndex(e => new { e.IdGood, e.IdMat, e.IdIzgot, e.Tp })
-                    .HasName("IX_Zak.SvSp")
+                    .HasDatabaseName("IX_Zak.SvSp")
                     .IsUnique();
 
                 entity.Property(e => e.IdIzgot).HasDefaultValueSql("((39))");
@@ -21234,7 +21234,7 @@ No refs");
                 entity.ToTable("Zak.SvSpArt");
 
                 entity.HasIndex(e => new { e.IdGood, e.IdMat })
-                    .HasName("IX_Zak.SvSpArt");
+                    .HasDatabaseName("IX_Zak.SvSpArt");
 
                 entity.Property(e => e.DatPost)
                     .HasColumnName("DAT_POST")
@@ -21268,25 +21268,25 @@ No refs");
                 entity.ToTable("ZAK.ZAK_ARTIC");
 
                 entity.HasIndex(e => e.NSub)
-                    .HasName("N_SUB");
+                    .HasDatabaseName("N_SUB");
 
                 entity.HasIndex(e => e.OrderNo)
-                    .HasName("OrderNo");
+                    .HasDatabaseName("OrderNo");
 
                 entity.HasIndex(e => e.TorecId)
-                    .HasName("IX_ZAK.ZAK_ARTIC_2");
+                    .HasDatabaseName("IX_ZAK.ZAK_ARTIC_2");
 
                 entity.HasIndex(e => e.ZakIdrec)
-                    .HasName("IX_ZAK.ZAK_ARTIC_1");
+                    .HasDatabaseName("IX_ZAK.ZAK_ARTIC_1");
 
                 entity.HasIndex(e => new { e.NSub, e.Articul, e.DopCod })
-                    .HasName("ZAK_ARTIC_IX2");
+                    .HasDatabaseName("ZAK_ARTIC_IX2");
 
                 entity.HasIndex(e => new { e.NSub, e.Articul, e.DopCod, e.Idizgot, e.Delrecord })
-                    .HasName("IX_ZAK.ZAK_ARTIC");
+                    .HasDatabaseName("IX_ZAK.ZAK_ARTIC");
 
                 entity.HasIndex(e => new { e.Articul, e.DopCod, e.Idrec, e.TorecId, e.DatePlan, e.DateNewPlan, e.ZakIdrec, e.Kol, e.NSub, e.Price, e.OrderNo, e.Idizgot, e.Delrecord, e.Dat })
-                    .HasName("INDEX_ZAK_ARTIC_11");
+                    .HasDatabaseName("INDEX_ZAK_ARTIC_11");
 
                 entity.Property(e => e.Idrec).HasColumnName("IDREC");
 
@@ -21456,7 +21456,7 @@ No refs");
                 entity.ToTable("ZAK.ZAK_HIS");
 
                 entity.HasIndex(e => new { e.NSub, e.As })
-                    .HasName("ZAK_HIS_IX1");
+                    .HasDatabaseName("ZAK_HIS_IX1");
 
                 entity.Property(e => e.Idrec).HasColumnName("IDREC");
 
@@ -21504,7 +21504,7 @@ No refs");
                 entity.ToTable("ZAK.ZAK_K3");
 
                 entity.HasIndex(e => e.NSub)
-                    .HasName("ZAK_K3_IX1");
+                    .HasDatabaseName("ZAK_K3_IX1");
 
                 entity.Property(e => e.Idrec).HasColumnName("IDREC");
 
@@ -21532,13 +21532,13 @@ No refs");
                 entity.ToTable("ZAK.ZAK_ST");
 
                 entity.HasIndex(e => new { e.NSub, e.Idizgot, e.Delrecord })
-                    .HasName("ZAK_ST_IX1");
+                    .HasDatabaseName("ZAK_ST_IX1");
 
                 entity.HasIndex(e => new { e.Idrec, e.NSub, e.Prizn, e.NBase, e.Idizgot, e.Month, e.Year, e.Delrecord })
-                    .HasName("ZAK_ST_Full_Index");
+                    .HasDatabaseName("ZAK_ST_Full_Index");
 
                 entity.HasIndex(e => new { e.Data, e.DataCh, e.DataSend, e.Data1, e.Datsavesql, e.Idrec, e.Ist, e.Kod, e.Log, e.Mail, e.Month, e.NSub, e.Nak, e.NamZak, e.Order, e.Fio, e.Spec, e.Stor, e.Year, e.Delrecord, e.User, e.Mem, e.NBase, e.ClientCode, e.WeekNumber, e.BaseIdrec, e.SourceId, e.Prizn, e.Idizgot })
-                    .HasName("XX_IDIZGOT");
+                    .HasDatabaseName("XX_IDIZGOT");
 
                 entity.Property(e => e.Idrec).HasColumnName("IDREC");
 
@@ -21678,7 +21678,7 @@ No refs");
                 entity.ToTable("zmkbg");
 
                 entity.HasIndex(e => new { e.Fid, e.Rtime })
-                    .HasName("zmkbg_clustered")
+                    .HasDatabaseName("zmkbg_clustered")
                     .IsClustered();
 
                 entity.Property(e => e.BgrId).HasColumnName("bgrID");
@@ -21699,7 +21699,7 @@ No refs");
                 entity.ToTable("ZN.EdTab");
 
                 entity.HasIndex(e => new { e.IdZn, e.EdTab, e.DatR })
-                    .HasName("IX_ZN.EdTab_Column")
+                    .HasDatabaseName("IX_ZN.EdTab_Column")
                     .IsUnique();
 
                 entity.Property(e => e.DatR).HasColumnType("datetime");
@@ -21714,7 +21714,7 @@ No refs");
                 entity.ToTable("ZN.EdTabNorm");
 
                 entity.HasIndex(e => new { e.IdZn, e.EdTab })
-                    .HasName("IX_ZN.EdTabNorm_Column")
+                    .HasDatabaseName("IX_ZN.EdTabNorm_Column")
                     .IsUnique();
 
                 entity.Property(e => e.IdZn).HasColumnName("IdZN");
@@ -21736,7 +21736,7 @@ No refs");
                 entity.ToTable("ZN.Head");
 
                 entity.HasIndex(e => new { e.Izd, e.Zakaz, e.Year, e.Month, e.IdIzgot, e.DatSt, e.DatFin })
-                    .HasName("IX_ZN.Head_Column")
+                    .HasDatabaseName("IX_ZN.Head_Column")
                     .IsUnique();
 
                 entity.Property(e => e.DatFin).HasColumnType("date");
@@ -21757,7 +21757,7 @@ No refs");
                 entity.ToTable("ZN.Tabel");
 
                 entity.HasIndex(e => new { e.EdTab, e.DatR })
-                    .HasName("IX_ZN.Tabel_Column");
+                    .HasDatabaseName("IX_ZN.Tabel_Column");
 
                 entity.Property(e => e.DatR).HasColumnType("date");
 
@@ -21772,7 +21772,7 @@ No refs");
                 entity.ToTable("Zn.Zn");
 
                 entity.HasIndex(e => new { e.IdHead, e.KodIzgot, e.IdZn })
-                    .HasName("IX_Zn.Zn_Column");
+                    .HasDatabaseName("IX_Zn.Zn_Column");
 
                 entity.Property(e => e.KodIzgot)
                     .IsRequired()
@@ -21784,7 +21784,7 @@ No refs");
                 entity.ToTable("ZN.ZnDet");
 
                 entity.HasIndex(e => new { e.IdZn, e.Det, e.KodRkm })
-                    .HasName("IX_ZN.ZnDet_Column")
+                    .HasDatabaseName("IX_ZN.ZnDet_Column")
                     .IsUnique();
 
                 entity.Property(e => e.Det)
@@ -21809,7 +21809,7 @@ No refs");
                 entity.ToTable("Zp.All");
 
                 entity.HasIndex(e => new { e.EdTab, e.IdIzgot, e.Year, e.Month })
-                    .HasName("IX_Zp.All")
+                    .HasDatabaseName("IX_Zp.All")
                     .IsUnique();
 
                 entity.Property(e => e.Avans)
@@ -21995,7 +21995,7 @@ No refs");
                 entity.ToTable("Zp.All_copy2020");
 
                 entity.HasIndex(e => new { e.EdTab, e.IdIzgot, e.Year, e.Month })
-                    .HasName("IX_Zp.All_copy")
+                    .HasDatabaseName("IX_Zp.All_copy")
                     .IsUnique();
 
                 entity.Property(e => e.Avans)
@@ -22179,7 +22179,7 @@ No refs");
                 entity.ToTable("ZP.Calc");
 
                 entity.HasIndex(e => new { e.EdTab, e.Month, e.Year })
-                    .HasName("IX_ZP.Calc_Column")
+                    .HasDatabaseName("IX_ZP.Calc_Column")
                     .IsUnique();
 
                 entity.Property(e => e.BolS).HasColumnType("numeric(10, 2)");
@@ -22236,7 +22236,7 @@ No refs");
                 entity.ToTable("ZP.CalcBG");
 
                 entity.HasIndex(e => new { e.IdIzgot, e.Year, e.Month, e.EdTab })
-                    .HasName("IX_ZP.CalcBG_Column")
+                    .HasDatabaseName("IX_ZP.CalcBG_Column")
                     .IsUnique();
 
                 entity.Property(e => e.BolS).HasColumnType("decimal(10, 2)");
@@ -22281,7 +22281,7 @@ No refs");
                 entity.ToTable("ZP.Cat");
 
                 entity.HasIndex(e => new { e.IdIzgot, e.CatGr, e.Cat })
-                    .HasName("IX_Table_Column")
+                    .HasDatabaseName("IX_Table_Column")
                     .IsUnique();
 
                 entity.Property(e => e.Cat)
@@ -22298,7 +22298,7 @@ No refs");
                 entity.ToTable("ZP.CONFIG");
 
                 entity.HasIndex(e => e.Nam)
-                    .HasName("IX_ZP.CONFIG_Column")
+                    .HasDatabaseName("IX_ZP.CONFIG_Column")
                     .IsUnique();
 
                 entity.Property(e => e.DataCh).HasColumnType("datetime");
@@ -22319,11 +22319,11 @@ No refs");
                 entity.ToTable("ZP.CONFIGIZG");
 
                 entity.HasIndex(e => new { e.IdIzgot, e.KodIzgot, e.FieldNam })
-                    .HasName("IX_ZP.CONFIGIZG_Column_1")
+                    .HasDatabaseName("IX_ZP.CONFIGIZG_Column_1")
                     .IsUnique();
 
                 entity.HasIndex(e => new { e.IdIzgot, e.KodIzgot, e.IdConfig })
-                    .HasName("IX_ZP.CONFIGIZG_Column")
+                    .HasDatabaseName("IX_ZP.CONFIGIZG_Column")
                     .IsUnique();
 
                 entity.Property(e => e.DataCh).HasColumnType("datetime");
@@ -22344,7 +22344,7 @@ No refs");
                 entity.ToTable("ZP.CONFIGPERS");
 
                 entity.HasIndex(e => new { e.EdTab, e.IdConfig })
-                    .HasName("IX_ZP.CONFIGPERS_Column")
+                    .HasDatabaseName("IX_ZP.CONFIGPERS_Column")
                     .IsUnique();
 
                 entity.Property(e => e.DateCh).HasColumnType("datetime");
@@ -22361,7 +22361,7 @@ No refs");
                 entity.ToTable("Zp.CurIzgot");
 
                 entity.HasIndex(e => new { e.IdCur, e.IdIzgot })
-                    .HasName("IX_Zp.CurIzgot")
+                    .HasDatabaseName("IX_Zp.CurIzgot")
                     .IsUnique();
 
                 entity.Property(e => e.KodIzgot)
@@ -22378,7 +22378,7 @@ No refs");
                 entity.HasComment("Служит для распределения зарплаты по сотрудникам в разрезе периодов, объектов и бригад");
 
                 entity.HasIndex(e => new { e.Year, e.Month, e.IdIzgot, e.KodIzgot, e.Tab })
-                    .HasName("Zp.Distribution_PK")
+                    .HasDatabaseName("Zp.Distribution_PK")
                     .IsUnique();
 
                 entity.Property(e => e.IdIzgot).HasComment("Ид завода");
@@ -22410,7 +22410,7 @@ No refs");
                 entity.ToTable("ZP.DocFiles");
 
                 entity.HasIndex(e => new { e.Year, e.Month, e.Id })
-                    .HasName("IX_ZP.DocFiles_Column");
+                    .HasDatabaseName("IX_ZP.DocFiles_Column");
 
                 entity.Property(e => e.Doc)
                     .IsRequired()
@@ -22426,7 +22426,7 @@ No refs");
                 entity.ToTable("ZP.DocMonth");
 
                 entity.HasIndex(e => new { e.EdTab, e.Year, e.Month, e.IdDoc })
-                    .HasName("IX_ZP.DocMonth_Column")
+                    .HasDatabaseName("IX_ZP.DocMonth_Column")
                     .IsUnique();
             });
 
@@ -22437,7 +22437,7 @@ No refs");
                 entity.ToTable("ZP.DocXLSx");
 
                 entity.HasIndex(e => e.EdTab)
-                    .HasName("IX_ZP.DocXLSx_Column")
+                    .HasDatabaseName("IX_ZP.DocXLSx_Column")
                     .IsUnique();
 
                 entity.Property(e => e.DateChange).HasColumnType("datetime");
@@ -22460,7 +22460,7 @@ No refs");
                 entity.ToTable("Zp.Ebit");
 
                 entity.HasIndex(e => new { e.Year, e.Month, e.IdProj })
-                    .HasName("IX_Table_Column")
+                    .HasDatabaseName("IX_Table_Column")
                     .IsUnique();
             });
 
@@ -22482,13 +22482,13 @@ No refs");
                 entity.ToTable("ZP.EK_COST_IMD");
 
                 entity.HasIndex(e => e.Articul)
-                    .HasName("EK_COST_IMDET_IX2");
+                    .HasDatabaseName("EK_COST_IMDET_IX2");
 
                 entity.HasIndex(e => e.Det)
-                    .HasName("EK_COST_IMDET_IX3");
+                    .HasDatabaseName("EK_COST_IMDET_IX3");
 
                 entity.HasIndex(e => new { e.Det, e.Articul })
-                    .HasName("EK_COST_IMDET_IX1");
+                    .HasDatabaseName("EK_COST_IMDET_IX1");
 
                 entity.Property(e => e.Idrec).HasColumnName("IDREC");
 
@@ -22523,7 +22523,7 @@ No refs");
                 entity.ToTable("ZP.hh_Prom");
 
                 entity.HasIndex(e => e.IdDolg)
-                    .HasName("IX_ZP.hh_Prom_Column")
+                    .HasDatabaseName("IX_ZP.hh_Prom_Column")
                     .IsUnique();
             });
 
@@ -22532,7 +22532,7 @@ No refs");
                 entity.ToTable("ZP.hh_Salary");
 
                 entity.HasIndex(e => new { e.IdProf, e.IdSpec, e.IdUr, e.Place, e.DateSave })
-                    .HasName("IX_ZP.hh_Salary_Column")
+                    .HasDatabaseName("IX_ZP.hh_Salary_Column")
                     .IsUnique();
 
                 entity.Property(e => e.DateSave).HasColumnType("datetime");
@@ -22563,7 +22563,7 @@ No refs");
                 entity.ToTable("Zp.Individ");
 
                 entity.HasIndex(e => new { e.EdTab, e.IdSt, e.DatSt })
-                    .HasName("IX_Zp.Individ_Column")
+                    .HasDatabaseName("IX_Zp.Individ_Column")
                     .IsUnique();
 
                 entity.Property(e => e.DatFin).HasColumnType("datetime");
@@ -22587,7 +22587,7 @@ No refs");
                 entity.ToTable("Zp.Itog");
 
                 entity.HasIndex(e => new { e.EdTab, e.Year, e.Month })
-                    .HasName("IX_Zp.Itog")
+                    .HasDatabaseName("IX_Zp.Itog")
                     .IsUnique();
 
                 entity.Property(e => e.CatRab).HasMaxLength(7);
@@ -22646,11 +22646,11 @@ No refs");
                 entity.ToTable("ZP.IZGSETUP");
 
                 entity.HasIndex(e => e.Id)
-                    .HasName("IX_ZP.IZGSETUP_Column_1")
+                    .HasDatabaseName("IX_ZP.IZGSETUP_Column_1")
                     .IsUnique();
 
                 entity.HasIndex(e => new { e.IdIzgot, e.KodIzgot, e.Priznak })
-                    .HasName("IX_ZP.IZGSETUP_Column")
+                    .HasDatabaseName("IX_ZP.IZGSETUP_Column")
                     .IsUnique();
 
                 entity.Property(e => e.Id).ValueGeneratedOnAdd();
@@ -22671,7 +22671,7 @@ No refs");
                 entity.ToTable("Zp.Kateg");
 
                 entity.HasIndex(e => e.IdKat)
-                    .HasName("IX_Zp.Kateg")
+                    .HasDatabaseName("IX_Zp.Kateg")
                     .IsUnique();
 
                 entity.Property(e => e.NamKat).HasMaxLength(150);
@@ -22682,7 +22682,7 @@ No refs");
                 entity.ToTable("ZP.Param");
 
                 entity.HasIndex(e => new { e.EdTab, e.PageParam, e.RowParam, e.ColParam })
-                    .HasName("IX_ZP.Param_Column")
+                    .HasDatabaseName("IX_ZP.Param_Column")
                     .IsUnique();
 
                 entity.Property(e => e.IdBsc).HasColumnName("IdBSC");
@@ -22705,7 +22705,7 @@ No refs");
                 entity.ToTable("Zp.Pers");
 
                 entity.HasIndex(e => e.EdTab)
-                    .HasName("IX_Zp.Pers")
+                    .HasDatabaseName("IX_Zp.Pers")
                     .IsUnique();
 
                 entity.Property(e => e.DateUv).HasColumnType("datetime");
@@ -22732,7 +22732,7 @@ No refs");
                 entity.ToTable("ZP.Personal");
 
                 entity.HasIndex(e => new { e.EdTab, e.IdIzgot })
-                    .HasName("IX_ZP.Personal_Column")
+                    .HasDatabaseName("IX_ZP.Personal_Column")
                     .IsUnique();
 
                 entity.Property(e => e.Kind)
@@ -22756,7 +22756,7 @@ No refs");
                 entity.ToTable("ZP.PolKoeff");
 
                 entity.HasIndex(e => new { e.IdPolog, e.Vmin })
-                    .HasName("IX_ZP.PolKoeff_Column");
+                    .HasDatabaseName("IX_ZP.PolKoeff_Column");
 
                 entity.Property(e => e.Kpr).HasColumnType("decimal(10, 8)");
 
@@ -22789,7 +22789,7 @@ No refs");
                 entity.ToTable("ZP.Sec");
 
                 entity.HasIndex(e => new { e.Hid, e.IdObj })
-                    .HasName("IX_ZP.Sec_Column")
+                    .HasDatabaseName("IX_ZP.Sec_Column")
                     .IsUnique();
 
                 entity.Property(e => e.Hid).HasColumnName("HID");
@@ -22802,7 +22802,7 @@ No refs");
                 entity.ToTable("Zp.SecCard");
 
                 entity.HasIndex(e => new { e.EdTab, e.EdTabClient })
-                    .HasName("IX_Zp.SecCard_Column")
+                    .HasDatabaseName("IX_Zp.SecCard_Column")
                     .IsUnique();
             });
 
@@ -22811,7 +22811,7 @@ No refs");
                 entity.ToTable("Zp.SecNew");
 
                 entity.HasIndex(e => new { e.Hid, e.IdObj })
-                    .HasName("IX_Zp.SecNew_Column")
+                    .HasDatabaseName("IX_Zp.SecNew_Column")
                     .IsUnique();
 
                 entity.Property(e => e.Hid).HasColumnName("HID");
@@ -22826,7 +22826,7 @@ No refs");
                 entity.ToTable("ZP.Sec_Obj");
 
                 entity.HasIndex(e => e.NamObj)
-                    .HasName("IX_ZP.Sec_Obj_Column")
+                    .HasDatabaseName("IX_ZP.Sec_Obj_Column")
                     .IsUnique();
 
                 entity.Property(e => e.Nam).IsRequired();
@@ -22841,7 +22841,7 @@ No refs");
                 entity.ToTable("Zp.Struc");
 
                 entity.HasIndex(e => new { e.IdIzgot, e.KodPar, e.KodIzgot, e.Year, e.Month })
-                    .HasName("IX_Zp.Struc_Column")
+                    .HasDatabaseName("IX_Zp.Struc_Column")
                     .IsUnique();
 
                 entity.Property(e => e.KodIzgot)
@@ -22861,7 +22861,7 @@ No refs");
                 entity.ToTable("Zp.Svod");
 
                 entity.HasIndex(e => new { e.Idizgot, e.Faktor, e.Podr })
-                    .HasName("IX_Zp.Svod");
+                    .HasDatabaseName("IX_Zp.Svod");
 
                 entity.Property(e => e.Calc)
                     .HasColumnName("calc")
@@ -22903,7 +22903,7 @@ No refs");
                 entity.ToTable("Zp.Ved");
 
                 entity.HasIndex(e => new { e.IdIzgot, e.Year, e.Month, e.EdTab })
-                    .HasName("IX_Zp.Ved")
+                    .HasDatabaseName("IX_Zp.Ved")
                     .IsUnique();
 
                 entity.Property(e => e.BolPr).HasColumnType("numeric(10, 2)");
@@ -22943,13 +22943,13 @@ No refs");
                 entity.ToTable("Zp.VypArtic");
 
                 entity.HasIndex(e => new { e.IdIzgot, e.Year, e.Month, e.Articul })
-                    .HasName("IX_Zp.VypArtic_Column");
+                    .HasDatabaseName("IX_Zp.VypArtic_Column");
 
                 entity.HasIndex(e => new { e.Price, e.Kol, e.Year, e.Month, e.Group })
-                    .HasName("IX_YEAR_MONTH_GROUP");
+                    .HasDatabaseName("IX_YEAR_MONTH_GROUP");
 
                 entity.HasIndex(e => new { e.IdIzgot, e.Year, e.Month, e.Lit, e.Group, e.Articul })
-                    .HasName("IX_Zp.VypArtic_Column_1");
+                    .HasDatabaseName("IX_Zp.VypArtic_Column_1");
 
                 entity.Property(e => e.Articul).HasMaxLength(50);
 
@@ -22977,7 +22977,7 @@ No refs");
                 entity.ToTable("Zp.VypSetup");
 
                 entity.HasIndex(e => new { e.IdIzgot, e.KodIzgot, e.IdUl })
-                    .HasName("IX_Zp.VypSetup")
+                    .HasDatabaseName("IX_Zp.VypSetup")
                     .IsUnique();
 
                 entity.Property(e => e.IdUl).HasColumnName("IdUL");
@@ -22994,7 +22994,7 @@ No refs");
                 entity.ToTable("Zp.Vypusk");
 
                 entity.HasIndex(e => new { e.IdIzgot, e.KodIzgot, e.Year, e.Month })
-                    .HasName("IX_Zp.Vypusk")
+                    .HasDatabaseName("IX_Zp.Vypusk")
                     .IsUnique();
 
                 entity.Property(e => e.KodIzgot).HasMaxLength(4);
@@ -23007,7 +23007,7 @@ No refs");
                 entity.HasNoKey();
 
                 entity.HasIndex(e => e.Det)
-                    .HasName("IX_Детали")
+                    .HasDatabaseName("IX_Детали")
                     .IsUnique();
 
                 entity.Property(e => e.Det)
@@ -23024,7 +23024,7 @@ No refs");
                 entity.ToTable("Для печати Прайса");
 
                 entity.HasIndex(e => new { e.ДатаФормирования, e.ДатаФормированияСравнить, e.ТипРасчета, e.ТипРасчетаСравнить, e.UserId })
-                    .HasName("IX_Для печати Прайса")
+                    .HasDatabaseName("IX_Для печати Прайса")
                     .IsUnique();
 
                 entity.Property(e => e.UserId).HasColumnName("UserID");
@@ -23716,13 +23716,13 @@ No refs");
                 entity.ToTable("Расчет_СС");
 
                 entity.HasIndex(e => e.ДатаФормирования)
-                    .HasName("IX_Расчет_СС_1");
+                    .HasDatabaseName("IX_Расчет_СС_1");
 
                 entity.HasIndex(e => new { e.IdИзделия, e.ТипРасчета })
-                    .HasName("Расчет_СС_IX1");
+                    .HasDatabaseName("Расчет_СС_IX1");
 
                 entity.HasIndex(e => new { e.ДатаФормирования, e.IdИзделия, e.Площадка, e.IdТовара })
-                    .HasName("IX_Расчет_СС");
+                    .HasDatabaseName("IX_Расчет_СС");
 
                 entity.Property(e => e.Id).HasColumnName("ID");
 
@@ -23833,7 +23833,7 @@ No refs");
                 entity.ToTable("Расчет_СС_архив");
 
                 entity.HasIndex(e => e.Id)
-                    .HasName("IX_Расчет_СС_архив")
+                    .HasDatabaseName("IX_Расчет_СС_архив")
                     .IsUnique();
 
                 entity.Property(e => e.Id).HasColumnName("ID");
@@ -24014,7 +24014,7 @@ No refs");
                 entity.ToTable("расчет_сс_ном");
 
                 entity.HasIndex(e => e.IdТовара)
-                    .HasName("IX_расчет_сс_ном")
+                    .HasDatabaseName("IX_расчет_сс_ном")
                     .IsUnique();
 
                 entity.Property(e => e.Abc)
@@ -24163,7 +24163,7 @@ No refs");
                 entity.ToTable("Расчет СС_товар");
 
                 entity.HasIndex(e => new { e.IdТовара, e.UserId })
-                    .HasName("IX_Расчет СС_товар")
+                    .HasDatabaseName("IX_Расчет СС_товар")
                     .IsUnique();
 
                 entity.Property(e => e.IdТовара).HasColumnName("ID товара");
