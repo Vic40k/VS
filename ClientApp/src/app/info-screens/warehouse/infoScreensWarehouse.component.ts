@@ -2,7 +2,9 @@
 import { ChangeDetectorRef } from '@angular/core';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { Router } from '@angular/router';
 import { Subscription } from 'rxjs';
+import { faDesktop } from '@fortawesome/free-solid-svg-icons';
 import { UserIntarfaceService } from 'src/app/services/userInterface.service';
 import { DataService } from '../../data.service';
 
@@ -18,8 +20,10 @@ export class InfoScreensWarehouseComponent implements OnInit {
     private ref: ChangeDetectorRef, 
     private dataService: DataService, 
     private activateRoute: ActivatedRoute,
+    private router: Router,
     private _ui: UserIntarfaceService
   ) { }
+  faDesktop = faDesktop;
 
   dataStorage: any[];
   dataShow: any[];
@@ -199,6 +203,9 @@ export class InfoScreensWarehouseComponent implements OnInit {
     return result;
   }
 
+  goToScreenChooser() {
+    this.router.navigateByUrl('/screenChooser');  
+  }
   /*
   // сохранение данных
   save() {
