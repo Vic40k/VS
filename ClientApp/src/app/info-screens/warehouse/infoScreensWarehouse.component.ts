@@ -5,6 +5,8 @@ import { ActivatedRoute } from '@angular/router';
 import { Router } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { faDesktop } from '@fortawesome/free-solid-svg-icons';
+import { FormControl } from '@angular/forms';
+import { TooltipPosition } from '@angular/material/tooltip';
 import { UserIntarfaceService } from 'src/app/services/userInterface.service';
 import { DataService } from '../../data.service';
 
@@ -23,6 +25,8 @@ export class InfoScreensWarehouseComponent implements OnInit {
     private router: Router,
     private _ui: UserIntarfaceService
   ) { }
+  positionOptions: TooltipPosition[] = ['after', 'before', 'above', 'below', 'left', 'right'];
+  position = new FormControl(this.positionOptions[3]);
   faDesktop = faDesktop;
 
   dataStorage: any[];
