@@ -1,5 +1,7 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
+import { FormControl } from '@angular/forms';
+import { TooltipPosition } from '@angular/material/tooltip';
 
 // User interface controls
 @Injectable()
@@ -34,4 +36,8 @@ export class UserIntarfaceService {
         this.progressbarMode = 0
         this._progressbarSource.next(this.progressbarMode);
     }
+
+    // Dictionary for mat-tooltip
+    positionOptions: TooltipPosition[] = ['after', 'before', 'above', 'below', 'left', 'right'];
+    position = new FormControl(this.positionOptions[0]);
 }
