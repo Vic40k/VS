@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule, LOCALE_ID } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
 import { MDBBootstrapModule } from 'angular-bootstrap-md';
@@ -22,6 +22,10 @@ import { UserIntarfaceService } from './services/userInterface.service';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { MatButtonModule } from '@angular/material/button';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
+import { MatRippleModule } from '@angular/material/core';
+import { MatTooltipModule } from '@angular/material/tooltip';
 
 import localeRu from '@angular/common/locales/ru';
 import { registerLocaleData } from '@angular/common';
@@ -66,9 +70,14 @@ registerLocaleData(localeRu);
       { path: '**', component: Page404Component },  // Wildcard route for a 404 page
     ], { relativeLinkResolution: 'legacy' }),
     MDBBootstrapModule.forRoot(),
+    ReactiveFormsModule,
     BrowserAnimationsModule,
     MatProgressBarModule,
     MatButtonModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatRippleModule,
+    MatTooltipModule,
     FontAwesomeModule
   ],
   providers: [
