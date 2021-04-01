@@ -1,3 +1,7 @@
+::ng-deep .mat-tooltip {
+    font-size: 14px;
+  }
+
 .warehouse_table_container{
     height: 100%;
 }
