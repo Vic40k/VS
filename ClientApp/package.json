@@ -27,6 +27,7 @@
     "@fortawesome/fontawesome-svg-core": "^1.2.34",
     "@fortawesome/free-regular-svg-icons": "^5.15.2",
     "@fortawesome/free-solid-svg-icons": "^5.15.2",
+    "@microsoft/signalr": "^5.0.4",
     "ag-grid-community": "^25.1.0",
     "angular-bootstrap-md": "^11.0.0",
     "aspnet-prerendering": "^3.0.1",
