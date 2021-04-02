@@ -9,8 +9,12 @@ import { faDesktop } from '@fortawesome/free-solid-svg-icons';
 })
 export class ScreenChooserComponent {
   constructor(private router: Router) {}
-
   faDesktop = faDesktop;
+
+  ngOnInit(): void {
+
+  }
+
 
   goToWarehouseScreen(warehouseMonitorId: number = 0) {
     if (warehouseMonitorId === 0)
