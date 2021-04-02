@@ -62,6 +62,7 @@ namespace VS_CRM
             services.AddRazorPages();
             services.AddDatabaseDeveloperPageExceptionFilter();
             services.AddSignalR();
+            /*
             services.AddCors(options =>
             {
                 options.AddPolicy("CorsPolicy",
@@ -70,6 +71,7 @@ namespace VS_CRM
                     .AllowAnyHeader()
                     .AllowCredentials());
             });
+            */
 
             // In production, the Angular files will be served from this directory
             services.AddSpaStaticFiles(configuration =>
@@ -104,6 +106,7 @@ namespace VS_CRM
 
             app.UseAuthentication();
             app.UseIdentityServer();
+            //app.UseCors("CorsPolicy");
             app.UseAuthorization();
             app.UseEndpoints(endpoints =>
             {
