@@ -169,41 +169,40 @@ namespace VS_CRM.Controllers
         }
 
         [HttpGet]
-        public async Task<IActionResult> ForceUpdateAllWarehouseScreens()
+        public IActionResult ForceUpdateAllWarehouseScreens()
         {
-            InformationScreensWarehouseNotification notification = new InformationScreensWarehouseNotification()
+            /* TODO send comands to update or anything
+            InformationScreensWarehouseNotification notification = new()
             {
                 IsNeedForceUpdateWindow = true
             };
-            //await _hubContext.Clients.All.BroadcastMessage();
-            //return NoContent();
-
+            */
             var timerManager = new TimerManager(() => _hubContext.Clients.All.SendAsync("transferchartdata", DataManager.GetData()));
             return Ok(new { Message = "Request Completed" });
         }
 
-        public class ChartModel
+        public class BroadcastModel
         {
             public List<int> Data { get; set; }
             public string Label { get; set; }
 
-            public ChartModel()
+            public BroadcastModel()
             {
                 Data = new List<int>();
             }
         }
         public static class DataManager
         {
-            public static List<ChartModel> GetData()
+            public static List<BroadcastModel> GetData()
             {
                 var r = new Random();
-                return new List<ChartModel>()
-        {
-           new ChartModel { Data = new List<int> { r.Next(1, 40) }, Label = "Data1" },
-           new ChartModel { Data = new List<int> { r.Next(1, 40) }, Label = "Data2" },
-           new ChartModel { Data = new List<int> { r.Next(1, 40) }, Label = "Data3" },
-           new ChartModel { Data = new List<int> { r.Next(1, 40) }, Label = "Data4" }
-        };
+                return new List<BroadcastModel>()
+                {
+                   new BroadcastModel { Data = new List<int> { r.Next(1, 40) }, Label = "Data1" },
+                   new BroadcastModel { Data = new List<int> { r.Next(1, 40) }, Label = "Data2" },
+                   new BroadcastModel { Data = new List<int> { r.Next(1, 40) }, Label = "Data3" },
+                   new BroadcastModel { Data = new List<int> { r.Next(1, 40) }, Label = "Data4" }
+                };
             }
         }
     }
