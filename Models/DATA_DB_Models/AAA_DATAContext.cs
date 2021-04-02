@@ -1894,7 +1894,7 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.ToTable("ask-полки-картотеки_kaidzen");
 
                 entity.HasIndex(e => e.IdТовара)
-                    .HasDatabaseName("IX_ask-полки-картотеки_kaidzen")
+                    .HasName("IX_ask-полки-картотеки_kaidzen")
                     .IsUnique();
 
                 entity.Property(e => e.IdТовара).HasColumnName("ID товара");
@@ -1923,7 +1923,7 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.ToTable("aspnet_Applications");
 
                 entity.HasIndex(e => e.ApplicationName)
-                    .HasDatabaseName("IX_aspnet_Applications")
+                    .HasName("IX_aspnet_Applications")
                     .IsUnique();
 
                 entity.Property(e => e.ApplicationId).HasDefaultValueSql("(newid())");
@@ -1946,7 +1946,7 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.ToTable("aspnet_Membership");
 
                 entity.HasIndex(e => e.UserId)
-                    .HasDatabaseName("IX_aspnet_Membership")
+                    .HasName("IX_aspnet_Membership")
                     .IsUnique();
 
                 entity.Property(e => e.Comment).HasColumnType("ntext");
@@ -1991,7 +1991,7 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.ToTable("aspnet_Paths");
 
                 entity.HasIndex(e => e.PathId)
-                    .HasDatabaseName("IX_aspnet_Paths")
+                    .HasName("IX_aspnet_Paths")
                     .IsUnique();
 
                 entity.Property(e => e.LoweredPath)
@@ -2012,7 +2012,7 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.ToTable("aspnet_PersonalizationALLUsers");
 
                 entity.HasIndex(e => e.PathId)
-                    .HasDatabaseName("IX_aspnet_PersonalizationALLUsers")
+                    .HasName("IX_aspnet_PersonalizationALLUsers")
                     .IsUnique();
 
                 entity.Property(e => e.LastUpdatedDate).HasColumnType("datetime");
@@ -2029,7 +2029,7 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.ToTable("aspnet_PersonalizationPerUser");
 
                 entity.HasIndex(e => e.Id)
-                    .HasDatabaseName("IX_aspnet_PersonalizationPerUser")
+                    .HasName("IX_aspnet_PersonalizationPerUser")
                     .IsUnique();
 
                 entity.Property(e => e.Id).HasDefaultValueSql("(newid())");
@@ -2048,7 +2048,7 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.ToTable("aspnet_Profile");
 
                 entity.HasIndex(e => e.UserId)
-                    .HasDatabaseName("IX_aspnet_Profile")
+                    .HasName("IX_aspnet_Profile")
                     .IsUnique();
 
                 entity.Property(e => e.LastUpdatedDate).HasColumnType("datetime");
@@ -2073,7 +2073,7 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.ToTable("aspnet_Roles");
 
                 entity.HasIndex(e => e.RoleId)
-                    .HasDatabaseName("IX_aspnet_Roles")
+                    .HasName("IX_aspnet_Roles")
                     .IsUnique();
 
                 entity.Property(e => e.Description).HasMaxLength(256);
@@ -2096,7 +2096,7 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.ToTable("aspnet_SchemaVersions");
 
                 entity.HasIndex(e => new { e.Feature, e.CompatibleSchemaVersion })
-                    .HasDatabaseName("IX_aspnet_SchemVersions")
+                    .HasName("IX_aspnet_SchemVersions")
                     .IsUnique();
 
                 entity.Property(e => e.CompatibleSchemaVersion)
@@ -2115,7 +2115,7 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.ToTable("aspnet_Users");
 
                 entity.HasIndex(e => e.UserId)
-                    .HasDatabaseName("IX_aspnet_Users")
+                    .HasName("IX_aspnet_Users")
                     .IsUnique();
 
                 entity.Property(e => e.LastActivityDate).HasColumnType("datetime");
@@ -2140,7 +2140,7 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.ToTable("aspnet_UsersInRoles");
 
                 entity.HasIndex(e => new { e.UserId, e.RoleId })
-                    .HasDatabaseName("IX_aspnet_UsersInRoles")
+                    .HasName("IX_aspnet_UsersInRoles")
                     .IsUnique();
             });
 
@@ -2151,7 +2151,7 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.ToTable("aspnet_WebEvent_Events");
 
                 entity.HasIndex(e => e.EventId)
-                    .HasDatabaseName("IX_aspnet_WebEvent")
+                    .HasName("IX_aspnet_WebEvent")
                     .IsUnique();
 
                 entity.Property(e => e.ApplicationPath).HasMaxLength(256);
@@ -2263,7 +2263,7 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.HasComment("Таблица биометрических данных сотрудников");
 
                 entity.HasIndex(e => new { e.IdRec, e.TabNumber })
-                    .HasDatabaseName("Index_BiometricData_TabNbr");
+                    .HasName("Index_BiometricData_TabNbr");
 
                 entity.Property(e => e.IdRec).HasComment("Счетчик");
 
@@ -2287,7 +2287,7 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.ToTable("BUXG_kor_reg");
 
                 entity.HasIndex(e => new { e.UserId, e.Артикул, e.Количество, e.СуммаСНдс, e.Префикс, e.Номер, e.Регион, e.СуммаБезНалога })
-                    .HasDatabaseName("IX_BUXG_kor_reg")
+                    .HasName("IX_BUXG_kor_reg")
                     .IsUnique();
 
                 entity.Property(e => e.IdДилера).HasColumnName("ID дилера");
@@ -2455,7 +2455,7 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.ToTable("BUXG_opl");
 
                 entity.HasIndex(e => new { e.RecordId, e.UserId })
-                    .HasDatabaseName("IX_BUXG_opl")
+                    .HasName("IX_BUXG_opl")
                     .IsUnique();
 
                 entity.Property(e => e.IdДилера).HasColumnName("ID дилера");
@@ -2924,7 +2924,7 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.ToTable("Cash Flow temp_konv_mes");
 
                 entity.HasIndex(e => e.RecordId)
-                    .HasDatabaseName("IX_Cash Flow temp_konv_mes")
+                    .HasName("IX_Cash Flow temp_konv_mes")
                     .IsUnique();
 
                 entity.Property(e => e.BlgU)
@@ -3031,7 +3031,7 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.ToTable("Cash Flow temp_mes");
 
                 entity.HasIndex(e => e.RecordId)
-                    .HasDatabaseName("IX_Cash Flow temp_mes")
+                    .HasName("IX_Cash Flow temp_mes")
                     .IsUnique();
 
                 entity.Property(e => e.Blg)
@@ -3110,7 +3110,7 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.ToTable("Cash Flow temp_mes_det");
 
                 entity.HasIndex(e => e.RecordId)
-                    .HasDatabaseName("IX_Cash Flow temp_mes_det")
+                    .HasName("IX_Cash Flow temp_mes_det")
                     .IsUnique();
 
                 entity.Property(e => e.Blg)
@@ -3243,7 +3243,7 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.ToTable("Cash Flow temp_val_kor_mes");
 
                 entity.HasIndex(e => e.RecordId)
-                    .HasDatabaseName("IX_Cash Flow temp_val_kor_mes")
+                    .HasName("IX_Cash Flow temp_val_kor_mes")
                     .IsUnique();
 
                 entity.Property(e => e.Blg)
@@ -3418,7 +3418,7 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.ToTable("Cash Flow temp_val_kor_mes_det");
 
                 entity.HasIndex(e => e.RecordId)
-                    .HasDatabaseName("IX_Cash Flow temp_val_kor_mes_det")
+                    .HasName("IX_Cash Flow temp_val_kor_mes_det")
                     .IsUnique();
 
                 entity.Property(e => e.Blg)
@@ -3647,7 +3647,7 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.ToTable("Cash Flow temp_val_mes");
 
                 entity.HasIndex(e => e.RecordId)
-                    .HasDatabaseName("IX_Cash Flow temp_val_mes")
+                    .HasName("IX_Cash Flow temp_val_mes")
                     .IsUnique();
 
                 entity.Property(e => e.Blg)
@@ -3822,7 +3822,7 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.ToTable("Cash Flow temp_val_mes_BLG");
 
                 entity.HasIndex(e => e.RecordId)
-                    .HasDatabaseName("IX_Cash Flow temp_val_mes_BLG")
+                    .HasName("IX_Cash Flow temp_val_mes_BLG")
                     .IsUnique();
 
                 entity.Property(e => e.Blg)
@@ -3917,7 +3917,7 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.ToTable("Cash Flow temp_val_mes_det");
 
                 entity.HasIndex(e => e.RecordId)
-                    .HasDatabaseName("IX_Cash Flow temp_val_mes_det")
+                    .HasName("IX_Cash Flow temp_val_mes_det")
                     .IsUnique();
 
                 entity.Property(e => e.Blg)
@@ -4146,7 +4146,7 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.ToTable("Cash Flow temp_val_mes_det_BLG");
 
                 entity.HasIndex(e => e.RecordId)
-                    .HasDatabaseName("IX_Cash Flow temp_val_mes_det_BLG")
+                    .HasName("IX_Cash Flow temp_val_mes_det_BLG")
                     .IsUnique();
 
                 entity.Property(e => e.Blg)
@@ -4247,7 +4247,7 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.ToTable("Cash Flow temp_val_mes_det_pr");
 
                 entity.HasIndex(e => e.RecordId)
-                    .HasDatabaseName("IX_Cash Flow temp_val_mes_det_pr")
+                    .HasName("IX_Cash Flow temp_val_mes_det_pr")
                     .IsUnique();
 
                 entity.Property(e => e.Blg)
@@ -4478,7 +4478,7 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.ToTable("Cash Flow temp_val_mes_pr");
 
                 entity.HasIndex(e => e.RecordId)
-                    .HasDatabaseName("IX_Cash Flow temp_val_mes_pr")
+                    .HasName("IX_Cash Flow temp_val_mes_pr")
                     .IsUnique();
 
                 entity.Property(e => e.Blg)
@@ -4655,7 +4655,7 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.ToTable("Cash Flow остатки");
 
                 entity.HasIndex(e => new { e.Год, e.Месяц })
-                    .HasDatabaseName("IX_Cash Flow остатки")
+                    .HasName("IX_Cash Flow остатки")
                     .IsUnique();
 
                 entity.Property(e => e.Остаток).HasColumnType("decimal(18, 2)");
@@ -4668,7 +4668,7 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.ToTable("Cash Flow остатки деньги в пути");
 
                 entity.HasIndex(e => new { e.Год, e.Месяц })
-                    .HasDatabaseName("IX_Cash")
+                    .HasName("IX_Cash")
                     .IsUnique();
 
                 entity.Property(e => e.Остаток)
@@ -4683,7 +4683,7 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.ToTable("Cat.catgr");
 
                 entity.HasIndex(e => e.Articul)
-                    .HasDatabaseName("IX_Cat.catgr")
+                    .HasName("IX_Cat.catgr")
                     .IsUnique();
 
                 entity.Property(e => e.Articul)
@@ -4711,7 +4711,7 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.ToTable("Cat.catid");
 
                 entity.HasIndex(e => e.Idcat)
-                    .HasDatabaseName("IX_Cat.catid")
+                    .HasName("IX_Cat.catid")
                     .IsUnique();
 
                 entity.Property(e => e.Idcat).HasColumnName("IDcat");
@@ -4742,7 +4742,7 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.ToTable("Cat.CatЗ");
 
                 entity.HasIndex(e => e.Iddet)
-                    .HasDatabaseName("IX_Cat.CatZ")
+                    .HasName("IX_Cat.CatZ")
                     .IsUnique();
 
                 entity.Property(e => e.Articul)
@@ -4782,7 +4782,7 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.ToTable("Cat.catб");
 
                 entity.HasIndex(e => e.Iddet)
-                    .HasDatabaseName("IX_Cat.catб")
+                    .HasName("IX_Cat.catб")
                     .IsUnique();
 
                 entity.Property(e => e.Articul)
@@ -4828,7 +4828,7 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.ToTable("Cat.Catм");
 
                 entity.HasIndex(e => e.Iddet)
-                    .HasDatabaseName("IX_Cat.Catм")
+                    .HasName("IX_Cat.Catм")
                     .IsUnique();
 
                 entity.Property(e => e.Articul)
@@ -4865,7 +4865,7 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.ToTable("Cat.Mash");
 
                 entity.HasIndex(e => e.Idmash)
-                    .HasDatabaseName("IX_Cat.Mash")
+                    .HasName("IX_Cat.Mash")
                     .IsUnique();
 
                 entity.Property(e => e.Bai)
@@ -4908,7 +4908,7 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.ToTable("Cat.MashObj");
 
                 entity.HasIndex(e => e.Idobj)
-                    .HasDatabaseName("IX_Cat.MashObj")
+                    .HasName("IX_Cat.MashObj")
                     .IsUnique();
 
                 entity.Property(e => e.Datavv).HasColumnType("datetime");
@@ -4943,7 +4943,7 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.ToTable("Cat.Par");
 
                 entity.HasIndex(e => e.Idpar)
-                    .HasDatabaseName("IX_Cat.Par")
+                    .HasName("IX_Cat.Par")
                     .IsUnique();
 
                 entity.Property(e => e.EdIzm)
@@ -4964,7 +4964,7 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.ToTable("Cat.ParMash");
 
                 entity.HasIndex(e => new { e.Idmash, e.Idpar })
-                    .HasDatabaseName("IX_Cat.ParMash")
+                    .HasName("IX_Cat.ParMash")
                     .IsUnique();
 
                 entity.Property(e => e.Idmash).HasColumnName("IDMash");
@@ -4981,7 +4981,7 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.ToTable("CodID");
 
                 entity.HasIndex(e => e.TableName)
-                    .HasDatabaseName("IX_CodID")
+                    .HasName("IX_CodID")
                     .IsUnique();
 
                 entity.Property(e => e.Id)
@@ -5143,7 +5143,7 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.ToTable("DELIVERY TERMS");
 
                 entity.HasIndex(e => e.Kod)
-                    .HasDatabaseName("IX_DELIVERY TERMS")
+                    .HasName("IX_DELIVERY TERMS")
                     .IsUnique();
 
                 entity.Property(e => e.DeliveryTerm)
@@ -5225,7 +5225,7 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.ToTable("ERP-доступы");
 
                 entity.HasIndex(e => new { e.IdРаботничка, e.Приложение })
-                    .HasDatabaseName("IX_ERP-доступы")
+                    .HasName("IX_ERP-доступы")
                     .IsUnique();
 
                 entity.Property(e => e.Arm).HasColumnName("ARM");
@@ -5242,11 +5242,11 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.ToTable("Fil_Дебиторская задолженность_ном");
 
                 entity.HasIndex(e => e.RecordId)
-                    .HasDatabaseName("IX_Fil_Дебиторская задолженность_ном111")
+                    .HasName("IX_Fil_Дебиторская задолженность_ном111")
                     .IsUnique();
 
                 entity.HasIndex(e => e.Userid)
-                    .HasDatabaseName("IX_Fil_Дебиторская задолженность_ном111_1");
+                    .HasName("IX_Fil_Дебиторская задолженность_ном111_1");
 
                 entity.Property(e => e.IdДилера).HasColumnName("ID дилера");
 
@@ -5326,7 +5326,7 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.ToTable("Fil_Сумма заявки для долга");
 
                 entity.HasIndex(e => e.RecordId)
-                    .HasDatabaseName("IX_Fil_Сумма заявки для долга")
+                    .HasName("IX_Fil_Сумма заявки для долга")
                     .IsUnique();
 
                 entity.Property(e => e.RecordId)
@@ -5363,7 +5363,7 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.ToTable("Group Of Goods");
 
                 entity.HasIndex(e => e.IdgroupOfGoods)
-                    .HasDatabaseName("IX_Group Of Goods")
+                    .HasName("IX_Group Of Goods")
                     .IsUnique();
 
                 entity.Property(e => e.GroupOfGoods1)
@@ -5382,7 +5382,7 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.HasNoKey();
 
                 entity.HasIndex(e => e.IdissuingBankType)
-                    .HasDatabaseName("IX_IssuingBank")
+                    .HasName("IX_IssuingBank")
                     .IsUnique();
 
                 entity.Property(e => e.Account).HasMaxLength(50);
@@ -5473,7 +5473,7 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.ToTable("KF выпуска");
 
                 entity.HasIndex(e => new { e.IdГртов, e.Месяц, e.Завод })
-                    .HasDatabaseName("IX_KF выпуска")
+                    .HasName("IX_KF выпуска")
                     .IsUnique();
 
                 entity.Property(e => e.IdГртов).HasColumnName("ID гртов");
@@ -5508,7 +5508,7 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.ToTable("KLIENTY регион");
 
                 entity.HasIndex(e => new { e.Id, e.РегРег })
-                    .HasDatabaseName("IX_KLIENTY регион_1");
+                    .HasName("IX_KLIENTY регион_1");
 
                 entity.Property(e => e.Id).HasColumnName("ID");
 
@@ -5584,7 +5584,7 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.ToTable("KN неучт");
 
                 entity.HasIndex(e => new { e.ДатаПр, e.НомерПлатежки, e.СуммаОпл, e.UserId })
-                    .HasDatabaseName("IX_KN неучт")
+                    .HasName("IX_KN неучт")
                     .IsUnique();
 
                 entity.Property(e => e.UserId).HasColumnName("User ID");
@@ -5610,7 +5610,7 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.ToTable("KN неучт все");
 
                 entity.HasIndex(e => new { e.IdДилера, e.IdЮрлица, e.UserId, e.Юрлицо, e.Дилер })
-                    .HasDatabaseName("IX_KN неучт все")
+                    .HasName("IX_KN неучт все")
                     .IsUnique();
 
                 entity.Property(e => e.IdДилера).HasColumnName("ID дилера");
@@ -5635,7 +5635,7 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.ToTable("KN неучт все регион");
 
                 entity.HasIndex(e => new { e.IdДилера, e.IdЮрлица, e.UserId, e.Регион, e.Юрлицо, e.Дилер })
-                    .HasDatabaseName("IX_KN неучт все регион")
+                    .HasName("IX_KN неучт все регион")
                     .IsUnique();
 
                 entity.Property(e => e.IdДилера).HasColumnName("ID дилера");
@@ -5660,7 +5660,7 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.ToTable("KONVICE");
 
                 entity.HasIndex(e => e.IdГруппы)
-                    .HasDatabaseName("IX_KONVICE")
+                    .HasName("IX_KONVICE")
                     .IsUnique();
 
                 entity.Property(e => e.IdГруппы).HasColumnName("ID группы");
@@ -5675,7 +5675,7 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.ToTable("KR по категориям");
 
                 entity.HasIndex(e => e.ТипТовара)
-                    .HasDatabaseName("IX_KR по категориям")
+                    .HasName("IX_KR по категориям")
                     .IsUnique();
 
                 entity.Property(e => e.Kr)
@@ -5745,7 +5745,7 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.ToTable("LB_tmp");
 
                 entity.HasIndex(e => e.IdТовара)
-                    .HasDatabaseName("IX_LB")
+                    .HasName("IX_LB")
                     .IsUnique();
 
                 entity.Property(e => e.IdТовара).HasColumnName("ID товара");
@@ -5817,11 +5817,11 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.ToTable("LB регион");
 
                 entity.HasIndex(e => e.RecordId)
-                    .HasDatabaseName("IX_LB регион")
+                    .HasName("IX_LB регион")
                     .IsUnique();
 
                 entity.HasIndex(e => e.UserId)
-                    .HasDatabaseName("IX_LB регион_1");
+                    .HasName("IX_LB регион_1");
 
                 entity.Property(e => e.Day1)
                     .HasColumnName("DAY1")
@@ -6056,7 +6056,7 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.ToTable("LB филиал");
 
                 entity.HasIndex(e => new { e.Idt, e.Регион })
-                    .HasDatabaseName("IX_LB филиал")
+                    .HasName("IX_LB филиал")
                     .IsUnique();
 
                 entity.Property(e => e.Idt).HasColumnName("IDT");
@@ -6086,7 +6086,7 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.HasKey(e => new { e.Id, e.FactoryId });
 
                 entity.HasIndex(e => e.Id)
-                    .HasDatabaseName("IX_ListNames")
+                    .HasName("IX_ListNames")
                     .IsUnique();
 
                 entity.Property(e => e.Id)
@@ -6156,7 +6156,7 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.ToTable("Log_users");
 
                 entity.HasIndex(e => new { e.Кто, e.Что })
-                    .HasDatabaseName("IX_Log_users")
+                    .HasName("IX_Log_users")
                     .IsUnique();
 
                 entity.Property(e => e.Когда).HasColumnType("smalldatetime");
@@ -6287,7 +6287,7 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.ToTable("Metod of payment");
 
                 entity.HasIndex(e => e.IdMetodOfPayment)
-                    .HasDatabaseName("IX_Metod of payment")
+                    .HasName("IX_Metod of payment")
                     .IsUnique();
 
                 entity.Property(e => e.CreditsDays).HasColumnName("Credits days");
@@ -6311,7 +6311,7 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.ToTable("Metod of transport");
 
                 entity.HasIndex(e => e.Id)
-                    .HasDatabaseName("IX_Metod of transport")
+                    .HasName("IX_Metod of transport")
                     .IsUnique();
 
                 entity.Property(e => e.Id)
@@ -6333,7 +6333,7 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.ToTable("Mod_BS");
 
                 entity.HasIndex(e => e.КодСтатьи)
-                    .HasDatabaseName("IX_Mod_BS")
+                    .HasName("IX_Mod_BS")
                     .IsUnique();
 
                 entity.Property(e => e.Deleted).HasDefaultValueSql("((0))");
@@ -6426,7 +6426,7 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.ToTable("Mod_BS_fact");
 
                 entity.HasIndex(e => e.КодСтатьи)
-                    .HasDatabaseName("IX_Mod_BS_fact")
+                    .HasName("IX_Mod_BS_fact")
                     .IsUnique();
 
                 entity.Property(e => e.Deleted).HasDefaultValueSql("((0))");
@@ -6519,7 +6519,7 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.ToTable("Mod_CF");
 
                 entity.HasIndex(e => e.КодСтатьи)
-                    .HasDatabaseName("IX_Mod_CF")
+                    .HasName("IX_Mod_CF")
                     .IsUnique();
 
                 entity.Property(e => e.Deleted).HasDefaultValueSql("((0))");
@@ -6612,7 +6612,7 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.ToTable("Mod_CF_fact");
 
                 entity.HasIndex(e => e.КодСтатьи)
-                    .HasDatabaseName("IX_Mod_CF_fact")
+                    .HasName("IX_Mod_CF_fact")
                     .IsUnique();
 
                 entity.Property(e => e.Deleted).HasDefaultValueSql("((0))");
@@ -6705,7 +6705,7 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.ToTable("Mod_COGS_FINPLAN");
 
                 entity.HasIndex(e => new { e.IdCogs, e.КодФинплан })
-                    .HasDatabaseName("IX_Mod_COGS_FINPLAN")
+                    .HasName("IX_Mod_COGS_FINPLAN")
                     .IsUnique();
 
                 entity.Property(e => e.IdCogs).HasColumnName("ID COGS");
@@ -6728,7 +6728,7 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.ToTable("Mod_Income");
 
                 entity.HasIndex(e => e.КодСтатьи)
-                    .HasDatabaseName("IX_Mod_Income")
+                    .HasName("IX_Mod_Income")
                     .IsUnique();
 
                 entity.Property(e => e.Deleted).HasDefaultValueSql("((0))");
@@ -7270,7 +7270,7 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.ToTable("Mod_Input_Data");
 
                 entity.HasIndex(e => e.КодСтатьи)
-                    .HasDatabaseName("IX_Mod_Input_Data")
+                    .HasName("IX_Mod_Input_Data")
                     .IsUnique();
 
                 entity.Property(e => e.Deleted).HasDefaultValueSql("((0))");
@@ -7363,7 +7363,7 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.ToTable("Mod_Input_Inv");
 
                 entity.HasIndex(e => e.КодСтатьи)
-                    .HasDatabaseName("IX_Mod_Input_Inv")
+                    .HasName("IX_Mod_Input_Inv")
                     .IsUnique();
 
                 entity.Property(e => e.Deleted).HasDefaultValueSql("((0))");
@@ -7456,7 +7456,7 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.ToTable("Mod_Input_Schwarz");
 
                 entity.HasIndex(e => e.КодСтатьи)
-                    .HasDatabaseName("IX_Mod_Input_Schwarz")
+                    .HasName("IX_Mod_Input_Schwarz")
                     .IsUnique();
 
                 entity.Property(e => e.Deleted).HasDefaultValueSql("((0))");
@@ -7549,7 +7549,7 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.ToTable("Mod_Input_Стоимость_труда");
 
                 entity.HasIndex(e => e.КодСтатьи)
-                    .HasDatabaseName("IX_Mod_Input_Стоимость_труда")
+                    .HasName("IX_Mod_Input_Стоимость_труда")
                     .IsUnique();
 
                 entity.Property(e => e.Deleted).HasDefaultValueSql("((0))");
@@ -7642,11 +7642,11 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.ToTable("Mod_Input_Стоимость труда_разбивка");
 
                 entity.HasIndex(e => e.RecordId)
-                    .HasDatabaseName("IX_Mod_Input_Стоимость труда_разбивка_1")
+                    .HasName("IX_Mod_Input_Стоимость труда_разбивка_1")
                     .IsUnique();
 
                 entity.HasIndex(e => new { e.Структура, e.Завод, e.Производство })
-                    .HasDatabaseName("IX_Mod_Input_Стоимость труда_разбивка");
+                    .HasName("IX_Mod_Input_Стоимость труда_разбивка");
 
                 entity.Property(e => e.Deleted).HasDefaultValueSql("((0))");
 
@@ -7796,7 +7796,7 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.ToTable("Mod_Sales_Forecast");
 
                 entity.HasIndex(e => e.КодСтатьи)
-                    .HasDatabaseName("IX_Mod_Sales_Forecast")
+                    .HasName("IX_Mod_Sales_Forecast")
                     .IsUnique();
 
                 entity.Property(e => e.Deleted).HasDefaultValueSql("((0))");
@@ -7889,7 +7889,7 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.ToTable("Mod_Амортизация");
 
                 entity.HasIndex(e => e.КодСтатьи)
-                    .HasDatabaseName("IX_Mod_Амортизация")
+                    .HasName("IX_Mod_Амортизация")
                     .IsUnique();
 
                 entity.Property(e => e.Deleted).HasDefaultValueSql("((0))");
@@ -7982,7 +7982,7 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.ToTable("Mod_Расчеты_COGS");
 
                 entity.HasIndex(e => e.КодСтатьи)
-                    .HasDatabaseName("IX_Mod_Расчеты_COGS")
+                    .HasName("IX_Mod_Расчеты_COGS")
                     .IsUnique();
 
                 entity.Property(e => e.Deleted).HasDefaultValueSql("((0))");
@@ -8391,7 +8391,7 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.ToTable("Mod_Расчеты_COGS_fact");
 
                 entity.HasIndex(e => e.КодСтатьи)
-                    .HasDatabaseName("IX_Mod_Расчеты_COGS_fact")
+                    .HasName("IX_Mod_Расчеты_COGS_fact")
                     .IsUnique();
 
                 entity.Property(e => e.Deleted).HasDefaultValueSql("((0))");
@@ -8800,7 +8800,7 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.ToTable("Mod_Расчеты_НДС");
 
                 entity.HasIndex(e => e.КодСтатьи)
-                    .HasDatabaseName("IX_Mod_Расчеты_НДС")
+                    .HasName("IX_Mod_Расчеты_НДС")
                     .IsUnique();
 
                 entity.Property(e => e.Deleted).HasDefaultValueSql("((0))");
@@ -8904,7 +8904,7 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.HasNoKey();
 
                 entity.HasIndex(e => e.Form)
-                    .HasDatabaseName("IX_NameForms")
+                    .HasName("IX_NameForms")
                     .IsUnique();
 
                 entity.Property(e => e.NameForm)
@@ -9013,11 +9013,11 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.ToTable("OPL учт");
 
                 entity.HasIndex(e => e.Rec)
-                    .HasDatabaseName("IX_OPL учт_1")
+                    .HasName("IX_OPL учт_1")
                     .IsUnique();
 
                 entity.HasIndex(e => new { e.ДатаПр, e.НомерПлатежки, e.СуммаОпл, e.UserId, e.НомерСчета })
-                    .HasDatabaseName("IX_OPL учт");
+                    .HasName("IX_OPL учт");
 
                 entity.Property(e => e.Rec)
                     .HasColumnName("rec")
@@ -9052,7 +9052,7 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.HasNoKey();
 
                 entity.HasIndex(e => new { e.Id, e.UserId })
-                    .HasDatabaseName("IX_OrderListKazanlyk")
+                    .HasName("IX_OrderListKazanlyk")
                     .IsUnique();
 
                 entity.Property(e => e.Artikul)
@@ -9199,14 +9199,14 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.HasNoKey();
 
                 entity.HasIndex(e => e.IdOrder)
-                    .HasDatabaseName("IX_Orders")
+                    .HasName("IX_Orders")
                     .IsUnique();
 
                 entity.HasIndex(e => e.IdПоставщика)
-                    .HasDatabaseName("IX_Orders_1");
+                    .HasName("IX_Orders_1");
 
                 entity.HasIndex(e => e.НомерЗаказа)
-                    .HasDatabaseName("IX_Orders_2")
+                    .HasName("IX_Orders_2")
                     .IsUnique();
 
                 entity.Property(e => e.FreightCharges)
@@ -9444,7 +9444,7 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.ToTable("OTGR");
 
                 entity.HasIndex(e => new { e.Накладная, e.UserId, e.КодЗаказа, e.Префикс, e.СуммаОтгр, e.ДатаВывоза, e.Номер, e.Накладная1 })
-                    .HasDatabaseName("IX_OTGR")
+                    .HasName("IX_OTGR")
                     .IsUnique();
 
                 entity.Property(e => e.UserId).HasColumnName("User ID");
@@ -9565,7 +9565,7 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.HasNoKey();
 
                 entity.HasIndex(e => new { e.Id, e.UserId, e.Article })
-                    .HasDatabaseName("IX_PlanWeek")
+                    .HasName("IX_PlanWeek")
                     .IsUnique();
 
                 entity.Property(e => e.Article).HasMaxLength(50);
@@ -9648,7 +9648,7 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.ToTable("pri_tmp");
 
                 entity.HasIndex(e => new { e.IdСклада, e.IdТовара, e.Userid, e.НомерЗаказа, e.Регион })
-                    .HasDatabaseName("IX_pri_tmp111_1")
+                    .HasName("IX_pri_tmp111_1")
                     .IsUnique();
 
                 entity.Property(e => e.IdСклада).HasColumnName("ID склада");
@@ -9677,11 +9677,11 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.HasNoKey();
 
                 entity.HasIndex(e => e.RecordId)
-                    .HasDatabaseName("IX_Price_2")
+                    .HasName("IX_Price_2")
                     .IsUnique();
 
                 entity.HasIndex(e => e.SafeId)
-                    .HasDatabaseName("IX_Price_1")
+                    .HasName("IX_Price_1")
                     .IsUnique();
 
                 entity.Property(e => e.Price1)
@@ -9926,7 +9926,7 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.ToTable("Price_11_2015");
 
                 entity.HasIndex(e => e.SafeId)
-                    .HasDatabaseName("IX_Price_11_2015_1")
+                    .HasName("IX_Price_11_2015_1")
                     .IsUnique();
 
                 entity.Property(e => e.SafeId).HasColumnName("Safe ID");
@@ -9943,7 +9943,7 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.ToTable("Price_18122017");
 
                 entity.HasIndex(e => e.SafeId)
-                    .HasDatabaseName("IX_Price_18122017")
+                    .HasName("IX_Price_18122017")
                     .IsUnique();
 
                 entity.Property(e => e.Price)
@@ -10721,7 +10721,7 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.ToTable("Price_blg");
 
                 entity.HasIndex(e => e.SafeId)
-                    .HasDatabaseName("IX_Price_blg")
+                    .HasName("IX_Price_blg")
                     .IsUnique();
 
                 entity.Property(e => e.Price)
@@ -10776,7 +10776,7 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.ToTable("Price firm");
 
                 entity.HasIndex(e => e.RecordId)
-                    .HasDatabaseName("IX_Price firm")
+                    .HasName("IX_Price firm")
                     .IsUnique();
 
                 entity.Property(e => e.PriceДиал)
@@ -10815,11 +10815,11 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.ToTable("Price history");
 
                 entity.HasIndex(e => e.RecordId)
-                    .HasDatabaseName("IX_Price history")
+                    .HasName("IX_Price history")
                     .IsUnique();
 
                 entity.HasIndex(e => new { e.Дата, e.IdТовара })
-                    .HasDatabaseName("IX_Price history_1")
+                    .HasName("IX_Price history_1")
                     .IsUnique();
 
                 entity.Property(e => e.IdТовара).HasColumnName("ID товара");
@@ -10919,7 +10919,7 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.ToTable("Price_ukr");
 
                 entity.HasIndex(e => e.SafeId)
-                    .HasDatabaseName("IX_Price_ukr")
+                    .HasName("IX_Price_ukr")
                     .IsUnique();
 
                 entity.Property(e => e.Price)
@@ -10976,11 +10976,11 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.ToTable("Price поставки");
 
                 entity.HasIndex(e => e.RecordId)
-                    .HasDatabaseName("IX_Price поставки")
+                    .HasName("IX_Price поставки")
                     .IsUnique();
 
                 entity.HasIndex(e => e.SafeId)
-                    .HasDatabaseName("IX_Price поставки_1")
+                    .HasName("IX_Price поставки_1")
                     .IsUnique();
 
                 entity.Property(e => e.FactoryId)
@@ -11183,7 +11183,7 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.ToTable("pst.Артикулы_Клиентов");
 
                 entity.HasIndex(e => new { e.IdTmc, e.Поставщик })
-                    .HasDatabaseName("IX_post_Артикулы_Клиентов")
+                    .HasName("IX_post_Артикулы_Клиентов")
                     .IsUnique();
 
                 entity.Property(e => e.RecId).HasColumnName("RecID");
@@ -11235,7 +11235,7 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.ToTable("pst.Материалы_в_Эксплуатации");
 
                 entity.HasIndex(e => new { e.Hid, e.IdTmc, e.Date, e.TypeSpisId })
-                    .HasDatabaseName("IX_pst.Список_материалов_в_Эксплуатации");
+                    .HasName("IX_pst.Список_материалов_в_Эксплуатации");
 
                 entity.Property(e => e.Id).HasColumnName("ID");
 
@@ -11370,7 +11370,7 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.ToTable("pst.Проверка_по_ответственным");
 
                 entity.HasIndex(e => new { e.Date, e.ManagerId, e.SkladId })
-                    .HasDatabaseName("IX_pst_Проверка_по_ответственным");
+                    .HasName("IX_pst_Проверка_по_ответственным");
 
                 entity.Property(e => e.Id).HasColumnName("ID");
 
@@ -11431,7 +11431,7 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.ToTable("pst.Состояние_склада_по_ответственным");
 
                 entity.HasIndex(e => new { e.Date, e.IdСклада, e.ManagerId, e.FactoryId, e.ParentId })
-                    .HasDatabaseName("IX_pst.Состояние_склада_по_ответственным");
+                    .HasName("IX_pst.Состояние_склада_по_ответственным");
 
                 entity.Property(e => e.Id).HasColumnName("ID");
 
@@ -11647,7 +11647,7 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.ToTable("pst.Формы_значения_по умолчанию");
 
                 entity.HasIndex(e => e.RecId)
-                    .HasDatabaseName("IX_pst.Формы_значения_по умолчанию");
+                    .HasName("IX_pst.Формы_значения_по умолчанию");
 
                 entity.Property(e => e.FormName).HasMaxLength(100);
 
@@ -11690,7 +11690,7 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.HasKey(e => new { e.QueryId, e.ReportId });
 
                 entity.HasIndex(e => e.QueryId)
-                    .HasDatabaseName("IX_ReportQueries");
+                    .HasName("IX_ReportQueries");
 
                 entity.Property(e => e.QueryId)
                     .HasColumnName("QueryID")
@@ -11804,11 +11804,11 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.ToTable("Table_1");
 
                 entity.HasIndex(e => e.RecordId)
-                    .HasDatabaseName("IX_Table_1_2")
+                    .HasName("IX_Table_1_2")
                     .IsUnique();
 
                 entity.HasIndex(e => e.НомерСертификата)
-                    .HasDatabaseName("IX_Table_1_3")
+                    .HasName("IX_Table_1_3")
                     .IsUnique();
 
                 entity.Property(e => e.IdКатегории).HasColumnName("ID категории");
@@ -11854,7 +11854,7 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.HasNoKey();
 
                 entity.HasIndex(e => e.Rec)
-                    .HasDatabaseName("IX_TableForFiles")
+                    .HasName("IX_TableForFiles")
                     .IsUnique();
 
                 entity.Property(e => e.Art)
@@ -11891,7 +11891,7 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.HasNoKey();
 
                 entity.HasIndex(e => e.Rec)
-                    .HasDatabaseName("IX_TableForFilesTender")
+                    .HasName("IX_TableForFilesTender")
                     .IsUnique();
 
                 entity.Property(e => e.Etp)
@@ -11948,7 +11948,7 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.ToTable("tbh_OrderStatuses");
 
                 entity.HasIndex(e => e.OrderStatusId)
-                    .HasDatabaseName("IX_tbh_OrderStatuses")
+                    .HasName("IX_tbh_OrderStatuses")
                     .IsUnique();
 
                 entity.Property(e => e.AddedBy)
@@ -11971,7 +11971,7 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.ToTable("tbh_poisk");
 
                 entity.HasIndex(e => e.UserName)
-                    .HasDatabaseName("IX_tbh_poisk")
+                    .HasName("IX_tbh_poisk")
                     .IsUnique();
 
                 entity.Property(e => e.UserName)
@@ -11992,7 +11992,7 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.ToTable("tbh_PollOptions");
 
                 entity.HasIndex(e => e.OptionId)
-                    .HasDatabaseName("IX_tbh_PollsOptions")
+                    .HasName("IX_tbh_PollsOptions")
                     .IsUnique();
 
                 entity.Property(e => e.AddedBy)
@@ -12019,7 +12019,7 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.ToTable("tbh_Polls");
 
                 entity.HasIndex(e => e.PollId)
-                    .HasDatabaseName("IX_Polls")
+                    .HasName("IX_Polls")
                     .IsUnique();
 
                 entity.Property(e => e.AddedBy)
@@ -12046,7 +12046,7 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.ToTable("tbh_Products");
 
                 entity.HasIndex(e => e.ProductId)
-                    .HasDatabaseName("IX_tbh_Products")
+                    .HasName("IX_tbh_Products")
                     .IsUnique();
 
                 entity.Property(e => e.ProductId).HasColumnName("ProductID");
@@ -12061,7 +12061,7 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.ToTable("tbh_ShippingMethods");
 
                 entity.HasIndex(e => e.ShippingMethodId)
-                    .HasDatabaseName("IX_tbh_ShippingMethods")
+                    .HasName("IX_tbh_ShippingMethods")
                     .IsUnique();
 
                 entity.Property(e => e.AddedBy)
@@ -12086,7 +12086,7 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.ToTable("test_chert");
 
                 entity.HasIndex(e => e.Rec)
-                    .HasDatabaseName("IX_test_chert")
+                    .HasName("IX_test_chert")
                     .IsUnique();
 
                 entity.Property(e => e.Immm)
@@ -12804,10 +12804,10 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.ToTable("ul_tmp");
 
                 entity.HasIndex(e => e.Id)
-                    .HasDatabaseName("IX_ul_tmp_1");
+                    .HasName("IX_ul_tmp_1");
 
                 entity.HasIndex(e => new { e.Id, e.Группа, e.Подгруппа, e.Регион })
-                    .HasDatabaseName("IX_ul_tmp")
+                    .HasName("IX_ul_tmp")
                     .IsUnique();
 
                 entity.Property(e => e.Id).HasColumnName("ID");
@@ -13166,7 +13166,7 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.ToTable("VEDOMO");
 
                 entity.HasIndex(e => e.RecordId)
-                    .HasDatabaseName("IX_VEDOMO111_1")
+                    .HasName("IX_VEDOMO111_1")
                     .IsUnique();
 
                 entity.Property(e => e.IdДилера).HasColumnName("ID дилера");
@@ -13222,7 +13222,7 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.ToTable("VGAZMTK");
 
                 entity.HasIndex(e => e.RecordId)
-                    .HasDatabaseName("IX_VGAZMTK")
+                    .HasName("IX_VGAZMTK")
                     .IsUnique();
 
                 entity.Property(e => e.IdКонтрагента)
@@ -13989,7 +13989,7 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.ToTable("VOZV");
 
                 entity.HasIndex(e => new { e.ДатаВывоза, e.UserId, e.Основание, e.НомерНакл, e.СуммаОтгр })
-                    .HasDatabaseName("IX_VOZV")
+                    .HasName("IX_VOZV")
                     .IsUnique();
 
                 entity.Property(e => e.UserId).HasColumnName("User ID");
@@ -14023,7 +14023,7 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.ToTable("VOZV_P");
 
                 entity.HasIndex(e => new { e.ДатаВывоза, e.Основание, e.UserId, e.НомерНакл, e.СуммаОтгр })
-                    .HasDatabaseName("IX_VOZV_P")
+                    .HasName("IX_VOZV_P")
                     .IsUnique();
 
                 entity.Property(e => e.UserId).HasColumnName("User ID");
@@ -14057,7 +14057,7 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.ToTable("VOZV_P_dil_vse");
 
                 entity.HasIndex(e => new { e.IdДилера, e.IdЮрлица, e.UserId })
-                    .HasDatabaseName("IX_VOZV_P_dil_vse")
+                    .HasName("IX_VOZV_P_dil_vse")
                     .IsUnique();
 
                 entity.Property(e => e.IdДилера).HasColumnName("ID дилера");
@@ -14221,7 +14221,7 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.ToTable("VYPGAZ");
 
                 entity.HasIndex(e => e.RecordId)
-                    .HasDatabaseName("IX_VYPGAZ")
+                    .HasName("IX_VYPGAZ")
                     .IsUnique();
 
                 entity.Property(e => e.IdКонтрагента)
@@ -14305,7 +14305,7 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.ToTable("VYPGAZARCH");
 
                 entity.HasIndex(e => e.RecordId)
-                    .HasDatabaseName("IX_VYPGAZARCH")
+                    .HasName("IX_VYPGAZARCH")
                     .IsUnique();
 
                 entity.Property(e => e.IdКонтрагента)
@@ -14387,7 +14387,7 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.ToTable("VYPISKI");
 
                 entity.HasIndex(e => e.RecordId)
-                    .HasDatabaseName("IX_VYPISKI")
+                    .HasName("IX_VYPISKI")
                     .IsUnique();
 
                 entity.Property(e => e.IdКонтрагента)
@@ -14454,11 +14454,11 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.ToTable("VYPPROM");
 
                 entity.HasIndex(e => e.RecordId)
-                    .HasDatabaseName("IX_VYPPROM")
+                    .HasName("IX_VYPPROM")
                     .IsUnique();
 
                 entity.HasIndex(e => new { e.НомерПп, e.ДатаПол, e.Сумма, e.Фирма })
-                    .HasDatabaseName("IX_VYPPROM_1")
+                    .HasName("IX_VYPPROM_1")
                     .IsUnique();
 
                 entity.Property(e => e.IdДилераПлат)
@@ -14543,11 +14543,11 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.ToTable("VYPRAIF");
 
                 entity.HasIndex(e => e.RecordId)
-                    .HasDatabaseName("IX_VYPRAIF")
+                    .HasName("IX_VYPRAIF")
                     .IsUnique();
 
                 entity.HasIndex(e => new { e.НомерПп, e.ДатаПол, e.Сумма })
-                    .HasDatabaseName("IX_VYPRAIF_1")
+                    .HasName("IX_VYPRAIF_1")
                     .IsUnique();
 
                 entity.Property(e => e.IdДилераПлат)
@@ -14643,7 +14643,7 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.ToTable("VYPRAIFARCH");
 
                 entity.HasIndex(e => e.RecordId)
-                    .HasDatabaseName("IX_VYPRAIFARCH")
+                    .HasName("IX_VYPRAIFARCH")
                     .IsUnique();
 
                 entity.Property(e => e.IdКонтрагента)
@@ -14729,7 +14729,7 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.ToTable("VYST");
 
                 entity.HasIndex(e => new { e.Накладная, e.UserId, e.КодЗаказа, e.ДатаВывоза })
-                    .HasDatabaseName("IX_VYST")
+                    .HasName("IX_VYST")
                     .IsUnique();
 
                 entity.Property(e => e.UserId).HasColumnName("User ID");
@@ -14884,7 +14884,7 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.ToTable("Warehouse_Place");
 
                 entity.HasIndex(e => new { e.IdТовара, e.Полка, e.Стелаж, e.Этаж, e.FactoryId })
-                    .HasDatabaseName("IX_Warehouse_Place")
+                    .HasName("IX_Warehouse_Place")
                     .IsClustered();
 
                 entity.Property(e => e.Id).HasColumnName("ID");
@@ -14947,7 +14947,7 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.ToTable("Zak.PlanArt");
 
                 entity.HasIndex(e => new { e.IdIzgot, e.Year, e.Month, e.Articul, e.DopCod })
-                    .HasDatabaseName("IX_Zak.PlanArt")
+                    .HasName("IX_Zak.PlanArt")
                     .IsUnique();
 
                 entity.Property(e => e.Articul)
@@ -14976,7 +14976,7 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.ToTable("Zak.PlanMat");
 
                 entity.HasIndex(e => new { e.IdIzgot, e.Year, e.Month, e.Det, e.Mat })
-                    .HasDatabaseName("IX_Zak.PlanMat")
+                    .HasName("IX_Zak.PlanMat")
                     .IsUnique();
 
                 entity.Property(e => e.Bai)
@@ -15181,11 +15181,11 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.ToTable("Адреса рассылки");
 
                 entity.HasIndex(e => e.RecordId)
-                    .HasDatabaseName("IX_Адреса рассылки")
+                    .HasName("IX_Адреса рассылки")
                     .IsUnique();
 
                 entity.HasIndex(e => e.Наименование)
-                    .HasDatabaseName("IX_Адреса рассылки_1")
+                    .HasName("IX_Адреса рассылки_1")
                     .IsUnique();
 
                 entity.Property(e => e.RecordId)
@@ -15204,11 +15204,11 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.ToTable("Адреса ячеек");
 
                 entity.HasIndex(e => e.RecordId)
-                    .HasDatabaseName("IX_Адреса ячеек")
+                    .HasName("IX_Адреса ячеек")
                     .IsUnique();
 
                 entity.HasIndex(e => e.Адрес)
-                    .HasDatabaseName("IX_Адреса ячеек_1")
+                    .HasName("IX_Адреса ячеек_1")
                     .IsUnique();
 
                 entity.Property(e => e.RecordId)
@@ -15227,11 +15227,11 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.ToTable("Адреса Ячеек BG");
 
                 entity.HasIndex(e => e.RecordId)
-                    .HasDatabaseName("IX_Адреса Ячеек BG")
+                    .HasName("IX_Адреса Ячеек BG")
                     .IsUnique();
 
                 entity.HasIndex(e => e.Адрес)
-                    .HasDatabaseName("IX_Адреса Ячеек BG_1")
+                    .HasName("IX_Адреса Ячеек BG_1")
                     .IsUnique();
 
                 entity.Property(e => e.RecordId)
@@ -15252,11 +15252,11 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.ToTable("Адреса ячеек Астана");
 
                 entity.HasIndex(e => e.RecordId)
-                    .HasDatabaseName("IX_Адреса ячеек Астана")
+                    .HasName("IX_Адреса ячеек Астана")
                     .IsUnique();
 
                 entity.HasIndex(e => e.Адрес)
-                    .HasDatabaseName("IX_Адреса ячеек Астана_1")
+                    .HasName("IX_Адреса ячеек Астана_1")
                     .IsUnique();
 
                 entity.Property(e => e.RecordId)
@@ -15277,15 +15277,15 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.ToTable("Адреса Ячеек УЗМК");
 
                 entity.HasIndex(e => e.RecordId)
-                    .HasDatabaseName("IX_Адреса Ячеек УЗМК")
+                    .HasName("IX_Адреса Ячеек УЗМК")
                     .IsUnique();
 
                 entity.HasIndex(e => new { e.Адрес, e.Регион })
-                    .HasDatabaseName("IX_Адреса Ячеек УЗМК_1")
+                    .HasName("IX_Адреса Ячеек УЗМК_1")
                     .IsUnique();
 
                 entity.HasIndex(e => new { e.ШтрихКод, e.Регион })
-                    .HasDatabaseName("IX_Адреса Ячеек УЗМК_2")
+                    .HasName("IX_Адреса Ячеек УЗМК_2")
                     .IsUnique();
 
                 entity.Property(e => e.RecordId)
@@ -15437,11 +15437,11 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.HasNoKey();
 
                 entity.HasIndex(e => e.Код1)
-                    .HasDatabaseName("IX_Амортизация")
+                    .HasName("IX_Амортизация")
                     .IsUnique();
 
                 entity.HasIndex(e => new { e.Год, e.Месяц, e.Код })
-                    .HasDatabaseName("IX_Амортизация_1");
+                    .HasName("IX_Амортизация_1");
 
                 entity.Property(e => e.BlgTip).HasColumnName("BLG-tip");
 
@@ -15503,7 +15503,7 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.ToTable("Амортизация_баланс");
 
                 entity.HasIndex(e => new { e.Фирма, e.Год, e.Месяц })
-                    .HasDatabaseName("IX_Амортизация_баланс")
+                    .HasName("IX_Амортизация_баланс")
                     .IsUnique();
 
                 entity.Property(e => e.BlgTip).HasColumnName("BLG-tip");
@@ -15664,7 +15664,7 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.ToTable("Артикулы клиента");
 
                 entity.HasIndex(e => new { e.IdТовара, e.IdКлиента, e.Регион, e.АртикулКлиента })
-                    .HasDatabaseName("IX_Артикулы клиента")
+                    .HasName("IX_Артикулы клиента")
                     .IsUnique();
 
                 entity.Property(e => e.Ean)
@@ -15691,7 +15691,7 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.ToTable("Артикулы МЕТРО");
 
                 entity.HasIndex(e => e.IdТовара)
-                    .HasDatabaseName("IX_Артикулы МЕТРО")
+                    .HasName("IX_Артикулы МЕТРО")
                     .IsUnique();
 
                 entity.Property(e => e.IdТовара).HasColumnName("ID товара");
@@ -15759,15 +15759,15 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.ToTable("Базовые модели Дверей");
 
                 entity.HasIndex(e => e.IdБазы)
-                    .HasDatabaseName("IX_Базовые модели Дверей")
+                    .HasName("IX_Базовые модели Дверей")
                     .IsUnique();
 
                 entity.HasIndex(e => e.Артикул)
-                    .HasDatabaseName("IX_Базовые модели Дверей_1")
+                    .HasName("IX_Базовые модели Дверей_1")
                     .IsUnique();
 
                 entity.HasIndex(e => new { e.IdКонструкции, e.КодВысоты, e.КодОткрывания, e.КодШирины })
-                    .HasDatabaseName("IX_Базовые модели Дверей_2")
+                    .HasName("IX_Базовые модели Дверей_2")
                     .IsUnique();
 
                 entity.Property(e => e.IdБазы).HasColumnName("ID базы");
@@ -15824,11 +15824,11 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.ToTable("Базовые скидки");
 
                 entity.HasIndex(e => e.IdГруппы)
-                    .HasDatabaseName("IX_Базовые скидки_1")
+                    .HasName("IX_Базовые скидки_1")
                     .IsUnique();
 
                 entity.HasIndex(e => e.RecordId)
-                    .HasDatabaseName("IX_Базовые скидки")
+                    .HasName("IX_Базовые скидки")
                     .IsUnique();
 
                 entity.Property(e => e.IdГруппы)
@@ -15861,7 +15861,7 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.ToTable("Базовые экспортные цены");
 
                 entity.HasIndex(e => e.IdТовара)
-                    .HasDatabaseName("IX_Базовые экспортные цены")
+                    .HasName("IX_Базовые экспортные цены")
                     .IsUnique();
 
                 entity.Property(e => e.IdПоставщика)
@@ -15884,7 +15884,7 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.ToTable("Баланс_2011");
 
                 entity.HasIndex(e => e.Rec)
-                    .HasDatabaseName("IX_Баланс_2011")
+                    .HasName("IX_Баланс_2011")
                     .IsUnique();
 
                 entity.Property(e => e.Rec).ValueGeneratedOnAdd();
@@ -15907,11 +15907,11 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.ToTable("Баланс_2012");
 
                 entity.HasIndex(e => e.Rec)
-                    .HasDatabaseName("IX_Баланс_2")
+                    .HasName("IX_Баланс_2")
                     .IsUnique();
 
                 entity.HasIndex(e => e.Месяц)
-                    .HasDatabaseName("IX_Баланс_1");
+                    .HasName("IX_Баланс_1");
 
                 entity.Property(e => e.Rec).ValueGeneratedOnAdd();
 
@@ -15953,11 +15953,11 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.ToTable("Баланс_2013");
 
                 entity.HasIndex(e => e.Rec)
-                    .HasDatabaseName("IX_Баланс1111_1")
+                    .HasName("IX_Баланс1111_1")
                     .IsUnique();
 
                 entity.HasIndex(e => e.Месяц)
-                    .HasDatabaseName("IX_Баланс1111");
+                    .HasName("IX_Баланс1111");
 
                 entity.Property(e => e.Rec).ValueGeneratedOnAdd();
 
@@ -15999,7 +15999,7 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.ToTable("Баланс_2014");
 
                 entity.HasIndex(e => e.Rec)
-                    .HasDatabaseName("IX_Баланс")
+                    .HasName("IX_Баланс")
                     .IsUnique();
 
                 entity.Property(e => e.Значение).HasColumnType("decimal(18, 2)");
@@ -16020,11 +16020,11 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.ToTable("Баланс_деньги_2013");
 
                 entity.HasIndex(e => e.Rec)
-                    .HasDatabaseName("IX_Баланс_деньги_1")
+                    .HasName("IX_Баланс_деньги_1")
                     .IsUnique();
 
                 entity.HasIndex(e => e.Фирма)
-                    .HasDatabaseName("IX_Баланс_деньги");
+                    .HasName("IX_Баланс_деньги");
 
                 entity.Property(e => e.Rec).ValueGeneratedOnAdd();
 
@@ -16112,11 +16112,11 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.ToTable("Баланс_деньги_2014");
 
                 entity.HasIndex(e => e.Rec)
-                    .HasDatabaseName("IX_Баланс_деньги_2014_1")
+                    .HasName("IX_Баланс_деньги_2014_1")
                     .IsUnique();
 
                 entity.HasIndex(e => e.Фирма)
-                    .HasDatabaseName("IX_Баланс_деньги_2014");
+                    .HasName("IX_Баланс_деньги_2014");
 
                 entity.Property(e => e.Август).HasColumnType("decimal(18, 2)");
 
@@ -16245,7 +16245,7 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.HasNoKey();
 
                 entity.HasIndex(e => e.IdБлока)
-                    .HasDatabaseName("IX_Table_1")
+                    .HasName("IX_Table_1")
                     .IsUnique();
 
                 entity.Property(e => e.IdБлока).HasColumnName("ID блока");
@@ -16262,7 +16262,7 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.ToTable("Блоки-группа");
 
                 entity.HasIndex(e => e.IdГруппы)
-                    .HasDatabaseName("IX_Блоки-группа")
+                    .HasName("IX_Блоки-группа")
                     .IsUnique();
 
                 entity.Property(e => e.IdГруппы).HasColumnName("ID группы");
@@ -16279,7 +16279,7 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.ToTable("Блоки-подгруппа");
 
                 entity.HasIndex(e => e.IdПодгруппы)
-                    .HasDatabaseName("IX_Блоки-подгруппа")
+                    .HasName("IX_Блоки-подгруппа")
                     .IsUnique();
 
                 entity.Property(e => e.IdПодгруппы).HasColumnName("ID подгруппы");
@@ -16328,11 +16328,11 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.HasNoKey();
 
                 entity.HasIndex(e => e.RecordId)
-                    .HasDatabaseName("IX_Брони")
+                    .HasName("IX_Брони")
                     .IsUnique();
 
                 entity.HasIndex(e => new { e.RecordPostavka, e.RecordRashod })
-                    .HasDatabaseName("IX_Брони_1")
+                    .HasName("IX_Брони_1")
                     .IsUnique();
 
                 entity.Property(e => e.Kol).HasColumnType("decimal(18, 3)");
@@ -16353,11 +16353,11 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.ToTable("Брони плана");
 
                 entity.HasIndex(e => e.RecordId)
-                    .HasDatabaseName("IX_Брони плана")
+                    .HasName("IX_Брони плана")
                     .IsUnique();
 
                 entity.HasIndex(e => e.RecordPlana)
-                    .HasDatabaseName("IX_Брони плана_1");
+                    .HasName("IX_Брони плана_1");
 
                 entity.Property(e => e.IdТовара).HasColumnName("ID товара");
 
@@ -16395,7 +16395,7 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.ToTable("Брони плана регион");
 
                 entity.HasIndex(e => e.RecordId)
-                    .HasDatabaseName("IX_Брони плана регион")
+                    .HasName("IX_Брони плана регион")
                     .IsUnique();
 
                 entity.Property(e => e.IdТовара).HasColumnName("ID товара");
@@ -16430,7 +16430,7 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.HasNoKey();
 
                 entity.HasIndex(e => e.IdВалюты)
-                    .HasDatabaseName("IX_Валюта")
+                    .HasName("IX_Валюта")
                     .IsUnique();
 
                 entity.Property(e => e.IdВалюты)
@@ -16519,7 +16519,7 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.ToTable("Внутренние Заявки Детали поставки");
 
                 entity.HasIndex(e => new { e.Id, e.FactoryId })
-                    .HasDatabaseName("IX_Внутренние Заявки Детали поставки");
+                    .HasName("IX_Внутренние Заявки Детали поставки");
 
                 entity.Property(e => e.Description).HasMaxLength(50);
 
@@ -16587,7 +16587,7 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.ToTable("ВозвратГруп для МЗ");
 
                 entity.HasIndex(e => new { e.IdСклада, e.IdТовара, e.UserId })
-                    .HasDatabaseName("IX_ВозвратГруп для МЗ")
+                    .HasName("IX_ВозвратГруп для МЗ")
                     .IsUnique();
 
                 entity.Property(e => e.IdСклада).HasColumnName("ID склада");
@@ -17524,10 +17524,10 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.ToTable("Всего на складе с ценой инв_tmp");
 
                 entity.HasIndex(e => e.UserId)
-                    .HasDatabaseName("IX_Всего на складе с ценой инв_tmp_1");
+                    .HasName("IX_Всего на складе с ценой инв_tmp_1");
 
                 entity.HasIndex(e => new { e.IdСклада, e.IdТовара, e.UserId })
-                    .HasDatabaseName("IX_Всего на складе с ценой инв_tmp")
+                    .HasName("IX_Всего на складе с ценой инв_tmp")
                     .IsUnique();
 
                 entity.Property(e => e.Expr1).HasColumnType("decimal(18, 3)");
@@ -17581,7 +17581,7 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.ToTable("Всего на складе с ценой тмп");
 
                 entity.HasIndex(e => new { e.IdТовара, e.IdСклада, e.Userid, e.Регион })
-                    .HasDatabaseName("IX_Всего на складе с ценой тмп111")
+                    .HasName("IX_Всего на складе с ценой тмп111")
                     .IsUnique();
 
                 entity.Property(e => e.Expr1).HasColumnType("decimal(18, 2)");
@@ -17626,7 +17626,7 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.ToTable("Всего на складе с ценой тмп_заказы");
 
                 entity.HasIndex(e => new { e.IdСклада, e.IdТовара, e.Userid, e.Регион, e.НомерЗаказа })
-                    .HasDatabaseName("IX_Всего на складе с ценой тмп_заказы111")
+                    .HasName("IX_Всего на складе с ценой тмп_заказы111")
                     .IsUnique();
 
                 entity.Property(e => e.Expr1).HasColumnType("decimal(18, 2)");
@@ -17677,7 +17677,7 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.ToTable("Всего на складе с ценой ЦО_tmp");
 
                 entity.HasIndex(e => new { e.IdСклада, e.IdТовара, e.UserId })
-                    .HasDatabaseName("IX_Всего на складе с ценой ЦО_tmp")
+                    .HasName("IX_Всего на складе с ценой ЦО_tmp")
                     .IsUnique();
 
                 entity.Property(e => e.Expr1).HasColumnType("decimal(12, 2)");
@@ -18086,7 +18086,7 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.ToTable("Выставки_тмп регион");
 
                 entity.HasIndex(e => new { e.IdТовара, e.НомерПокупателя, e.Userid })
-                    .HasDatabaseName("IX_Выставки_тмп регион")
+                    .HasName("IX_Выставки_тмп регион")
                     .IsUnique();
 
                 entity.Property(e => e.IdТовара).HasColumnName("ID товара");
@@ -18145,7 +18145,7 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.HasNoKey();
 
                 entity.HasIndex(e => e.RecordId)
-                    .HasDatabaseName("IX_Глобальные")
+                    .HasName("IX_Глобальные")
                     .IsUnique();
 
                 entity.Property(e => e.Id).HasColumnName("ID");
@@ -18236,14 +18236,14 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.ToTable("Глобальные регион");
 
                 entity.HasIndex(e => e.Id)
-                    .HasDatabaseName("IX_Глобальные регион")
+                    .HasName("IX_Глобальные регион")
                     .IsUnique();
 
                 entity.HasIndex(e => e.БлокНал)
-                    .HasDatabaseName("IX_Глобальные регион_2");
+                    .HasName("IX_Глобальные регион_2");
 
                 entity.HasIndex(e => e.Склад)
-                    .HasDatabaseName("IX_Глобальные регион_1")
+                    .HasName("IX_Глобальные регион_1")
                     .IsUnique();
 
                 entity.Property(e => e.Id).HasColumnName("ID");
@@ -18328,10 +18328,10 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.ToTable("Годовой отчет по филиалам");
 
                 entity.HasIndex(e => e.Регион)
-                    .HasDatabaseName("IX_Годовой отчет по филиалам_1");
+                    .HasName("IX_Годовой отчет по филиалам_1");
 
                 entity.HasIndex(e => new { e.КодСортировки, e.Регион })
-                    .HasDatabaseName("IX_Годовой отчет по филиалам")
+                    .HasName("IX_Годовой отчет по филиалам")
                     .IsUnique();
 
                 entity.Property(e => e.Август).HasColumnType("decimal(12, 2)");
@@ -18399,10 +18399,10 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.ToTable("Годовой отчет по филиалам 2011");
 
                 entity.HasIndex(e => e.Регион)
-                    .HasDatabaseName("IX_Годовой отчет по филиалам 2011_1");
+                    .HasName("IX_Годовой отчет по филиалам 2011_1");
 
                 entity.HasIndex(e => new { e.КодСортировки, e.Регион })
-                    .HasDatabaseName("IX_Годовой отчет по филиалам 2011")
+                    .HasName("IX_Годовой отчет по филиалам 2011")
                     .IsUnique();
 
                 entity.Property(e => e.Август).HasColumnType("decimal(12, 2)");
@@ -18470,7 +18470,7 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.ToTable("Годовой отчет по филиалам_2012");
 
                 entity.HasIndex(e => new { e.КодСортировки, e.Регион })
-                    .HasDatabaseName("IX_Годовой отчет по филиалам_2012")
+                    .HasName("IX_Годовой отчет по филиалам_2012")
                     .IsUnique();
 
                 entity.Property(e => e.Август).HasColumnType("decimal(12, 2)");
@@ -18538,7 +18538,7 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.ToTable("Годовой отчет по филиалам_2013");
 
                 entity.HasIndex(e => new { e.КодСортировки, e.Регион })
-                    .HasDatabaseName("IX_Годовой отчет по филиалам1111_2")
+                    .HasName("IX_Годовой отчет по филиалам1111_2")
                     .IsUnique();
 
                 entity.Property(e => e.Август).HasColumnType("decimal(12, 2)");
@@ -18606,7 +18606,7 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.ToTable("Годовой отчет по филиалам_2014");
 
                 entity.HasIndex(e => new { e.КодСортировки, e.Регион })
-                    .HasDatabaseName("IX_Годовой отчет по филиалам_2014")
+                    .HasName("IX_Годовой отчет по филиалам_2014")
                     .IsUnique();
 
                 entity.Property(e => e.Август).HasColumnType("decimal(12, 2)");
@@ -18674,7 +18674,7 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.ToTable("Годовой отчет по филиалам_2015");
 
                 entity.HasIndex(e => new { e.КодСортировки, e.Регион })
-                    .HasDatabaseName("IX_Годовой отчет по филиалам_2015")
+                    .HasName("IX_Годовой отчет по филиалам_2015")
                     .IsUnique();
 
                 entity.Property(e => e.Август).HasColumnType("decimal(12, 2)");
@@ -18742,7 +18742,7 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.ToTable("Годовой отчет по филиалам_2016");
 
                 entity.HasIndex(e => new { e.КодСортировки, e.Регион })
-                    .HasDatabaseName("IX_Годовой отчет по филиалам_2016")
+                    .HasName("IX_Годовой отчет по филиалам_2016")
                     .IsUnique();
 
                 entity.Property(e => e.Август).HasColumnType("decimal(12, 2)");
@@ -18810,7 +18810,7 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.ToTable("Годовой отчет по филиалам_2017");
 
                 entity.HasIndex(e => new { e.КодСортировки, e.Регион })
-                    .HasDatabaseName("IX_Годовой отчет по филиалам_2017")
+                    .HasName("IX_Годовой отчет по филиалам_2017")
                     .IsUnique();
 
                 entity.Property(e => e.Август).HasColumnType("decimal(12, 2)");
@@ -18878,7 +18878,7 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.ToTable("Годовой отчет по филиалам_2018");
 
                 entity.HasIndex(e => new { e.КодСортировки, e.Регион })
-                    .HasDatabaseName("IX_Годовой отчет по филиалам_2018")
+                    .HasName("IX_Годовой отчет по филиалам_2018")
                     .IsUnique();
 
                 entity.Property(e => e.Август).HasColumnType("decimal(12, 2)");
@@ -18946,7 +18946,7 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.ToTable("Годовой отчет по филиалам_2019");
 
                 entity.HasIndex(e => new { e.КодСортировки, e.Регион })
-                    .HasDatabaseName("IX_Годовой отчет по филиалам_2019")
+                    .HasName("IX_Годовой отчет по филиалам_2019")
                     .IsUnique();
 
                 entity.Property(e => e.Август).HasColumnType("decimal(12, 2)");
@@ -19014,7 +19014,7 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.ToTable("Годовой отчет по филиалам_2020");
 
                 entity.HasIndex(e => new { e.КодСортировки, e.Регион })
-                    .HasDatabaseName("IX_Годовой отчет по филиалам_2020")
+                    .HasName("IX_Годовой отчет по филиалам_2020")
                     .IsUnique();
 
                 entity.Property(e => e.Август).HasColumnType("decimal(12, 2)");
@@ -19084,7 +19084,7 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.ToTable("Годовой отчет по филиалам_2021");
 
                 entity.HasIndex(e => new { e.КодСортировки, e.Регион })
-                    .HasDatabaseName("IX_Годовой отчет по филиалам_2021")
+                    .HasName("IX_Годовой отчет по филиалам_2021")
                     .IsUnique();
 
                 entity.Property(e => e.Август).HasColumnType("decimal(12, 2)");
@@ -19154,7 +19154,7 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.ToTable("График отгрузок филиалов");
 
                 entity.HasIndex(e => new { e.IdТовара, e.Регион, e.Дата, e.Склад })
-                    .HasDatabaseName("IX_График отгрузок филиалов")
+                    .HasName("IX_График отгрузок филиалов")
                     .IsUnique();
 
                 entity.Property(e => e.IdТовара)
@@ -19187,7 +19187,7 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.ToTable("График продаж");
 
                 entity.HasIndex(e => new { e.НомерМесяца, e.Userid })
-                    .HasDatabaseName("IX_График продаж")
+                    .HasName("IX_График продаж")
                     .IsUnique();
 
                 entity.Property(e => e.Userid).HasMaxLength(50);
@@ -19229,7 +19229,7 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.ToTable("График продаж за три года_new");
 
                 entity.HasIndex(e => e.Rec)
-                    .HasDatabaseName("IX_График продаж за три года_new111")
+                    .HasName("IX_График продаж за три года_new111")
                     .IsUnique();
 
                 entity.Property(e => e.Cc)
@@ -19273,7 +19273,7 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.ToTable("График продаж за три года_кл");
 
                 entity.HasIndex(e => new { e.Год, e.IdДилера, e.Сумма })
-                    .HasDatabaseName("IX_График продаж за три года_кл")
+                    .HasName("IX_График продаж за три года_кл")
                     .IsUnique();
 
                 entity.Property(e => e.Cc)
@@ -19298,7 +19298,7 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.ToTable("График продаж за три года регион");
 
                 entity.HasIndex(e => e.RecordId)
-                    .HasDatabaseName("IX_График продаж за три года регион")
+                    .HasName("IX_График продаж за три года регион")
                     .IsUnique();
 
                 entity.Property(e => e.Cc)
@@ -19335,7 +19335,7 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.ToTable("График продаж за три года_св регион");
 
                 entity.HasIndex(e => new { e.Год, e.Регион, e.Сумма, e.СуммаОплат })
-                    .HasDatabaseName("IX_График продаж за три года_св регион")
+                    .HasName("IX_График продаж за три года_св регион")
                     .IsUnique();
 
                 entity.Property(e => e.Cc)
@@ -19358,7 +19358,7 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.ToTable("График продаж за три года_ЦО");
 
                 entity.HasIndex(e => new { e.Год, e.IdДилера, e.Сумма, e.СуммаОплат, e.Доходность })
-                    .HasDatabaseName("IX_График продаж за три года_ЦО")
+                    .HasName("IX_График продаж за три года_ЦО")
                     .IsUnique();
 
                 entity.Property(e => e.Cc)
@@ -19383,7 +19383,7 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.ToTable("График продаж_пг");
 
                 entity.HasIndex(e => new { e.НомерМесяца, e.Userid })
-                    .HasDatabaseName("IX_График продаж_пг")
+                    .HasName("IX_График продаж_пг")
                     .IsUnique();
 
                 entity.Property(e => e.Userid).HasMaxLength(50);
@@ -19410,7 +19410,7 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.ToTable("График продаж по месяца_пг_кл");
 
                 entity.HasIndex(e => new { e.Год, e.IdДилера, e.Сумма, e.Месяц })
-                    .HasDatabaseName("IX_График продаж по месяца_пг_кл")
+                    .HasName("IX_График продаж по месяца_пг_кл")
                     .IsUnique();
 
                 entity.Property(e => e.IdДилера).HasColumnName("ID дилера");
@@ -19429,7 +19429,7 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.ToTable("График продаж по месяцам");
 
                 entity.HasIndex(e => new { e.Год, e.Месяц, e.IdДилера, e.Сумма, e.СуммаОплат })
-                    .HasDatabaseName("IX_График продаж по месяцам");
+                    .HasName("IX_График продаж по месяцам");
 
                 entity.Property(e => e.IdДилера).HasColumnName("ID дилера");
 
@@ -19447,10 +19447,10 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.ToTable("График продаж по месяцам_кл");
 
                 entity.HasIndex(e => e.IdДилера)
-                    .HasDatabaseName("IX_График продаж по месяцам_кл_1");
+                    .HasName("IX_График продаж по месяцам_кл_1");
 
                 entity.HasIndex(e => new { e.Год, e.Месяц, e.IdДилера, e.Сумма })
-                    .HasDatabaseName("IX_График продаж по месяцам_кл")
+                    .HasName("IX_График продаж по месяцам_кл")
                     .IsUnique();
 
                 entity.Property(e => e.IdДилера).HasColumnName("ID дилера");
@@ -19469,10 +19469,10 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.ToTable("График продаж по месяцам_пг");
 
                 entity.HasIndex(e => e.IdДилера)
-                    .HasDatabaseName("IX_График продаж по месяцам_пг_1");
+                    .HasName("IX_График продаж по месяцам_пг_1");
 
                 entity.HasIndex(e => new { e.Год, e.Месяц, e.IdДилера, e.Сумма })
-                    .HasDatabaseName("IX_График продаж по месяцам_пг");
+                    .HasName("IX_График продаж по месяцам_пг");
 
                 entity.Property(e => e.IdДилера).HasColumnName("ID дилера");
 
@@ -19490,11 +19490,11 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.ToTable("График продаж по месяцам регион");
 
                 entity.HasIndex(e => e.RecordId)
-                    .HasDatabaseName("IX_График продаж по месяцам регион")
+                    .HasName("IX_График продаж по месяцам регион")
                     .IsUnique();
 
                 entity.HasIndex(e => e.UserId)
-                    .HasDatabaseName("IX_График продаж по месяцам регион_1");
+                    .HasName("IX_График продаж по месяцам регион_1");
 
                 entity.Property(e => e.IdДилера).HasColumnName("ID дилера");
 
@@ -19520,11 +19520,11 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.ToTable("График продаж по месяцам регион_пг");
 
                 entity.HasIndex(e => e.RecordId)
-                    .HasDatabaseName("IX_График продаж по месяцам регион_пг11")
+                    .HasName("IX_График продаж по месяцам регион_пг11")
                     .IsUnique();
 
                 entity.HasIndex(e => e.UserId)
-                    .HasDatabaseName("IX_График продаж по месяцам регион_пг11_1");
+                    .HasName("IX_График продаж по месяцам регион_пг11_1");
 
                 entity.Property(e => e.IdДилера).HasColumnName("ID дилера");
 
@@ -19550,7 +19550,7 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.ToTable("График продаж по месяцам_св регион");
 
                 entity.HasIndex(e => new { e.Год, e.Месяц, e.Сумма, e.Регион })
-                    .HasDatabaseName("IX_График продаж по месяцам_св регион")
+                    .HasName("IX_График продаж по месяцам_св регион")
                     .IsUnique();
 
                 entity.Property(e => e.Сумма).HasColumnType("decimal(18, 2)");
@@ -19567,7 +19567,7 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.ToTable("График продаж по месяцам_св регион_пг");
 
                 entity.HasIndex(e => new { e.Год, e.Месяц, e.Регион, e.Сумма })
-                    .HasDatabaseName("IX_График продаж по месяцам_св регион_пг")
+                    .HasName("IX_График продаж по месяцам_св регион_пг")
                     .IsUnique();
 
                 entity.Property(e => e.Сумма).HasColumnType("decimal(18, 2)");
@@ -19584,10 +19584,10 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.ToTable("График продаж по месяцам_ЦО");
 
                 entity.HasIndex(e => e.IdДилера)
-                    .HasDatabaseName("IX_График продаж по месяцам_ЦО_1");
+                    .HasName("IX_График продаж по месяцам_ЦО_1");
 
                 entity.HasIndex(e => new { e.Год, e.Месяц, e.IdДилера, e.Сумма, e.СуммаОплат, e.Zn })
-                    .HasDatabaseName("IX_График продаж по месяцам_ЦО")
+                    .HasName("IX_График продаж по месяцам_ЦО")
                     .IsUnique();
 
                 entity.Property(e => e.IdДилера).HasColumnName("ID дилера");
@@ -19608,10 +19608,10 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.ToTable("График продаж по месяцам_ЦО_гр");
 
                 entity.HasIndex(e => e.IdДилера)
-                    .HasDatabaseName("IX_График продаж по месяцам_ЦО_гр_1");
+                    .HasName("IX_График продаж по месяцам_ЦО_гр_1");
 
                 entity.HasIndex(e => new { e.Год, e.IdДилера, e.Zn, e.Группа, e.Месяц, e.Сумма, e.СуммаОплат })
-                    .HasDatabaseName("IX_График продаж по месяцам_ЦО_гр")
+                    .HasName("IX_График продаж по месяцам_ЦО_гр")
                     .IsUnique();
 
                 entity.Property(e => e.IdДилера).HasColumnName("ID дилера");
@@ -19634,10 +19634,10 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.ToTable("График продаж по месяцами_пг_ЦО");
 
                 entity.HasIndex(e => e.IdДилера)
-                    .HasDatabaseName("IX_График продаж по месяцами_пг_ЦО_1");
+                    .HasName("IX_График продаж по месяцами_пг_ЦО_1");
 
                 entity.HasIndex(e => new { e.Год, e.Месяц, e.IdДилера, e.Сумма, e.СуммаОплат, e.Zn })
-                    .HasDatabaseName("IX_График продаж по месяцами_пг_ЦО")
+                    .HasName("IX_График продаж по месяцами_пг_ЦО")
                     .IsUnique();
 
                 entity.Property(e => e.IdДилера).HasColumnName("ID дилера");
@@ -19658,10 +19658,10 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.ToTable("График продаж по месяцами_пг_ЦО_гр");
 
                 entity.HasIndex(e => e.IdДилера)
-                    .HasDatabaseName("IX_График продаж по месяцами_пг_ЦО_гр_1");
+                    .HasName("IX_График продаж по месяцами_пг_ЦО_гр_1");
 
                 entity.HasIndex(e => new { e.Год, e.IdДилера, e.Zn, e.Группа, e.Месяц, e.Сумма, e.СуммаОплат })
-                    .HasDatabaseName("IX_График продаж по месяцами_пг_ЦО_гр")
+                    .HasName("IX_График продаж по месяцами_пг_ЦО_гр")
                     .IsUnique();
 
                 entity.Property(e => e.IdДилера).HasColumnName("ID дилера");
@@ -19724,7 +19724,7 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.ToTable("Группы критериев");
 
                 entity.HasIndex(e => e.ГруппаКритерия)
-                    .HasDatabaseName("IX_Группы критериев")
+                    .HasName("IX_Группы критериев")
                     .IsUnique();
 
                 entity.Property(e => e.ГруппаКритерия)
@@ -19918,7 +19918,7 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.ToTable("Данные с проходной");
 
                 entity.HasIndex(e => e.RecordId)
-                    .HasDatabaseName("IX_Данные с проходной")
+                    .HasName("IX_Данные с проходной")
                     .IsUnique();
 
                 entity.Property(e => e.RecordId)
@@ -20111,10 +20111,10 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.ToTable("Деб_Кред_тмп");
 
                 entity.HasIndex(e => e.UserId)
-                    .HasDatabaseName("IX_Деб_Кред_тмп_1");
+                    .HasName("IX_Деб_Кред_тмп_1");
 
                 entity.HasIndex(e => e.Регион)
-                    .HasDatabaseName("IX_Деб_Кред_тмп");
+                    .HasName("IX_Деб_Кред_тмп");
 
                 entity.Property(e => e.IdДилера).HasColumnName("ID дилера");
 
@@ -20178,14 +20178,14 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.ToTable("Деб_тмп");
 
                 entity.HasIndex(e => e.Rec)
-                    .HasDatabaseName("IX_Деб_тмп")
+                    .HasName("IX_Деб_тмп")
                     .IsUnique();
 
                 entity.HasIndex(e => e.UserId)
-                    .HasDatabaseName("IX_Деб_тмп1111_1");
+                    .HasName("IX_Деб_тмп1111_1");
 
                 entity.HasIndex(e => e.Регион)
-                    .HasDatabaseName("IX_Деб_тмп1111");
+                    .HasName("IX_Деб_тмп1111");
 
                 entity.Property(e => e.IdДилера).HasColumnName("ID дилера");
 
@@ -21059,7 +21059,7 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.ToTable("Для лепестковой тмп");
 
                 entity.HasIndex(e => e.Номер)
-                    .HasDatabaseName("IX_Для лепестковой тмп")
+                    .HasName("IX_Для лепестковой тмп")
                     .IsUnique();
 
                 entity.Property(e => e.Значение).HasColumnType("decimal(18, 2)");
@@ -21074,7 +21074,7 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.ToTable("Для отчета_ABC регион");
 
                 entity.HasIndex(e => new { e.Артикул, e.Userid })
-                    .HasDatabaseName("IX_Для отчета_ABC регион")
+                    .HasName("IX_Для отчета_ABC регион")
                     .IsUnique();
 
                 entity.Property(e => e.Abc)
@@ -21143,7 +21143,7 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.ToTable("Для отчета Издержки");
 
                 entity.HasIndex(e => e.НомерГрафыБаланса)
-                    .HasDatabaseName("IX_Для отчета Издержки")
+                    .HasName("IX_Для отчета Издержки")
                     .IsUnique();
 
                 entity.Property(e => e.Издержки).HasMaxLength(150);
@@ -21774,7 +21774,7 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.HasNoKey();
 
                 entity.HasIndex(e => new { e.НомерДня, e.НоммерНедели })
-                    .HasDatabaseName("IX_Дни")
+                    .HasName("IX_Дни")
                     .IsUnique();
 
                 entity.Property(e => e.НомерДня).HasColumnName("Номер дня");
@@ -21804,7 +21804,7 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.ToTable("Документы_претензии");
 
                 entity.HasIndex(e => e.RecordId)
-                    .HasDatabaseName("IX_Документы_претензии")
+                    .HasName("IX_Документы_претензии")
                     .IsUnique();
 
                 entity.Property(e => e.IdПретензии).HasColumnName("ID претензии");
@@ -21841,14 +21841,14 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.ToTable("Долг по заявке_тмп регион");
 
                 entity.HasIndex(e => e.RecD)
-                    .HasDatabaseName("IX_Долг по заявке_тмп регион_4")
+                    .HasName("IX_Долг по заявке_тмп регион_4")
                     .IsUnique();
 
                 entity.HasIndex(e => e.Userid)
-                    .HasDatabaseName("IX_Долг по заявке_тмп регион_3");
+                    .HasName("IX_Долг по заявке_тмп регион_3");
 
                 entity.HasIndex(e => new { e.НомерЗ, e.Регион, e.Userid })
-                    .HasDatabaseName("IX_Долг по заявке_тмп регион_2");
+                    .HasName("IX_Долг по заявке_тмп регион_2");
 
                 entity.Property(e => e.RecD)
                     .HasColumnName("Rec_d")
@@ -21898,10 +21898,10 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.ToTable("Долг по заявке_тмп регион1111");
 
                 entity.HasIndex(e => e.Userid)
-                    .HasDatabaseName("IX_Долг по заявке_тмп регион_1");
+                    .HasName("IX_Долг по заявке_тмп регион_1");
 
                 entity.HasIndex(e => new { e.НомерЗ, e.Регион, e.Userid })
-                    .HasDatabaseName("IX_Долг по заявке_тмп регион");
+                    .HasName("IX_Долг по заявке_тмп регион");
 
                 entity.Property(e => e.Валюта).HasMaxLength(4);
 
@@ -21947,7 +21947,7 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.ToTable("Допскидка история");
 
                 entity.HasIndex(e => e.IdЗаписи)
-                    .HasDatabaseName("IX_Допскидка история")
+                    .HasName("IX_Допскидка история")
                     .IsUnique();
 
                 entity.Property(e => e.IdДилера).HasColumnName("ID дилера");
@@ -21989,7 +21989,7 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.ToTable("Допскидка история регион");
 
                 entity.HasIndex(e => e.IdЗаписи)
-                    .HasDatabaseName("IX_Допскидка история регион")
+                    .HasName("IX_Допскидка история регион")
                     .IsUnique();
 
                 entity.Property(e => e.IdДилера).HasColumnName("ID дилера");
@@ -22031,7 +22031,7 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.ToTable("Доступ к клиентам");
 
                 entity.HasIndex(e => new { e.RecKl, e.Dostup })
-                    .HasDatabaseName("IX_Доступ к клиентам")
+                    .HasName("IX_Доступ к клиентам")
                     .IsUnique();
 
                 entity.Property(e => e.RecKl).HasColumnName("Rec_kl");
@@ -22242,7 +22242,7 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.ToTable("Журнал инноваций");
 
                 entity.HasIndex(e => e.RecordId)
-                    .HasDatabaseName("IX_Журнал инноваций")
+                    .HasName("IX_Журнал инноваций")
                     .IsUnique();
 
                 entity.Property(e => e.IdИнноватора)
@@ -22329,11 +22329,11 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.ToTable("Журнал проектов сертификации");
 
                 entity.HasIndex(e => e.RecordId)
-                    .HasDatabaseName("IX_Журнал проектов сертификации")
+                    .HasName("IX_Журнал проектов сертификации")
                     .IsUnique();
 
                 entity.HasIndex(e => e.НомерСертификата)
-                    .HasDatabaseName("IX_Журнал проектов сертификации_1");
+                    .HasName("IX_Журнал проектов сертификации_1");
 
                 entity.Property(e => e.IdКатегории).HasColumnName("ID категории");
 
@@ -22479,7 +22479,7 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.ToTable("З_зависимости");
 
                 entity.HasIndex(e => e.RecordId)
-                    .HasDatabaseName("IX_З_зависимости")
+                    .HasName("IX_З_зависимости")
                     .IsUnique();
 
                 entity.Property(e => e.RecordId)
@@ -22518,7 +22518,7 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.ToTable("З_задачи");
 
                 entity.HasIndex(e => e.RecordId)
-                    .HasDatabaseName("IX_З_задачи")
+                    .HasName("IX_З_задачи")
                     .IsUnique();
 
                 entity.Property(e => e.IdСубсчета).HasColumnName("ID субсчета");
@@ -22547,7 +22547,7 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.ToTable("З_Ит");
 
                 entity.HasIndex(e => new { e.Hid, e.Год, e.Месяц })
-                    .HasDatabaseName("IX_З_Ит")
+                    .HasName("IX_З_Ит")
                     .IsUnique();
 
                 entity.Property(e => e.Hid).HasColumnName("HID");
@@ -22596,7 +22596,7 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.ToTable("З_Ит_Оценки");
 
                 entity.HasIndex(e => new { e.Hid, e.Год, e.Месяц, e.RecOценка })
-                    .HasDatabaseName("IX_З_Ит_Оценки")
+                    .HasName("IX_З_Ит_Оценки")
                     .IsUnique();
 
                 entity.Property(e => e.Hid).HasColumnName("HID");
@@ -22677,7 +22677,7 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.ToTable("З_Критерии_долж");
 
                 entity.HasIndex(e => e.Iddol)
-                    .HasDatabaseName("IX_З_Критерии_долж")
+                    .HasName("IX_З_Критерии_долж")
                     .IsUnique();
 
                 entity.Property(e => e.Iddol).HasColumnName("IDdol");
@@ -22716,7 +22716,7 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.ToTable("З_Критерии_сотр");
 
                 entity.HasIndex(e => e.Hid)
-                    .HasDatabaseName("IX_З_Критерии_сотр")
+                    .HasName("IX_З_Критерии_сотр")
                     .IsUnique();
 
                 entity.Property(e => e.Hid).HasColumnName("HID");
@@ -22755,7 +22755,7 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.ToTable("З_оценки");
 
                 entity.HasIndex(e => new { e.Hid, e.Год })
-                    .HasDatabaseName("IX_З_оценки")
+                    .HasName("IX_З_оценки")
                     .IsUnique();
 
                 entity.Property(e => e.Hid).HasColumnName("HID");
@@ -23548,7 +23548,7 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.ToTable("З_Оценки_долж");
 
                 entity.HasIndex(e => new { e.Iddol, e.RecOценка })
-                    .HasDatabaseName("IX_З_Оценки_долж")
+                    .HasName("IX_З_Оценки_долж")
                     .IsUnique();
 
                 entity.Property(e => e.Iddol).HasColumnName("IDdol");
@@ -23595,7 +23595,7 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.ToTable("З_Оценки_сотр");
 
                 entity.HasIndex(e => new { e.Hid, e.RecOценка })
-                    .HasDatabaseName("IX_З_Оценки_сотр")
+                    .HasName("IX_З_Оценки_сотр")
                     .IsUnique();
 
                 entity.Property(e => e.Hid).HasColumnName("HID");
@@ -23642,7 +23642,7 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.ToTable("З_показатели");
 
                 entity.HasIndex(e => new { e.Год, e.Месяц })
-                    .HasDatabaseName("IX_З_показатели")
+                    .HasName("IX_З_показатели")
                     .IsUnique();
 
                 entity.Property(e => e.ВыпускБолгария)
@@ -23703,7 +23703,7 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.ToTable("З_показатели_бренд");
 
                 entity.HasIndex(e => new { e.Год, e.Месяц, e.Регион })
-                    .HasDatabaseName("IX_З_показатели_бренд")
+                    .HasName("IX_З_показатели_бренд")
                     .IsUnique();
 
                 entity.Property(e => e.ДоходДвери)
@@ -23738,7 +23738,7 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.ToTable("З_Положение");
 
                 entity.HasIndex(e => e.Hid)
-                    .HasDatabaseName("IX_З_Положение")
+                    .HasName("IX_З_Положение")
                     .IsUnique();
 
                 entity.Property(e => e.Hid).HasColumnName("HID");
@@ -23769,7 +23769,7 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.ToTable("З_Положение_зависимости");
 
                 entity.HasIndex(e => new { e.Hid, e.ВыпускДо, e.ВыпускОт })
-                    .HasDatabaseName("IX_З_Положение_зависимости")
+                    .HasName("IX_З_Положение_зависимости")
                     .IsUnique();
 
                 entity.Property(e => e.Hid).HasColumnName("HID");
@@ -23796,7 +23796,7 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.ToTable("З_Положение_Оценки");
 
                 entity.HasIndex(e => e.RecordId)
-                    .HasDatabaseName("IX_З_Положение_Оценки_1")
+                    .HasName("IX_З_Положение_Оценки_1")
                     .IsUnique();
 
                 entity.Property(e => e.Hid).HasColumnName("HID");
@@ -23856,7 +23856,7 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.ToTable("Заказы поставки");
 
                 entity.HasIndex(e => e.Номер)
-                    .HasDatabaseName("IX_Заказы поставки")
+                    .HasName("IX_Заказы поставки")
                     .IsUnique();
 
                 entity.Property(e => e.UserId).HasColumnName("User ID");
@@ -24012,13 +24012,13 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.ToTable("Заказы регион");
 
                 entity.HasIndex(e => e.NSub)
-                    .HasDatabaseName("IX_Заказы регион_2");
+                    .HasName("IX_Заказы регион_2");
 
                 entity.HasIndex(e => e.Дата)
-                    .HasDatabaseName("IX_Заказы регион_1");
+                    .HasName("IX_Заказы регион_1");
 
                 entity.HasIndex(e => e.Номер)
-                    .HasDatabaseName("IX_Заказы регион")
+                    .HasName("IX_Заказы регион")
                     .IsUnique();
 
                 entity.Property(e => e.AddedBy).HasMaxLength(256);
@@ -24582,25 +24582,25 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.ToTable("Заявки от дилеров");
 
                 entity.HasIndex(e => e.IdАдреса)
-                    .HasDatabaseName("IX_Заявки от дилеров_4");
+                    .HasName("IX_Заявки от дилеров_4");
 
                 entity.HasIndex(e => e.IdДилера)
-                    .HasDatabaseName("IX_Заявки от дилеров_1");
+                    .HasName("IX_Заявки от дилеров_1");
 
                 entity.HasIndex(e => e.IdСтадии)
-                    .HasDatabaseName("IX_Заявки от дилеров_6");
+                    .HasName("IX_Заявки от дилеров_6");
 
                 entity.HasIndex(e => e.IdЮрлица)
-                    .HasDatabaseName("IX_Заявки от дилеров_5");
+                    .HasName("IX_Заявки от дилеров_5");
 
                 entity.HasIndex(e => e.Дата)
-                    .HasDatabaseName("IX_Заявки от дилеров_2");
+                    .HasName("IX_Заявки от дилеров_2");
 
                 entity.HasIndex(e => e.Накладная)
-                    .HasDatabaseName("IX_Заявки от дилеров_3");
+                    .HasName("IX_Заявки от дилеров_3");
 
                 entity.HasIndex(e => e.Номер)
-                    .HasDatabaseName("IX_Заявки от дилеров")
+                    .HasName("IX_Заявки от дилеров")
                     .IsUnique();
 
                 entity.Property(e => e.IdАдреса)
@@ -24958,13 +24958,13 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.ToTable("Заявки от дилеров поставки");
 
                 entity.HasIndex(e => e.FactoryId)
-                    .HasDatabaseName("IX_Заявки от дилеров поставки");
+                    .HasName("IX_Заявки от дилеров поставки");
 
                 entity.HasIndex(e => e.IdДилера)
-                    .HasDatabaseName("IX_Заявки от дилеров поставки_1");
+                    .HasName("IX_Заявки от дилеров поставки_1");
 
                 entity.HasIndex(e => new { e.Номер, e.ФирмаПлательщик })
-                    .HasDatabaseName("IX_Заявки от дилеров поставки_Firma");
+                    .HasName("IX_Заявки от дилеров поставки_Firma");
 
                 entity.Property(e => e.CreateDate).HasColumnType("datetime");
 
@@ -25286,27 +25286,27 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.ToTable("Заявки от дилеров регион");
 
                 entity.HasIndex(e => e.Id)
-                    .HasDatabaseName("IX_Заявки от дилеров регион_3");
+                    .HasName("IX_Заявки от дилеров регион_3");
 
                 entity.HasIndex(e => e.Дата)
-                    .HasDatabaseName("IX_Заявки от дилеров регион_2");
+                    .HasName("IX_Заявки от дилеров регион_2");
 
                 entity.HasIndex(e => e.ДатаПлановая)
-                    .HasDatabaseName("IX_Заявки от дилеров регион_4");
+                    .HasName("IX_Заявки от дилеров регион_4");
 
                 entity.HasIndex(e => new { e.IdДилера, e.KlientReg })
-                    .HasDatabaseName("IX_Заявки от дилеров регион_1");
+                    .HasName("IX_Заявки от дилеров регион_1");
 
                 entity.HasIndex(e => new { e.KlientSvoj, e.KlientRegSvoj })
-                    .HasDatabaseName("IX_Заявки от дилеров регион_5");
+                    .HasName("IX_Заявки от дилеров регион_5");
 
                 entity.HasIndex(e => new { e.Номер, e.Регион })
-                    .HasDatabaseName("IX_Заявки от дилеров регион")
+                    .HasName("IX_Заявки от дилеров регион")
                     .IsUnique()
                     .IsClustered();
 
                 entity.HasIndex(e => new { e.Номер, e.IdДилера, e.Регион, e.Дата, e.Закрыта })
-                    .HasDatabaseName("INDEX_IX_Дата_Закрыта_DESC");
+                    .HasName("INDEX_IX_Дата_Закрыта_DESC");
 
                 entity.Property(e => e.Id).HasColumnName("ID");
 
@@ -25612,7 +25612,7 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.ToTable("Изменения артикула складской программы");
 
                 entity.HasIndex(e => e.IdКонструкции)
-                    .HasDatabaseName("IX_Изменения артикула складской программы_1")
+                    .HasName("IX_Изменения артикула складской программы_1")
                     .IsUnique();
 
                 entity.Property(e => e.IdЗамка)
@@ -25673,7 +25673,7 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.HasNoKey();
 
                 entity.HasIndex(e => e.RecordId)
-                    .HasDatabaseName("IX_Информер")
+                    .HasName("IX_Информер")
                     .IsUnique();
 
                 entity.Property(e => e.RecordId)
@@ -25726,7 +25726,7 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.ToTable("Исключение из скидки");
 
                 entity.HasIndex(e => e.IdТовара)
-                    .HasDatabaseName("IX_Исключение из скидки")
+                    .HasName("IX_Исключение из скидки")
                     .IsUnique();
 
                 entity.Property(e => e.IdТовара).HasColumnName("ID товара");
@@ -25739,7 +25739,7 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.ToTable("История АВС");
 
                 entity.HasIndex(e => e.Код)
-                    .HasDatabaseName("IX_История АВС")
+                    .HasName("IX_История АВС")
                     .IsUnique();
 
                 entity.Property(e => e.А).HasColumnType("decimal(18, 3)");
@@ -25793,7 +25793,7 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.ToTable("История логистики");
 
                 entity.HasIndex(e => new { e.ДатаДо, e.ДатаОд, e.IdСклада })
-                    .HasDatabaseName("IX_История логистики")
+                    .HasName("IX_История логистики")
                     .IsUnique();
 
                 entity.Property(e => e.IdСклада)
@@ -25862,7 +25862,7 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.ToTable("История цен");
 
                 entity.HasIndex(e => new { e.IdТовара, e.ДатаДо, e.ДатаОд })
-                    .HasDatabaseName("IX_История цен")
+                    .HasName("IX_История цен")
                     .IsUnique();
 
                 entity.Property(e => e.IdТовара)
@@ -25889,7 +25889,7 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.ToTable("Исходные данные");
 
                 entity.HasIndex(e => new { e.ЗаМесяцИндекс, e.Год })
-                    .HasDatabaseName("IX_Исходные данные")
+                    .HasName("IX_Исходные данные")
                     .IsUnique();
 
                 entity.Property(e => e.БлокировкаВвода)
@@ -25936,7 +25936,7 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.HasNoKey();
 
                 entity.HasIndex(e => e.Код)
-                    .HasDatabaseName("IX_Календарь")
+                    .HasName("IX_Календарь")
                     .IsUnique();
 
                 entity.Property(e => e.Сотировка)
@@ -25949,7 +25949,7 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.HasNoKey();
 
                 entity.HasIndex(e => new { e.Изменение, e.Категория })
-                    .HasDatabaseName("IX_Калькулятор")
+                    .HasName("IX_Калькулятор")
                     .IsUnique();
 
                 entity.Property(e => e.Изменение).HasMaxLength(255);
@@ -25964,7 +25964,7 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.HasNoKey();
 
                 entity.HasIndex(e => e.RecordId)
-                    .HasDatabaseName("IX_Кампании")
+                    .HasName("IX_Кампании")
                     .IsUnique();
 
                 entity.Property(e => e.Id)
@@ -25991,7 +25991,7 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.ToTable("Канбан_тмп");
 
                 entity.HasIndex(e => e.IdТовара)
-                    .HasDatabaseName("IX_Канбан_тмп")
+                    .HasName("IX_Канбан_тмп")
                     .IsUnique();
 
                 entity.Property(e => e.IdТовара).HasColumnName("ID товара");
@@ -26533,7 +26533,7 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.ToTable("Категории товара");
 
                 entity.HasIndex(e => e.Кат)
-                    .HasDatabaseName("IX_Категории товара")
+                    .HasName("IX_Категории товара")
                     .IsUnique();
 
                 entity.Property(e => e.Катег)
@@ -26769,10 +26769,10 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.HasNoKey();
 
                 entity.HasIndex(e => e.IdOrder)
-                    .HasDatabaseName("IX_Комплектация");
+                    .HasName("IX_Комплектация");
 
                 entity.HasIndex(e => e.IdRecord)
-                    .HasDatabaseName("ID_Комплектация1")
+                    .HasName("ID_Комплектация1")
                     .IsUnique();
 
                 entity.Property(e => e.IdOrder)
@@ -26860,7 +26860,7 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.ToTable("Константы для себестоимости");
 
                 entity.HasIndex(e => new { e.Номер, e.Площадка })
-                    .HasDatabaseName("IX_Константы для себестоимости")
+                    .HasName("IX_Константы для себестоимости")
                     .IsUnique();
 
                 entity.Property(e => e.ЗначениеДвери).HasColumnType("decimal(18, 5)");
@@ -26901,7 +26901,7 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.ToTable("Контакты поставщиков");
 
                 entity.HasIndex(e => e.IdКонтакта)
-                    .HasDatabaseName("IX_Список котактов поставищиков")
+                    .HasName("IX_Список котактов поставищиков")
                     .IsUnique();
 
                 entity.Property(e => e.IdКонтакта)
@@ -26939,10 +26939,10 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.HasNoKey();
 
                 entity.HasIndex(e => e.IdOrder)
-                    .HasDatabaseName("IX_Контейнера_1");
+                    .HasName("IX_Контейнера_1");
 
                 entity.HasIndex(e => e.RecordId)
-                    .HasDatabaseName("IX_Контейнера")
+                    .HasName("IX_Контейнера")
                     .IsUnique();
 
                 entity.Property(e => e.IdOrder).HasColumnName("ID order");
@@ -26993,7 +26993,7 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.ToTable("Контроль клиентов");
 
                 entity.HasIndex(e => e.RecordId)
-                    .HasDatabaseName("IX_Контроль клиентов")
+                    .HasName("IX_Контроль клиентов")
                     .IsUnique();
 
                 entity.Property(e => e.IdКлиента)
@@ -27056,10 +27056,10 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.ToTable("Контроль менеджеров");
 
                 entity.HasIndex(e => e.IdМенеджера)
-                    .HasDatabaseName("IX_Контроль менеджеров_1");
+                    .HasName("IX_Контроль менеджеров_1");
 
                 entity.HasIndex(e => e.RecordId)
-                    .HasDatabaseName("IX_Контроль менеджеров")
+                    .HasName("IX_Контроль менеджеров")
                     .IsUnique();
 
                 entity.Property(e => e.IdДилера)
@@ -27219,11 +27219,11 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.ToTable("Контроль менеджеров регион");
 
                 entity.HasIndex(e => e.RecordId)
-                    .HasDatabaseName("IX_Контроль менеджеров регион")
+                    .HasName("IX_Контроль менеджеров регион")
                     .IsUnique();
 
                 entity.HasIndex(e => e.Регион)
-                    .HasDatabaseName("IX_Контроль менеджеров регион_1");
+                    .HasName("IX_Контроль менеджеров регион_1");
 
                 entity.Property(e => e.Idvo)
                     .HasColumnName("IDVO")
@@ -27394,7 +27394,7 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.ToTable("Кред_тмп");
 
                 entity.HasIndex(e => e.Регион)
-                    .HasDatabaseName("IX_Кред_тмп");
+                    .HasName("IX_Кред_тмп");
 
                 entity.Property(e => e.IdДилера).HasColumnName("ID дилера");
 
@@ -27430,7 +27430,7 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.ToTable("Кредиторка_тмп");
 
                 entity.HasIndex(e => e.UserId)
-                    .HasDatabaseName("IX_Кредиторка_тмп")
+                    .HasName("IX_Кредиторка_тмп")
                     .IsUnique();
 
                 entity.Property(e => e.IdГруппы)
@@ -27637,7 +27637,7 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.ToTable("Курс AED");
 
                 entity.HasIndex(e => e.Дата)
-                    .HasDatabaseName("IX_Курс AED")
+                    .HasName("IX_Курс AED")
                     .IsUnique();
 
                 entity.Property(e => e.Дата).HasColumnType("smalldatetime");
@@ -27652,7 +27652,7 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.ToTable("Курс BGN");
 
                 entity.HasIndex(e => e.Дата)
-                    .HasDatabaseName("IX_Курс BGN")
+                    .HasName("IX_Курс BGN")
                     .IsUnique();
 
                 entity.Property(e => e.Дата).HasColumnType("smalldatetime");
@@ -27688,7 +27688,7 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.ToTable("Курс доллара");
 
                 entity.HasIndex(e => e.Дата)
-                    .HasDatabaseName("IX_Курс доллара")
+                    .HasName("IX_Курс доллара")
                     .IsUnique();
 
                 entity.Property(e => e.UserId)
@@ -27721,7 +27721,7 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.ToTable("Курс евро");
 
                 entity.HasIndex(e => e.Дата)
-                    .HasDatabaseName("IX_Курс евро")
+                    .HasName("IX_Курс евро")
                     .IsUnique();
 
                 entity.Property(e => e.UserId)
@@ -27751,7 +27751,7 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.ToTable("Курс евро реестр");
 
                 entity.HasIndex(e => e.Дата)
-                    .HasDatabaseName("IX_Курс евро реестр")
+                    .HasName("IX_Курс евро реестр")
                     .IsUnique();
 
                 entity.Property(e => e.UserId).HasColumnName("User ID");
@@ -27776,7 +27776,7 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.ToTable("Курс ИЕН");
 
                 entity.HasIndex(e => e.Дата)
-                    .HasDatabaseName("IX_Курс ИЕН")
+                    .HasName("IX_Курс ИЕН")
                     .IsUnique();
 
                 entity.Property(e => e.Дата).HasColumnType("smalldatetime");
@@ -27791,7 +27791,7 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.ToTable("Курс ЛЕВ");
 
                 entity.HasIndex(e => e.Дата)
-                    .HasDatabaseName("IX_Курс ЛЕВ")
+                    .HasName("IX_Курс ЛЕВ")
                     .IsUnique();
 
                 entity.Property(e => e.UserId)
@@ -27826,7 +27826,7 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.ToTable("Курс франка");
 
                 entity.HasIndex(e => e.Дата)
-                    .HasDatabaseName("IX_Курс франка")
+                    .HasName("IX_Курс франка")
                     .IsUnique();
 
                 entity.Property(e => e.Дата).HasColumnType("smalldatetime");
@@ -27845,7 +27845,7 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.ToTable("Курс фунтов");
 
                 entity.HasIndex(e => e.Дата)
-                    .HasDatabaseName("IX_Курс фунтов")
+                    .HasName("IX_Курс фунтов")
                     .IsUnique();
 
                 entity.Property(e => e.Дата).HasColumnType("smalldatetime");
@@ -27902,7 +27902,7 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.ToTable("Мax партия товара_онлайн_");
 
                 entity.HasIndex(e => new { e.IdТовара, e.IdСклада })
-                    .HasDatabaseName("IX_Мax партия товара_онлайн_")
+                    .HasName("IX_Мax партия товара_онлайн_")
                     .IsUnique();
 
                 entity.Property(e => e.IdСклада).HasColumnName("ID склада");
@@ -28180,7 +28180,7 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.HasNoKey();
 
                 entity.HasIndex(e => e.НомерМесяца)
-                    .HasDatabaseName("IX_Месяцы")
+                    .HasName("IX_Месяцы")
                     .IsUnique();
 
                 entity.Property(e => e.Колдн).HasDefaultValueSql("((0))");
@@ -28204,7 +28204,7 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.ToTable("МЗ_недели");
 
                 entity.HasIndex(e => new { e.ПериодОд, e.ПериодДо, e.IdТовара })
-                    .HasDatabaseName("IX_МЗ_недели")
+                    .HasName("IX_МЗ_недели")
                     .IsUnique();
 
                 entity.Property(e => e.IdТовара).HasColumnName("ID товара");
@@ -28297,7 +28297,7 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.ToTable("Модели для прогноза регион");
 
                 entity.HasIndex(e => new { e.IdТовара, e.Регион })
-                    .HasDatabaseName("IX_Модели для прогноза регион")
+                    .HasName("IX_Модели для прогноза регион")
                     .IsUnique();
 
                 entity.Property(e => e.IdТовара)
@@ -28320,7 +28320,7 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.ToTable("Названия по Партиям поставки");
 
                 entity.HasIndex(e => e.IdТовара)
-                    .HasDatabaseName("IX_Названия по Партиям поставки");
+                    .HasName("IX_Названия по Партиям поставки");
 
                 entity.Property(e => e.Id).HasColumnName("ID");
 
@@ -28841,7 +28841,7 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.ToTable("Начало_ДвижениеТМЦ регион");
 
                 entity.HasIndex(e => new { e.Артикул, e.Регион })
-                    .HasDatabaseName("IX_Начало_ДвижениеТМЦ регион")
+                    .HasName("IX_Начало_ДвижениеТМЦ регион")
                     .IsUnique();
 
                 entity.Property(e => e.Артикул)
@@ -28881,7 +28881,7 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.ToTable("Начало регион");
 
                 entity.HasIndex(e => new { e.Артикул, e.Склад })
-                    .HasDatabaseName("IX_Начало регион")
+                    .HasName("IX_Начало регион")
                     .IsUnique();
 
                 entity.Property(e => e.Артикул)
@@ -29259,7 +29259,7 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.ToTable("Нельзя править комплект");
 
                 entity.HasIndex(e => e.Idtov)
-                    .HasDatabaseName("IX_Нельзя править комплект")
+                    .HasName("IX_Нельзя править комплект")
                     .IsUnique();
 
                 entity.Property(e => e.Idtov).HasColumnName("IDtov");
@@ -29281,7 +29281,7 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.ToTable("Новички_тмп");
 
                 entity.HasIndex(e => new { e.UserId, e.Группа, e.ОбъемПродаж1ГодРубБезНдс, e.ОбъемПродаж3ГодаРубБезНдс, e.ОбъемПродажОбщийРубБезНдс, e.Тип })
-                    .HasDatabaseName("IX_Новички_тмп")
+                    .HasName("IX_Новички_тмп")
                     .IsUnique();
 
                 entity.Property(e => e.UserId).HasColumnName("User ID");
@@ -29321,7 +29321,7 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.ToTable("Ном_пог_тмп");
 
                 entity.HasIndex(e => new { e.НомерПрефикс, e.Регион, e.UserId })
-                    .HasDatabaseName("IX_Ном_пог_тмп")
+                    .HasName("IX_Ном_пог_тмп")
                     .IsUnique();
 
                 entity.Property(e => e.UserId).HasColumnName("User ID");
@@ -29338,11 +29338,11 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.ToTable("Номенклатура ЗМК");
 
                 entity.HasIndex(e => e.IdТовара)
-                    .HasDatabaseName("IX_Номенклатура ЗМК")
+                    .HasName("IX_Номенклатура ЗМК")
                     .IsUnique();
 
                 entity.HasIndex(e => e.Наименование)
-                    .HasDatabaseName("IX_Номенклатура ЗМК_1");
+                    .HasName("IX_Номенклатура ЗМК_1");
 
                 entity.Property(e => e.IdИзготовителя).HasColumnName("ID изготовителя");
 
@@ -29400,7 +29400,7 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.ToTable("Номенклатура компектующих поставка");
 
                 entity.HasIndex(e => new { e.IdТовара, e.IdЧасти })
-                    .HasDatabaseName("IX_Номенклатура компектующих поставка")
+                    .HasName("IX_Номенклатура компектующих поставка")
                     .IsUnique();
 
                 entity.Property(e => e.IdТовара).HasColumnName("ID товара");
@@ -29415,7 +29415,7 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.ToTable("Номенклатура комплектующих");
 
                 entity.HasIndex(e => new { e.IdТовара, e.IdЧасти })
-                    .HasDatabaseName("IX_Номенклатура комплектующих")
+                    .HasName("IX_Номенклатура комплектующих")
                     .IsUnique();
 
                 entity.Property(e => e.IdТовара).HasColumnName("ID товара");
@@ -29483,28 +29483,28 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.ToTable("Номенклатура товаров");
 
                 entity.HasIndex(e => e.GroupOfGoods)
-                    .HasDatabaseName("IX_Номенклатура товаров_2");
+                    .HasName("IX_Номенклатура товаров_2");
 
                 entity.HasIndex(e => e.IdТовара)
-                    .HasDatabaseName("IX_Номенклатура товаров")
+                    .HasName("IX_Номенклатура товаров")
                     .IsUnique()
                     .IsClustered();
 
                 entity.HasIndex(e => e.Артикул)
-                    .HasDatabaseName("IX_Номенклатура товаров_3")
+                    .HasName("IX_Номенклатура товаров_3")
                     .IsUnique();
 
                 entity.HasIndex(e => e.КодТовара)
-                    .HasDatabaseName("IX_Номенклатура товаров_4");
+                    .HasName("IX_Номенклатура товаров_4");
 
                 entity.HasIndex(e => e.Модель)
-                    .HasDatabaseName("IX_Номенклатура товаров_5");
+                    .HasName("IX_Номенклатура товаров_5");
 
                 entity.HasIndex(e => e.Наименование)
-                    .HasDatabaseName("IX_Номенклатура товаров_1");
+                    .HasName("IX_Номенклатура товаров_1");
 
                 entity.HasIndex(e => e.Штрихкод)
-                    .HasDatabaseName("IX_Номенклатура товаров_6");
+                    .HasName("IX_Номенклатура товаров_6");
 
                 entity.Property(e => e.Abc)
                     .HasColumnName("ABC")
@@ -29815,15 +29815,15 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.ToTable("Номенклатура товаров_Архив");
 
                 entity.HasIndex(e => e.IdТовара)
-                    .HasDatabaseName("IX_Номенклатура товаров_Архив")
+                    .HasName("IX_Номенклатура товаров_Архив")
                     .IsUnique();
 
                 entity.HasIndex(e => e.Артикул)
-                    .HasDatabaseName("IX_Номенклатура товаров_Архив_1")
+                    .HasName("IX_Номенклатура товаров_Архив_1")
                     .IsUnique();
 
                 entity.HasIndex(e => e.КодТовара)
-                    .HasDatabaseName("IX_Номенклатура товаров_Архив_2");
+                    .HasName("IX_Номенклатура товаров_Архив_2");
 
                 entity.Property(e => e.Abc)
                     .HasColumnName("ABC")
@@ -30087,18 +30087,18 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.ToTable("Номенклатура товаров поставки");
 
                 entity.HasIndex(e => e.IdТовара)
-                    .HasDatabaseName("IX_Номенклатура товаров поставки")
+                    .HasName("IX_Номенклатура товаров поставки")
                     .IsUnique();
 
                 entity.HasIndex(e => e.АртикулНовый)
-                    .HasDatabaseName("IX_Номенклатура товаров поставки_5")
+                    .HasName("IX_Номенклатура товаров поставки_5")
                     .IsUnique();
 
                 entity.HasIndex(e => e.Наименование)
-                    .HasDatabaseName("IX_Номенклатура товаров поставки_1");
+                    .HasName("IX_Номенклатура товаров поставки_1");
 
                 entity.HasIndex(e => new { e.IdТовара, e.АртикулНовый, e.GroupOfGoods, e.ТипГруппы, e.IdКатегории, e.Abc })
-                    .HasDatabaseName("IX_Номенклатура товаров поставки_2");
+                    .HasName("IX_Номенклатура товаров поставки_2");
 
                 entity.Property(e => e.Abc)
                     .HasColumnName("ABC")
@@ -30907,10 +30907,10 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.ToTable("Номера для цепочек");
 
                 entity.HasIndex(e => new { e.НомерПорядковый, e.Год, e.Фирма })
-                    .HasDatabaseName("IX_Номера для цепочек");
+                    .HasName("IX_Номера для цепочек");
 
                 entity.HasIndex(e => new { e.Партия, e.Участок, e.Дата, e.IdТовара, e.IdСклада, e.НомерПорядковый, e.Год })
-                    .HasDatabaseName("IX_Номера для цепочек_1")
+                    .HasName("IX_Номера для цепочек_1")
                     .IsUnique();
 
                 entity.Property(e => e.FactoryId)
@@ -30951,7 +30951,7 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.ToTable("Обеспечение ДЗ");
 
                 entity.HasIndex(e => new { e.Дата, e.Группа, e.Регион, e.GroupOfGoods })
-                    .HasDatabaseName("IX_Обеспечение ДЗ")
+                    .HasName("IX_Обеспечение ДЗ")
                     .IsUnique();
 
                 entity.Property(e => e.Группа).HasMaxLength(50);
@@ -30980,7 +30980,7 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.ToTable("Обеспечение склада");
 
                 entity.HasIndex(e => new { e.Дата, e.Площадка, e.Статус, e.IdТовара, e.Регион })
-                    .HasDatabaseName("IX_Обеспечение склада")
+                    .HasName("IX_Обеспечение склада")
                     .IsUnique();
 
                 entity.Property(e => e.IdТовара).HasColumnName("ID товара");
@@ -31199,20 +31199,20 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.HasNoKey();
 
                 entity.HasIndex(e => e.RecordId)
-                    .HasDatabaseName("IX_Оплата_2")
+                    .HasName("IX_Оплата_2")
                     .IsUnique();
 
                 entity.HasIndex(e => e.ВидОплаты)
-                    .HasDatabaseName("IX_Оплата");
+                    .HasName("IX_Оплата");
 
                 entity.HasIndex(e => e.ДатаПр)
-                    .HasDatabaseName("IX_Оплата_4");
+                    .HasName("IX_Оплата_4");
 
                 entity.HasIndex(e => e.НомерПлатежки)
-                    .HasDatabaseName("IX_Оплата_3");
+                    .HasName("IX_Оплата_3");
 
                 entity.HasIndex(e => e.НомерСчета)
-                    .HasDatabaseName("IX_Оплата_1");
+                    .HasName("IX_Оплата_1");
 
                 entity.Property(e => e.IdКлиента)
                     .HasColumnName("ID клиента")
@@ -31424,10 +31424,10 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.ToTable("Оплата за период для отчета");
 
                 entity.HasIndex(e => e.UserId)
-                    .HasDatabaseName("IX_Оплата за период для отчета_1");
+                    .HasName("IX_Оплата за период для отчета_1");
 
                 entity.HasIndex(e => new { e.IdДилера, e.UserId, e.ОплатаРуб, e.Dil, e.Дилер })
-                    .HasDatabaseName("IX_Оплата за период для отчета")
+                    .HasName("IX_Оплата за период для отчета")
                     .IsUnique();
 
                 entity.Property(e => e.Dil).HasDefaultValueSql("((0))");
@@ -31462,7 +31462,7 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.ToTable("Оплата за период для отчета_nnn");
 
                 entity.HasIndex(e => e.Rec)
-                    .HasDatabaseName("IX_Оплата за период для отчета_nnn");
+                    .HasName("IX_Оплата за период для отчета_nnn");
 
                 entity.Property(e => e.Dil).HasDefaultValueSql("((0))");
 
@@ -31517,7 +31517,7 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.ToTable("Оплата за период для отчета за 12 месяцов регион");
 
                 entity.HasIndex(e => new { e.IdДилера, e.Регион, e.UserId, e.Id, e.Дилер })
-                    .HasDatabaseName("IX_Оплата за период для отчета за 12 месяцов регион")
+                    .HasName("IX_Оплата за период для отчета за 12 месяцов регион")
                     .IsUnique();
 
                 entity.Property(e => e.Id).HasColumnName("ID");
@@ -31542,7 +31542,7 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.ToTable("Оплата за период для отчета за 3 мес_кл");
 
                 entity.HasIndex(e => new { e.IdКл, e.UserId, e.ОплатаРуб })
-                    .HasDatabaseName("IX_Оплата за период для отчета за 3 мес_кл")
+                    .HasName("IX_Оплата за период для отчета за 3 мес_кл")
                     .IsUnique();
 
                 entity.Property(e => e.IdКл).HasColumnName("ID кл");
@@ -31565,7 +31565,7 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.ToTable("Оплата за период для отчета за 3 мес_юл");
 
                 entity.HasIndex(e => new { e.IdЮл, e.UserId, e.ОплатаРуб, e.Юрлицо })
-                    .HasDatabaseName("IX_Оплата за период для отчета за 3 мес_юл")
+                    .HasName("IX_Оплата за период для отчета за 3 мес_юл")
                     .IsUnique();
 
                 entity.Property(e => e.IdЮл).HasColumnName("ID юл");
@@ -31603,7 +31603,7 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.ToTable("Оплата за период для отчета за 3 мес_юл регион");
 
                 entity.HasIndex(e => new { e.IdЮл, e.UserId, e.Регион, e.Юрлицо, e.Дилер })
-                    .HasDatabaseName("IX_Оплата за период для отчета за 3 мес_юл регион")
+                    .HasName("IX_Оплата за период для отчета за 3 мес_юл регион")
                     .IsUnique();
 
                 entity.Property(e => e.IdЮл).HasColumnName("ID юл");
@@ -31630,7 +31630,7 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.ToTable("Оплата за период для отчета за 3 месяца");
 
                 entity.HasIndex(e => new { e.IdДилера, e.UserId, e.Дилер })
-                    .HasDatabaseName("IX_Оплата за период для отчета за 3 месяца")
+                    .HasName("IX_Оплата за период для отчета за 3 месяца")
                     .IsUnique();
 
                 entity.Property(e => e.IdДилера).HasColumnName("ID дилера");
@@ -31651,7 +31651,7 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.ToTable("Оплата за период для отчета за 3 месяца регион");
 
                 entity.HasIndex(e => new { e.IdДилера, e.UserId, e.Регион, e.Дилер })
-                    .HasDatabaseName("IX_Оплата за период для отчета за 3 месяца регион")
+                    .HasName("IX_Оплата за период для отчета за 3 месяца регион")
                     .IsUnique();
 
                 entity.Property(e => e.IdДилера).HasColumnName("ID дилера");
@@ -31672,7 +31672,7 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.ToTable("Оплата за период для отчета за период");
 
                 entity.HasIndex(e => new { e.IdДилера, e.UserId, e.ОплатаРуб, e.Дилер })
-                    .HasDatabaseName("IX_Оплата за период для отчета за период");
+                    .HasName("IX_Оплата за период для отчета за период");
 
                 entity.Property(e => e.IdДилера).HasColumnName("ID дилера");
 
@@ -31694,7 +31694,7 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.ToTable("Оплата за период для отчета регион");
 
                 entity.HasIndex(e => new { e.IdДилера, e.Регион, e.UserId, e.Дилер })
-                    .HasDatabaseName("IX_Оплата за период для отчета регион")
+                    .HasName("IX_Оплата за период для отчета регион")
                     .IsUnique();
 
                 entity.Property(e => e.IdДилера).HasColumnName("ID дилера");
@@ -31736,7 +31736,7 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.ToTable("Оплата за период для отчета юрлицо");
 
                 entity.HasIndex(e => new { e.IdЮрлица, e.UserId, e.ОплатаРуб, e.Юрлицо, e.Дилер })
-                    .HasDatabaseName("IX_Оплата за период для отчета юрлицо");
+                    .HasName("IX_Оплата за период для отчета юрлицо");
 
                 entity.Property(e => e.IdЮрлица).HasColumnName("ID юрлица");
 
@@ -32076,24 +32076,24 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.ToTable("Оплата по товарам регион");
 
                 entity.HasIndex(e => e.RecordId)
-                    .HasDatabaseName("IX_Оплата по товарам регион")
+                    .HasName("IX_Оплата по товарам регион")
                     .IsUnique();
 
                 entity.HasIndex(e => e.RecordIdОплата)
-                    .HasDatabaseName("IX_Оплата по товарам регион_1");
+                    .HasName("IX_Оплата по товарам регион_1");
 
                 entity.HasIndex(e => e.RecordIdРасход)
-                    .HasDatabaseName("IX_Оплата по товарам регион_2");
+                    .HasName("IX_Оплата по товарам регион_2");
 
                 entity.HasIndex(e => e.Регион)
-                    .HasDatabaseName("IX_Оплата по товарам регион_3");
+                    .HasName("IX_Оплата по товарам регион_3");
 
                 entity.HasIndex(e => new { e.RecordIdОплата, e.RecordIdРасход, e.Регион })
-                    .HasDatabaseName("IX_Оплата по товарам регион_4")
+                    .HasName("IX_Оплата по товарам регион_4")
                     .IsUnique();
 
                 entity.HasIndex(e => new { e.RecordIdОплата, e.RecordIdРасход, e.КоличествоОплаченное, e.Регион })
-                    .HasDatabaseName("INDEX_IX_Регион");
+                    .HasName("INDEX_IX_Регион");
 
                 entity.Property(e => e.RecordId)
                     .HasColumnName("Record ID")
@@ -32149,10 +32149,10 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.ToTable("Оплата поставки");
 
                 entity.HasIndex(e => e.IdOrder)
-                    .HasDatabaseName("IX_Оплата поставки_1");
+                    .HasName("IX_Оплата поставки_1");
 
                 entity.HasIndex(e => e.RecordId)
-                    .HasDatabaseName("IX_Оплата поставки")
+                    .HasName("IX_Оплата поставки")
                     .IsUnique();
 
                 entity.Property(e => e.IdOrder).HasColumnName("ID order");
@@ -32250,17 +32250,17 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.ToTable("Оплата регион");
 
                 entity.HasIndex(e => e.RecordId)
-                    .HasDatabaseName("IX_Оплата регион")
+                    .HasName("IX_Оплата регион")
                     .IsUnique();
 
                 entity.HasIndex(e => e.НомерСчета)
-                    .HasDatabaseName("IX_Оплата регион_1");
+                    .HasName("IX_Оплата регион_1");
 
                 entity.HasIndex(e => e.Регион)
-                    .HasDatabaseName("IX_Оплата регион_2");
+                    .HasName("IX_Оплата регион_2");
 
                 entity.HasIndex(e => new { e.НомерСчета, e.Регион })
-                    .HasDatabaseName("IX_Оплата регион_3");
+                    .HasName("IX_Оплата регион_3");
 
                 entity.Property(e => e.IdФирмы)
                     .HasColumnName("ID фирмы")
@@ -32408,14 +32408,14 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.ToTable("Оплата товара налоговая регион");
 
                 entity.HasIndex(e => e.RecordId)
-                    .HasDatabaseName("IX_Оплата товара налоговая регион")
+                    .HasName("IX_Оплата товара налоговая регион")
                     .IsUnique();
 
                 entity.HasIndex(e => e.RecordIdРасход)
-                    .HasDatabaseName("IX_Оплата товара налоговая регион_1");
+                    .HasName("IX_Оплата товара налоговая регион_1");
 
                 entity.HasIndex(e => e.Регион)
-                    .HasDatabaseName("IX_Оплата товара налоговая регион_2");
+                    .HasName("IX_Оплата товара налоговая регион_2");
 
                 entity.Property(e => e.RecordId)
                     .HasColumnName("Record ID")
@@ -32530,7 +32530,7 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.ToTable("Оплата_ЦО_дилера_тмп");
 
                 entity.HasIndex(e => new { e.IdДилера, e.UserId })
-                    .HasDatabaseName("IX_Оплата_ЦО_дилера_тмп")
+                    .HasName("IX_Оплата_ЦО_дилера_тмп")
                     .IsUnique();
 
                 entity.Property(e => e.IdДилера).HasColumnName("ID дилера");
@@ -32751,7 +32751,7 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.ToTable("Оплаты для структуры продаж");
 
                 entity.HasIndex(e => e.НомерСчета)
-                    .HasDatabaseName("IX_Оплаты для структуры продаж")
+                    .HasName("IX_Оплаты для структуры продаж")
                     .IsUnique();
 
                 entity.Property(e => e.IdДилера).HasColumnName("ID дилера");
@@ -33056,7 +33056,7 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.HasNoKey();
 
                 entity.HasIndex(e => e.IdОпции)
-                    .HasDatabaseName("IX_ОпцияСпецЗаказа1")
+                    .HasName("IX_ОпцияСпецЗаказа1")
                     .IsUnique();
 
                 entity.Property(e => e.IdОпции)
@@ -33079,7 +33079,7 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.HasNoKey();
 
                 entity.HasIndex(e => e.IdОпции)
-                    .HasDatabaseName("IX_ОпцияСпецЗаказа2")
+                    .HasName("IX_ОпцияСпецЗаказа2")
                     .IsUnique();
 
                 entity.Property(e => e.IdОпции)
@@ -33102,7 +33102,7 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.HasNoKey();
 
                 entity.HasIndex(e => e.IdОпции)
-                    .HasDatabaseName("IX_ОпцияСпецЗаказа3")
+                    .HasName("IX_ОпцияСпецЗаказа3")
                     .IsUnique();
 
                 entity.Property(e => e.IdОпции)
@@ -33125,7 +33125,7 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.HasNoKey();
 
                 entity.HasIndex(e => e.IdОпции)
-                    .HasDatabaseName("IX_ОпцияСпецЗаказа4")
+                    .HasName("IX_ОпцияСпецЗаказа4")
                     .IsUnique();
 
                 entity.Property(e => e.IdНом).HasColumnName("ID ном");
@@ -33625,7 +33625,7 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.ToTable("ОС_Характеристики");
 
                 entity.HasIndex(e => e.IdTmc)
-                    .HasDatabaseName("IX_ОС_Характеристики");
+                    .HasName("IX_ОС_Характеристики");
 
                 entity.Property(e => e.Id).HasColumnName("ID");
 
@@ -33669,7 +33669,7 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.HasNoKey();
 
                 entity.HasIndex(e => e.IdRecord)
-                    .HasDatabaseName("IX_Остатки")
+                    .HasName("IX_Остатки")
                     .IsUnique();
 
                 entity.Property(e => e.IdRecord)
@@ -33772,7 +33772,7 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.ToTable("Остатки регион");
 
                 entity.HasIndex(e => e.IdRecord)
-                    .HasDatabaseName("IX_Остатки регион")
+                    .HasName("IX_Остатки регион")
                     .IsUnique();
 
                 entity.Property(e => e.IdRecord)
@@ -33812,7 +33812,7 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.ToTable("Остатки сотрудников");
 
                 entity.HasIndex(e => new { e.IdСотрудника, e.IdФирмы })
-                    .HasDatabaseName("IX_Остатки сотрудников")
+                    .HasName("IX_Остатки сотрудников")
                     .IsUnique();
 
                 entity.Property(e => e.IdСотрудника).HasColumnName("ID сотрудника");
@@ -34130,7 +34130,7 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.ToTable("Отгрузка за период для отчета");
 
                 entity.HasIndex(e => e.Rec)
-                    .HasDatabaseName("IX_Отгрузка за период для отчета111")
+                    .HasName("IX_Отгрузка за период для отчета111")
                     .IsUnique();
 
                 entity.Property(e => e.Dil).HasDefaultValueSql("((0))");
@@ -34316,7 +34316,7 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.ToTable("Отгрузка за период для отчета регион");
 
                 entity.HasIndex(e => new { e.IdДилера, e.ОплатаРуб, e.Регион, e.UserId, e.ОтгрЦр, e.ОтгрСс, e.IdОбъед })
-                    .HasDatabaseName("IX_Отгрузка за период для отчета регион")
+                    .HasName("IX_Отгрузка за период для отчета регион")
                     .IsUnique();
 
                 entity.Property(e => e.IdДилера).HasColumnName("ID дилера");
@@ -34980,10 +34980,10 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.HasNoKey();
 
                 entity.HasIndex(e => e.QueryId)
-                    .HasDatabaseName("IX_ОтчетЗапросы");
+                    .HasName("IX_ОтчетЗапросы");
 
                 entity.HasIndex(e => new { e.QueryId, e.ReportId })
-                    .HasDatabaseName("IX_ОтчетЗапросы_1")
+                    .HasName("IX_ОтчетЗапросы_1")
                     .IsUnique();
 
                 entity.Property(e => e.DetailQueryId).HasColumnName("DetailQueryID");
@@ -35006,7 +35006,7 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.HasNoKey();
 
                 entity.HasIndex(e => new { e.ParamName, e.ReportId })
-                    .HasDatabaseName("IX_ОтчетПараметры")
+                    .HasName("IX_ОтчетПараметры")
                     .IsUnique();
 
                 entity.Property(e => e.ParamName)
@@ -35021,7 +35021,7 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.HasNoKey();
 
                 entity.HasIndex(e => e.ReportId)
-                    .HasDatabaseName("IX_Отчеты")
+                    .HasName("IX_Отчеты")
                     .IsUnique();
 
                 entity.Property(e => e.FileName).HasMaxLength(150);
@@ -35169,11 +35169,11 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.ToTable("Отчеты по авансам");
 
                 entity.HasIndex(e => e.RecordId)
-                    .HasDatabaseName("IX_Отчеты по авансам")
+                    .HasName("IX_Отчеты по авансам")
                     .IsUnique();
 
                 entity.HasIndex(e => e.RecordRashod)
-                    .HasDatabaseName("IX_Отчеты по авансам_1");
+                    .HasName("IX_Отчеты по авансам_1");
 
                 entity.Property(e => e.RecordId)
                     .HasColumnName("Record ID")
@@ -35199,7 +35199,7 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.HasNoKey();
 
                 entity.HasIndex(e => new { e.Дата, e.IdПоставщика })
-                    .HasDatabaseName("IX_Оценки")
+                    .HasName("IX_Оценки")
                     .IsUnique();
 
                 entity.Property(e => e.IdПоставщика).HasColumnName("ID поставщика");
@@ -35342,7 +35342,7 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.HasNoKey();
 
                 entity.HasIndex(e => new { e.Месяц, e.Год })
-                    .HasDatabaseName("IX_Параметры")
+                    .HasName("IX_Параметры")
                     .IsUnique();
             });
 
@@ -35508,7 +35508,7 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.ToTable("Переводы_выставки_тмп регион");
 
                 entity.HasIndex(e => new { e.IdТовара, e.UserId })
-                    .HasDatabaseName("IX_Переводы_выставки_тмп регион")
+                    .HasName("IX_Переводы_выставки_тмп регион")
                     .IsUnique();
 
                 entity.Property(e => e.IdТовара).HasColumnName("ID товара");
@@ -35525,7 +35525,7 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.ToTable("Переводы_расходы_выставки_тмп регион");
 
                 entity.HasIndex(e => new { e.IdТовара, e.UserId })
-                    .HasDatabaseName("IX_Переводы_расходы_выставки_тмп регион")
+                    .HasName("IX_Переводы_расходы_выставки_тмп регион")
                     .IsUnique();
 
                 entity.Property(e => e.IdТовара).HasColumnName("ID товара");
@@ -35542,7 +35542,7 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.ToTable("Перевозчики регион");
 
                 entity.HasIndex(e => e.IdОрганизации)
-                    .HasDatabaseName("IX_Перевозчики регион")
+                    .HasName("IX_Перевозчики регион")
                     .IsUnique();
 
                 entity.Property(e => e.IdОрганизации)
@@ -35565,7 +35565,7 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.ToTable("Передано по рекламации");
 
                 entity.HasIndex(e => new { e.НомерЗаказа, e.Артикул, e.НомерРекламации })
-                    .HasDatabaseName("IX_Передано по рекламации")
+                    .HasName("IX_Передано по рекламации")
                     .IsUnique();
 
                 entity.Property(e => e.Артикул).HasMaxLength(30);
@@ -39313,14 +39313,14 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.ToTable("План по статьям");
 
                 entity.HasIndex(e => e.IdСубсчета)
-                    .HasDatabaseName("IX_План по статьям");
+                    .HasName("IX_План по статьям");
 
                 entity.HasIndex(e => e.RecordId)
-                    .HasDatabaseName("IX_План по статьям_2")
+                    .HasName("IX_План по статьям_2")
                     .IsUnique();
 
                 entity.HasIndex(e => new { e.Месяц, e.Год })
-                    .HasDatabaseName("IX_План по статьям_1");
+                    .HasName("IX_План по статьям_1");
 
                 entity.Property(e => e.BlgTip).HasColumnName("BLG-tip");
 
@@ -39495,11 +39495,11 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.ToTable("План поставок");
 
                 entity.HasIndex(e => e.RecordId)
-                    .HasDatabaseName("IX_План поставок_1")
+                    .HasName("IX_План поставок_1")
                     .IsUnique();
 
                 entity.HasIndex(e => new { e.Год, e.Месяц, e.IdТовара, e.Завод, e.Дата, e.IdСубсчета })
-                    .HasDatabaseName("IX_План поставок")
+                    .HasName("IX_План поставок")
                     .IsUnique();
 
                 entity.Property(e => e.Cc)
@@ -39554,7 +39554,7 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.ToTable("План поставок архив");
 
                 entity.HasIndex(e => e.RecordId)
-                    .HasDatabaseName("IX_План поставок архив")
+                    .HasName("IX_План поставок архив")
                     .IsUnique();
 
                 entity.Property(e => e.Cc)
@@ -39605,7 +39605,7 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.ToTable("План поставок на месяц");
 
                 entity.HasIndex(e => new { e.Год, e.Месяц, e.IdТовара, e.IdСубсчета })
-                    .HasDatabaseName("IX_План поставок на месяц")
+                    .HasName("IX_План поставок на месяц")
                     .IsUnique();
 
                 entity.Property(e => e.IdСубсчета)
@@ -39649,14 +39649,14 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.ToTable("План приходов по статьям");
 
                 entity.HasIndex(e => e.IdСубсчета)
-                    .HasDatabaseName("IX_План приходов по статьям_1");
+                    .HasName("IX_План приходов по статьям_1");
 
                 entity.HasIndex(e => e.RecordId)
-                    .HasDatabaseName("IX_План приходов по статьям")
+                    .HasName("IX_План приходов по статьям")
                     .IsUnique();
 
                 entity.HasIndex(e => new { e.Месяц, e.Год })
-                    .HasDatabaseName("IX_План приходов по статьям_2");
+                    .HasName("IX_План приходов по статьям_2");
 
                 entity.Property(e => e.BlgTip).HasColumnName("BLG-tip");
 
@@ -39742,17 +39742,17 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.ToTable("План продаж");
 
                 entity.HasIndex(e => e.IdСубсчета)
-                    .HasDatabaseName("IX_План продаж");
+                    .HasName("IX_План продаж");
 
                 entity.HasIndex(e => e.RecordId)
-                    .HasDatabaseName("IX_План продаж_2")
+                    .HasName("IX_План продаж_2")
                     .IsUnique();
 
                 entity.HasIndex(e => new { e.Месяц, e.Год })
-                    .HasDatabaseName("IX_План продаж_1");
+                    .HasName("IX_План продаж_1");
 
                 entity.HasIndex(e => new { e.Месяц, e.Год, e.IdСубсчета, e.IdТовара })
-                    .HasDatabaseName("IX_План продаж_3")
+                    .HasName("IX_План продаж_3")
                     .IsUnique();
 
                 entity.Property(e => e.Cc)
@@ -40441,7 +40441,7 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.ToTable("Подгруппы для LB");
 
                 entity.HasIndex(e => e.IdПодгруппы)
-                    .HasDatabaseName("IX_Подгруппы для LB")
+                    .HasName("IX_Подгруппы для LB")
                     .IsUnique();
 
                 entity.Property(e => e.IdПодгруппы).HasColumnName("ID подгруппы");
@@ -40454,7 +40454,7 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.ToTable("Подписи за нал");
 
                 entity.HasIndex(e => new { e.IdСотрудника, e.Год, e.Месяц })
-                    .HasDatabaseName("IX_Подписи за нал")
+                    .HasName("IX_Подписи за нал")
                     .IsUnique();
 
                 entity.Property(e => e.CardId).HasColumnName("CardID");
@@ -40507,7 +40507,7 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.ToTable("Подписи за нал ИТР");
 
                 entity.HasIndex(e => new { e.IdСотрудника, e.Год, e.Месяц })
-                    .HasDatabaseName("IX_Подписи за нал ИТР")
+                    .HasName("IX_Подписи за нал ИТР")
                     .IsUnique();
 
                 entity.Property(e => e.CardId).HasColumnName("CardID");
@@ -40573,7 +40573,7 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.ToTable("ПодробноРазрешения_тмп");
 
                 entity.HasIndex(e => e.RecordId)
-                    .HasDatabaseName("IX_ПодробноРазрешения_тмп_1")
+                    .HasName("IX_ПодробноРазрешения_тмп_1")
                     .IsUnique();
 
                 entity.Property(e => e.IdСклада).HasColumnName("ID склада");
@@ -40815,7 +40815,7 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.ToTable("Подробный список на складе тмп");
 
                 entity.HasIndex(e => new { e.IdСклада, e.IdТовара, e.UserId })
-                    .HasDatabaseName("IX_Подробный список на складе тмп")
+                    .HasName("IX_Подробный список на складе тмп")
                     .IsUnique();
 
                 entity.Property(e => e.IdСклада).HasColumnName("ID склада");
@@ -41066,14 +41066,14 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.ToTable("Поставки расходы");
 
                 entity.HasIndex(e => e.RecordId)
-                    .HasDatabaseName("IX_Поставки расходы")
+                    .HasName("IX_Поставки расходы")
                     .IsUnique();
 
                 entity.HasIndex(e => e.RecordPostavok)
-                    .HasDatabaseName("IX_Поставки расходы_1");
+                    .HasName("IX_Поставки расходы_1");
 
                 entity.HasIndex(e => e.RecordRashoda)
-                    .HasDatabaseName("IX_Поставки расходы_2");
+                    .HasName("IX_Поставки расходы_2");
 
                 entity.Property(e => e.RecordId)
                     .HasColumnName("Record ID")
@@ -41091,7 +41091,7 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.ToTable("Поставщики-группы");
 
                 entity.HasIndex(e => e.RecordId)
-                    .HasDatabaseName("IX_Поставщики-группы")
+                    .HasName("IX_Поставщики-группы")
                     .IsUnique();
 
                 entity.Property(e => e.IdКлиента)
@@ -41131,13 +41131,13 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.ToTable("ПрДеб_тмп");
 
                 entity.HasIndex(e => e.UserId)
-                    .HasDatabaseName("IX_ПрДеб_тмп_2");
+                    .HasName("IX_ПрДеб_тмп_2");
 
                 entity.HasIndex(e => e.Наим)
-                    .HasDatabaseName("IX_ПрДеб_тмп");
+                    .HasName("IX_ПрДеб_тмп");
 
                 entity.HasIndex(e => e.Регион)
-                    .HasDatabaseName("IX_ПрДеб_тмп_1");
+                    .HasName("IX_ПрДеб_тмп_1");
 
                 entity.Property(e => e.UserId).HasColumnName("User ID");
 
@@ -41191,7 +41191,7 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.HasNoKey();
 
                 entity.HasIndex(e => e.RecordId)
-                    .HasDatabaseName("IX_Праздники")
+                    .HasName("IX_Праздники")
                     .IsUnique();
 
                 entity.Property(e => e.RecordId).HasColumnName("Record ID");
@@ -41237,7 +41237,7 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.ToTable("Прайслист поставщиков поставки");
 
                 entity.HasIndex(e => new { e.IdЮрлица, e.FactoryId })
-                    .HasDatabaseName("IX_Прайслист поставщиков поставки");
+                    .HasName("IX_Прайслист поставщиков поставки");
 
                 entity.Property(e => e.IdКлиента).HasColumnName("ID клиента");
 
@@ -41261,11 +41261,11 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.ToTable("Предложения охотников");
 
                 entity.HasIndex(e => e.Номер)
-                    .HasDatabaseName("IX_Предложения охотников")
+                    .HasName("IX_Предложения охотников")
                     .IsUnique();
 
                 entity.HasIndex(e => e.НомерЗаявки)
-                    .HasDatabaseName("IX_Предложения охотников_1");
+                    .HasName("IX_Предложения охотников_1");
 
                 entity.Property(e => e.UserId).HasColumnName("User ID");
 
@@ -41411,7 +41411,7 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.ToTable("Претензия по продукции");
 
                 entity.HasIndex(e => e.RecordId)
-                    .HasDatabaseName("IX_Претензия по продукции")
+                    .HasName("IX_Претензия по продукции")
                     .IsUnique();
 
                 entity.Property(e => e.IdДефекта)
@@ -42146,7 +42146,7 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.ToTable("ПриходГруп для МЗ");
 
                 entity.HasIndex(e => new { e.IdСклада, e.IdТовара, e.UserId })
-                    .HasDatabaseName("IX_ПриходГруп для МЗ")
+                    .HasName("IX_ПриходГруп для МЗ")
                     .IsUnique();
 
                 entity.Property(e => e.IdСклада).HasColumnName("ID склада");
@@ -42564,7 +42564,7 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.ToTable("ПриходГрупп для МЗ филиалы до");
 
                 entity.HasIndex(e => new { e.IdСклада, e.IdТовара, e.Userid })
-                    .HasDatabaseName("IX_ПриходГрупп для МЗ филиалы до")
+                    .HasName("IX_ПриходГрупп для МЗ филиалы до")
                     .IsUnique();
 
                 entity.Property(e => e.IdСклада).HasColumnName("ID склада");
@@ -42716,19 +42716,19 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.ToTable("Приход реестр");
 
                 entity.HasIndex(e => e.IdRecord)
-                    .HasDatabaseName("IX_Приход реестр_4");
+                    .HasName("IX_Приход реестр_4");
 
                 entity.HasIndex(e => e.IdПоступления)
-                    .HasDatabaseName("IX_Приход реестр_3");
+                    .HasName("IX_Приход реестр_3");
 
                 entity.HasIndex(e => e.IdСубсчета)
-                    .HasDatabaseName("IX_Приход реестр_2");
+                    .HasName("IX_Приход реестр_2");
 
                 entity.HasIndex(e => e.IdФирмы)
-                    .HasDatabaseName("IX_Приход реестр_1");
+                    .HasName("IX_Приход реестр_1");
 
                 entity.HasIndex(e => e.UserId)
-                    .HasDatabaseName("IX_Приход реестр_5");
+                    .HasName("IX_Приход реестр_5");
 
                 entity.Property(e => e.BlgTip).HasColumnName("BLG-tip");
 
@@ -42827,7 +42827,7 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.ToTable("Приход реестр архив");
 
                 entity.HasIndex(e => e.IdRecord)
-                    .HasDatabaseName("IX_Приход реестр архив")
+                    .HasName("IX_Приход реестр архив")
                     .IsUnique();
 
                 entity.Property(e => e.BlgTip).HasColumnName("BLG-tip");
@@ -42917,7 +42917,7 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.ToTable("Приход реестр подпись");
 
                 entity.HasIndex(e => e.RecordId)
-                    .HasDatabaseName("IX_Приход реестр подпись")
+                    .HasName("IX_Приход реестр подпись")
                     .IsUnique();
 
                 entity.Property(e => e.RecordId).HasColumnName("Record ID");
@@ -42958,20 +42958,20 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.ToTable("Приход товара");
 
                 entity.HasIndex(e => e.IdСклада)
-                    .HasDatabaseName("IX_Приход товара_2");
+                    .HasName("IX_Приход товара_2");
 
                 entity.HasIndex(e => e.IdТовара)
-                    .HasDatabaseName("IX_Приход товара_4");
+                    .HasName("IX_Приход товара_4");
 
                 entity.HasIndex(e => e.RecordId)
-                    .HasDatabaseName("IX_Приход товара")
+                    .HasName("IX_Приход товара")
                     .IsUnique();
 
                 entity.HasIndex(e => e.Заявка)
-                    .HasDatabaseName("IX_Приход товара_3");
+                    .HasName("IX_Приход товара_3");
 
                 entity.HasIndex(e => new { e.IdТовара, e.Количество, e.IdСклада, e.ДатаПрихода })
-                    .HasDatabaseName("IX_Приход товара_5");
+                    .HasName("IX_Приход товара_5");
 
                 entity.Property(e => e.IdСклада).HasColumnName("ID склада");
 
@@ -43086,36 +43086,36 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.ToTable("Приход товара поставки");
 
                 entity.HasIndex(e => e.IdСклада)
-                    .HasDatabaseName("IX_Приход товара поставки_1");
+                    .HasName("IX_Приход товара поставки_1");
 
                 entity.HasIndex(e => e.IdТовара)
-                    .HasDatabaseName("IX_Приход товара поставки_2");
+                    .HasName("IX_Приход товара поставки_2");
 
                 entity.HasIndex(e => e.RecordId)
-                    .HasDatabaseName("IX_Приход товара поставки")
+                    .HasName("IX_Приход товара поставки")
                     .IsUnique();
 
                 entity.HasIndex(e => e.АвтоСписаниеId)
-                    .HasDatabaseName("IX_Приход товара поставки_5");
+                    .HasName("IX_Приход товара поставки_5");
 
                 entity.HasIndex(e => e.Заявка)
-                    .HasDatabaseName("IX_Приход товара поставки_3");
+                    .HasName("IX_Приход товара поставки_3");
 
                 entity.HasIndex(e => new { e.IdТовара, e.Партия })
-                    .HasDatabaseName("IX_Приход товара поставки_4")
+                    .HasName("IX_Приход товара поставки_4")
                     .IsUnique();
 
                 entity.HasIndex(e => new { e.Provedeno, e.ДатаОприходования })
-                    .HasDatabaseName("IX_Приход товара поставки_Provedeno");
+                    .HasName("IX_Приход товара поставки_Provedeno");
 
                 entity.HasIndex(e => new { e.Поставщик, e.Документ, e.ДатаОприходования })
-                    .HasDatabaseName("IX_Приход товара поставки_Index1");
+                    .HasName("IX_Приход товара поставки_Index1");
 
                 entity.HasIndex(e => new { e.IdТовара, e.Количество, e.IdСклада, e.FactoryId, e.ДатаОприходования })
-                    .HasDatabaseName("IX_Приход товара поставки_ID склада_FactoryID_Дата оприходования");
+                    .HasName("IX_Приход товара поставки_ID склада_FactoryID_Дата оприходования");
 
                 entity.HasIndex(e => new { e.RecordId, e.IdТовара, e.Партия, e.Валюта, e.ЦенаБезНдс, e.ЦенаПоДоговору, e.IsImport, e.ДатаОприходования })
-                    .HasDatabaseName("IX_Приход товара Отчеты");
+                    .HasName("IX_Приход товара Отчеты");
 
                 entity.Property(e => e.IdСклада).HasColumnName("ID склада");
 
@@ -43525,17 +43525,17 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.ToTable("Приход товара регион");
 
                 entity.HasIndex(e => e.RecordId)
-                    .HasDatabaseName("IX_Приход товара регион")
+                    .HasName("IX_Приход товара регион")
                     .IsUnique();
 
                 entity.HasIndex(e => new { e.IdСклада, e.Регион })
-                    .HasDatabaseName("IX_Приход товара регион_1");
+                    .HasName("IX_Приход товара регион_1");
 
                 entity.HasIndex(e => new { e.IdТовара, e.Регион })
-                    .HasDatabaseName("IX_Приход товара регион_2");
+                    .HasName("IX_Приход товара регион_2");
 
                 entity.HasIndex(e => new { e.ДатаОприходования, e.Регион })
-                    .HasDatabaseName("IX_Приход товара регион_3");
+                    .HasName("IX_Приход товара регион_3");
 
                 entity.Property(e => e.IdСклада).HasColumnName("ID склада");
 
@@ -43853,18 +43853,18 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.ToTable("Прогноз продаж");
 
                 entity.HasIndex(e => e.RecordId)
-                    .HasDatabaseName("IX_Прогноз продаж_1")
+                    .HasName("IX_Прогноз продаж_1")
                     .IsUnique();
 
                 entity.HasIndex(e => new { e.IdТовара, e.Год, e.Месяц, e.Завод })
-                    .HasDatabaseName("IX_Прогноз продаж")
+                    .HasName("IX_Прогноз продаж")
                     .IsUnique();
 
                 entity.HasIndex(e => new { e.IdТовара, e.Завод, e.Прогноз1МесПрогноз, e.Месяц, e.Год })
-                    .HasDatabaseName("Прогноз_продаж_Прогноз_1_мес_прогноз");
+                    .HasName("Прогноз_продаж_Прогноз_1_мес_прогноз");
 
                 entity.HasIndex(e => new { e.IdТовара, e.Прогноз1Мес, e.Завод, e.Месяц, e.Год })
-                    .HasDatabaseName("Прогноз_продаж_Прогноз_1_мес_прогноз1");
+                    .HasName("Прогноз_продаж_Прогноз_1_мес_прогноз1");
 
                 entity.Property(e => e.Det).HasMaxLength(20);
 
@@ -44035,11 +44035,11 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.ToTable("Прогноз продаж регион");
 
                 entity.HasIndex(e => e.RecordId)
-                    .HasDatabaseName("IX_Прогноз продаж регион_1")
+                    .HasName("IX_Прогноз продаж регион_1")
                     .IsUnique();
 
                 entity.HasIndex(e => new { e.IdТовара, e.Регион, e.Месяц, e.Год })
-                    .HasDatabaseName("IX_Прогноз продаж регион")
+                    .HasName("IX_Прогноз продаж регион")
                     .IsUnique();
 
                 entity.Property(e => e.IdГруппы).HasColumnName("ID группы");
@@ -44140,11 +44140,11 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.ToTable("Прогноз продаж регион дилер");
 
                 entity.HasIndex(e => e.RecordId)
-                    .HasDatabaseName("IX_Прогноз продаж регион дилер_1")
+                    .HasName("IX_Прогноз продаж регион дилер_1")
                     .IsUnique();
 
                 entity.HasIndex(e => new { e.IdТовара, e.IdДилера, e.Регион, e.Год, e.Месяц })
-                    .HasDatabaseName("IX_Прогноз продаж регион дилер")
+                    .HasName("IX_Прогноз продаж регион дилер")
                     .IsUnique();
 
                 entity.Property(e => e.IdГруппы).HasColumnName("ID группы");
@@ -44233,7 +44233,7 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.ToTable("Прогноз продаж_тмп");
 
                 entity.HasIndex(e => new { e.IdТовара, e.Продажи, e.Регионы, e.UserId, e.ОстатокНаГл, e.ОстатокНаФил })
-                    .HasDatabaseName("IX_Прогноз продаж_тмп")
+                    .HasName("IX_Прогноз продаж_тмп")
                     .IsUnique();
 
                 entity.Property(e => e.IdТовара).HasColumnName("ID товара");
@@ -44270,11 +44270,11 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.ToTable("Прогноз продаж_тмп регион");
 
                 entity.HasIndex(e => e.RecordId)
-                    .HasDatabaseName("IX_Прогноз продаж_тмп регион111")
+                    .HasName("IX_Прогноз продаж_тмп регион111")
                     .IsUnique();
 
                 entity.HasIndex(e => e.UserId)
-                    .HasDatabaseName("IX_Прогноз продаж_тмп регион111_1");
+                    .HasName("IX_Прогноз продаж_тмп регион111_1");
 
                 entity.Property(e => e.IdТовара).HasColumnName("ID товара");
 
@@ -44324,10 +44324,10 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.ToTable("Производственная структура");
 
                 entity.HasIndex(e => e.Код)
-                    .HasDatabaseName("Производственная структура_ix1");
+                    .HasName("Производственная структура_ix1");
 
                 entity.HasIndex(e => new { e.Id, e.ParentId })
-                    .HasDatabaseName("IX_Производственная структура")
+                    .HasName("IX_Производственная структура")
                     .IsUnique();
 
                 entity.Property(e => e.HidДиректор).HasColumnName("HID директор");
@@ -44372,10 +44372,10 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.ToTable("Производственная структура_copy");
 
                 entity.HasIndex(e => e.Код)
-                    .HasDatabaseName("Производственная структура_copy_ix1");
+                    .HasName("Производственная структура_copy_ix1");
 
                 entity.HasIndex(e => new { e.Id, e.ParentId })
-                    .HasDatabaseName("IX_Производственная структура_copy")
+                    .HasName("IX_Производственная структура_copy")
                     .IsUnique();
 
                 entity.Property(e => e.HidДиректор).HasColumnName("HID директор");
@@ -44415,11 +44415,11 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.ToTable("Пром_УЗМК");
 
                 entity.HasIndex(e => e.RecordId)
-                    .HasDatabaseName("IX_Пром_УЗМК_1")
+                    .HasName("IX_Пром_УЗМК_1")
                     .IsUnique();
 
                 entity.HasIndex(e => new { e.Год, e.Месяц, e.ЛичныйНомер })
-                    .HasDatabaseName("IX_Пром_УЗМК")
+                    .HasName("IX_Пром_УЗМК")
                     .IsUnique();
 
                 entity.Property(e => e.RecordId)
@@ -44640,11 +44640,11 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.HasNoKey();
 
                 entity.HasIndex(e => e.Id)
-                    .HasDatabaseName("IX_Работнички")
+                    .HasName("IX_Работнички")
                     .IsUnique();
 
                 entity.HasIndex(e => e.Фамилия)
-                    .HasDatabaseName("IX_Работнички_1");
+                    .HasName("IX_Работнички_1");
 
                 entity.Property(e => e.Email).HasMaxLength(50);
 
@@ -44702,15 +44702,15 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.ToTable("Работнички регион");
 
                 entity.HasIndex(e => e.Id)
-                    .HasDatabaseName("IX_Работнички регион")
+                    .HasName("IX_Работнички регион")
                     .IsUnique();
 
                 entity.HasIndex(e => e.ИмяРегистрации)
-                    .HasDatabaseName("IX_Работнички регион_1")
+                    .HasName("IX_Работнички регион_1")
                     .IsUnique();
 
                 entity.HasIndex(e => e.Регион)
-                    .HasDatabaseName("IX_Работнички регион_2");
+                    .HasName("IX_Работнички регион_2");
 
                 entity.Property(e => e.Email).HasMaxLength(255);
 
@@ -44763,7 +44763,7 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.ToTable("Работнички реестра");
 
                 entity.HasIndex(e => e.Id)
-                    .HasDatabaseName("IX_Работнички реестра")
+                    .HasName("IX_Работнички реестра")
                     .IsUnique();
 
                 entity.Property(e => e.Id).HasColumnName("ID");
@@ -44797,7 +44797,7 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.ToTable("Работнички финплан");
 
                 entity.HasIndex(e => e.Id)
-                    .HasDatabaseName("IX_Работнички финплан")
+                    .HasName("IX_Работнички финплан")
                     .IsUnique();
 
                 entity.Property(e => e.Email)
@@ -44871,7 +44871,7 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.ToTable("Разрешение на статью");
 
                 entity.HasIndex(e => new { e.IdСубсчета, e.IdСтатьи })
-                    .HasDatabaseName("IX_Разрешение на статью")
+                    .HasName("IX_Разрешение на статью")
                     .IsUnique();
 
                 entity.Property(e => e.IdСтатьи).HasColumnName("ID статьи");
@@ -45344,17 +45344,17 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.HasNoKey();
 
                 entity.HasIndex(e => e.ДилерКлиент)
-                    .HasDatabaseName("IX_Распоряжения_2");
+                    .HasName("IX_Распоряжения_2");
 
                 entity.HasIndex(e => e.Номер)
-                    .HasDatabaseName("IX_Распоряжения")
+                    .HasName("IX_Распоряжения")
                     .IsUnique();
 
                 entity.HasIndex(e => e.НомерСчета)
-                    .HasDatabaseName("IX_Распоряжения_1");
+                    .HasName("IX_Распоряжения_1");
 
                 entity.HasIndex(e => new { e.НомерСчета, e.ДилерКлиент })
-                    .HasDatabaseName("IX_Распоряжения_3")
+                    .HasName("IX_Распоряжения_3")
                     .IsUnique();
 
                 entity.Property(e => e.Idfirm)
@@ -45446,15 +45446,15 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.ToTable("Распоряжения двойные");
 
                 entity.HasIndex(e => e.RecordId)
-                    .HasDatabaseName("IX_Распоряжения двойные_1")
+                    .HasName("IX_Распоряжения двойные_1")
                     .IsUnique();
 
                 entity.HasIndex(e => new { e.Номер, e.Префикс })
-                    .HasDatabaseName("IX_Распоряжения двойные")
+                    .HasName("IX_Распоряжения двойные")
                     .IsUnique();
 
                 entity.HasIndex(e => new { e.НомерСчета, e.ДилерКлиент, e.Префикс })
-                    .HasDatabaseName("IX_Распоряжения двойные_2")
+                    .HasName("IX_Распоряжения двойные_2")
                     .IsUnique();
 
                 entity.Property(e => e.Idfirm)
@@ -45534,14 +45534,14 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.ToTable("Распоряжения двойные регион");
 
                 entity.HasIndex(e => e.RecordId)
-                    .HasDatabaseName("IX_Распоряжения двойные регион_2")
+                    .HasName("IX_Распоряжения двойные регион_2")
                     .IsUnique();
 
                 entity.HasIndex(e => e.НомерСчета)
-                    .HasDatabaseName("IX_Распоряжения двойные регион_1");
+                    .HasName("IX_Распоряжения двойные регион_1");
 
                 entity.HasIndex(e => new { e.Номер, e.Префикс, e.Регион })
-                    .HasDatabaseName("IX_Распоряжения двойные регион")
+                    .HasName("IX_Распоряжения двойные регион")
                     .IsUnique();
 
                 entity.Property(e => e.Idfirm)
@@ -47141,7 +47141,7 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.ToTable("Распоряжения поставки");
 
                 entity.HasIndex(e => e.Номер)
-                    .HasDatabaseName("IX_Распоряжения поставки")
+                    .HasName("IX_Распоряжения поставки")
                     .IsUnique();
 
                 entity.Property(e => e.Idfirm)
@@ -47212,11 +47212,11 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.ToTable("Распоряжения регион");
 
                 entity.HasIndex(e => new { e.Номер, e.Регион })
-                    .HasDatabaseName("IX_Распоряжения регион")
+                    .HasName("IX_Распоряжения регион")
                     .IsUnique();
 
                 entity.HasIndex(e => new { e.НомерСчета, e.Регион })
-                    .HasDatabaseName("IX_Распоряжения регион_1")
+                    .HasName("IX_Распоряжения регион_1")
                     .IsUnique();
 
                 entity.Property(e => e.Idfirm)
@@ -48110,7 +48110,7 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.ToTable("РасходГруп для МЗ");
 
                 entity.HasIndex(e => new { e.IdСклада, e.IdТовара, e.UserId })
-                    .HasDatabaseName("IX_РасходГруп для МЗ111")
+                    .HasName("IX_РасходГруп для МЗ111")
                     .IsUnique();
 
                 entity.Property(e => e.IdСклада).HasColumnName("ID склада");
@@ -48192,7 +48192,7 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.ToTable("РасходГрупп для МЗ филиалы до");
 
                 entity.HasIndex(e => new { e.IdСклада, e.IdТовара, e.Userid })
-                    .HasDatabaseName("IX_РасходГрупп для МЗ филиалы до")
+                    .HasName("IX_РасходГрупп для МЗ филиалы до")
                     .IsUnique();
 
                 entity.Property(e => e.IdСклада).HasColumnName("ID склада");
@@ -48530,7 +48530,7 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.ToTable("РасходИтого регион");
 
                 entity.HasIndex(e => e.Rec)
-                    .HasDatabaseName("IX_РасходИтого регион111_1")
+                    .HasName("IX_РасходИтого регион111_1")
                     .IsUnique();
 
                 entity.Property(e => e.IdСклада).HasColumnName("ID склада");
@@ -48569,7 +48569,7 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.ToTable("РасходИтого регион1111111");
 
                 entity.HasIndex(e => e.Rec)
-                    .HasDatabaseName("IX_РасходИтого регион111")
+                    .HasName("IX_РасходИтого регион111")
                     .IsUnique();
 
                 entity.Property(e => e.IdСклада).HasColumnName("ID склада");
@@ -48608,7 +48608,7 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.ToTable("РасходИтого ЦО");
 
                 entity.HasIndex(e => new { e.IdТовара, e.UserId })
-                    .HasDatabaseName("IX_РасходИтого ЦО")
+                    .HasName("IX_РасходИтого ЦО")
                     .IsUnique();
 
                 entity.Property(e => e.IdТовара).HasColumnName("ID товара");
@@ -48722,11 +48722,11 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.ToTable("Расход_нач_тмп");
 
                 entity.HasIndex(e => e.Rec)
-                    .HasDatabaseName("IX_Расход_нач_тмп")
+                    .HasName("IX_Расход_нач_тмп")
                     .IsUnique();
 
                 entity.HasIndex(e => e.UserId)
-                    .HasDatabaseName("IX_Расход_нач_тмп_1");
+                    .HasName("IX_Расход_нач_тмп_1");
 
                 entity.Property(e => e.Rec).ValueGeneratedOnAdd();
 
@@ -48746,17 +48746,17 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.ToTable("Расход общий");
 
                 entity.HasIndex(e => e.IdRecord)
-                    .HasDatabaseName("IX_Расход общий")
+                    .HasName("IX_Расход общий")
                     .IsUnique();
 
                 entity.HasIndex(e => e.Дата)
-                    .HasDatabaseName("IX_Расход общий_2");
+                    .HasName("IX_Расход общий_2");
 
                 entity.HasIndex(e => e.Пояснение)
-                    .HasDatabaseName("IX_Расход общий_1");
+                    .HasName("IX_Расход общий_1");
 
                 entity.HasIndex(e => new { e.Месяц, e.Год, e.IdСубсчета })
-                    .HasDatabaseName("IX_Расход общий_5");
+                    .HasName("IX_Расход общий_5");
 
                 entity.Property(e => e.BlgTip).HasColumnName("BLG-tip");
 
@@ -48982,17 +48982,17 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.ToTable("Расход общий архив");
 
                 entity.HasIndex(e => e.IdRecord)
-                    .HasDatabaseName("IX_Расход общий архив")
+                    .HasName("IX_Расход общий архив")
                     .IsUnique();
 
                 entity.HasIndex(e => e.IdСубсчета)
-                    .HasDatabaseName("IX_Расход общий архив_1");
+                    .HasName("IX_Расход общий архив_1");
 
                 entity.HasIndex(e => e.IdФирмы)
-                    .HasDatabaseName("IX_Расход общий архив_2");
+                    .HasName("IX_Расход общий архив_2");
 
                 entity.HasIndex(e => e.Дата)
-                    .HasDatabaseName("IX_Расход общий архив_3");
+                    .HasName("IX_Расход общий архив_3");
 
                 entity.Property(e => e.BlgTip)
                     .HasColumnName("BLG-tip")
@@ -49163,7 +49163,7 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.ToTable("Расход общий архив до 2009-2017");
 
                 entity.HasIndex(e => e.IdRecord)
-                    .HasDatabaseName("IX_Расход общий архив до 2009-2013")
+                    .HasName("IX_Расход общий архив до 2009-2013")
                     .IsUnique();
 
                 entity.Property(e => e.BlgTip).HasColumnName("BLG-tip");
@@ -50655,14 +50655,14 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.ToTable("Расход по партиям регион");
 
                 entity.HasIndex(e => e.RecordId)
-                    .HasDatabaseName("IX_Расход по партиям регион")
+                    .HasName("IX_Расход по партиям регион")
                     .IsUnique();
 
                 entity.HasIndex(e => e.RecordRashod)
-                    .HasDatabaseName("IX_Расход по партиям регион_1");
+                    .HasName("IX_Расход по партиям регион_1");
 
                 entity.HasIndex(e => e.Партия)
-                    .HasDatabaseName("IX_Расход по партиям регион_2");
+                    .HasName("IX_Расход по партиям регион_2");
 
                 entity.Property(e => e.RecordId)
                     .HasColumnName("Record ID")
@@ -50936,7 +50936,7 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.ToTable("Расход_процент");
 
                 entity.HasIndex(e => new { e.НомерПокупателя, e.IdТовара })
-                    .HasDatabaseName("IX_Расход_процент");
+                    .HasName("IX_Расход_процент");
 
                 entity.Property(e => e.IdДилера).HasColumnName("ID дилера");
 
@@ -50968,7 +50968,7 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.ToTable("Расход_процент_кл");
 
                 entity.HasIndex(e => new { e.НомерПокупателя, e.IdТовара })
-                    .HasDatabaseName("IX_Расход_процент_кл")
+                    .HasName("IX_Расход_процент_кл")
                     .IsUnique();
 
                 entity.Property(e => e.IdДилера).HasColumnName("ID дилера");
@@ -50997,7 +50997,7 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.ToTable("Расход_процент_пг");
 
                 entity.HasIndex(e => new { e.НомерПокупателя, e.IdТовара })
-                    .HasDatabaseName("IX_Расход_процент_пг");
+                    .HasName("IX_Расход_процент_пг");
 
                 entity.Property(e => e.IdДилера).HasColumnName("ID дилера");
 
@@ -51029,7 +51029,7 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.ToTable("Расход_процент_пг_кл");
 
                 entity.HasIndex(e => new { e.НомерПокупателя, e.IdТовара })
-                    .HasDatabaseName("IX_Расход_процент_пг_кл")
+                    .HasName("IX_Расход_процент_пг_кл")
                     .IsUnique();
 
                 entity.Property(e => e.IdДилера).HasColumnName("ID дилера");
@@ -51058,7 +51058,7 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.ToTable("Расход_процент регион");
 
                 entity.HasIndex(e => new { e.НомерПокупателя, e.IdТовара, e.Регион, e.UserId, e.IdДилера, e.ДатаОтгр })
-                    .HasDatabaseName("IX_Расход_процент регион")
+                    .HasName("IX_Расход_процент регион")
                     .IsUnique();
 
                 entity.Property(e => e.IdДилера).HasColumnName("ID дилера");
@@ -51093,7 +51093,7 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.ToTable("Расход_процент регион_пг");
 
                 entity.HasIndex(e => new { e.НомерПокупателя, e.Регион, e.IdТовара, e.UserId, e.IdДилера, e.ДатаОтгр })
-                    .HasDatabaseName("IX_Расход_процент регион пг")
+                    .HasName("IX_Расход_процент регион пг")
                     .IsUnique();
 
                 entity.Property(e => e.IdДилера).HasColumnName("ID дилера");
@@ -51362,14 +51362,14 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.ToTable("Расход регион");
 
                 entity.HasIndex(e => e.IdRecord)
-                    .HasDatabaseName("IX_Расход регион")
+                    .HasName("IX_Расход регион")
                     .IsUnique();
 
                 entity.HasIndex(e => e.Дата)
-                    .HasDatabaseName("IX_Расход регион_1");
+                    .HasName("IX_Расход регион_1");
 
                 entity.HasIndex(e => e.Регион)
-                    .HasDatabaseName("IX_Расход регион_2");
+                    .HasName("IX_Расход регион_2");
 
                 entity.Property(e => e.IdRecord)
                     .HasColumnName("ID record")
@@ -51435,26 +51435,26 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.ToTable("Расход реестр");
 
                 entity.HasIndex(e => e.IdRecord)
-                    .HasDatabaseName("IX_Расход реестр")
+                    .HasName("IX_Расход реестр")
                     .IsUnique();
 
                 entity.HasIndex(e => e.IdПодразделения)
-                    .HasDatabaseName("IX_Расход реестр_4");
+                    .HasName("IX_Расход реестр_4");
 
                 entity.HasIndex(e => e.IdСотрудника)
-                    .HasDatabaseName("IX_Расход реестр_6");
+                    .HasName("IX_Расход реестр_6");
 
                 entity.HasIndex(e => e.IdСтатьи)
-                    .HasDatabaseName("IX_Расход реестр_1");
+                    .HasName("IX_Расход реестр_1");
 
                 entity.HasIndex(e => e.IdСубсчета)
-                    .HasDatabaseName("IX_Расход реестр_2");
+                    .HasName("IX_Расход реестр_2");
 
                 entity.HasIndex(e => e.IdФирмы)
-                    .HasDatabaseName("IX_Расход реестр_3");
+                    .HasName("IX_Расход реестр_3");
 
                 entity.HasIndex(e => e.RecordFinplan)
-                    .HasDatabaseName("IX_Расход реестр_5");
+                    .HasName("IX_Расход реестр_5");
 
                 entity.Property(e => e.BlgTip).HasColumnName("BLG-tip");
 
@@ -51580,7 +51580,7 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.ToTable("Расход реестр подпись");
 
                 entity.HasIndex(e => e.RecordId)
-                    .HasDatabaseName("IX_Расход реестр подпись")
+                    .HasName("IX_Расход реестр подпись")
                     .IsUnique();
 
                 entity.Property(e => e.RecordId).HasColumnName("Record ID");
@@ -51740,29 +51740,29 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.ToTable("Расход товара");
 
                 entity.HasIndex(e => e.IdСклада)
-                    .HasDatabaseName("IX_Расход товара_2");
+                    .HasName("IX_Расход товара_2");
 
                 entity.HasIndex(e => e.IdТовара)
-                    .HasDatabaseName("IX_Расход товара_5");
+                    .HasName("IX_Расход товара_5");
 
                 entity.HasIndex(e => e.RecordId)
-                    .HasDatabaseName("IX_Расход товара")
+                    .HasName("IX_Расход товара")
                     .IsUnique();
 
                 entity.HasIndex(e => e.ДилерКлиент)
-                    .HasDatabaseName("IX_Расход товара_3");
+                    .HasName("IX_Расход товара_3");
 
                 entity.HasIndex(e => e.Накладная)
-                    .HasDatabaseName("IX_Расход товара_1");
+                    .HasName("IX_Расход товара_1");
 
                 entity.HasIndex(e => e.НомерПокупателя)
-                    .HasDatabaseName("IX_Расход товара_4");
+                    .HasName("IX_Расход товара_4");
 
                 entity.HasIndex(e => e.ОбоснованиеБлокировки)
-                    .HasDatabaseName("IX_Расход товара_6");
+                    .HasName("IX_Расход товара_6");
 
                 entity.HasIndex(e => new { e.IdТовара, e.Количество, e.КоличествоДляОтгрузки, e.УпаковкаНомер, e.IdСклада, e.ОбоснованиеБлокировки })
-                    .HasDatabaseName("IX_Расход товара_7");
+                    .HasName("IX_Расход товара_7");
 
                 entity.Property(e => e.IdСклада).HasColumnName("ID склада");
 
@@ -52045,20 +52045,20 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.ToTable("Расход товара для филиалов");
 
                 entity.HasIndex(e => e.IdСклада)
-                    .HasDatabaseName("IX_Расход товара для филиалов_2");
+                    .HasName("IX_Расход товара для филиалов_2");
 
                 entity.HasIndex(e => e.IdТовара)
-                    .HasDatabaseName("IX_Расход товара для филиалов_3");
+                    .HasName("IX_Расход товара для филиалов_3");
 
                 entity.HasIndex(e => e.RecordId)
-                    .HasDatabaseName("IX_Расход товара для филиалов")
+                    .HasName("IX_Расход товара для филиалов")
                     .IsUnique();
 
                 entity.HasIndex(e => e.НомерПокупателя)
-                    .HasDatabaseName("IX_Расход товара для филиалов_4");
+                    .HasName("IX_Расход товара для филиалов_4");
 
                 entity.HasIndex(e => new { e.IdСклада, e.IdТовара })
-                    .HasDatabaseName("IX_Расход товара для филиалов_1");
+                    .HasName("IX_Расход товара для филиалов_1");
 
                 entity.Property(e => e.IdСклада)
                     .HasColumnName("ID склада")
@@ -52153,49 +52153,49 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.ToTable("Расход товара поставки");
 
                 entity.HasIndex(e => e.IdСклада)
-                    .HasDatabaseName("IX_Расход товара поставки");
+                    .HasName("IX_Расход товара поставки");
 
                 entity.HasIndex(e => e.IdТовара)
-                    .HasDatabaseName("IX_Расход товара поставки_1");
+                    .HasName("IX_Расход товара поставки_1");
 
                 entity.HasIndex(e => e.АвтоСписаниеId)
-                    .HasDatabaseName("IX_Расход товара поставки_8");
+                    .HasName("IX_Расход товара поставки_8");
 
                 entity.HasIndex(e => e.КомплектRecId)
-                    .HasDatabaseName("IX_Расход товара поставки_2");
+                    .HasName("IX_Расход товара поставки_2");
 
                 entity.HasIndex(e => e.НомерПорядковый)
-                    .HasDatabaseName("IX_Расход товара поставки_5");
+                    .HasName("IX_Расход товара поставки_5");
 
                 entity.HasIndex(e => new { e.IdТовара, e.КомплектRecId })
-                    .HasDatabaseName("Комплект_RecID_IDX");
+                    .HasName("Комплект_RecID_IDX");
 
                 entity.HasIndex(e => new { e.RecordId, e.Provedeno, e.ДатаВывоза })
-                    .HasDatabaseName("IX_Расход товара поставки_Provedeno");
+                    .HasName("IX_Расход товара поставки_Provedeno");
 
                 entity.HasIndex(e => new { e.Префикс, e.Год, e.Фирма })
-                    .HasDatabaseName("IX_Расход товара поставки_4");
+                    .HasName("IX_Расход товара поставки_4");
 
                 entity.HasIndex(e => new { e.IdСклада, e.IdТовара, e.Количество, e.Партия, e.ДатаВывоза })
-                    .HasDatabaseName("IX_Расход товара поставки_Дата_вывоза");
+                    .HasName("IX_Расход товара поставки_Дата_вывоза");
 
                 entity.HasIndex(e => new { e.IdСклада, e.Количество, e.ДатаВывоза, e.IdТовара, e.ОбоснованиеБлокировки })
-                    .HasDatabaseName("IX_Расход_товара_поставки_Обработчик");
+                    .HasName("IX_Расход_товара_поставки_Обработчик");
 
                 entity.HasIndex(e => new { e.IdТовара, e.Количество, e.IdСклада, e.FactoryId, e.ДатаВывоза })
-                    .HasDatabaseName("IX_Расход товара поставки_ID_склада_FactoryID_Дата_вывоза");
+                    .HasName("IX_Расход товара поставки_ID_склада_FactoryID_Дата_вывоза");
 
                 entity.HasIndex(e => new { e.IdТовара, e.Количество, e.Партия, e.IdСклада, e.ДатаВывоза })
-                    .HasDatabaseName("IX_Расход товара поставки_10");
+                    .HasName("IX_Расход товара поставки_10");
 
                 entity.HasIndex(e => new { e.IdТовара, e.RecordId, e.Партия, e.IdСклада, e.КомплектRecId, e.ДатаВывоза })
-                    .HasDatabaseName("Расход_товара_поставки_Комплект_RecID");
+                    .HasName("Расход_товара_поставки_Комплект_RecID");
 
                 entity.HasIndex(e => new { e.IdСклада, e.Префикс, e.НомерПорядковый, e.Год, e.Фирма, e.Provedeno, e.FactoryId, e.ДатаВывоза })
-                    .HasDatabaseName("IX_Расход товара поставки_7");
+                    .HasName("IX_Расход товара поставки_7");
 
                 entity.HasIndex(e => new { e.IdСклада, e.IdТовара, e.ДилерКлиент, e.НомерПокупателя, e.КоличествоВСчетеToDelete, e.Префикс, e.Перенесен, e.Партия, e.ПостРас, e.НомерПорядковый, e.СтранаПроисхождения, e.НомерГтд, e.Основание, e.Provedeno, e.FactoryId, e.IdСкладКуда, e.БазоваяЦенаR, e.Количество, e.ДатаПредполагаемойПродажи, e.АвтоСписаниеId, e.AnalogId, e.Who, e.ЦенаПродажи, e.ЦенаПродажиR, e.БазоваяЦена, e.Год, e.Фирма, e.Кф, e.UserId, e.RecordId, e.Sebestoimost, e.Ssr, e.ЕдИзм, e.Валюта, e.Накладная, e.КоличествоКОплатеToDelete, e.КоличествоОплаченноеToDelete, e.ДатаВывоза, e.ОбоснованиеБлокировки })
-                    .HasDatabaseName("IX_Расход товара поставки_9");
+                    .HasName("IX_Расход товара поставки_9");
 
                 entity.Property(e => e.RecordId).HasColumnName("Record ID");
 
@@ -52575,24 +52575,24 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.ToTable("Расход товара регион");
 
                 entity.HasIndex(e => e.RecordId)
-                    .HasDatabaseName("IX_Расход товара регион")
+                    .HasName("IX_Расход товара регион")
                     .IsUnique()
                     .IsClustered();
 
                 entity.HasIndex(e => e.Регион)
-                    .HasDatabaseName("IX_Расход товара регион_5");
+                    .HasName("IX_Расход товара регион_5");
 
                 entity.HasIndex(e => new { e.IdСклада, e.Регион })
-                    .HasDatabaseName("IX_Расход товара регион_1");
+                    .HasName("IX_Расход товара регион_1");
 
                 entity.HasIndex(e => new { e.IdТовара, e.Регион })
-                    .HasDatabaseName("IX_Расход товара регион_2");
+                    .HasName("IX_Расход товара регион_2");
 
                 entity.HasIndex(e => new { e.ДатаВывоза, e.Регион })
-                    .HasDatabaseName("IX_Расход товара регион_3");
+                    .HasName("IX_Расход товара регион_3");
 
                 entity.HasIndex(e => new { e.RecordId, e.НомерПокупателя, e.Регион })
-                    .HasDatabaseName("IX_Расход товара регион_4");
+                    .HasName("IX_Расход товара регион_4");
 
                 entity.Property(e => e.IdСклада).HasColumnName("ID склада");
 
@@ -53149,7 +53149,7 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.ToTable("Расчет штрафа");
 
                 entity.HasIndex(e => new { e.НомерСчета, e.НомерШтрафа })
-                    .HasDatabaseName("IX_Расчет штрафа")
+                    .HasName("IX_Расчет штрафа")
                     .IsUnique();
 
                 entity.Property(e => e.ДатаОтгрузки)
@@ -53203,7 +53203,7 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.ToTable("Расчет штрафа регион");
 
                 entity.HasIndex(e => new { e.НомерСчета, e.Регион, e.НомерШтрафа })
-                    .HasDatabaseName("IX_Расчет штрафа регион")
+                    .HasName("IX_Расчет штрафа регион")
                     .IsUnique();
 
                 entity.Property(e => e.ДатаОтгрузки)
@@ -53434,7 +53434,7 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.ToTable("Регистрация жалоб");
 
                 entity.HasIndex(e => e.RecordId)
-                    .HasDatabaseName("IX_Регистрация жалоб")
+                    .HasName("IX_Регистрация жалоб")
                     .IsUnique();
 
                 entity.Property(e => e.RecordId)
@@ -53482,7 +53482,7 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.ToTable("Регистрация приемок по качеству");
 
                 entity.HasIndex(e => e.RecordId)
-                    .HasDatabaseName("IX_Регистрация приемок по качеству")
+                    .HasName("IX_Регистрация приемок по качеству")
                     .IsUnique();
 
                 entity.Property(e => e.IdТовара)
@@ -53542,7 +53542,7 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.ToTable("Реестр комм");
 
                 entity.HasIndex(e => e.Rec)
-                    .HasDatabaseName("IX_Реестр комм")
+                    .HasName("IX_Реестр комм")
                     .IsUnique();
 
                 entity.Property(e => e.Comm)
@@ -53594,7 +53594,7 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.ToTable("Сводная для прогноза_дни");
 
                 entity.HasIndex(e => e.RecordId)
-                    .HasDatabaseName("IX_Сводная для прогноза_дни")
+                    .HasName("IX_Сводная для прогноза_дни")
                     .IsUnique();
 
                 entity.Property(e => e.IdУчастка).HasColumnName("ID участка");
@@ -53763,7 +53763,7 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.ToTable("Сводная для прогноза_участки");
 
                 entity.HasIndex(e => e.RecordId)
-                    .HasDatabaseName("IX_Сводная для прогноза_участки")
+                    .HasName("IX_Сводная для прогноза_участки")
                     .IsUnique();
 
                 entity.Property(e => e.RecordId)
@@ -54157,7 +54157,7 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.ToTable("Сводная регион");
 
                 entity.HasIndex(e => new { e.Id, e.Регион })
-                    .HasDatabaseName("IX_Сводная регион")
+                    .HasName("IX_Сводная регион")
                     .IsUnique();
 
                 entity.Property(e => e.Id)
@@ -54335,7 +54335,7 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.HasNoKey();
 
                 entity.HasIndex(e => e.Месяц)
-                    .HasDatabaseName("IX_Сезонность")
+                    .HasName("IX_Сезонность")
                     .IsUnique();
 
                 entity.Property(e => e.Коэффициент).HasColumnType("decimal(4, 2)");
@@ -54352,7 +54352,7 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.ToTable("Сезонность по группам");
 
                 entity.HasIndex(e => new { e.Гр, e.Месяц })
-                    .HasDatabaseName("IX_Сезонность по группам")
+                    .HasName("IX_Сезонность по группам")
                     .IsUnique();
 
                 entity.Property(e => e.Коэффициент).HasColumnType("decimal(4, 2)");
@@ -54511,7 +54511,7 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.HasNoKey();
 
                 entity.HasIndex(e => new { e.НомерНакладной, e.ШтрихКод, e.IdТовара, e.ДилерКлиент, e.Кто, e.Префикс })
-                    .HasDatabaseName("IX_Сканируем")
+                    .HasName("IX_Сканируем")
                     .IsUnique();
 
                 entity.Property(e => e.IdТовара)
@@ -54593,7 +54593,7 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.ToTable("Сканируем УЗМК");
 
                 entity.HasIndex(e => new { e.НомерНакладной, e.IdТовара, e.ДилерКлиент, e.Кто, e.Префикс, e.ШтрихКод })
-                    .HasDatabaseName("IX_Сканируем УЗМК")
+                    .HasName("IX_Сканируем УЗМК")
                     .IsUnique();
 
                 entity.Property(e => e.IdТовара)
@@ -54631,7 +54631,7 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.ToTable("Сканируем ячейки");
 
                 entity.HasIndex(e => new { e.НомерНакладной, e.Время, e.ШтрихКод, e.Адрес, e.Кто, e.ДилерКлиент, e.Префикс })
-                    .HasDatabaseName("IX_Сканируем ячейки")
+                    .HasName("IX_Сканируем ячейки")
                     .IsUnique();
 
                 entity.Property(e => e.Время).HasColumnType("datetime");
@@ -54720,11 +54720,11 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.ToTable("Скидки дилеров по подгруппам");
 
                 entity.HasIndex(e => e.RecordId)
-                    .HasDatabaseName("IX_Скидки дилеров по подгруппам")
+                    .HasName("IX_Скидки дилеров по подгруппам")
                     .IsUnique();
 
                 entity.HasIndex(e => new { e.IdДилера, e.IdПодгруппы })
-                    .HasDatabaseName("IX_Скидки дилеров по подгруппам_1")
+                    .HasName("IX_Скидки дилеров по подгруппам_1")
                     .IsUnique();
 
                 entity.Property(e => e.IdДилера)
@@ -54751,11 +54751,11 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.ToTable("Скидки дилеров по подгруппам регион");
 
                 entity.HasIndex(e => e.RecordId)
-                    .HasDatabaseName("IX_Скидки дилеров по подгруппам регион")
+                    .HasName("IX_Скидки дилеров по подгруппам регион")
                     .IsUnique();
 
                 entity.HasIndex(e => new { e.IdДилера, e.IdПодгруппы, e.Регион })
-                    .HasDatabaseName("IX_Скидки дилеров по подгруппам регион_1")
+                    .HasName("IX_Скидки дилеров по подгруппам регион_1")
                     .IsUnique();
 
                 entity.Property(e => e.IdДилера)
@@ -54803,7 +54803,7 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.ToTable("Скидки для Крыма");
 
                 entity.HasIndex(e => e.IdПодгруппы)
-                    .HasDatabaseName("IX_Скидки для Крыма")
+                    .HasName("IX_Скидки для Крыма")
                     .IsUnique();
 
                 entity.Property(e => e.IdПодгруппы).HasColumnName("ID подгруппы");
@@ -54818,7 +54818,7 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.ToTable("Скидки по дилерам");
 
                 entity.HasIndex(e => e.RecordId)
-                    .HasDatabaseName("IX_Скидки по дилерам")
+                    .HasName("IX_Скидки по дилерам")
                     .IsUnique();
 
                 entity.Property(e => e.IdГруппы)
@@ -54845,11 +54845,11 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.ToTable("Скидки по дилерам_нов регион");
 
                 entity.HasIndex(e => e.RecordId)
-                    .HasDatabaseName("IX_Скидки по дилерам_нов регион")
+                    .HasName("IX_Скидки по дилерам_нов регион")
                     .IsUnique();
 
                 entity.HasIndex(e => new { e.IdГруппы, e.IdДилера, e.Регион })
-                    .HasDatabaseName("IX_Скидки по дилерам_нов регион_1")
+                    .HasName("IX_Скидки по дилерам_нов регион_1")
                     .IsUnique();
 
                 entity.Property(e => e.IdГруппы).HasColumnName("ID группы");
@@ -54870,7 +54870,7 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.ToTable("Скидки по дилерам по товарам");
 
                 entity.HasIndex(e => new { e.IdДилера, e.IdТовара })
-                    .HasDatabaseName("IX_Скидки по дилерам по товарам")
+                    .HasName("IX_Скидки по дилерам по товарам")
                     .IsUnique();
 
                 entity.Property(e => e.IdДилера)
@@ -54891,7 +54891,7 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.ToTable("Скидки по дилерам по товарам регион");
 
                 entity.HasIndex(e => new { e.IdДилера, e.IdТовара, e.Регион })
-                    .HasDatabaseName("IX_Скидки по дилерам по товарам регион")
+                    .HasName("IX_Скидки по дилерам по товарам регион")
                     .IsUnique();
 
                 entity.Property(e => e.IdДилера)
@@ -54912,14 +54912,14 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.ToTable("Скидки по дилерам регион");
 
                 entity.HasIndex(e => e.RecordId)
-                    .HasDatabaseName("IX_Скидки по дилерам регион")
+                    .HasName("IX_Скидки по дилерам регион")
                     .IsUnique();
 
                 entity.HasIndex(e => e.Регион)
-                    .HasDatabaseName("IX_Скидки по дилерам регион_2");
+                    .HasName("IX_Скидки по дилерам регион_2");
 
                 entity.HasIndex(e => new { e.IdГруппы, e.IdДилера, e.Регион })
-                    .HasDatabaseName("IX_Скидки по дилерам регион_1")
+                    .HasName("IX_Скидки по дилерам регион_1")
                     .IsUnique();
 
                 entity.Property(e => e.IdГруппы)
@@ -54946,7 +54946,7 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.ToTable("Скидки по объемам");
 
                 entity.HasIndex(e => e.Группа)
-                    .HasDatabaseName("IX_Скидки по объемам")
+                    .HasName("IX_Скидки по объемам")
                     .IsUnique();
 
                 entity.Property(e => e.Объем).HasColumnType("decimal(12, 0)");
@@ -54972,14 +54972,14 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.ToTable("Скидки по складам регион");
 
                 entity.HasIndex(e => e.RecordId)
-                    .HasDatabaseName("IX_Скидки по складам регион")
+                    .HasName("IX_Скидки по складам регион")
                     .IsUnique();
 
                 entity.HasIndex(e => e.Регион)
-                    .HasDatabaseName("IX_Скидки по складам регион_2");
+                    .HasName("IX_Скидки по складам регион_2");
 
                 entity.HasIndex(e => new { e.IdГруппы, e.IdДилера, e.Регион })
-                    .HasDatabaseName("IX_Скидки по складам регион_1")
+                    .HasName("IX_Скидки по складам регион_1")
                     .IsUnique();
 
                 entity.Property(e => e.IdГруппы).HasColumnName("ID группы");
@@ -55041,7 +55041,7 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.HasNoKey();
 
                 entity.HasIndex(e => new { e.Форма, e.Когда, e.Кто, e.Филиал })
-                    .HasDatabaseName("IX_Следы")
+                    .HasName("IX_Следы")
                     .IsUnique();
 
                 entity.Property(e => e.Когда).HasColumnType("datetime");
@@ -55190,7 +55190,7 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.ToTable("Соответсвие субсчет-статья");
 
                 entity.HasIndex(e => e.Код)
-                    .HasDatabaseName("IX_Соответсвие субсчет-статья")
+                    .HasName("IX_Соответсвие субсчет-статья")
                     .IsUnique();
 
                 entity.Property(e => e.Код).ValueGeneratedOnAdd();
@@ -55205,7 +55205,7 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.ToTable("Соответствие Cash-Inc");
 
                 entity.HasIndex(e => e.Код)
-                    .HasDatabaseName("IX_Соответствие Cash-Inc")
+                    .HasName("IX_Соответствие Cash-Inc")
                     .IsUnique();
 
                 entity.Property(e => e.IncomeStatement)
@@ -55230,7 +55230,7 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.ToTable("Соответствие параметр_графа_баланс");
 
                 entity.HasIndex(e => e.Параметр)
-                    .HasDatabaseName("IX_Соответствие параметр_графа_баланс")
+                    .HasName("IX_Соответствие параметр_графа_баланс")
                     .IsUnique();
 
                 entity.Property(e => e.Графа)
@@ -55245,7 +55245,7 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.ToTable("Соответствие Плательщик-Фирма");
 
                 entity.HasIndex(e => new { e.IdФирмыТо, e.ДилерКлиент, e.IdКомпании })
-                    .HasDatabaseName("IX_Соответствие Плательщик-Фирма")
+                    .HasName("IX_Соответствие Плательщик-Фирма")
                     .IsUnique();
 
                 entity.Property(e => e.IdКомпании).HasColumnName("ID компании");
@@ -55262,7 +55262,7 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.ToTable("Соответствие филиал-фирма");
 
                 entity.HasIndex(e => e.Код)
-                    .HasDatabaseName("IX_Соответствие филиал-фирма")
+                    .HasName("IX_Соответствие филиал-фирма")
                     .IsUnique();
 
                 entity.Property(e => e.IdФирмы).HasColumnName("ID фирмы");
@@ -55432,7 +55432,7 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.ToTable("Состояние склада на день");
 
                 entity.HasIndex(e => e.IdТовара)
-                    .HasDatabaseName("IX_Состояние склада на день")
+                    .HasName("IX_Состояние склада на день")
                     .IsUnique();
 
                 entity.Property(e => e.DielerPrice)
@@ -55449,7 +55449,7 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.ToTable("Состояние склада по дням");
 
                 entity.HasIndex(e => new { e.IdГруппы, e.Регион, e.Дата })
-                    .HasDatabaseName("IX_Состояние склада по дням")
+                    .HasName("IX_Состояние склада по дням")
                     .IsUnique();
 
                 entity.Property(e => e.IdГруппы).HasColumnName("ID группы");
@@ -55465,33 +55465,33 @@ namespace VS_CRM.Models.DATA_DB_Model
                     .HasName("Сотрудники_pk");
 
                 entity.HasIndex(e => e.IdСтатьиAdmin)
-                    .HasDatabaseName("Отбор_5");
+                    .HasName("Отбор_5");
 
                 entity.HasIndex(e => e.IdСтатьиDib)
-                    .HasDatabaseName("Отбор_4");
+                    .HasName("Отбор_4");
 
                 entity.HasIndex(e => e.IdСтатьиOae)
-                    .HasDatabaseName("Отбор_6");
+                    .HasName("Отбор_6");
 
                 entity.HasIndex(e => e.IdСтатьиTpo)
-                    .HasDatabaseName("Отбор_3");
+                    .HasName("Отбор_3");
 
                 entity.HasIndex(e => e.IdСтатьиЗавод)
-                    .HasDatabaseName("Отбор_2");
+                    .HasName("Отбор_2");
 
                 entity.HasIndex(e => e.IdСтатьиСейф)
-                    .HasDatabaseName("Отбор_1");
+                    .HasName("Отбор_1");
 
                 entity.HasIndex(e => e.IdСтатьиУзмк)
-                    .HasDatabaseName("Отбор_7");
+                    .HasName("Отбор_7");
 
                 entity.HasIndex(e => e.Фио);
 
                 entity.HasIndex(e => new { e.ЛичныйНомер, e.Hid, e.Статус })
-                    .HasDatabaseName("IX_Сотрудники_2");
+                    .HasName("IX_Сотрудники_2");
 
                 entity.HasIndex(e => new { e.Фио, e.Имя, e.Отчество, e.Фирма, e.IdФирмы, e.Hid })
-                    .HasDatabaseName("IX_Сотрудники_1")
+                    .HasName("IX_Сотрудники_1")
                     .IsUnique();
 
                 entity.Property(e => e.ЛичныйНомер)
@@ -55653,7 +55653,7 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.ToTable("Сотрудники_проект_производства");
 
                 entity.HasIndex(e => e.ЛичныйНом)
-                    .HasDatabaseName("IX_Сотрудники_проект_производства")
+                    .HasName("IX_Сотрудники_проект_производства")
                     .IsUnique();
 
                 entity.Property(e => e.BlgДвери).HasColumnName("blg_двери");
@@ -55812,7 +55812,7 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.ToTable("Сотрудники_производства111");
 
                 entity.HasIndex(e => new { e.ЛичныйНомер, e.IdПроизв })
-                    .HasDatabaseName("IX_Сотрудники_производства")
+                    .HasName("IX_Сотрудники_производства")
                     .IsUnique();
 
                 entity.Property(e => e.IdПроизв).HasColumnName("Id произв");
@@ -55829,11 +55829,11 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.ToTable("Спец_Позиции спецификации");
 
                 entity.HasIndex(e => e.IdПозиции)
-                    .HasDatabaseName("IX_Спец_Позиции спецификации")
+                    .HasName("IX_Спец_Позиции спецификации")
                     .IsUnique();
 
                 entity.HasIndex(e => new { e.IdСпецификации, e.IdДетали, e.IdМатериала, e.Узел })
-                    .HasDatabaseName("IX_Спец_Позиции спецификации_1")
+                    .HasName("IX_Спец_Позиции спецификации_1")
                     .IsUnique();
 
                 entity.Property(e => e.Idizgot).HasColumnName("IDizgot");
@@ -55914,11 +55914,11 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.ToTable("Спец_Список деталей");
 
                 entity.HasIndex(e => e.IdДетали)
-                    .HasDatabaseName("IX_Спец_Список деталей")
+                    .HasName("IX_Спец_Список деталей")
                     .IsUnique();
 
                 entity.HasIndex(e => e.Шифр)
-                    .HasDatabaseName("IX_Спец_Список деталей_1")
+                    .HasName("IX_Спец_Список деталей_1")
                     .IsUnique();
 
                 entity.Property(e => e.EanCode)
@@ -55999,7 +55999,7 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.ToTable("Спец_Шапка спецификации");
 
                 entity.HasIndex(e => e.IdСпецификации)
-                    .HasDatabaseName("IX_Спец_Шапка спецификации")
+                    .HasName("IX_Спец_Шапка спецификации")
                     .IsUnique();
 
                 entity.Property(e => e.IdСпецификации)
@@ -56070,7 +56070,7 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.ToTable("Спецификация трудозатрат");
 
                 entity.HasIndex(e => new { e.IdТехпроцесса, e.IdБазы })
-                    .HasDatabaseName("IX_Спецификация трудозатрат")
+                    .HasName("IX_Спецификация трудозатрат")
                     .IsUnique();
 
                 entity.Property(e => e.IdБазы).HasColumnName("ID базы");
@@ -56091,7 +56091,7 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.ToTable("Спеццены для себестоимости");
 
                 entity.HasIndex(e => new { e.IdТовара, e.IdПлощадки })
-                    .HasDatabaseName("IX_Спеццены для себестоимости")
+                    .HasName("IX_Спеццены для себестоимости")
                     .IsUnique();
 
                 entity.Property(e => e.Id)
@@ -56144,7 +56144,7 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.ToTable("Списко баллов по группе оценки дилера");
 
                 entity.HasIndex(e => e.НомерСтроки)
-                    .HasDatabaseName("IX_Списко баллов по группе оценки дилера")
+                    .HasName("IX_Списко баллов по группе оценки дилера")
                     .IsUnique();
 
                 entity.Property(e => e.ГруппаСкидки).HasColumnName("Группа скидки");
@@ -56217,11 +56217,11 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.ToTable("Список адресов дилеров");
 
                 entity.HasIndex(e => e.IdАдреса)
-                    .HasDatabaseName("IX_Список адресов дилеров")
+                    .HasName("IX_Список адресов дилеров")
                     .IsUnique();
 
                 entity.HasIndex(e => e.IdДилера)
-                    .HasDatabaseName("IX_Список адресов дилеров_1");
+                    .HasName("IX_Список адресов дилеров_1");
 
                 entity.Property(e => e.Deleted).HasDefaultValueSql("(0)");
 
@@ -56289,11 +56289,11 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.ToTable("Список адресов дилеров регион");
 
                 entity.HasIndex(e => e.IdАдреса)
-                    .HasDatabaseName("IX_Список адресов дилеров регион")
+                    .HasName("IX_Список адресов дилеров регион")
                     .IsUnique();
 
                 entity.HasIndex(e => new { e.IdДилера, e.Регион })
-                    .HasDatabaseName("IX_Список адресов дилеров регион_1");
+                    .HasName("IX_Список адресов дилеров регион_1");
 
                 entity.Property(e => e.Deleted).HasDefaultValueSql("((0))");
 
@@ -56361,11 +56361,11 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.ToTable("Список адресов клиентов");
 
                 entity.HasIndex(e => e.IdАдреса)
-                    .HasDatabaseName("IX_Список адресов клиентов")
+                    .HasName("IX_Список адресов клиентов")
                     .IsUnique();
 
                 entity.HasIndex(e => e.IdКлиента)
-                    .HasDatabaseName("IX_Список адресов клиентов_1");
+                    .HasName("IX_Список адресов клиентов_1");
 
                 entity.Property(e => e.IdАдреса)
                     .HasColumnName("ID адреса")
@@ -56420,7 +56420,7 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.ToTable("Список артикулов АШАН");
 
                 entity.HasIndex(e => e.IdТовара)
-                    .HasDatabaseName("IX_Список артикулов АШАН")
+                    .HasName("IX_Список артикулов АШАН")
                     .IsUnique();
 
                 entity.Property(e => e.Artikul).HasMaxLength(50);
@@ -56439,7 +56439,7 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.ToTable("Список артикулов дилеров");
 
                 entity.HasIndex(e => new { e.IdТовара, e.IdДилера })
-                    .HasDatabaseName("IX_Список артикулов дилеров")
+                    .HasName("IX_Список артикулов дилеров")
                     .IsUnique();
 
                 entity.Property(e => e.Artikul).HasMaxLength(50);
@@ -56466,7 +56466,7 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.ToTable("Список артикулов дилеров регион");
 
                 entity.HasIndex(e => new { e.IdТовара, e.IdДилера, e.Регион })
-                    .HasDatabaseName("IX_Список артикулов дилеров регион")
+                    .HasName("IX_Список артикулов дилеров регион")
                     .IsUnique();
 
                 entity.Property(e => e.Artikul).HasMaxLength(50);
@@ -56493,7 +56493,7 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.ToTable("Список артикулов Епицентр");
 
                 entity.HasIndex(e => e.IdТовара)
-                    .HasDatabaseName("IX_Список артикулов Епицентр")
+                    .HasName("IX_Список артикулов Епицентр")
                     .IsUnique();
 
                 entity.Property(e => e.Artikul).HasMaxLength(50);
@@ -56512,7 +56512,7 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.ToTable("Список артикулов Зельгрос");
 
                 entity.HasIndex(e => e.IdТовара)
-                    .HasDatabaseName("IX_Список артикулов Зельгрос")
+                    .HasName("IX_Список артикулов Зельгрос")
                     .IsUnique();
 
                 entity.Property(e => e.Artikul).HasMaxLength(50);
@@ -56531,7 +56531,7 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.ToTable("Список артикулов Касторама");
 
                 entity.HasIndex(e => e.IdТовара)
-                    .HasDatabaseName("IX_Список артикулов Касторама")
+                    .HasName("IX_Список артикулов Касторама")
                     .IsUnique();
 
                 entity.Property(e => e.Artikul).HasMaxLength(50);
@@ -56552,7 +56552,7 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.ToTable("Список артикулов клиентов");
 
                 entity.HasIndex(e => new { e.IdТовара, e.IdКлиента })
-                    .HasDatabaseName("IX_Список артикулов клиентов")
+                    .HasName("IX_Список артикулов клиентов")
                     .IsUnique();
 
                 entity.Property(e => e.Artikul).HasMaxLength(50);
@@ -56575,7 +56575,7 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.ToTable("Список артикулов КОМУС");
 
                 entity.HasIndex(e => e.IdТовара)
-                    .HasDatabaseName("IX_Список артикулов КОМУС")
+                    .HasName("IX_Список артикулов КОМУС")
                     .IsUnique();
 
                 entity.Property(e => e.Artikul).HasMaxLength(50);
@@ -56598,7 +56598,7 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.ToTable("Список артикулов Леруа");
 
                 entity.HasIndex(e => e.IdТовара)
-                    .HasDatabaseName("IX_Список артикулов Леруа")
+                    .HasName("IX_Список артикулов Леруа")
                     .IsUnique();
 
                 entity.Property(e => e.Artikul).HasMaxLength(50);
@@ -56619,7 +56619,7 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.ToTable("Список артикулов ОБИ");
 
                 entity.HasIndex(e => e.IdТовара)
-                    .HasDatabaseName("IX_Список артикулов ОБИ")
+                    .HasName("IX_Список артикулов ОБИ")
                     .IsUnique();
 
                 entity.Property(e => e.Artikul).HasMaxLength(50);
@@ -56640,7 +56640,7 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.ToTable("Список артикулов ОБИ кв");
 
                 entity.HasIndex(e => e.IdТовара)
-                    .HasDatabaseName("IX_Список артикулов ОБИ кв")
+                    .HasName("IX_Список артикулов ОБИ кв")
                     .IsUnique();
 
                 entity.Property(e => e.Artikul).HasMaxLength(50);
@@ -56661,7 +56661,7 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.ToTable("Список артикулов Прагматик");
 
                 entity.HasIndex(e => e.IdТовара)
-                    .HasDatabaseName("IX_Список артикулов Прагматик")
+                    .HasName("IX_Список артикулов Прагматик")
                     .IsUnique();
 
                 entity.Property(e => e.Artikul).HasMaxLength(50);
@@ -56684,7 +56684,7 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.ToTable("Список артикулов Практикер");
 
                 entity.HasIndex(e => e.IdТовара)
-                    .HasDatabaseName("IX_Список артикулов Практикер")
+                    .HasName("IX_Список артикулов Практикер")
                     .IsUnique();
 
                 entity.Property(e => e.Artikul).HasMaxLength(50);
@@ -56703,7 +56703,7 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.ToTable("Список артикулов РАУТ");
 
                 entity.HasIndex(e => e.IdТовара)
-                    .HasDatabaseName("IX_Список артикулов РАУТ")
+                    .HasName("IX_Список артикулов РАУТ")
                     .IsUnique();
 
                 entity.Property(e => e.Artikul).HasMaxLength(50);
@@ -56724,7 +56724,7 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.ToTable("Список артикулов СБЕРБАНК");
 
                 entity.HasIndex(e => new { e.IdТовара, e.IdКлиента })
-                    .HasDatabaseName("IX_Список артикулов СБЕРБАНК")
+                    .HasName("IX_Список артикулов СБЕРБАНК")
                     .IsUnique();
 
                 entity.Property(e => e.Artikul).HasMaxLength(50);
@@ -56747,7 +56747,7 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.ToTable("Список артикулов СТАРТ");
 
                 entity.HasIndex(e => e.IdТовара)
-                    .HasDatabaseName("IX_Список артикулов СТАРТ")
+                    .HasName("IX_Список артикулов СТАРТ")
                     .IsUnique();
 
                 entity.Property(e => e.Artikul).HasMaxLength(50);
@@ -56770,10 +56770,10 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.ToTable("Список артикулов Стройдепо");
 
                 entity.HasIndex(e => e.Artikul)
-                    .HasDatabaseName("IX_Список артикулов Стройдепо_1");
+                    .HasName("IX_Список артикулов Стройдепо_1");
 
                 entity.HasIndex(e => e.IdТовара)
-                    .HasDatabaseName("IX_Список артикулов Стройдепо")
+                    .HasName("IX_Список артикулов Стройдепо")
                     .IsUnique();
 
                 entity.Property(e => e.Artikul).HasMaxLength(50);
@@ -56792,7 +56792,7 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.ToTable("Список артикулов Хоум Сентерз");
 
                 entity.HasIndex(e => e.IdТовара)
-                    .HasDatabaseName("IX_Список артикулов Хоум Сентерз")
+                    .HasName("IX_Список артикулов Хоум Сентерз")
                     .IsUnique();
 
                 entity.Property(e => e.Artikul).HasMaxLength(50);
@@ -56807,7 +56807,7 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.ToTable("Список баллов по ORR_дни");
 
                 entity.HasIndex(e => e.НомерСтроки)
-                    .HasDatabaseName("IX_Список баллов по ORR_дни")
+                    .HasName("IX_Список баллов по ORR_дни")
                     .IsUnique();
 
                 entity.Property(e => e.ДнДо).HasColumnName("Дн_до");
@@ -56824,7 +56824,7 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.ToTable("Список баллов по ORR_проц");
 
                 entity.HasIndex(e => e.НомерСтроки)
-                    .HasDatabaseName("IX_Список баллов по ORR_проц")
+                    .HasName("IX_Список баллов по ORR_проц")
                     .IsUnique();
 
                 entity.Property(e => e.НомерСтроки).HasColumnName("Номер строки");
@@ -56841,7 +56841,7 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.ToTable("Список баллов по ROCE");
 
                 entity.HasIndex(e => e.НомерСтроки)
-                    .HasDatabaseName("IX_Список баллов по ROCE")
+                    .HasName("IX_Список баллов по ROCE")
                     .IsUnique();
 
                 entity.Property(e => e.RoceДо)
@@ -56862,7 +56862,7 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.ToTable("Список баллов по ДЗ");
 
                 entity.HasIndex(e => e.НомерСтроки)
-                    .HasDatabaseName("IX_Список баллов по ДЗ")
+                    .HasName("IX_Список баллов по ДЗ")
                     .IsUnique();
 
                 entity.Property(e => e.БаллДз).HasColumnName("Балл_ДЗ");
@@ -56881,7 +56881,7 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.ToTable("Список баллов по доле ORR");
 
                 entity.HasIndex(e => e.НомерСтроки)
-                    .HasDatabaseName("IX_Список баллов по доле ORR")
+                    .HasName("IX_Список баллов по доле ORR")
                     .IsUnique();
 
                 entity.Property(e => e.ДоляДо)
@@ -56902,7 +56902,7 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.ToTable("Список баллов по доле месяцев");
 
                 entity.HasIndex(e => e.НомерСтроки)
-                    .HasDatabaseName("IX_Список баллов по доле месяцев")
+                    .HasName("IX_Список баллов по доле месяцев")
                     .IsUnique();
 
                 entity.Property(e => e.ДоляДо)
@@ -56923,7 +56923,7 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.ToTable("Список баллов по доходности");
 
                 entity.HasIndex(e => e.НомерСтроки)
-                    .HasDatabaseName("IX_Список баллов по доходности")
+                    .HasName("IX_Список баллов по доходности")
                     .IsUnique();
 
                 entity.Property(e => e.ДохДо)
@@ -56944,7 +56944,7 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.ToTable("Список баллов по Кин");
 
                 entity.HasIndex(e => e.НомерСтроки)
-                    .HasDatabaseName("IX_Список баллов по Кин")
+                    .HasName("IX_Список баллов по Кин")
                     .IsUnique();
 
                 entity.Property(e => e.ДнДо).HasColumnName("Дн_до");
@@ -56969,7 +56969,7 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.ToTable("Список баллов по Коб");
 
                 entity.HasIndex(e => e.НомерСтроки)
-                    .HasDatabaseName("IX_Список баллов по оплате")
+                    .HasName("IX_Список баллов по оплате")
                     .IsUnique();
 
                 entity.Property(e => e.КобДо).HasColumnName("Коб_до");
@@ -56986,7 +56986,7 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.ToTable("Список баллов по лояльности");
 
                 entity.HasIndex(e => e.НомерСтроки)
-                    .HasDatabaseName("IX_Список баллов по лояльности")
+                    .HasName("IX_Список баллов по лояльности")
                     .IsUnique();
 
                 entity.Property(e => e.ЛоялДо).HasColumnName("Лоял_до");
@@ -57003,7 +57003,7 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.ToTable("Список баллов по отсрочке");
 
                 entity.HasIndex(e => e.НомерСтроки)
-                    .HasDatabaseName("IX_Список баллов по отсрочке")
+                    .HasName("IX_Список баллов по отсрочке")
                     .IsUnique();
 
                 entity.Property(e => e.ДнДо).HasColumnName("Дн_до");
@@ -57020,7 +57020,7 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.ToTable("Список баллов по смпр");
 
                 entity.HasIndex(e => e.НомерСтроки)
-                    .HasDatabaseName("IX_Список баллов по смпр")
+                    .HasName("IX_Список баллов по смпр")
                     .IsUnique();
 
                 entity.Property(e => e.ГруппаСкидки).HasColumnName("Группа скидки");
@@ -57043,7 +57043,7 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.ToTable("Список баллов по темпам");
 
                 entity.HasIndex(e => e.НомерСтроки)
-                    .HasDatabaseName("IX_Список баллов по темпам")
+                    .HasName("IX_Список баллов по темпам")
                     .IsUnique();
 
                 entity.Property(e => e.ГруппаСкидки).HasColumnName("Группа скидки");
@@ -57062,7 +57062,7 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.ToTable("Список баллов по темпам роста");
 
                 entity.HasIndex(e => e.НомерСтроки)
-                    .HasDatabaseName("IX_Список баллов по темпам роста")
+                    .HasName("IX_Список баллов по темпам роста")
                     .IsUnique();
 
                 entity.Property(e => e.НомерСтроки).HasColumnName("Номер строки");
@@ -57083,7 +57083,7 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.ToTable("Список видов оплат");
 
                 entity.HasIndex(e => e.IdВида)
-                    .HasDatabaseName("IX_Список видов оплат")
+                    .HasName("IX_Список видов оплат")
                     .IsUnique();
 
                 entity.Property(e => e.IdВида)
@@ -57103,7 +57103,7 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.ToTable("Список видов платежей");
 
                 entity.HasIndex(e => e.Idплатежа)
-                    .HasDatabaseName("IX_Список видов платежей")
+                    .HasName("IX_Список видов платежей")
                     .IsUnique();
 
                 entity.Property(e => e.Idплатежа)
@@ -57122,7 +57122,7 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.ToTable("Список видов транспорта");
 
                 entity.HasIndex(e => e.IdВидаТранспорта)
-                    .HasDatabaseName("IX_Список видов транспорта")
+                    .HasName("IX_Список видов транспорта")
                     .IsUnique();
 
                 entity.Property(e => e.IdВидаТранспорта).HasColumnName("ID вида_транспорта");
@@ -57139,7 +57139,7 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.ToTable("Список видов услуг");
 
                 entity.HasIndex(e => e.IdВидаУслуги)
-                    .HasDatabaseName("IX_Список видов услуг")
+                    .HasName("IX_Список видов услуг")
                     .IsUnique();
 
                 entity.Property(e => e.IdВидаУслуги)
@@ -57156,11 +57156,11 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.ToTable("Список водителей");
 
                 entity.HasIndex(e => e.IdВодителя)
-                    .HasDatabaseName("IX_Список водителей")
+                    .HasName("IX_Список водителей")
                     .IsUnique();
 
                 entity.HasIndex(e => e.Водитель)
-                    .HasDatabaseName("IX_Список водителей_1")
+                    .HasName("IX_Список водителей_1")
                     .IsUnique();
 
                 entity.Property(e => e.IdВодителя)
@@ -58026,7 +58026,7 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.ToTable("Список географических единиц");
 
                 entity.HasIndex(e => e.Id)
-                    .HasDatabaseName("IX_Список географических единиц")
+                    .HasName("IX_Список географических единиц")
                     .IsUnique();
 
                 entity.Property(e => e.Id).HasColumnName("ID");
@@ -58048,7 +58048,7 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.ToTable("Список городов");
 
                 entity.HasIndex(e => e.IdГорода)
-                    .HasDatabaseName("IX_Список городов")
+                    .HasName("IX_Список городов")
                     .IsUnique();
 
                 entity.Property(e => e.IdГорода)
@@ -58078,7 +58078,7 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.ToTable("Список групп дефектов");
 
                 entity.HasIndex(e => e.IdГруппы)
-                    .HasDatabaseName("IX_Список групп дефектов")
+                    .HasName("IX_Список групп дефектов")
                     .IsUnique();
 
                 entity.Property(e => e.IdГруппы)
@@ -58095,7 +58095,7 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.ToTable("Список групп скидок");
 
                 entity.HasIndex(e => new { e.ГруппаСкидок, e.ОбъемПродажВМесДо })
-                    .HasDatabaseName("IX_Список групп скидок")
+                    .HasName("IX_Список групп скидок")
                     .IsUnique();
 
                 entity.Property(e => e.БазоваяСкидка)
@@ -58124,7 +58124,7 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.ToTable("Список групп скидок_двери");
 
                 entity.HasIndex(e => new { e.ГруппаСкидок, e.ОбъемПродажВМесДо })
-                    .HasDatabaseName("IX_Список групп скидок_двери")
+                    .HasName("IX_Список групп скидок_двери")
                     .IsUnique();
 
                 entity.Property(e => e.БазоваяСкидка)
@@ -58153,7 +58153,7 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.ToTable("Список групп фирм в реестре");
 
                 entity.HasIndex(e => e.IdГруппыФирмы)
-                    .HasDatabaseName("IX_Список групп фирм в реестре")
+                    .HasName("IX_Список групп фирм в реестре")
                     .IsUnique();
 
                 entity.Property(e => e.IdГруппыФирмы).HasColumnName("ID группы фирмы");
@@ -58170,7 +58170,7 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.ToTable("Список дефектов");
 
                 entity.HasIndex(e => e.IdДефекта)
-                    .HasDatabaseName("IX_Список дефектов")
+                    .HasName("IX_Список дефектов")
                     .IsUnique();
 
                 entity.Property(e => e.IdГруппы)
@@ -58199,14 +58199,14 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.ToTable("Список дилеров");
 
                 entity.HasIndex(e => e.Id)
-                    .HasDatabaseName("IX_Список дилеров")
+                    .HasName("IX_Список дилеров")
                     .IsUnique();
 
                 entity.HasIndex(e => e.IdДилОбъединения)
-                    .HasDatabaseName("IX_Список дилеров_2");
+                    .HasName("IX_Список дилеров_2");
 
                 entity.HasIndex(e => e.Название)
-                    .HasDatabaseName("IX_Список дилеров_1")
+                    .HasName("IX_Список дилеров_1")
                     .IsUnique();
 
                 entity.Property(e => e.Email).HasMaxLength(50);
@@ -58473,11 +58473,11 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.ToTable("Список дилеров объединения");
 
                 entity.HasIndex(e => e.IdОбъединения)
-                    .HasDatabaseName("IX_Список дилеров объединения")
+                    .HasName("IX_Список дилеров объединения")
                     .IsUnique();
 
                 entity.HasIndex(e => e.Объединение)
-                    .HasDatabaseName("IX_Список дилеров объединения_1")
+                    .HasName("IX_Список дилеров объединения_1")
                     .IsUnique();
 
                 entity.Property(e => e.IdДилераЦо).HasColumnName("ID дилера ЦО");
@@ -58543,18 +58543,18 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.ToTable("Список дилеров регион");
 
                 entity.HasIndex(e => e.IdДилОбъединения)
-                    .HasDatabaseName("IX_Список дилеров регион_3");
+                    .HasName("IX_Список дилеров регион_3");
 
                 entity.HasIndex(e => e.Регион)
-                    .HasDatabaseName("IX_Список дилеров регион_1");
+                    .HasName("IX_Список дилеров регион_1");
 
                 entity.HasIndex(e => new { e.Id, e.Регион })
-                    .HasDatabaseName("IX_Список дилеров регион")
+                    .HasName("IX_Список дилеров регион")
                     .IsUnique()
                     .IsClustered();
 
                 entity.HasIndex(e => new { e.Название, e.Регион })
-                    .HasDatabaseName("IX_Список дилеров регион_2");
+                    .HasName("IX_Список дилеров регион_2");
 
                 entity.Property(e => e.Email).HasMaxLength(50);
 
@@ -58857,7 +58857,7 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.ToTable("Список для блокировки");
 
                 entity.HasIndex(e => e.Наименование)
-                    .HasDatabaseName("IX_Список для блокировки")
+                    .HasName("IX_Список для блокировки")
                     .IsUnique();
 
                 entity.Property(e => e.ДатаРожденияВладельца1)
@@ -58993,7 +58993,7 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.ToTable("Список для цени_старые реквизиты_13032015");
 
                 entity.HasIndex(e => e.IdФирмы)
-                    .HasDatabaseName("IX_Список для цени_старые реквизиты_13032015")
+                    .HasName("IX_Список для цени_старые реквизиты_13032015")
                     .IsUnique();
 
                 entity.Property(e => e.EMail)
@@ -59391,7 +59391,7 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.ToTable("Список для цепи приказы");
 
                 entity.HasIndex(e => e.IdФирмы)
-                    .HasDatabaseName("IX_Список для цени приказы")
+                    .HasName("IX_Список для цени приказы")
                     .IsUnique();
 
                 entity.Property(e => e.IdФирмы).HasColumnName("ID фирмы");
@@ -59424,7 +59424,7 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.ToTable("Список для цепи_старые_реквизиты");
 
                 entity.HasIndex(e => e.IdФирмы)
-                    .HasDatabaseName("IX_Список для цепи_старые_реквизиты")
+                    .HasName("IX_Список для цепи_старые_реквизиты")
                     .IsUnique();
 
                 entity.Property(e => e.EMail)
@@ -59597,7 +59597,7 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.ToTable("Список для цепи_старые реквизиты_29072014");
 
                 entity.HasIndex(e => e.IdФирмы)
-                    .HasDatabaseName("IX_Списко для цепи_старые реквизиты_29072014")
+                    .HasName("IX_Списко для цепи_старые реквизиты_29072014")
                     .IsUnique();
 
                 entity.Property(e => e.EMail)
@@ -59774,7 +59774,7 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.ToTable("Список для цепи_старые реквизиты_НПО");
 
                 entity.HasIndex(e => e.IdФирмы)
-                    .HasDatabaseName("IX_Список для цепи_старые реквизиты_НПО")
+                    .HasName("IX_Список для цепи_старые реквизиты_НПО")
                     .IsUnique();
 
                 entity.Property(e => e.EMail)
@@ -59992,11 +59992,11 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.ToTable("Список договоров");
 
                 entity.HasIndex(e => e.IdДоговора)
-                    .HasDatabaseName("IX_Список договоров_1")
+                    .HasName("IX_Список договоров_1")
                     .IsUnique();
 
                 entity.HasIndex(e => new { e.IdЮрлица, e.Договор, e.Регион })
-                    .HasDatabaseName("IX_Список договоров")
+                    .HasName("IX_Список договоров")
                     .IsUnique();
 
                 entity.Property(e => e.FactoryId)
@@ -60037,7 +60037,7 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.ToTable("Список договоров поставки");
 
                 entity.HasIndex(e => e.IdДоговора)
-                    .HasDatabaseName("IX_Список договоров поставки")
+                    .HasName("IX_Список договоров поставки")
                     .IsUnique();
 
                 entity.Property(e => e.FactoryId)
@@ -60082,7 +60082,7 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.ToTable("Список документов");
 
                 entity.HasIndex(e => e.IdДилера)
-                    .HasDatabaseName("IX_Список документов")
+                    .HasName("IX_Список документов")
                     .IsUnique();
 
                 entity.Property(e => e.IdДилера).HasColumnName("ID дилера");
@@ -60166,7 +60166,7 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.ToTable("Список документов юрлиц");
 
                 entity.HasIndex(e => e.IdЮрлица)
-                    .HasDatabaseName("IX_Список документов юрлиц")
+                    .HasName("IX_Список документов юрлиц")
                     .IsUnique();
 
                 entity.Property(e => e.IdЮрлица).HasColumnName("ID юрлица");
@@ -60252,7 +60252,7 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.ToTable("Список должностей");
 
                 entity.HasIndex(e => e.Id)
-                    .HasDatabaseName("IX_Список должностей")
+                    .HasName("IX_Список должностей")
                     .IsUnique();
 
                 entity.Property(e => e.Id)
@@ -60282,7 +60282,7 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.ToTable("Список доступов");
 
                 entity.HasIndex(e => e.Код)
-                    .HasDatabaseName("IX_Список доступов")
+                    .HasName("IX_Список доступов")
                     .IsUnique();
 
                 entity.Property(e => e.IdРаботничка).HasColumnName("ID работничка");
@@ -60297,7 +60297,7 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.ToTable("Список доступов бухг к фирмам");
 
                 entity.HasIndex(e => e.Код)
-                    .HasDatabaseName("IX_Список доступов бухг к фирмам")
+                    .HasName("IX_Список доступов бухг к фирмам")
                     .IsUnique();
 
                 entity.Property(e => e.IdКомпании)
@@ -60318,7 +60318,7 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.ToTable("Список доступов бухгалтеров");
 
                 entity.HasIndex(e => e.Код)
-                    .HasDatabaseName("IX_Список доступов бухгалтеров")
+                    .HasName("IX_Список доступов бухгалтеров")
                     .IsUnique();
 
                 entity.Property(e => e.IdРаботника)
@@ -60339,13 +60339,13 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.ToTable("Список доступов к дилерам");
 
                 entity.HasIndex(e => e.IdВладельца)
-                    .HasDatabaseName("IX_Список доступов к дилерам_2");
+                    .HasName("IX_Список доступов к дилерам_2");
 
                 entity.HasIndex(e => e.IdРаботничка)
-                    .HasDatabaseName("IX_Список доступов к дилерам_1");
+                    .HasName("IX_Список доступов к дилерам_1");
 
                 entity.HasIndex(e => e.Код)
-                    .HasDatabaseName("IX_Список доступов к дилерам")
+                    .HasName("IX_Список доступов к дилерам")
                     .IsUnique();
 
                 entity.Property(e => e.IdВладельца).HasColumnName("ID владельца");
@@ -60364,7 +60364,7 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.ToTable("Список доступов к поставщикам");
 
                 entity.HasIndex(e => e.Код)
-                    .HasDatabaseName("IX_Список доступов к поставщикам")
+                    .HasName("IX_Список доступов к поставщикам")
                     .IsUnique();
 
                 entity.Property(e => e.IdРаботника).HasColumnName("ID работника");
@@ -60381,11 +60381,11 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.ToTable("Список доступов к фирмам");
 
                 entity.HasIndex(e => e.Код)
-                    .HasDatabaseName("IX_Список доступов к фирмам")
+                    .HasName("IX_Список доступов к фирмам")
                     .IsUnique();
 
                 entity.HasIndex(e => new { e.IdРаботника, e.IdФирмыПлат })
-                    .HasDatabaseName("IX_Список доступов к фирмам_1")
+                    .HasName("IX_Список доступов к фирмам_1")
                     .IsUnique();
 
                 entity.Property(e => e.IdРаботника).HasColumnName("ID работника");
@@ -60402,7 +60402,7 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.ToTable("Список доступов на согласование");
 
                 entity.HasIndex(e => e.Код)
-                    .HasDatabaseName("IX_Список доступов на согласование")
+                    .HasName("IX_Список доступов на согласование")
                     .IsUnique();
 
                 entity.Property(e => e.IdПодразд).HasColumnName("ID подразд");
@@ -60430,7 +60430,7 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.ToTable("Список доступов реестр-плательщики");
 
                 entity.HasIndex(e => e.Код)
-                    .HasDatabaseName("IX_Список доступов реестр-плат")
+                    .HasName("IX_Список доступов реестр-плат")
                     .IsUnique();
 
                 entity.Property(e => e.IdРаботничка).HasColumnName("ID работничка");
@@ -60447,7 +60447,7 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.ToTable("Список доступов финплан");
 
                 entity.HasIndex(e => e.Код)
-                    .HasDatabaseName("IX_Список доступов финплан")
+                    .HasName("IX_Список доступов финплан")
                     .IsUnique();
 
                 entity.Property(e => e.IdРаботника).HasColumnName("ID работника");
@@ -60464,7 +60464,7 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.ToTable("Список единиц измерения");
 
                 entity.HasIndex(e => e.Код)
-                    .HasDatabaseName("IX_Список единиц измерения")
+                    .HasName("IX_Список единиц измерения")
                     .IsUnique();
 
                 entity.Property(e => e.Код)
@@ -60489,7 +60489,7 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.ToTable("Список замков");
 
                 entity.HasIndex(e => e.IdЗамка)
-                    .HasDatabaseName("IX_Список замков")
+                    .HasName("IX_Список замков")
                     .IsUnique();
 
                 entity.Property(e => e.IdЗамка)
@@ -60522,7 +60522,7 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.ToTable("Список замков зависимости");
 
                 entity.HasIndex(e => new { e.IdЗамка, e.IdКонструкции })
-                    .HasDatabaseName("IX_Спичок замков зависимости")
+                    .HasName("IX_Спичок замков зависимости")
                     .IsUnique();
 
                 entity.Property(e => e.IdЗамка)
@@ -60569,7 +60569,7 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.ToTable("Список замков спецификация");
 
                 entity.HasIndex(e => e.IdСпецификации)
-                    .HasDatabaseName("IX_Список закмов спецификация")
+                    .HasName("IX_Список закмов спецификация")
                     .IsUnique();
 
                 entity.Property(e => e.IdЗамка)
@@ -60606,7 +60606,7 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.ToTable("Список затрат");
 
                 entity.HasIndex(e => e.IdЗатраты)
-                    .HasDatabaseName("IX_Список затрат")
+                    .HasName("IX_Список затрат")
                     .IsUnique();
 
                 entity.Property(e => e.IdЗатраты)
@@ -62141,7 +62141,7 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.ToTable("Список изменений скидки");
 
                 entity.HasIndex(e => e.ОтсрочкаОт)
-                    .HasDatabaseName("IX_Список изменений скидки")
+                    .HasName("IX_Список изменений скидки")
                     .IsUnique();
 
                 entity.Property(e => e.ИзменениеСкидки)
@@ -62162,7 +62162,7 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.ToTable("Список исполнений");
 
                 entity.HasIndex(e => e.IdИсполненения)
-                    .HasDatabaseName("IX_Список исполнений")
+                    .HasName("IX_Список исполнений")
                     .IsUnique();
 
                 entity.Property(e => e.IdИсполненения)
@@ -62185,7 +62185,7 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.ToTable("Список исполнений дверей новый");
 
                 entity.HasIndex(e => e.IdИсполненения)
-                    .HasDatabaseName("IX_Список исполнений дверей новый")
+                    .HasName("IX_Список исполнений дверей новый")
                     .IsUnique();
 
                 entity.Property(e => e.IdИсполненения)
@@ -62219,7 +62219,7 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.ToTable("Список исполнений двери");
 
                 entity.HasIndex(e => e.IdИсполненения)
-                    .HasDatabaseName("IX_Список исполнений двери")
+                    .HasName("IX_Список исполнений двери")
                     .IsUnique();
 
                 entity.Property(e => e.IdИсполненения)
@@ -62246,7 +62246,7 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.ToTable("Список исполнений зависимости");
 
                 entity.HasIndex(e => new { e.IdИсполнения, e.IdКонструкции })
-                    .HasDatabaseName("IX_Список исполнений зависимости")
+                    .HasName("IX_Список исполнений зависимости")
                     .IsUnique();
 
                 entity.Property(e => e.IdИсполнения)
@@ -62294,7 +62294,7 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.ToTable("Список исполнений спецификация");
 
                 entity.HasIndex(e => e.IdСпецификации)
-                    .HasDatabaseName("IX_Список исполнений спецификация")
+                    .HasName("IX_Список исполнений спецификация")
                     .IsUnique();
 
                 entity.Property(e => e.IdИсполнения)
@@ -62331,7 +62331,7 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.ToTable("Список источников");
 
                 entity.HasIndex(e => e.IdИсточника)
-                    .HasDatabaseName("IX_Список источников")
+                    .HasName("IX_Список источников")
                     .IsUnique();
 
                 entity.Property(e => e.IdИсточника)
@@ -62348,7 +62348,7 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.ToTable("Список к продаже_дилер_нов тмп");
 
                 entity.HasIndex(e => new { e.IdСклада, e.IdТовара, e.Регион, e.Userid, e.НомерЗаказа })
-                    .HasDatabaseName("IX_Список к продаже_дилер_нов тмп")
+                    .HasName("IX_Список к продаже_дилер_нов тмп")
                     .IsUnique();
 
                 entity.Property(e => e.Expr1).HasColumnType("decimal(18, 2)");
@@ -62407,7 +62407,7 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.ToTable("Список кампаний");
 
                 entity.HasIndex(e => e.IdКампании)
-                    .HasDatabaseName("IX_Список кампаний")
+                    .HasName("IX_Список кампаний")
                     .IsUnique();
 
                 entity.Property(e => e.IdКампании)
@@ -62428,7 +62428,7 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.ToTable("Список каналов сбыта");
 
                 entity.HasIndex(e => e.IdКаналаСбыта)
-                    .HasDatabaseName("IX_Список каналов сбыта")
+                    .HasName("IX_Список каналов сбыта")
                     .IsUnique();
 
                 entity.Property(e => e.IdКаналаСбыта)
@@ -62451,7 +62451,7 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.ToTable("Список кат");
 
                 entity.HasIndex(e => e.IdКат)
-                    .HasDatabaseName("IX_Список кат")
+                    .HasName("IX_Список кат")
                     .IsUnique();
 
                 entity.Property(e => e.IdКат).HasColumnName("ID_кат");
@@ -62466,7 +62466,7 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.ToTable("Список категорий");
 
                 entity.HasIndex(e => e.Категория)
-                    .HasDatabaseName("IX_Список категорий")
+                    .HasName("IX_Список категорий")
                     .IsUnique();
 
                 entity.Property(e => e.Категория)
@@ -62481,7 +62481,7 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.ToTable("Список категорий дверей");
 
                 entity.HasIndex(e => e.IdКатегории)
-                    .HasDatabaseName("IX_Список категорий дверей")
+                    .HasName("IX_Список категорий дверей")
                     .IsUnique();
 
                 entity.Property(e => e.IdКатегории)
@@ -62503,7 +62503,7 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.ToTable("Список категорий дилеров");
 
                 entity.HasIndex(e => e.IdКатегории)
-                    .HasDatabaseName("IX_Список категорий дилеров")
+                    .HasName("IX_Список категорий дилеров")
                     .IsUnique();
 
                 entity.Property(e => e.IdКатегории)
@@ -62520,7 +62520,7 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.ToTable("Список категорий контактов");
 
                 entity.HasIndex(e => e.IdКатегории)
-                    .HasDatabaseName("IX_Список категорий контактов")
+                    .HasName("IX_Список категорий контактов")
                     .IsUnique();
 
                 entity.Property(e => e.IdКатегории)
@@ -62541,7 +62541,7 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.ToTable("Список категорий поставщиков");
 
                 entity.HasIndex(e => e.IdКатегории)
-                    .HasDatabaseName("IX_Список категорий поставщиков")
+                    .HasName("IX_Список категорий поставщиков")
                     .IsUnique();
 
                 entity.Property(e => e.IdКатегории)
@@ -62558,7 +62558,7 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.ToTable("Список категорий статистика");
 
                 entity.HasIndex(e => e.IdТовара)
-                    .HasDatabaseName("IX_Список категорий статистика")
+                    .HasName("IX_Список категорий статистика")
                     .IsUnique();
 
                 entity.Property(e => e.IdТовара).HasColumnName("ID товара");
@@ -62576,7 +62576,7 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.ToTable("Список категорий товаров");
 
                 entity.HasIndex(e => new { e.Код, e.КодТипа })
-                    .HasDatabaseName("IX_Список категорий товаров")
+                    .HasName("IX_Список категорий товаров")
                     .IsUnique();
 
                 entity.Property(e => e.КатегорияТовара)
@@ -62595,7 +62595,7 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.ToTable("Список классов взломостойкости");
 
                 entity.HasIndex(e => e.IdСертификата)
-                    .HasDatabaseName("IX_Список классов взломостойкости")
+                    .HasName("IX_Список классов взломостойкости")
                     .IsUnique();
 
                 entity.Property(e => e.IdСертификата)
@@ -62614,10 +62614,10 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.ToTable("Список классов дверей");
 
                 entity.HasIndex(e => e.IdКласса)
-                    .HasDatabaseName("IX_Список классов дверей_1");
+                    .HasName("IX_Список классов дверей_1");
 
                 entity.HasIndex(e => new { e.IdТипа, e.IdКатегории })
-                    .HasDatabaseName("IX_Список классов дверей")
+                    .HasName("IX_Список классов дверей")
                     .IsUnique();
 
                 entity.Property(e => e.IdКатегории)
@@ -62650,11 +62650,11 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.ToTable("Список клиентов");
 
                 entity.HasIndex(e => e.Id)
-                    .HasDatabaseName("IX_Список клиентов")
+                    .HasName("IX_Список клиентов")
                     .IsUnique();
 
                 entity.HasIndex(e => e.Наименование)
-                    .HasDatabaseName("IX_Список клиентов_1")
+                    .HasName("IX_Список клиентов_1")
                     .IsUnique();
 
                 entity.Property(e => e.Email).HasMaxLength(50);
@@ -62747,14 +62747,14 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.ToTable("Список клиентов поставки");
 
                 entity.HasIndex(e => e.Id)
-                    .HasDatabaseName("IX_Список клиентов поставки")
+                    .HasName("IX_Список клиентов поставки")
                     .IsUnique();
 
                 entity.HasIndex(e => e.КодВ1с)
-                    .HasDatabaseName("IX_Список клиентов поставки_2");
+                    .HasName("IX_Список клиентов поставки_2");
 
                 entity.HasIndex(e => e.Наименование)
-                    .HasDatabaseName("IX_Список клиентов поставки_1");
+                    .HasName("IX_Список клиентов поставки_1");
 
                 entity.Property(e => e.Ecbs)
                     .HasColumnName("ECBS")
@@ -62893,22 +62893,22 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.ToTable("Список клиентов регион");
 
                 entity.HasIndex(e => e.RecKl)
-                    .HasDatabaseName("IX_Список клиентов регион_4")
+                    .HasName("IX_Список клиентов регион_4")
                     .IsUnique();
 
                 entity.HasIndex(e => e.Клиент)
-                    .HasDatabaseName("IX_Список клиентов регион_2");
+                    .HasName("IX_Список клиентов регион_2");
 
                 entity.HasIndex(e => new { e.Id, e.Регион })
-                    .HasDatabaseName("IX_Список клиентов регион")
+                    .HasName("IX_Список клиентов регион")
                     .IsUnique()
                     .IsClustered();
 
                 entity.HasIndex(e => new { e.Idvo, e.Регион })
-                    .HasDatabaseName("IX_Список клиентов регион_3");
+                    .HasName("IX_Список клиентов регион_3");
 
                 entity.HasIndex(e => new { e.Наименование, e.Регион })
-                    .HasDatabaseName("IX_Список клиентов регион_1")
+                    .HasName("IX_Список клиентов регион_1")
                     .IsUnique();
 
                 entity.Property(e => e.Deleted).HasDefaultValueSql("((0))");
@@ -63079,7 +63079,7 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.ToTable("Список клиентов филиал тмп");
 
                 entity.HasIndex(e => e.Наименование)
-                    .HasDatabaseName("IX_Список клиентов филиал тмп")
+                    .HasName("IX_Список клиентов филиал тмп")
                     .IsUnique();
 
                 entity.Property(e => e.Inn)
@@ -63169,7 +63169,7 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.ToTable("Список Кодов БДР");
 
                 entity.HasIndex(e => e.IdКодаБдр)
-                    .HasDatabaseName("IX_Список Кодов БДР")
+                    .HasName("IX_Список Кодов БДР")
                     .IsUnique();
 
                 entity.Property(e => e.IdКодаБдр).HasColumnName("ID кода БДР");
@@ -63186,7 +63186,7 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.ToTable("Список кодов изготовителя");
 
                 entity.HasIndex(e => e.Код)
-                    .HasDatabaseName("IX_Список кодов изготовителя")
+                    .HasName("IX_Список кодов изготовителя")
                     .IsUnique();
 
                 entity.Property(e => e.Код).HasMaxLength(2);
@@ -63203,7 +63203,7 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.ToTable("Список кодов моделей");
 
                 entity.HasIndex(e => new { e.Код, e.КодТипа, e.КодИзготовителя, e.КодКатегории })
-                    .HasDatabaseName("IX_Список кодов моделей")
+                    .HasName("IX_Список кодов моделей")
                     .IsUnique();
 
                 entity.Property(e => e.Код).HasMaxLength(2);
@@ -63238,7 +63238,7 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.ToTable("Список кодов окраски");
 
                 entity.HasIndex(e => e.Код)
-                    .HasDatabaseName("IX_Список кодов окраски")
+                    .HasName("IX_Список кодов окраски")
                     .IsUnique();
 
                 entity.Property(e => e.IdКонструкции).HasColumnName("ID конструкции");
@@ -63287,11 +63287,11 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.ToTable("Список кодов ТНВД");
 
                 entity.HasIndex(e => e.RecId)
-                    .HasDatabaseName("IX_Список кодов ТНВД_1")
+                    .HasName("IX_Список кодов ТНВД_1")
                     .IsUnique();
 
                 entity.HasIndex(e => e.КодыТнвд)
-                    .HasDatabaseName("IX_Список кодов ТНВД");
+                    .HasName("IX_Список кодов ТНВД");
 
                 entity.Property(e => e.RecId)
                     .HasColumnName("RecID")
@@ -63313,11 +63313,11 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.ToTable("Список конструкций");
 
                 entity.HasIndex(e => e.IdКонструкции)
-                    .HasDatabaseName("IX_Список конструкций")
+                    .HasName("IX_Список конструкций")
                     .IsUnique();
 
                 entity.HasIndex(e => e.Конструкция)
-                    .HasDatabaseName("IX_Список конструкций_1")
+                    .HasName("IX_Список конструкций_1")
                     .IsUnique();
 
                 entity.Property(e => e.IdЗамка)
@@ -63400,11 +63400,11 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.ToTable("Список конструкций новый");
 
                 entity.HasIndex(e => e.IdКонструкции)
-                    .HasDatabaseName("IX_Список конструкций новый")
+                    .HasName("IX_Список конструкций новый")
                     .IsUnique();
 
                 entity.HasIndex(e => e.Конструкция)
-                    .HasDatabaseName("IX_Список конструкций новый_1")
+                    .HasName("IX_Список конструкций новый_1")
                     .IsUnique();
 
                 entity.Property(e => e.IdЗамка)
@@ -63489,7 +63489,7 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.ToTable("Список контактов");
 
                 entity.HasIndex(e => e.КодКонтакта)
-                    .HasDatabaseName("IX_Список контактов")
+                    .HasName("IX_Список контактов")
                     .IsUnique();
 
                 entity.Property(e => e.Ext1).HasMaxLength(20);
@@ -63542,7 +63542,7 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.ToTable("Список контактов поставщиков");
 
                 entity.HasIndex(e => e.КодКонтакта)
-                    .HasDatabaseName("IX_Список контактов поставщиков")
+                    .HasName("IX_Список контактов поставщиков")
                     .IsUnique();
 
                 entity.Property(e => e.Email).HasMaxLength(50);
@@ -63591,7 +63591,7 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.ToTable("Список контактов регион");
 
                 entity.HasIndex(e => e.RecordId)
-                    .HasDatabaseName("IX_Список контактов регион_1")
+                    .HasName("IX_Список контактов регион_1")
                     .IsUnique();
 
                 entity.Property(e => e.Ext1).HasMaxLength(20);
@@ -63666,7 +63666,7 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.ToTable("Список коробок");
 
                 entity.HasIndex(e => e.IdКоробки)
-                    .HasDatabaseName("IX_Список коробок")
+                    .HasName("IX_Список коробок")
                     .IsUnique();
 
                 entity.Property(e => e.IdКоробки)
@@ -63688,7 +63688,7 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.ToTable("Список кредитов");
 
                 entity.HasIndex(e => e.IdКредита)
-                    .HasDatabaseName("IX_Список кредитов")
+                    .HasName("IX_Список кредитов")
                     .IsUnique();
 
                 entity.Property(e => e.IdДилера).HasColumnName("ID дилера");
@@ -63717,14 +63717,14 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.ToTable("Список кредитов регион");
 
                 entity.HasIndex(e => e.IdДилера)
-                    .HasDatabaseName("IX_Список кредитов регион_1");
+                    .HasName("IX_Список кредитов регион_1");
 
                 entity.HasIndex(e => e.IdКредита)
-                    .HasDatabaseName("IX_Список кредитов регион")
+                    .HasName("IX_Список кредитов регион")
                     .IsUnique();
 
                 entity.HasIndex(e => e.Регион)
-                    .HasDatabaseName("IX_Список кредитов регион_2");
+                    .HasName("IX_Список кредитов регион_2");
 
                 entity.Property(e => e.IdДилера).HasColumnName("ID дилера");
 
@@ -63752,7 +63752,7 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.ToTable("Список критериев");
 
                 entity.HasIndex(e => e.IdКритерия)
-                    .HasDatabaseName("IX_Список критериев")
+                    .HasName("IX_Список критериев")
                     .IsUnique();
 
                 entity.Property(e => e.IdКритерия)
@@ -63781,7 +63781,7 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.ToTable("Список лояльностей");
 
                 entity.HasIndex(e => e.IdЛояльности)
-                    .HasDatabaseName("IX_Список лояльностей")
+                    .HasName("IX_Список лояльностей")
                     .IsUnique();
 
                 entity.Property(e => e.IdЛояльности).HasColumnName("ID лояльности");
@@ -63796,7 +63796,7 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.ToTable("Список машин");
 
                 entity.HasIndex(e => e.IdМашины)
-                    .HasDatabaseName("IX_Список машин")
+                    .HasName("IX_Список машин")
                     .IsUnique();
 
                 entity.Property(e => e.IdМашины)
@@ -63815,7 +63815,7 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.ToTable("Список месяцов");
 
                 entity.HasIndex(e => e.Номер)
-                    .HasDatabaseName("IX_Список месяцов")
+                    .HasName("IX_Список месяцов")
                     .IsUnique();
 
                 entity.Property(e => e.Месяц).HasMaxLength(50);
@@ -63843,7 +63843,7 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.ToTable("Список методов перевозки");
 
                 entity.HasIndex(e => e.IdMetodOfTransport)
-                    .HasDatabaseName("IX_Список методов перевозки")
+                    .HasName("IX_Список методов перевозки")
                     .IsUnique();
 
                 entity.Property(e => e.IdMetodOfTransport)
@@ -63864,7 +63864,7 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.ToTable("Список моделей");
 
                 entity.HasIndex(e => new { e.IdМодели, e.IdГруппа, e.IdПодгруппы })
-                    .HasDatabaseName("IX_Список моделей")
+                    .HasName("IX_Список моделей")
                     .IsUnique();
 
                 entity.Property(e => e.IdГруппа).HasColumnName("ID группа");
@@ -63956,7 +63956,7 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.ToTable("Список наличия антипаники");
 
                 entity.HasIndex(e => e.IdНаличия)
-                    .HasDatabaseName("IX_Список наличия антипаники")
+                    .HasName("IX_Список наличия антипаники")
                     .IsUnique();
 
                 entity.Property(e => e.IdНаличия)
@@ -63979,7 +63979,7 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.ToTable("Список наличия пластины");
 
                 entity.HasIndex(e => e.IdНаличия)
-                    .HasDatabaseName("IX_Список наличия пластины")
+                    .HasName("IX_Список наличия пластины")
                     .IsUnique();
 
                 entity.Property(e => e.IdНаличия)
@@ -64002,11 +64002,11 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.ToTable("Список наполнителей");
 
                 entity.HasIndex(e => e.IdНаполнителя)
-                    .HasDatabaseName("IX_Список наполнителей")
+                    .HasName("IX_Список наполнителей")
                     .IsUnique();
 
                 entity.HasIndex(e => e.Наполнитель)
-                    .HasDatabaseName("IX_Список наполнителей_1")
+                    .HasName("IX_Список наполнителей_1")
                     .IsUnique();
 
                 entity.Property(e => e.IdНаполнителя)
@@ -64023,7 +64023,7 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.ToTable("Список новых групп");
 
                 entity.HasIndex(e => e.IdГруппы)
-                    .HasDatabaseName("IX_Список новых групп")
+                    .HasName("IX_Список новых групп")
                     .IsUnique();
 
                 entity.Property(e => e.IdГруппы).HasColumnName("ID группы");
@@ -64036,7 +64036,7 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.ToTable("Список новых групп для контроля");
 
                 entity.HasIndex(e => e.IdГруппы)
-                    .HasDatabaseName("IX_Список новых групп для контроля")
+                    .HasName("IX_Список новых групп для контроля")
                     .IsUnique();
 
                 entity.Property(e => e.IdГруппы).HasColumnName("ID группы");
@@ -64049,7 +64049,7 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.ToTable("Список новых моделей");
 
                 entity.HasIndex(e => e.IdТовара)
-                    .HasDatabaseName("IX_Список новых моделей")
+                    .HasName("IX_Список новых моделей")
                     .IsUnique();
 
                 entity.Property(e => e.IdТовара).HasColumnName("ID товара");
@@ -64066,7 +64066,7 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.ToTable("Список новых подгрупп");
 
                 entity.HasIndex(e => e.IdПодгруппы)
-                    .HasDatabaseName("IX_Список новых подгрупп")
+                    .HasName("IX_Список новых подгрупп")
                     .IsUnique();
 
                 entity.Property(e => e.IdПодгруппы).HasColumnName("ID подгруппы");
@@ -64079,7 +64079,7 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.ToTable("Список новых подгрупп для контроля");
 
                 entity.HasIndex(e => e.IdПодгруппы)
-                    .HasDatabaseName("IX_Список новых подгрупп для контроля")
+                    .HasName("IX_Список новых подгрупп для контроля")
                     .IsUnique();
 
                 entity.Property(e => e.IdПодгруппы).HasColumnName("ID подгруппы");
@@ -64092,7 +64092,7 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.ToTable("Список номеров модификаций");
 
                 entity.HasIndex(e => new { e.Номер, e.КодТипа, e.КодКатегории, e.КодИзготовителя, e.КодМодели })
-                    .HasDatabaseName("IX_Список номеров модификаций")
+                    .HasName("IX_Список номеров модификаций")
                     .IsUnique();
 
                 entity.Property(e => e.КодИзготовителя)
@@ -64127,7 +64127,7 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.ToTable("Список номеров сертификатов");
 
                 entity.HasIndex(e => e.IdНомера)
-                    .HasDatabaseName("IX_Список номеров сертификатов")
+                    .HasName("IX_Список номеров сертификатов")
                     .IsUnique();
 
                 entity.Property(e => e.IdНомера)
@@ -64156,7 +64156,7 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.ToTable("Список обоснований блокировки");
 
                 entity.HasIndex(e => e.IdПлатежа)
-                    .HasDatabaseName("IX_Список обоснований блокировки")
+                    .HasName("IX_Список обоснований блокировки")
                     .IsUnique();
 
                 entity.Property(e => e.IdПлатежа)
@@ -64173,7 +64173,7 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.ToTable("Список обсуждений");
 
                 entity.HasIndex(e => e.IdОбсуждения)
-                    .HasDatabaseName("IX_Список обсудений")
+                    .HasName("IX_Список обсудений")
                     .IsUnique();
 
                 entity.Property(e => e.IdОбсуждения)
@@ -64202,11 +64202,11 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.ToTable("Список общих статей");
 
                 entity.HasIndex(e => e.IdСтатьи)
-                    .HasDatabaseName("IX_Список общих статей")
+                    .HasName("IX_Список общих статей")
                     .IsUnique();
 
                 entity.HasIndex(e => e.IdСубсчета)
-                    .HasDatabaseName("IX_Список общих статей_1");
+                    .HasName("IX_Список общих статей_1");
 
                 entity.Property(e => e.IdПодразделения).HasColumnName("ID подразделения");
 
@@ -64232,11 +64232,11 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.ToTable("Список объединенных групп");
 
                 entity.HasIndex(e => e.IdGroupOfGoods)
-                    .HasDatabaseName("IX_Список объединенных групп")
+                    .HasName("IX_Список объединенных групп")
                     .IsUnique();
 
                 entity.HasIndex(e => e.Сортировка)
-                    .HasDatabaseName("IX_Список объединенных групп_1");
+                    .HasName("IX_Список объединенных групп_1");
 
                 entity.Property(e => e.IdGroupOfGoods).HasColumnName("ID GroupOfGoods");
 
@@ -64252,7 +64252,7 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.ToTable("Список окраски зависимости");
 
                 entity.HasIndex(e => new { e.IdОкраски, e.IdКонструкции })
-                    .HasDatabaseName("IX_Список окраски зависимости")
+                    .HasName("IX_Список окраски зависимости")
                     .IsUnique();
 
                 entity.Property(e => e.IdКонструкции)
@@ -64285,7 +64285,7 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.ToTable("Список операций");
 
                 entity.HasIndex(e => e.IdОперации)
-                    .HasDatabaseName("IX_Список операций")
+                    .HasName("IX_Список операций")
                     .IsUnique();
 
                 entity.Property(e => e.IdОперации).HasColumnName("ID операции");
@@ -64300,7 +64300,7 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.ToTable("Список операций по приходу");
 
                 entity.HasIndex(e => e.Idоперации)
-                    .HasDatabaseName("IX_Список операций по приходу")
+                    .HasName("IX_Список операций по приходу")
                     .IsUnique();
 
                 entity.Property(e => e.Idоперации)
@@ -64317,7 +64317,7 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.ToTable("Список оснований для списания со склада");
 
                 entity.HasIndex(e => e.Idоснования)
-                    .HasDatabaseName("IX_Список оснований для списания со склада")
+                    .HasName("IX_Список оснований для списания со склада")
                     .IsUnique();
 
                 entity.Property(e => e.Idоснования)
@@ -64349,7 +64349,7 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.ToTable("Список отделов");
 
                 entity.HasIndex(e => e.IdОтдела)
-                    .HasDatabaseName("IX_Список отделов")
+                    .HasName("IX_Список отделов")
                     .IsUnique();
 
                 entity.Property(e => e.IdОтдела)
@@ -64368,7 +64368,7 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.ToTable("Список открываний");
 
                 entity.HasIndex(e => e.IdОткрывания)
-                    .HasDatabaseName("IX_Список открываний")
+                    .HasName("IX_Список открываний")
                     .IsUnique();
 
                 entity.Property(e => e.IdОткрывания)
@@ -64390,7 +64390,7 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.ToTable("Список панелей");
 
                 entity.HasIndex(e => e.IdПанели)
-                    .HasDatabaseName("IX_Список панелей")
+                    .HasName("IX_Список панелей")
                     .IsUnique();
 
                 entity.Property(e => e.IdПанели)
@@ -64412,11 +64412,11 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.ToTable("Список панелей внутренних");
 
                 entity.HasIndex(e => e.Артикул)
-                    .HasDatabaseName("IX_Список панелей внутренних_1")
+                    .HasName("IX_Список панелей внутренних_1")
                     .IsUnique();
 
                 entity.HasIndex(e => new { e.IdПанели, e.IdТипа, e.IdКонструкции })
-                    .HasDatabaseName("IX_Список панелей внутренних")
+                    .HasName("IX_Список панелей внутренних")
                     .IsUnique();
 
                 entity.Property(e => e.IdКонструкции)
@@ -64461,7 +64461,7 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.ToTable("Список панелей внутренних зависимости");
 
                 entity.HasIndex(e => new { e.IdКонструкции, e.IdПанелиТип })
-                    .HasDatabaseName("IX_Список панелей внутренних зависимости")
+                    .HasName("IX_Список панелей внутренних зависимости")
                     .IsUnique();
 
                 entity.Property(e => e.IdКонструкции)
@@ -64484,11 +64484,11 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.ToTable("Список панелей новый");
 
                 entity.HasIndex(e => e.Артикул)
-                    .HasDatabaseName("IX_Список панелей новый_2")
+                    .HasName("IX_Список панелей новый_2")
                     .IsUnique();
 
                 entity.HasIndex(e => new { e.IdПанели, e.IdТипа, e.IdКонструкции })
-                    .HasDatabaseName("IX_Список панелей новый_1")
+                    .HasName("IX_Список панелей новый_1")
                     .IsUnique();
 
                 entity.Property(e => e.IdКонструкции)
@@ -64533,7 +64533,7 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.ToTable("Список панелей новый зависимости");
 
                 entity.HasIndex(e => new { e.IdКонструкции, e.IdПанелиТип })
-                    .HasDatabaseName("IX_Список панелей новый зависимости")
+                    .HasName("IX_Список панелей новый зависимости")
                     .IsUnique();
 
                 entity.Property(e => e.IdКонструкции)
@@ -64592,7 +64592,7 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.ToTable("Список перевозчиков");
 
                 entity.HasIndex(e => e.IdПеревозчика)
-                    .HasDatabaseName("IX_Список перевозчиков")
+                    .HasName("IX_Список перевозчиков")
                     .IsUnique();
 
                 entity.Property(e => e.IdПеревозчика)
@@ -64625,7 +64625,7 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.ToTable("Список петель");
 
                 entity.HasIndex(e => e.IdПетли)
-                    .HasDatabaseName("IX_Список петель")
+                    .HasName("IX_Список петель")
                     .IsUnique();
 
                 entity.Property(e => e.IdПетли)
@@ -64649,7 +64649,7 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.ToTable("Список платежей по счетам");
 
                 entity.HasIndex(e => e.IdПлатежа)
-                    .HasDatabaseName("IX_Список платежей по счетам")
+                    .HasName("IX_Список платежей по счетам")
                     .IsUnique();
 
                 entity.Property(e => e.IdПлатежа)
@@ -64666,7 +64666,7 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.ToTable("Список площадок");
 
                 entity.HasIndex(e => e.IdПлощади)
-                    .HasDatabaseName("IX_Список площадок")
+                    .HasName("IX_Список площадок")
                     .IsUnique();
 
                 entity.Property(e => e.IdПлощади).HasColumnName("ID площади");
@@ -64681,7 +64681,7 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.ToTable("Список по оценке");
 
                 entity.HasIndex(e => e.IdБалла)
-                    .HasDatabaseName("IX_Список по оценке")
+                    .HasName("IX_Список по оценке")
                     .IsUnique();
 
                 entity.Property(e => e.IdБалла)
@@ -64700,7 +64700,7 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.ToTable("Список по оценке КД");
 
                 entity.HasIndex(e => e.IdБалла)
-                    .HasDatabaseName("IX_Список по оценке КД")
+                    .HasName("IX_Список по оценке КД")
                     .IsUnique();
 
                 entity.Property(e => e.IdБалла).HasColumnName("ID балла");
@@ -64717,10 +64717,10 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.ToTable("Список подгрупп");
 
                 entity.HasIndex(e => e.IdГруппы)
-                    .HasDatabaseName("IX_Список подгрупп_1");
+                    .HasName("IX_Список подгрупп_1");
 
                 entity.HasIndex(e => new { e.Категория, e.IdПодгруппы })
-                    .HasDatabaseName("IX_Список подгрупп")
+                    .HasName("IX_Список подгрупп")
                     .IsUnique();
 
                 entity.Property(e => e.IdГруппы)
@@ -64774,7 +64774,7 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.ToTable("Список подгрупп_реагирование_филиала");
 
                 entity.HasIndex(e => new { e.Регион, e.IdПодгруппы })
-                    .HasDatabaseName("IX_Список подгрупп_реагирование_филиала")
+                    .HasName("IX_Список подгрупп_реагирование_филиала")
                     .IsUnique();
 
                 entity.Property(e => e.IdПодгруппы).HasColumnName("ID подгруппы");
@@ -64795,7 +64795,7 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.ToTable("Список поддефектов");
 
                 entity.HasIndex(e => e.IdПодкодДефекта)
-                    .HasDatabaseName("IX_Список поддефектов")
+                    .HasName("IX_Список поддефектов")
                     .IsUnique();
 
                 entity.Property(e => e.IdГруппы)
@@ -64824,7 +64824,7 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.ToTable("Список подразделений реестра");
 
                 entity.HasIndex(e => e.IdПодразделения)
-                    .HasDatabaseName("IX_Список подразделений реестра")
+                    .HasName("IX_Список подразделений реестра")
                     .IsUnique();
 
                 entity.Property(e => e.IdПодразделения)
@@ -64841,7 +64841,7 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.ToTable("Список покупателей");
 
                 entity.HasIndex(e => e.IdПокупателя)
-                    .HasDatabaseName("IX_Список покупателей")
+                    .HasName("IX_Список покупателей")
                     .IsUnique();
 
                 entity.Property(e => e.IdПокупателя)
@@ -64858,7 +64858,7 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.ToTable("Список полотен");
 
                 entity.HasIndex(e => e.IdПолотна)
-                    .HasDatabaseName("IX_Список полотен")
+                    .HasName("IX_Список полотен")
                     .IsUnique();
 
                 entity.Property(e => e.IdПолотна)
@@ -64880,7 +64880,7 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.ToTable("Список полотен высота");
 
                 entity.HasIndex(e => e.IdПолотна)
-                    .HasDatabaseName("IX_Список полотен высота")
+                    .HasName("IX_Список полотен высота")
                     .IsUnique();
 
                 entity.Property(e => e.IdПолотна)
@@ -64902,7 +64902,7 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.ToTable("Список полотен ширина");
 
                 entity.HasIndex(e => e.IdПолотна)
-                    .HasDatabaseName("IX_Список полотен ширина")
+                    .HasName("IX_Список полотен ширина")
                     .IsUnique();
 
                 entity.Property(e => e.IdПолотна)
@@ -64924,7 +64924,7 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.ToTable("Список пользователей");
 
                 entity.HasIndex(e => e.IdСотрудника)
-                    .HasDatabaseName("IX_Список пользователей")
+                    .HasName("IX_Список пользователей")
                     .IsUnique();
 
                 entity.Property(e => e.IdСотрудника).HasColumnName("ID сотрудника");
@@ -64947,11 +64947,11 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.ToTable("Список поражений в тендере");
 
                 entity.HasIndex(e => e.IdПричины)
-                    .HasDatabaseName("IX_Список поражений в тендере")
+                    .HasName("IX_Список поражений в тендере")
                     .IsUnique();
 
                 entity.HasIndex(e => e.Причина)
-                    .HasDatabaseName("IX_Список поражений в тендере_1")
+                    .HasName("IX_Список поражений в тендере_1")
                     .IsUnique();
 
                 entity.Property(e => e.IdПричины).HasColumnName("ID причины");
@@ -64970,7 +64970,7 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.ToTable("Список поставщиков");
 
                 entity.HasIndex(e => e.IdПоставщика)
-                    .HasDatabaseName("IX_Список поставщиков")
+                    .HasName("IX_Список поставщиков")
                     .IsUnique();
 
                 entity.Property(e => e.IdВалюты)
@@ -65083,7 +65083,7 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.ToTable("Список поставщиков промет");
 
                 entity.HasIndex(e => e.Idпоставщика)
-                    .HasDatabaseName("IX_Список поставщиков промет")
+                    .HasName("IX_Список поставщиков промет")
                     .IsUnique();
 
                 entity.Property(e => e.Bux)
@@ -65124,7 +65124,7 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.ToTable("Список поставщиков реестра");
 
                 entity.HasIndex(e => e.IdПоставщика)
-                    .HasDatabaseName("IX_Список поставщиков реестра")
+                    .HasName("IX_Список поставщиков реестра")
                     .IsUnique();
 
                 entity.Property(e => e.IdПоставщика)
@@ -65151,7 +65151,7 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.ToTable("Список потребителей");
 
                 entity.HasIndex(e => e.IdПотребителя)
-                    .HasDatabaseName("IX_Список потребителей")
+                    .HasName("IX_Список потребителей")
                     .IsUnique();
 
                 entity.Property(e => e.IdПотребителя)
@@ -65168,7 +65168,7 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.ToTable("Список предметов заказов");
 
                 entity.HasIndex(e => e.IdПредмета)
-                    .HasDatabaseName("IX_Список предметов заказов")
+                    .HasName("IX_Список предметов заказов")
                     .IsUnique();
 
                 entity.Property(e => e.IdПредмета)
@@ -65185,7 +65185,7 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.ToTable("Список претензий");
 
                 entity.HasIndex(e => e.IdПретензии)
-                    .HasDatabaseName("IX_Список претензий")
+                    .HasName("IX_Список претензий")
                     .IsUnique();
 
                 entity.Property(e => e.IdПретензии)
@@ -65202,7 +65202,7 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.ToTable("Список причин");
 
                 entity.HasIndex(e => new { e.IdПричины, e.Причина })
-                    .HasDatabaseName("IX_Список причин")
+                    .HasName("IX_Список причин")
                     .IsUnique();
 
                 entity.Property(e => e.IdПричины)
@@ -65222,7 +65222,7 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.ToTable("Список причин допскидок");
 
                 entity.HasIndex(e => e.IdПричины)
-                    .HasDatabaseName("IX_Список причин допскидок")
+                    .HasName("IX_Список причин допскидок")
                     .IsUnique();
 
                 entity.Property(e => e.IdПричины).HasColumnName("ID причины");
@@ -65240,11 +65240,11 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.ToTable("Список причин отказа от тендера");
 
                 entity.HasIndex(e => e.IdПричины)
-                    .HasDatabaseName("IX_Список причин отказа от тендера")
+                    .HasName("IX_Список причин отказа от тендера")
                     .IsUnique();
 
                 entity.HasIndex(e => e.Причина)
-                    .HasDatabaseName("IX_Список причин отказа от тендера_1")
+                    .HasName("IX_Список причин отказа от тендера_1")
                     .IsUnique();
 
                 entity.Property(e => e.IdПричины).HasColumnName("ID причины");
@@ -65263,7 +65263,7 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.ToTable("Список причин тмп");
 
                 entity.HasIndex(e => new { e.IdПричины, e.Причина })
-                    .HasDatabaseName("IX_Список причин тмп")
+                    .HasName("IX_Список причин тмп")
                     .IsUnique();
 
                 entity.Property(e => e.IdПричины).HasColumnName("ID причины");
@@ -65282,7 +65282,7 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.ToTable("СписокПродажаРегион_тмп");
 
                 entity.HasIndex(e => new { e.IdСклада, e.IdТовара, e.UserId })
-                    .HasDatabaseName("IX_СписокПродажаРегион_тмп")
+                    .HasName("IX_СписокПродажаРегион_тмп")
                     .IsUnique();
 
                 entity.Property(e => e.Expr1).HasColumnType("decimal(18, 3)");
@@ -65335,7 +65335,7 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.ToTable("Список проектов");
 
                 entity.HasIndex(e => e.IdПроекта)
-                    .HasDatabaseName("IX_Список проектов")
+                    .HasName("IX_Список проектов")
                     .IsUnique();
 
                 entity.Property(e => e.Deleted).HasDefaultValueSql("((0))");
@@ -65375,7 +65375,7 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.ToTable("Список производств");
 
                 entity.HasIndex(e => e.IdПроизводства)
-                    .HasDatabaseName("IX_Список производств")
+                    .HasName("IX_Список производств")
                     .IsUnique();
 
                 entity.Property(e => e.IdПроизводства).HasColumnName("ID производства");
@@ -65392,7 +65392,7 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.ToTable("Список производственных участков");
 
                 entity.HasIndex(e => new { e.IdУчастка, e.Завод })
-                    .HasDatabaseName("IX_Список производственных участков")
+                    .HasName("IX_Список производственных участков")
                     .IsUnique();
 
                 entity.Property(e => e.IdУчастка).HasColumnName("ID участка");
@@ -65413,7 +65413,7 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.ToTable("Список пунктов погрузки");
 
                 entity.HasIndex(e => e.IdПункта)
-                    .HasDatabaseName("IX_Список пунктов погрузки")
+                    .HasName("IX_Список пунктов погрузки")
                     .IsUnique();
 
                 entity.Property(e => e.IdПункта)
@@ -65433,7 +65433,7 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.ToTable("Список размеров створок");
 
                 entity.HasIndex(e => e.IdРазмера)
-                    .HasDatabaseName("IX_Список размеров створок")
+                    .HasName("IX_Список размеров створок")
                     .IsUnique();
 
                 entity.Property(e => e.IdРазмера)
@@ -65456,7 +65456,7 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.ToTable("Список размеров створок зависимости");
 
                 entity.HasIndex(e => new { e.IdСтворки, e.IdКонструкции })
-                    .HasDatabaseName("IX_Список размеров створок зависимости")
+                    .HasName("IX_Список размеров створок зависимости")
                     .IsUnique();
 
                 entity.Property(e => e.IdКонструкции)
@@ -65474,7 +65474,7 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.ToTable("Список разрешений");
 
                 entity.HasIndex(e => e.IdРазрешения)
-                    .HasDatabaseName("IX_Список разрешений")
+                    .HasName("IX_Список разрешений")
                     .IsUnique();
 
                 entity.Property(e => e.IdДилера).HasColumnName("ID дилера");
@@ -65499,7 +65499,7 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.ToTable("Список разрешений регион");
 
                 entity.HasIndex(e => e.IdРазрешения)
-                    .HasDatabaseName("IX_Список разрешений регион")
+                    .HasName("IX_Список разрешений регион")
                     .IsUnique();
 
                 entity.Property(e => e.IdДилера).HasColumnName("ID дилера");
@@ -65610,7 +65610,7 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.ToTable("Список регионов");
 
                 entity.HasIndex(e => e.IdРегиона)
-                    .HasDatabaseName("IX_Список регионов")
+                    .HasName("IX_Список регионов")
                     .IsUnique();
 
                 entity.Property(e => e.IdРегиона)
@@ -65627,7 +65627,7 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.ToTable("Список рейтингов");
 
                 entity.HasIndex(e => e.Код)
-                    .HasDatabaseName("IX_Список рейтингов")
+                    .HasName("IX_Список рейтингов")
                     .IsUnique();
 
                 entity.Property(e => e.Код).ValueGeneratedOnAdd();
@@ -65749,7 +65749,7 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.ToTable("Список решений");
 
                 entity.HasIndex(e => e.IdРешения)
-                    .HasDatabaseName("IX_Список решений")
+                    .HasName("IX_Список решений")
                     .IsUnique();
 
                 entity.Property(e => e.IdРешения)
@@ -65768,7 +65768,7 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.ToTable("Список рисунков");
 
                 entity.HasIndex(e => e.IdРисунка)
-                    .HasDatabaseName("IX_Список рисунков")
+                    .HasName("IX_Список рисунков")
                     .IsUnique();
 
                 entity.Property(e => e.IdРисунка)
@@ -65790,7 +65790,7 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.ToTable("Список сервисов");
 
                 entity.HasIndex(e => e.Id)
-                    .HasDatabaseName("IX_Список сервисов")
+                    .HasName("IX_Список сервисов")
                     .IsUnique();
 
                 entity.Property(e => e.Id)
@@ -65811,7 +65811,7 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.ToTable("Список сертификатов");
 
                 entity.HasIndex(e => e.IdСертификата)
-                    .HasDatabaseName("IX_Список сертификатов")
+                    .HasName("IX_Список сертификатов")
                     .IsUnique();
 
                 entity.Property(e => e.IdСертификата)
@@ -65830,7 +65830,7 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.ToTable("Список скидок для товаров");
 
                 entity.HasIndex(e => new { e.IdДилера, e.IdgroupOfGoods })
-                    .HasDatabaseName("IX_Список скидок для товаров")
+                    .HasName("IX_Список скидок для товаров")
                     .IsUnique();
 
                 entity.Property(e => e.IdgroupOfGoods)
@@ -65853,7 +65853,7 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.ToTable("Список складов");
 
                 entity.HasIndex(e => e.IdСклада)
-                    .HasDatabaseName("IX_Список складов")
+                    .HasName("IX_Список складов")
                     .IsUnique()
                     .IsClustered();
 
@@ -65964,7 +65964,7 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.ToTable("Список складов поставки");
 
                 entity.HasIndex(e => e.IdСклада)
-                    .HasDatabaseName("IX_Список складов поставки")
+                    .HasName("IX_Список складов поставки")
                     .IsUnique();
 
                 entity.Property(e => e.IdСклада)
@@ -65981,7 +65981,7 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.ToTable("Список складов поставки змк");
 
                 entity.HasIndex(e => e.IdСклада)
-                    .HasDatabaseName("IX_Список складов поставки змк")
+                    .HasName("IX_Список складов поставки змк")
                     .IsUnique();
 
                 entity.Property(e => e.IdСклада).HasColumnName("ID склада");
@@ -66050,13 +66050,13 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.ToTable("Список складов регион");
 
                 entity.HasIndex(e => e.IdСклада)
-                    .HasDatabaseName("IX_Список складов регион_2");
+                    .HasName("IX_Список складов регион_2");
 
                 entity.HasIndex(e => e.Наименование)
-                    .HasDatabaseName("IX_Список складов регион_1");
+                    .HasName("IX_Список складов регион_1");
 
                 entity.HasIndex(e => new { e.IdСклада, e.Регион })
-                    .HasDatabaseName("IX_Список складов регион")
+                    .HasName("IX_Список складов регион")
                     .IsUnique()
                     .IsClustered();
 
@@ -66100,7 +66100,7 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.ToTable("Список сотрудников");
 
                 entity.HasIndex(e => e.IdСотрудника)
-                    .HasDatabaseName("IX_Список сотрудников")
+                    .HasName("IX_Список сотрудников")
                     .IsUnique();
 
                 entity.Property(e => e.IdСотрудника)
@@ -66117,7 +66117,7 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.ToTable("Список стадий");
 
                 entity.HasIndex(e => e.IdСтадии)
-                    .HasDatabaseName("IX_Список стадий")
+                    .HasName("IX_Список стадий")
                     .IsUnique();
 
                 entity.Property(e => e.IdСтадии)
@@ -66136,7 +66136,7 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.ToTable("Список стандартов");
 
                 entity.HasIndex(e => e.IdСтандарта)
-                    .HasDatabaseName("IX_Список стандартов")
+                    .HasName("IX_Список стандартов")
                     .IsUnique();
 
                 entity.Property(e => e.IdСтандарта)
@@ -66155,7 +66155,7 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.ToTable("Список статей для cash flow");
 
                 entity.HasIndex(e => e.IdСтатьиСписка)
-                    .HasDatabaseName("IX_Список статей для cash flow")
+                    .HasName("IX_Список статей для cash flow")
                     .IsUnique();
 
                 entity.Property(e => e.IdСтатьиСписка)
@@ -66176,7 +66176,7 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.ToTable("Список статей для филиалов");
 
                 entity.HasIndex(e => e.IdСтатьи)
-                    .HasDatabaseName("IX_Список статей для филиалов")
+                    .HasName("IX_Список статей для филиалов")
                     .IsUnique();
 
                 entity.Property(e => e.IdСтатьи).HasColumnName("ID статьи");
@@ -66189,7 +66189,7 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.ToTable("Список статей затрат");
 
                 entity.HasIndex(e => e.IdСтатьиЗатрат)
-                    .HasDatabaseName("IX_Список статей затрат")
+                    .HasName("IX_Список статей затрат")
                     .IsUnique();
 
                 entity.Property(e => e.IdСтатьиЗатрат).HasColumnName("ID статьи затрат");
@@ -66208,7 +66208,7 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.ToTable("Список статей прихода");
 
                 entity.HasIndex(e => e.IdСтатьи)
-                    .HasDatabaseName("IX_Список статей прихода")
+                    .HasName("IX_Список статей прихода")
                     .IsUnique();
 
                 entity.Property(e => e.IdСтатьи)
@@ -66227,7 +66227,7 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.ToTable("Список статей расхода");
 
                 entity.HasIndex(e => e.IdСтатьи)
-                    .HasDatabaseName("IX_Список статей расхода")
+                    .HasName("IX_Список статей расхода")
                     .IsUnique();
 
                 entity.Property(e => e.IdСтатьи).HasColumnName("ID статьи");
@@ -66257,7 +66257,7 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.ToTable("Список статусов");
 
                 entity.HasIndex(e => e.IdСтатуса)
-                    .HasDatabaseName("IX_Список статусов")
+                    .HasName("IX_Список статусов")
                     .IsUnique();
 
                 entity.Property(e => e.IdСтатуса)
@@ -66274,7 +66274,7 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.ToTable("Список статусов бюджетности");
 
                 entity.HasIndex(e => e.IdСтатусаБюджетности)
-                    .HasDatabaseName("IX_Список статусов бюджетности")
+                    .HasName("IX_Список статусов бюджетности")
                     .IsUnique();
 
                 entity.Property(e => e.IdСтатусаБюджетности)
@@ -66291,7 +66291,7 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.ToTable("Список статусов счетов");
 
                 entity.HasIndex(e => e.IdСтатусаСчета)
-                    .HasDatabaseName("IX_Список статусов счетов")
+                    .HasName("IX_Список статусов счетов")
                     .IsUnique();
 
                 entity.Property(e => e.IdСтатусаСчета)
@@ -66308,7 +66308,7 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.ToTable("Список стекол");
 
                 entity.HasIndex(e => e.IdСтекла)
-                    .HasDatabaseName("IX_Список стекол")
+                    .HasName("IX_Список стекол")
                     .IsUnique();
 
                 entity.Property(e => e.IdСтекла)
@@ -66331,7 +66331,7 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.ToTable("Список стекол зависимости");
 
                 entity.HasIndex(e => new { e.IdСтекла, e.IdКонструкции })
-                    .HasDatabaseName("IX_Список стекол зависимости")
+                    .HasName("IX_Список стекол зависимости")
                     .IsUnique();
 
                 entity.Property(e => e.IdКонструкции)
@@ -66349,7 +66349,7 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.ToTable("Список стран");
 
                 entity.HasIndex(e => e.IdСтраны)
-                    .HasDatabaseName("IX_Список стран")
+                    .HasName("IX_Список стран")
                     .IsUnique();
 
                 entity.Property(e => e.IdСтраны)
@@ -66379,7 +66379,7 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.ToTable("Список структурных подразделений");
 
                 entity.HasIndex(e => e.IdСубсчета)
-                    .HasDatabaseName("IX_Список структурных подразделений")
+                    .HasName("IX_Список структурных подразделений")
                     .IsUnique();
 
                 entity.Property(e => e.IdСубсчета)
@@ -66402,7 +66402,7 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.ToTable("Список субсчетов");
 
                 entity.HasIndex(e => e.IdСубсчета)
-                    .HasDatabaseName("IX_Список субсчетов")
+                    .HasName("IX_Список субсчетов")
                     .IsUnique();
 
                 entity.Property(e => e.IdСубсчета)
@@ -66431,19 +66431,19 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.ToTable("Список счетов");
 
                 entity.HasIndex(e => e.IdКлиента)
-                    .HasDatabaseName("IX_Список счетов_2");
+                    .HasName("IX_Список счетов_2");
 
                 entity.HasIndex(e => e.IdСтадии)
-                    .HasDatabaseName("IX_Список счетов_4");
+                    .HasName("IX_Список счетов_4");
 
                 entity.HasIndex(e => e.ВнешнийНомер)
-                    .HasDatabaseName("IX_Список счетов_3");
+                    .HasName("IX_Список счетов_3");
 
                 entity.HasIndex(e => e.Дата)
-                    .HasDatabaseName("IX_Список счетов_1");
+                    .HasName("IX_Список счетов_1");
 
                 entity.HasIndex(e => e.Номер)
-                    .HasDatabaseName("IX_Список счетов")
+                    .HasName("IX_Список счетов")
                     .IsUnique();
 
                 entity.Property(e => e.Avans)
@@ -66782,7 +66782,7 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.ToTable("Список тем");
 
                 entity.HasIndex(e => e.IdТемы)
-                    .HasDatabaseName("IX_Список тем")
+                    .HasName("IX_Список тем")
                     .IsUnique();
 
                 entity.Property(e => e.IdТемы)
@@ -66821,7 +66821,7 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.ToTable("Список тендерных групп товара");
 
                 entity.HasIndex(e => e.Id)
-                    .HasDatabaseName("IX_Список тендерных групп товара")
+                    .HasName("IX_Список тендерных групп товара")
                     .IsUnique();
 
                 entity.Property(e => e.Id).HasColumnName("ID");
@@ -66849,7 +66849,7 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.ToTable("Список техпроцессов");
 
                 entity.HasIndex(e => e.IdТехпроцесса)
-                    .HasDatabaseName("IX_Список техпроцессов")
+                    .HasName("IX_Список техпроцессов")
                     .IsUnique();
 
                 entity.Property(e => e.IdТехпроцесса)
@@ -66868,7 +66868,7 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.ToTable("Список типов грузов");
 
                 entity.HasIndex(e => e.IdТипаГруза)
-                    .HasDatabaseName("IX_Список типов грузов")
+                    .HasName("IX_Список типов грузов")
                     .IsUnique();
 
                 entity.Property(e => e.IdТипаГруза)
@@ -66885,7 +66885,7 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.ToTable("Список типов групп");
 
                 entity.HasIndex(e => e.IdТипа)
-                    .HasDatabaseName("IX_Список типов групп")
+                    .HasName("IX_Список типов групп")
                     .IsUnique();
 
                 entity.Property(e => e.IdТипа).HasColumnName("ID типа");
@@ -66915,7 +66915,7 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.ToTable("Список типов дверей");
 
                 entity.HasIndex(e => e.IdТипа)
-                    .HasDatabaseName("IX_Список типов дверей")
+                    .HasName("IX_Список типов дверей")
                     .IsUnique();
 
                 entity.Property(e => e.IdТипа)
@@ -66937,7 +66937,7 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.ToTable("Список типов документов");
 
                 entity.HasIndex(e => e.IdТипаДокумента)
-                    .HasDatabaseName("IX_Список типов документов_1")
+                    .HasName("IX_Список типов документов_1")
                     .IsUnique();
 
                 entity.Property(e => e.IdТипаДокумента).HasColumnName("ID типа документа");
@@ -66952,7 +66952,7 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.ToTable("Список типов долгов");
 
                 entity.HasIndex(e => e.Код)
-                    .HasDatabaseName("IX_Список типов долгов")
+                    .HasName("IX_Список типов долгов")
                     .IsUnique();
 
                 entity.Property(e => e.Код)
@@ -66971,7 +66971,7 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.ToTable("Список типов контактов");
 
                 entity.HasIndex(e => e.Контакт)
-                    .HasDatabaseName("IX_Список типов контактов")
+                    .HasName("IX_Список типов контактов")
                     .IsUnique();
 
                 entity.Property(e => e.Контакт)
@@ -66986,7 +66986,7 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.ToTable("Список типов контрактов");
 
                 entity.HasIndex(e => e.Код)
-                    .HasDatabaseName("IX_Список типов контрактов")
+                    .HasName("IX_Список типов контрактов")
                     .IsUnique();
 
                 entity.Property(e => e.Код).ValueGeneratedOnAdd();
@@ -67003,7 +67003,7 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.ToTable("Список типов панелей");
 
                 entity.HasIndex(e => e.IdТипаПанели)
-                    .HasDatabaseName("IX_Список типов панелей")
+                    .HasName("IX_Список типов панелей")
                     .IsUnique();
 
                 entity.Property(e => e.IdТипаПанели)
@@ -67026,7 +67026,7 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.ToTable("Список типов поставщика");
 
                 entity.HasIndex(e => e.IdТипаПоставщика)
-                    .HasDatabaseName("IX_Список типов поставщика")
+                    .HasName("IX_Список типов поставщика")
                     .IsUnique();
 
                 entity.Property(e => e.IdТипаПоставщика)
@@ -67047,7 +67047,7 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.ToTable("Список типов складов");
 
                 entity.HasIndex(e => e.IdТипаСклада)
-                    .HasDatabaseName("IX_Список типов складов")
+                    .HasName("IX_Список типов складов")
                     .IsUnique();
 
                 entity.Property(e => e.IdТипаСклада)
@@ -67066,7 +67066,7 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.ToTable("Список типов товаров для S");
 
                 entity.HasIndex(e => e.Код)
-                    .HasDatabaseName("IX_Список типов товаров для S")
+                    .HasName("IX_Список типов товаров для S")
                     .IsUnique();
 
                 entity.Property(e => e.ТипТовара)
@@ -67081,7 +67081,7 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.ToTable("Список товарный групп дерево двери");
 
                 entity.HasIndex(e => e.IdGroupOfGoods)
-                    .HasDatabaseName("IX_Список товарный групп дерево двери")
+                    .HasName("IX_Список товарный групп дерево двери")
                     .IsUnique();
 
                 entity.Property(e => e.IdGroupOfGoods).HasColumnName("ID GroupOfGoods");
@@ -67102,11 +67102,11 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.ToTable("Список товарных групп");
 
                 entity.HasIndex(e => e.IdGroupOfGoods)
-                    .HasDatabaseName("IX_Список товарных групп")
+                    .HasName("IX_Список товарных групп")
                     .IsUnique();
 
                 entity.HasIndex(e => e.КодСортировки)
-                    .HasDatabaseName("IX_Список товарных групп_1");
+                    .HasName("IX_Список товарных групп_1");
 
                 entity.Property(e => e.IdGroupOfGoods).HasColumnName("ID GroupOfGoods");
 
@@ -67122,7 +67122,7 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.ToTable("Список товарных групп поставки");
 
                 entity.HasIndex(e => e.IdGroupOfGoods)
-                    .HasDatabaseName("IX_Список товарный групп поставки")
+                    .HasName("IX_Список товарный групп поставки")
                     .IsUnique();
 
                 entity.Property(e => e.IdGroupOfGoods)
@@ -68531,7 +68531,7 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.ToTable("Список толщин панелей");
 
                 entity.HasIndex(e => e.IdТолщины)
-                    .HasDatabaseName("IX_Список толщин панелей")
+                    .HasName("IX_Список толщин панелей")
                     .IsUnique();
 
                 entity.Property(e => e.IdТолщины)
@@ -68554,7 +68554,7 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.ToTable("Список упаковки");
 
                 entity.HasIndex(e => e.IdУпаковки)
-                    .HasDatabaseName("IX_Список упаковки")
+                    .HasName("IX_Список упаковки")
                     .IsUnique();
 
                 entity.Property(e => e.IdУпаковки)
@@ -68578,7 +68578,7 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.ToTable("Список условий оплаты");
 
                 entity.HasIndex(e => e.IdУсловия)
-                    .HasDatabaseName("IX_Список условий оплаты")
+                    .HasName("IX_Список условий оплаты")
                     .IsUnique();
 
                 entity.Property(e => e.IdУсловия).HasColumnName("ID условия");
@@ -68599,7 +68599,7 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.ToTable("Список условий продажи");
 
                 entity.HasIndex(e => e.IdУсловия)
-                    .HasDatabaseName("IX_Список условий продажи")
+                    .HasName("IX_Список условий продажи")
                     .IsUnique();
 
                 entity.Property(e => e.IdУсловия)
@@ -68618,7 +68618,7 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.ToTable("Список условий хранения");
 
                 entity.HasIndex(e => e.IdУсловия)
-                    .HasDatabaseName("IX_Список условий хранения")
+                    .HasName("IX_Список условий хранения")
                     .IsUnique();
 
                 entity.Property(e => e.IdУсловия)
@@ -68638,7 +68638,7 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.ToTable("Список участков");
 
                 entity.HasIndex(e => e.IdУчастка)
-                    .HasDatabaseName("IX_Список участков")
+                    .HasName("IX_Список участков")
                     .IsUnique()
                     .IsClustered();
 
@@ -68669,7 +68669,7 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.ToTable("Список фирм");
 
                 entity.HasIndex(e => new { e.IdФирмы, e.ДилерКлиент })
-                    .HasDatabaseName("IX_Список фирм")
+                    .HasName("IX_Список фирм")
                     .IsUnique();
 
                 entity.Property(e => e.IdФирмы).HasColumnName("ID фирмы");
@@ -68699,7 +68699,7 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.ToTable("Список фирм плательщиков");
 
                 entity.HasIndex(e => e.IdФирмыПлат)
-                    .HasDatabaseName("IX_Список фирм плательщиков")
+                    .HasName("IX_Список фирм плательщиков")
                     .IsUnique();
 
                 entity.Property(e => e.IdФирмыПлат)
@@ -68737,7 +68737,7 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.ToTable("Список фирм поставки");
 
                 entity.HasIndex(e => e.IdФирмы)
-                    .HasDatabaseName("IX_Список фирм поставки")
+                    .HasName("IX_Список фирм поставки")
                     .IsUnique();
 
                 entity.Property(e => e.FactoryId)
@@ -68808,7 +68808,7 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.ToTable("Список фирм регион");
 
                 entity.HasIndex(e => new { e.IdФирмы, e.Регион })
-                    .HasDatabaseName("IX_Список фирм регион")
+                    .HasName("IX_Список фирм регион")
                     .IsUnique();
 
                 entity.Property(e => e.IdФирмы).HasColumnName("ID фирмы");
@@ -69050,7 +69050,7 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.ToTable("Список фирм реестра");
 
                 entity.HasIndex(e => e.IdФирмы)
-                    .HasDatabaseName("IX_Список фирм реестра")
+                    .HasName("IX_Список фирм реестра")
                     .IsUnique();
 
                 entity.Property(e => e.CashНал)
@@ -69089,7 +69089,7 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.ToTable("Список функционала");
 
                 entity.HasIndex(e => e.Id)
-                    .HasDatabaseName("IX_Список функционала")
+                    .HasName("IX_Список функционала")
                     .IsUnique();
 
                 entity.Property(e => e.Hid).HasColumnName("HID");
@@ -69114,7 +69114,7 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.ToTable("Список цветов");
 
                 entity.HasIndex(e => e.IdЦвета)
-                    .HasDatabaseName("IX_Список цветов")
+                    .HasName("IX_Список цветов")
                     .IsUnique();
 
                 entity.Property(e => e.IdПоставщика).HasColumnName("ID поставщика");
@@ -69133,7 +69133,7 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.ToTable("Список цветов панелей");
 
                 entity.HasIndex(e => e.IdЦветаПанели)
-                    .HasDatabaseName("IX_Список цветов панелей")
+                    .HasName("IX_Список цветов панелей")
                     .IsUnique();
 
                 entity.Property(e => e.IdЦветаПанели)
@@ -69156,7 +69156,7 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.ToTable("Список цен для дилеров");
 
                 entity.HasIndex(e => new { e.IdДилера, e.IdТовара })
-                    .HasDatabaseName("IX_Список цен для дилеров")
+                    .HasName("IX_Список цен для дилеров")
                     .IsUnique();
 
                 entity.Property(e => e.IdДилера)
@@ -69183,7 +69183,7 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.ToTable("Список цен поставщиков поставки");
 
                 entity.HasIndex(e => new { e.IdДоговора, e.IdТовара })
-                    .HasDatabaseName("IX_Список цен поставщиков поставки")
+                    .HasName("IX_Список цен поставщиков поставки")
                     .IsUnique();
 
                 entity.Property(e => e.FactoryId)
@@ -69208,7 +69208,7 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.ToTable("Список экспортеров");
 
                 entity.HasIndex(e => e.IdПоставщика)
-                    .HasDatabaseName("IX_Список экспортеров")
+                    .HasName("IX_Список экспортеров")
                     .IsUnique();
 
                 entity.Property(e => e.IdПоставщика)
@@ -69231,14 +69231,14 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.ToTable("Список юрлиц дилеров");
 
                 entity.HasIndex(e => e.IdДилера)
-                    .HasDatabaseName("IX_Список юрлиц дилеров_2");
+                    .HasName("IX_Список юрлиц дилеров_2");
 
                 entity.HasIndex(e => e.IdЮрлица)
-                    .HasDatabaseName("IX_Список юрлиц дилеров")
+                    .HasName("IX_Список юрлиц дилеров")
                     .IsUnique();
 
                 entity.HasIndex(e => e.Наименование)
-                    .HasDatabaseName("IX_Список юрлиц дилеров_1")
+                    .HasName("IX_Список юрлиц дилеров_1")
                     .IsUnique();
 
                 entity.Property(e => e.Deleted).HasDefaultValueSql("((0))");
@@ -69335,14 +69335,14 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.ToTable("Список юрлиц клиентов");
 
                 entity.HasIndex(e => e.IdКлиента)
-                    .HasDatabaseName("IX_Список юрлиц клиентов_2");
+                    .HasName("IX_Список юрлиц клиентов_2");
 
                 entity.HasIndex(e => e.IdЮрлица)
-                    .HasDatabaseName("IX_Список юрлиц клиентов")
+                    .HasName("IX_Список юрлиц клиентов")
                     .IsUnique();
 
                 entity.HasIndex(e => e.Наименование)
-                    .HasDatabaseName("IX_Список юрлиц клиентов_1")
+                    .HasName("IX_Список юрлиц клиентов_1")
                     .IsUnique();
 
                 entity.Property(e => e.Deleted).HasDefaultValueSql("((0))");
@@ -69398,10 +69398,10 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.ToTable("Список юрлиц клиентов поставки");
 
                 entity.HasIndex(e => e.IdКлиента)
-                    .HasDatabaseName("IX_Список юрлиц клиентов поставки_1");
+                    .HasName("IX_Список юрлиц клиентов поставки_1");
 
                 entity.HasIndex(e => new { e.IdЮрлица, e.FactoryId })
-                    .HasDatabaseName("IX_Список юрлиц клиентов поставки")
+                    .HasName("IX_Список юрлиц клиентов поставки")
                     .IsUnique();
 
                 entity.Property(e => e.Account).HasMaxLength(30);
@@ -69502,10 +69502,10 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.ToTable("Средние цены");
 
                 entity.HasIndex(e => e.Idtov)
-                    .HasDatabaseName("IX_Средние цены");
+                    .HasName("IX_Средние цены");
 
                 entity.HasIndex(e => e.Rec)
-                    .HasDatabaseName("IX_Средние цены_1")
+                    .HasName("IX_Средние цены_1")
                     .IsUnique();
 
                 entity.Property(e => e.Idtov).HasColumnName("IDtov");
@@ -69540,7 +69540,7 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.ToTable("Средний выпуск");
 
                 entity.HasIndex(e => new { e.ДатаРасчета, e.IdТовара })
-                    .HasDatabaseName("IX_Средний выпуск")
+                    .HasName("IX_Средний выпуск")
                     .IsUnique();
 
                 entity.Property(e => e.IdТовара).HasColumnName("ID товара");
@@ -69559,11 +69559,11 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.ToTable("Сроки и порт");
 
                 entity.HasIndex(e => e.Id)
-                    .HasDatabaseName("IX_Сроки и порт")
+                    .HasName("IX_Сроки и порт")
                     .IsUnique();
 
                 entity.HasIndex(e => new { e.НомерЗаказа, e.IdOrder })
-                    .HasDatabaseName("IX_Сроки и порт_1")
+                    .HasName("IX_Сроки и порт_1")
                     .IsUnique();
 
                 entity.Property(e => e.Id)
@@ -69608,7 +69608,7 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.ToTable("СС_ЗП");
 
                 entity.HasIndex(e => e.IdТовара)
-                    .HasDatabaseName("IX_СС_ЗП")
+                    .HasName("IX_СС_ЗП")
                     .IsUnique();
 
                 entity.Property(e => e.IdТовара).HasColumnName("Id товара");
@@ -69625,7 +69625,7 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.ToTable("Ссылки для тендеров");
 
                 entity.HasIndex(e => e.Ссылка)
-                    .HasDatabaseName("IX_Ссылки для тендеров")
+                    .HasName("IX_Ссылки для тендеров")
                     .IsUnique();
 
                 entity.Property(e => e.Адрес).HasMaxLength(255);
@@ -69640,7 +69640,7 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.ToTable("Стандарты комплектации");
 
                 entity.HasIndex(e => new { e.IdТовара, e.IdТовараПоставка })
-                    .HasDatabaseName("IX_Стандарты комплектации")
+                    .HasName("IX_Стандарты комплектации")
                     .IsUnique();
 
                 entity.Property(e => e.IdГруппы).HasColumnName("ID группы");
@@ -69661,7 +69661,7 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.ToTable("Статусы заказов");
 
                 entity.HasIndex(e => e.IdСтатуса)
-                    .HasDatabaseName("IX_Статусы заказов")
+                    .HasName("IX_Статусы заказов")
                     .IsUnique();
 
                 entity.Property(e => e.IdСтатуса).HasColumnName("ID статуса");
@@ -69676,7 +69676,7 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.ToTable("Статусы зказов категории");
 
                 entity.HasIndex(e => e.IdКатегории)
-                    .HasDatabaseName("IX_Статусы зказов категории")
+                    .HasName("IX_Статусы зказов категории")
                     .IsUnique();
 
                 entity.Property(e => e.IdКатегории).HasColumnName("ID категории");
@@ -69691,7 +69691,7 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.ToTable("Статусы тендеров");
 
                 entity.HasIndex(e => e.IdСтатуса)
-                    .HasDatabaseName("IX_Статусы тендеров")
+                    .HasName("IX_Статусы тендеров")
                     .IsUnique();
 
                 entity.Property(e => e.IdСтатуса).HasColumnName("ID статуса");
@@ -69706,7 +69706,7 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.ToTable("Статьи для Income");
 
                 entity.HasIndex(e => e.RecordId)
-                    .HasDatabaseName("IX_Статьи для Income")
+                    .HasName("IX_Статьи для Income")
                     .IsUnique();
 
                 entity.Property(e => e.RecordId)
@@ -69723,7 +69723,7 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.ToTable("Структура продаж");
 
                 entity.HasIndex(e => new { e.НомерГруппы, e.Userid })
-                    .HasDatabaseName("IX_Структура продаж");
+                    .HasName("IX_Структура продаж");
 
                 entity.Property(e => e.Userid).HasMaxLength(50);
 
@@ -69763,7 +69763,7 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.ToTable("Структура продаж ЗМК мебель");
 
                 entity.HasIndex(e => new { e.НомерГруппы, e.Userid })
-                    .HasDatabaseName("IX_Структура продаж ЗМК мебель");
+                    .HasName("IX_Структура продаж ЗМК мебель");
 
                 entity.Property(e => e.Userid).HasMaxLength(50);
 
@@ -69803,7 +69803,7 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.ToTable("Структура продаж ЗМК сейфы");
 
                 entity.HasIndex(e => new { e.НомерГруппы, e.Userid })
-                    .HasDatabaseName("IX_Структура продаж ЗМК сейфы");
+                    .HasName("IX_Структура продаж ЗМК сейфы");
 
                 entity.Property(e => e.Userid).HasMaxLength(50);
 
@@ -69843,7 +69843,7 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.ToTable("Структура продаж регион");
 
                 entity.HasIndex(e => new { e.НомерГруппы, e.Регион, e.ОбъемПродажРуб, e.ОбъемПродажПгРуб })
-                    .HasDatabaseName("IX_Структура продаж регион_1")
+                    .HasName("IX_Структура продаж регион_1")
                     .IsUnique();
 
                 entity.Property(e => e.Группа)
@@ -69890,7 +69890,7 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.ToTable("Структура продаж ЦО");
 
                 entity.HasIndex(e => new { e.НомерГруппы, e.Дил, e.ДоходностьРуб, e.Кол, e.КолПг, e.ОбъемПродажРуб, e.ОбъемПродажПгРуб, e.Период, e.Регион, e.Участок })
-                    .HasDatabaseName("IX_Структура продаж ЦО_1")
+                    .HasName("IX_Структура продаж ЦО_1")
                     .IsUnique();
 
                 entity.Property(e => e.Группа)
@@ -70631,7 +70631,7 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.ToTable("Сумма_реал_роз_Регион");
 
                 entity.HasIndex(e => e.Rec)
-                    .HasDatabaseName("IX_Сумма_реал_роз_Регион_2")
+                    .HasName("IX_Сумма_реал_роз_Регион_2")
                     .IsUnique();
 
                 entity.Property(e => e.IdДилера).HasColumnName("ID дилера");
@@ -70658,7 +70658,7 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.ToTable("Сумма_реал_роз_ЦО");
 
                 entity.HasIndex(e => new { e.Userid, e.IdДилера })
-                    .HasDatabaseName("IX_Сумма_реал_роз_ЦО")
+                    .HasName("IX_Сумма_реал_роз_ЦО")
                     .IsUnique();
 
                 entity.Property(e => e.IdДилера).HasColumnName("ID дилера");
@@ -70681,7 +70681,7 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.ToTable("Сумма_реал_роз_ЦО_кл");
 
                 entity.HasIndex(e => new { e.IdКлиента, e.Userid })
-                    .HasDatabaseName("IX_Сумма_реал_роз_ЦО_кл")
+                    .HasName("IX_Сумма_реал_роз_ЦО_кл")
                     .IsUnique();
 
                 entity.Property(e => e.IdКлиента).HasColumnName("ID клиента");
@@ -71612,20 +71612,20 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.ToTable("Считано сканером для отгрузки");
 
                 entity.HasIndex(e => e.Id)
-                    .HasDatabaseName("IX_Считано сканером для отгрузки")
+                    .HasName("IX_Считано сканером для отгрузки")
                     .IsUnique();
 
                 entity.HasIndex(e => e.Кто)
-                    .HasDatabaseName("IX_Считано сканером для отгрузки_1");
+                    .HasName("IX_Считано сканером для отгрузки_1");
 
                 entity.HasIndex(e => e.НомерИзПогрузочного)
-                    .HasDatabaseName("IX_Считано сканером для отгрузки_2");
+                    .HasName("IX_Считано сканером для отгрузки_2");
 
                 entity.HasIndex(e => e.Префикс)
-                    .HasDatabaseName("IX_Считано сканером для отгрузки_4");
+                    .HasName("IX_Считано сканером для отгрузки_4");
 
                 entity.HasIndex(e => e.Штрих)
-                    .HasDatabaseName("IX_Считано сканером для отгрузки_3");
+                    .HasName("IX_Считано сканером для отгрузки_3");
 
                 entity.Property(e => e.Id)
                     .HasColumnName("ID")
@@ -71657,20 +71657,20 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.ToTable("Считано сканером для отгрузки УЗМК");
 
                 entity.HasIndex(e => e.Id)
-                    .HasDatabaseName("IX_Считано сканером дляя отгрузки УЗМК")
+                    .HasName("IX_Считано сканером дляя отгрузки УЗМК")
                     .IsUnique();
 
                 entity.HasIndex(e => e.Кто)
-                    .HasDatabaseName("IX_Считано сканером для отгрузки УЗМК_1");
+                    .HasName("IX_Считано сканером для отгрузки УЗМК_1");
 
                 entity.HasIndex(e => e.НомерИзПогрузочного)
-                    .HasDatabaseName("IX_Считано сканером для отгрузки УЗМК");
+                    .HasName("IX_Считано сканером для отгрузки УЗМК");
 
                 entity.HasIndex(e => e.Регион)
-                    .HasDatabaseName("IX_Считано сканером для отгрузки УЗМК_3");
+                    .HasName("IX_Считано сканером для отгрузки УЗМК_3");
 
                 entity.HasIndex(e => e.Штрих)
-                    .HasDatabaseName("IX_Считано сканером для отгрузки УЗМК_2");
+                    .HasName("IX_Считано сканером для отгрузки УЗМК_2");
 
                 entity.Property(e => e.Id)
                     .HasColumnName("ID")
@@ -71853,7 +71853,7 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.ToTable("Считано сканером ячейки для отгрузки");
 
                 entity.HasIndex(e => new { e.НомерНакладной, e.Время, e.ШтрихКод, e.Адрес, e.Префикс })
-                    .HasDatabaseName("IX_Считано сканером ячейки для отгрузки")
+                    .HasName("IX_Считано сканером ячейки для отгрузки")
                     .IsUnique();
 
                 entity.Property(e => e.Время).HasColumnType("datetime");
@@ -71879,7 +71879,7 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.ToTable("Таможня для себестоимости");
 
                 entity.HasIndex(e => e.IdТовара)
-                    .HasDatabaseName("IX_Таможня для себестоимости")
+                    .HasName("IX_Таможня для себестоимости")
                     .IsUnique();
 
                 entity.Property(e => e.IdТовара).HasColumnName("ID товара");
@@ -71896,7 +71896,7 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.ToTable("Темпы роста для прогноза");
 
                 entity.HasIndex(e => new { e.IdТовара, e.Регион })
-                    .HasDatabaseName("IX_Темпы роста для прогноза")
+                    .HasName("IX_Темпы роста для прогноза")
                     .IsUnique();
 
                 entity.Property(e => e.IdТовара).HasColumnName("ID товара");
@@ -71912,7 +71912,7 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.HasNoKey();
 
                 entity.HasIndex(e => e.RecordId)
-                    .HasDatabaseName("IX_Тендера")
+                    .HasName("IX_Тендера")
                     .IsUnique();
 
                 entity.Property(e => e.IdГорода)
@@ -72127,15 +72127,15 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.ToTable("Тендера регионы");
 
                 entity.HasIndex(e => e.Id)
-                    .HasDatabaseName("IX_Тендера регионы_1")
+                    .HasName("IX_Тендера регионы_1")
                     .IsUnique();
 
                 entity.HasIndex(e => e.Наименование)
-                    .HasDatabaseName("IX_Тендера регионы")
+                    .HasName("IX_Тендера регионы")
                     .IsUnique();
 
                 entity.HasIndex(e => e.Номер)
-                    .HasDatabaseName("IX_Тендера регионы_2")
+                    .HasName("IX_Тендера регионы_2")
                     .IsUnique();
 
                 entity.Property(e => e.Id)
@@ -72165,7 +72165,7 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.ToTable("Технические характеристики");
 
                 entity.HasIndex(e => e.IdТовара)
-                    .HasDatabaseName("IX_Технические характеристики")
+                    .HasName("IX_Технические характеристики")
                     .IsUnique()
                     .IsClustered();
 
@@ -72281,7 +72281,7 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.ToTable("Технические характеристики поставки");
 
                 entity.HasIndex(e => e.IdТовара)
-                    .HasDatabaseName("IX_Технические характеристики поставки")
+                    .HasName("IX_Технические характеристики поставки")
                     .IsUnique();
 
                 entity.Property(e => e.IdТовара).HasColumnName("ID товара");
@@ -72326,11 +72326,11 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.ToTable("ТЗ август регион");
 
                 entity.HasIndex(e => e.Rec)
-                    .HasDatabaseName("IX_ТЗ август регион")
+                    .HasName("IX_ТЗ август регион")
                     .IsUnique();
 
                 entity.HasIndex(e => new { e.UserId, e.Регион })
-                    .HasDatabaseName("IX_ТЗ август регион_1");
+                    .HasName("IX_ТЗ август регион_1");
 
                 entity.Property(e => e.Rec).ValueGeneratedOnAdd();
 
@@ -72360,7 +72360,7 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.ToTable("ТЗ отгрузка дилеры");
 
                 entity.HasIndex(e => new { e.IdКл, e.Рег, e.СуммаРуб, e.СуммаРубПг })
-                    .HasDatabaseName("IX_ТЗ отгрузка дилеры")
+                    .HasName("IX_ТЗ отгрузка дилеры")
                     .IsUnique();
 
                 entity.Property(e => e.IdКл).HasColumnName("ID кл");
@@ -72391,7 +72391,7 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.ToTable("ТЗ отгрузка по группам");
 
                 entity.HasIndex(e => new { e.IdГруппы, e.UserId, e.СуммаРуб, e.СуммаБезНдсРуб, e.СебестоимостьБезНдсРуб, e.Количество, e.Регион })
-                    .HasDatabaseName("IX_ТЗ отгрузка по группам")
+                    .HasName("IX_ТЗ отгрузка по группам")
                     .IsUnique();
 
                 entity.Property(e => e.IdГруппы).HasColumnName("ID группы");
@@ -72451,7 +72451,7 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.ToTable("ТЗ отгрузка по моделям");
 
                 entity.HasIndex(e => new { e.Год, e.UserId, e.Модель, e.Месяц, e.IdТовара, e.Неделя, e.Рег, e.Rec })
-                    .HasDatabaseName("IX_ТЗ отгрузка по моделям")
+                    .HasName("IX_ТЗ отгрузка по моделям")
                     .IsUnique();
 
                 entity.Property(e => e.IdТовара).HasColumnName("ID товара");
@@ -72482,7 +72482,7 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.ToTable("ТЗ отгрузка по моделям все");
 
                 entity.HasIndex(e => new { e.IdТовара, e.UserId, e.ПодГруппа, e.Филиал })
-                    .HasDatabaseName("IX_ТЗ отгрузка по моделям все1111")
+                    .HasName("IX_ТЗ отгрузка по моделям все1111")
                     .IsUnique();
 
                 entity.Property(e => e.IdТовара).HasColumnName("ID товара");
@@ -72515,7 +72515,7 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.ToTable("ТЗ отгрузка подгруппы");
 
                 entity.HasIndex(e => new { e.IdПодгруппы, e.UserId, e.СуммаРуб, e.Неделя, e.Рег, e.Тула, e.Сосенки, e.Участок, e.Завод, e.СебестоимостьБезНдсРуб, e.Количество, e.СуммаEuro })
-                    .HasDatabaseName("IX_ТЗ отгрузка подгруппы")
+                    .HasName("IX_ТЗ отгрузка подгруппы")
                     .IsUnique();
 
                 entity.Property(e => e.IdПодгруппы).HasColumnName("ID подгруппы");
@@ -72584,7 +72584,7 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.ToTable("ТЗ приход_в пути_до период ЦО");
 
                 entity.HasIndex(e => new { e.Филиал, e.IdТовара, e.UserId, e.Количество, e.ТзОцРуб, e.ТзСс, e.Откуда })
-                    .HasDatabaseName("IX_ТЗ приход_в пути_до период ЦО")
+                    .HasName("IX_ТЗ приход_в пути_до период ЦО")
                     .IsUnique();
 
                 entity.Property(e => e.IdТовара).HasColumnName("ID товара");
@@ -72615,7 +72615,7 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.ToTable("ТЗ приход_в пути период ЦО");
 
                 entity.HasIndex(e => new { e.Филиал, e.IdТовара, e.UserId, e.Количество, e.ТзОцРуб, e.ТзСс, e.Откуда })
-                    .HasDatabaseName("IX_ТЗ приход_в пути период ЦО")
+                    .HasName("IX_ТЗ приход_в пути период ЦО")
                     .IsUnique();
 
                 entity.Property(e => e.IdТовара).HasColumnName("ID товара");
@@ -72646,7 +72646,7 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.ToTable("ТЗ приход период ЦО");
 
                 entity.HasIndex(e => new { e.Филиал, e.IdТовара, e.UserId })
-                    .HasDatabaseName("IX_ТЗ приход период ЦО")
+                    .HasName("IX_ТЗ приход период ЦО")
                     .IsUnique();
 
                 entity.Property(e => e.IdТовара).HasColumnName("ID товара");
@@ -72675,7 +72675,7 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.ToTable("ТЗ расход период ЦО");
 
                 entity.HasIndex(e => new { e.Филиал, e.IdТовара, e.UserId })
-                    .HasDatabaseName("IX_ТЗ расход период ЦО222")
+                    .HasName("IX_ТЗ расход период ЦО222")
                     .IsUnique();
 
                 entity.Property(e => e.IdТовара).HasColumnName("ID товара");
@@ -72712,7 +72712,7 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.ToTable("ТЗ регион выставки ЦО");
 
                 entity.HasIndex(e => new { e.Филиал, e.UserId, e.IdТовара })
-                    .HasDatabaseName("IX_ТЗ регион выставки ЦО111")
+                    .HasName("IX_ТЗ регион выставки ЦО111")
                     .IsUnique();
 
                 entity.Property(e => e.IdТовара).HasColumnName("ID товара");
@@ -72749,7 +72749,7 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.ToTable("ТЗ регион перевод на выст ЦО");
 
                 entity.HasIndex(e => new { e.Филиал, e.IdТовара, e.UserId })
-                    .HasDatabaseName("IX_ТЗ регион перевод на выст ЦО")
+                    .HasName("IX_ТЗ регион перевод на выст ЦО")
                     .IsUnique();
 
                 entity.Property(e => e.IdТовара).HasColumnName("ID товара");
@@ -72771,7 +72771,7 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.ToTable("ТЗ регион перевод с выст ЦО");
 
                 entity.HasIndex(e => new { e.Филиал, e.IdТовара, e.UserId })
-                    .HasDatabaseName("IX_ТЗ регион перевод с выст ЦО")
+                    .HasName("IX_ТЗ регион перевод с выст ЦО")
                     .IsUnique();
 
                 entity.Property(e => e.IdТовара).HasColumnName("ID товара");
@@ -72793,7 +72793,7 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.ToTable("ТЗ регион ЦО");
 
                 entity.HasIndex(e => new { e.Филиал, e.IdТовара, e.UserId })
-                    .HasDatabaseName("IX_ТЗ регион ЦО111")
+                    .HasName("IX_ТЗ регион ЦО111")
                     .IsUnique();
 
                 entity.Property(e => e.IdТовара).HasColumnName("ID товара");
@@ -72830,7 +72830,7 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.ToTable("ТЗ списание москва период ЦО");
 
                 entity.HasIndex(e => new { e.Филиал, e.IdТовара, e.UserId })
-                    .HasDatabaseName("IX_ТЗ списание москва период ЦО")
+                    .HasName("IX_ТЗ списание москва период ЦО")
                     .IsUnique();
 
                 entity.Property(e => e.IdТовара).HasColumnName("ID товара");
@@ -72853,7 +72853,7 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.ToTable("ТЗ списание период ЦО");
 
                 entity.HasIndex(e => new { e.Филиал, e.IdТовара, e.UserId })
-                    .HasDatabaseName("IX_ТЗ списание период ЦО")
+                    .HasName("IX_ТЗ списание период ЦО")
                     .IsUnique();
 
                 entity.Property(e => e.IdТовара).HasColumnName("ID товара");
@@ -72890,7 +72890,7 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.ToTable("ТЗВыставки_тмп");
 
                 entity.HasIndex(e => new { e.Регион, e.UserId })
-                    .HasDatabaseName("IX_ТЗВыставки_тмп")
+                    .HasName("IX_ТЗВыставки_тмп")
                     .IsUnique();
 
                 entity.Property(e => e.UserId).HasColumnName("User ID");
@@ -72909,7 +72909,7 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.ToTable("Типы заказов");
 
                 entity.HasIndex(e => e.КодТипа)
-                    .HasDatabaseName("IX_Типы заказов")
+                    .HasName("IX_Типы заказов")
                     .IsUnique();
 
                 entity.Property(e => e.IdПоставщика).HasColumnName("ID поставщика");
@@ -72929,7 +72929,7 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.ToTable("Типы контактов");
 
                 entity.HasIndex(e => e.IdТипа)
-                    .HasDatabaseName("IX_Типы контактов")
+                    .HasName("IX_Типы контактов")
                     .IsUnique();
 
                 entity.Property(e => e.IdТипа).HasColumnName("Id типа");
@@ -72947,7 +72947,7 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.ToTable("Типы складов");
 
                 entity.HasIndex(e => e.ТипСклада)
-                    .HasDatabaseName("IX_Типы складов")
+                    .HasName("IX_Типы складов")
                     .IsUnique();
 
                 entity.Property(e => e.IdТип)
@@ -73004,7 +73004,7 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.ToTable("Товар в заказе поставки");
 
                 entity.HasIndex(e => e.RecordId)
-                    .HasDatabaseName("IX_Товар в заказе поставки")
+                    .HasName("IX_Товар в заказе поставки")
                     .IsUnique();
 
                 entity.Property(e => e.IdТовара)
@@ -73037,11 +73037,11 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.ToTable("Товар в заказе регион");
 
                 entity.HasIndex(e => e.RecordId)
-                    .HasDatabaseName("IX_Товар в заказе регион")
+                    .HasName("IX_Товар в заказе регион")
                     .IsUnique();
 
                 entity.HasIndex(e => new { e.IdТовара, e.НомерПокупателя, e.OrderNo })
-                    .HasDatabaseName("IX_Товар в заказе регион_1")
+                    .HasName("IX_Товар в заказе регион_1")
                     .IsUnique();
 
                 entity.Property(e => e.AddedBy).HasMaxLength(256);
@@ -73345,7 +73345,7 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.ToTable("Товар для контроля динамики");
 
                 entity.HasIndex(e => e.IdТовара)
-                    .HasDatabaseName("IX_Товар для контроля динамики")
+                    .HasName("IX_Товар для контроля динамики")
                     .IsUnique();
 
                 entity.Property(e => e.IdТовара).HasColumnName("ID товара");
@@ -76508,7 +76508,7 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.ToTable("Товары для расписки тмп");
 
                 entity.HasIndex(e => e.RecordId)
-                    .HasDatabaseName("IX_Товары для расписки тмп")
+                    .HasName("IX_Товары для расписки тмп")
                     .IsUnique();
 
                 entity.Property(e => e.RecordId).HasColumnName("Record ID");
@@ -76584,15 +76584,15 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.ToTable("ТОРГ12 для сетей ТТН");
 
                 entity.HasIndex(e => e.RecordId)
-                    .HasDatabaseName("IX_ТОРГ12 для сетей ТТН_1")
+                    .HasName("IX_ТОРГ12 для сетей ТТН_1")
                     .IsUnique();
 
                 entity.HasIndex(e => e.Номер)
-                    .HasDatabaseName("IX_ТОРГ12 для сетей ТТН")
+                    .HasName("IX_ТОРГ12 для сетей ТТН")
                     .IsUnique();
 
                 entity.HasIndex(e => e.НомерПп)
-                    .HasDatabaseName("IX_ТОРГ12 для сетей ТТН_2")
+                    .HasName("IX_ТОРГ12 для сетей ТТН_2")
                     .IsUnique();
 
                 entity.Property(e => e.RecordId)
@@ -76767,7 +76767,7 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.ToTable("Увеличение цены по складам");
 
                 entity.HasIndex(e => e.IdСклада)
-                    .HasDatabaseName("IX_Увеличение цены по складам")
+                    .HasName("IX_Увеличение цены по складам")
                     .IsUnique();
 
                 entity.Property(e => e.IdСклада).HasColumnName("ID склада");
@@ -76782,10 +76782,10 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.ToTable("Увеличение цены по складам_гр");
 
                 entity.HasIndex(e => e.IdСклада)
-                    .HasDatabaseName("IX_Увеличение цены по складам_гр");
+                    .HasName("IX_Увеличение цены по складам_гр");
 
                 entity.HasIndex(e => new { e.IdСклада, e.GrLog })
-                    .HasDatabaseName("IX_Увеличение цены по складам_гр_1")
+                    .HasName("IX_Увеличение цены по складам_гр_1")
                     .IsUnique();
 
                 entity.Property(e => e.GrLog).HasColumnName("Gr_log");
@@ -76802,7 +76802,7 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.ToTable("Увеличение цены по складам_подгр");
 
                 entity.HasIndex(e => new { e.IdСклада, e.PodGrLog })
-                    .HasDatabaseName("IX_Увеличение цены по складам_подгр")
+                    .HasName("IX_Увеличение цены по складам_подгр")
                     .IsUnique();
 
                 entity.Property(e => e.IdСклада).HasColumnName("ID склада");
@@ -76970,7 +76970,7 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.ToTable("Условия поставки");
 
                 entity.HasIndex(e => e.IdусловияПоставки)
-                    .HasDatabaseName("IX_Условия поставки")
+                    .HasName("IX_Условия поставки")
                     .IsUnique();
 
                 entity.Property(e => e.IdусловияПоставки).HasColumnName("IDУсловияПоставки");
@@ -77075,7 +77075,7 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.ToTable("Финплан_правило_затраты");
 
                 entity.HasIndex(e => new { e.КодСтатьи, e.IdПодразделения })
-                    .HasDatabaseName("IX_Финплан_правило_затраты")
+                    .HasName("IX_Финплан_правило_затраты")
                     .IsUnique();
 
                 entity.Property(e => e.IdПодразделения).HasColumnName("ID подразделения");
@@ -77328,11 +77328,11 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.ToTable("Хранилище Движение");
 
                 entity.HasIndex(e => e.RecordId)
-                    .HasDatabaseName("IX_Хранилище Движение")
+                    .HasName("IX_Хранилище Движение")
                     .IsUnique();
 
                 entity.HasIndex(e => new { e.IdТовара, e.RecordIdЯчейкиКуда, e.Заказ })
-                    .HasDatabaseName("IX_Хранилище Движение_2")
+                    .HasName("IX_Хранилище Движение_2")
                     .IsUnique();
 
                 entity.Property(e => e.IdТовара).HasColumnName("ID товара");
@@ -77374,11 +77374,11 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.ToTable("Хранилище Движение BG");
 
                 entity.HasIndex(e => e.RecordId)
-                    .HasDatabaseName("IX_Хранилище Движение BG_1")
+                    .HasName("IX_Хранилище Движение BG_1")
                     .IsUnique();
 
                 entity.HasIndex(e => new { e.RecordIdЯчейкиКуда, e.IdТовара, e.Заказ })
-                    .HasDatabaseName("IX_Хранилище Движение BG")
+                    .HasName("IX_Хранилище Движение BG")
                     .IsUnique();
 
                 entity.Property(e => e.IdТовара).HasColumnName("ID товара");
@@ -77417,11 +77417,11 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.ToTable("Хранилище Движение Астана");
 
                 entity.HasIndex(e => e.RecordId)
-                    .HasDatabaseName("IX_Хранилище Движение Астана_1")
+                    .HasName("IX_Хранилище Движение Астана_1")
                     .IsUnique();
 
                 entity.HasIndex(e => new { e.IdТовара, e.RecordIdЯчейкиКуда, e.Заказ })
-                    .HasDatabaseName("IX_Хранилище Движение Астана")
+                    .HasName("IX_Хранилище Движение Астана")
                     .IsUnique();
 
                 entity.Property(e => e.IdТовара).HasColumnName("ID товара");
@@ -77460,11 +77460,11 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.ToTable("Хранилище Движение УЗМК");
 
                 entity.HasIndex(e => e.RecordId)
-                    .HasDatabaseName("IX_Хранилище Движение УЗМК_1")
+                    .HasName("IX_Хранилище Движение УЗМК_1")
                     .IsUnique();
 
                 entity.HasIndex(e => new { e.IdТовара, e.RecordIdЯчейкиКуда, e.Заказ })
-                    .HasDatabaseName("IX_Хранилище Движение УЗМК")
+                    .HasName("IX_Хранилище Движение УЗМК")
                     .IsUnique();
 
                 entity.Property(e => e.IdТовара).HasColumnName("ID товара");
@@ -77508,7 +77508,7 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.ToTable("Хранилище история перемещений УЗМК");
 
                 entity.HasIndex(e => e.RecordId)
-                    .HasDatabaseName("IX_Хранилище история перемещений УЗМК")
+                    .HasName("IX_Хранилище история перемещений УЗМК")
                     .IsUnique();
 
                 entity.Property(e => e.IdТовара).HasColumnName("ID товара");
@@ -77584,7 +77584,7 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.ToTable("Цена импорт");
 
                 entity.HasIndex(e => e.IdТовара)
-                    .HasDatabaseName("IX_Цена импорт")
+                    .HasName("IX_Цена импорт")
                     .IsUnique();
 
                 entity.Property(e => e.Cena).HasDefaultValueSql("(0)");
@@ -77739,7 +77739,7 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.ToTable("Цены ЗМК");
 
                 entity.HasIndex(e => e.IdТовара)
-                    .HasDatabaseName("IX_Цены ЗМК")
+                    .HasName("IX_Цены ЗМК")
                     .IsUnique();
 
                 entity.Property(e => e.Cena).HasDefaultValueSql("(0)");
@@ -77754,11 +77754,11 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.ToTable("Цены по дилерам");
 
                 entity.HasIndex(e => e.RecordId)
-                    .HasDatabaseName("IX_Цены по дилерам")
+                    .HasName("IX_Цены по дилерам")
                     .IsUnique();
 
                 entity.HasIndex(e => new { e.IdДилера, e.IdТовара })
-                    .HasDatabaseName("IX_Цены по дилерам_1")
+                    .HasName("IX_Цены по дилерам_1")
                     .IsUnique();
 
                 entity.Property(e => e.IdДилера)
@@ -77793,11 +77793,11 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.ToTable("Цены по дилерам_нов регион");
 
                 entity.HasIndex(e => e.RecordId)
-                    .HasDatabaseName("IX_Цены по дилерам_нов регион")
+                    .HasName("IX_Цены по дилерам_нов регион")
                     .IsUnique();
 
                 entity.HasIndex(e => new { e.IdДилера, e.IdТовара, e.Регион })
-                    .HasDatabaseName("IX_Цены по дилерам_нов регион_1")
+                    .HasName("IX_Цены по дилерам_нов регион_1")
                     .IsUnique();
 
                 entity.Property(e => e.IdДилера).HasColumnName("ID дилера");
@@ -77844,11 +77844,11 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.ToTable("Цены по дилерам регион");
 
                 entity.HasIndex(e => e.RecordId)
-                    .HasDatabaseName("IX_Цены по дилерам регион")
+                    .HasName("IX_Цены по дилерам регион")
                     .IsUnique();
 
                 entity.HasIndex(e => new { e.IdДилера, e.IdТовара, e.Регион })
-                    .HasDatabaseName("IX_Цены по дилерам регион_1")
+                    .HasName("IX_Цены по дилерам регион_1")
                     .IsUnique();
 
                 entity.Property(e => e.IdДилера)
@@ -77875,11 +77875,11 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.ToTable("Цены по клиентам");
 
                 entity.HasIndex(e => e.RecordId)
-                    .HasDatabaseName("IX_Цены по клиентам")
+                    .HasName("IX_Цены по клиентам")
                     .IsUnique();
 
                 entity.HasIndex(e => new { e.IdДилера, e.IdТовара })
-                    .HasDatabaseName("IX_Цены по клиентам_1")
+                    .HasName("IX_Цены по клиентам_1")
                     .IsUnique();
 
                 entity.Property(e => e.IdДилера).HasColumnName("ID дилера");
@@ -77900,7 +77900,7 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.ToTable("ЦП_tmp");
 
                 entity.HasIndex(e => new { e.IdТовара, e.Регион, e.UserId })
-                    .HasDatabaseName("IX_ЦП_tmp");
+                    .HasName("IX_ЦП_tmp");
 
                 entity.Property(e => e.IdТовара).HasColumnName("ID товара");
 
@@ -77918,7 +77918,7 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.ToTable("ЦП для DIB");
 
                 entity.HasIndex(e => e.IdТовара)
-                    .HasDatabaseName("IX_ЦП для DIB_1")
+                    .HasName("IX_ЦП для DIB_1")
                     .IsUnique();
 
                 entity.Property(e => e.IdТовара).HasColumnName("ID товара");
@@ -77963,7 +77963,7 @@ namespace VS_CRM.Models.DATA_DB_Model
                 entity.ToTable("Части_тмп");
 
                 entity.HasIndex(e => e.RecordId)
-                    .HasDatabaseName("IX_Части_тмп")
+                    .HasName("IX_Части_тмп")
                     .IsUnique();
 
                 entity.Property(e => e.RecordId).HasColumnName("Record ID");
