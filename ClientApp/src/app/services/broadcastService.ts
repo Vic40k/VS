@@ -24,10 +24,12 @@ private hubConnection: signalR.HubConnection
   }
 
   public addTransferChartDataListener = () => {
-    this.hubConnection.on('transferchartdata', (data) => {
-      this.data = data;
-      console.log(data);
-    });
+    if (this.isListen) {
+      this.hubConnection.on('transferchartdata', (data) => {
+        this.data = data;
+        console.log(data);
+      });
+    }
   }
 }
 

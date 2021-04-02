@@ -17,9 +17,11 @@ export class AppComponent implements OnInit {
     }
   }
   private startHttpRequest = () => {
-    this.http.get('https://localhost:44328/api/info-screens/ForceUpdateAllWarehouseScreens')
-      .subscribe(res => {
-        console.log(res);
-      })
+    if (this.isListen) {
+      this.http.get('https://localhost:44328/api/info-screens/ForceUpdateAllWarehouseScreens')
+        .subscribe(res => {
+          console.log(res);
+        })
+    }
   }
 }
