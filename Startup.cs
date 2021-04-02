@@ -18,7 +18,6 @@ namespace VS_CRM
 {
     //TODO
     // Data connection protection
-    //404
 
     // DatePerenos - wtf?
 
@@ -32,7 +31,7 @@ namespace VS_CRM
         public IConfiguration Configuration { get; }
 
         // This method gets called by the runtime. Use this method to add services to the container.
-        const bool useCLI = false;
+        const bool useProxyForSPA = true;
 
         public void ConfigureServices(IServiceCollection services)
         {
@@ -126,14 +125,14 @@ namespace VS_CRM
 
                 if (env.IsDevelopment())
                 {
-                    if (useCLI)
-                        #pragma warning disable CS0162 
-                        spa.UseAngularCliServer(npmScript: "start");
-                        #pragma warning restore CS0162 
-                    else
-                        #pragma warning disable CS0162 
+                    if (useProxyForSPA)
+                        #pragma warning disable CS0162
                         spa.UseProxyToSpaDevelopmentServer("http://localhost:4200");
                         #pragma warning restore CS0162 
+                    else
+                        #pragma warning disable CS0162
+                        spa.UseAngularCliServer(npmScript: "start");
+                        #pragma warning restore CS0162
                 }
             });
         }
