@@ -6,6 +6,9 @@ import { Router } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { faDesktop } from '@fortawesome/free-solid-svg-icons';
 import { UserIntarfaceService } from 'src/app/services/userInterface.service';
+import * as signalR from '@microsoft/signalr'; 
+import { SignalRService } from 'src/app/services/broadcastService';
+import { HttpClient } from '@angular/common/http';
 import { DataService } from '../../data.service';
 
 @Component({
@@ -21,7 +24,9 @@ export class InfoScreensWarehouseComponent implements OnInit {
     private dataService: DataService, 
     private activateRoute: ActivatedRoute,
     private router: Router,
-    private _ui: UserIntarfaceService
+    private _ui: UserIntarfaceService,
+    public signalRService: SignalRService, 
+    private http: HttpClient
   ) { }
   faDesktop = faDesktop;
 
@@ -51,17 +56,33 @@ export class InfoScreensWarehouseComponent implements OnInit {
   isTableVisible = true;
   updateTime: Date = new Date();
 
-  ngOnInit() {
+  ngOnInit(): void {
     // Disable navbar
     this._ui.setNavbarVisible(false); 
     // Show loading anim while waiting query
     this._ui.setProgressBarNormalLoading();
+
+    // Broadcast listening
+    this.brodcastListening();
 
     // Handle preferences and load after
     this.definePreferences();
 
     // Main routine
     this.loadinfoScreensWarehouse();
+  }
+
+  // Brodcast listening
+  brodcastListening() {
+    this.signalRService.startConnection();
+    this.signalRService.addTransferChartDataListener();   
+    this.startHttpRequest();
+  }
+  private startHttpRequest = () => {
+    this.http.get('https://localhost:44328/api/info-screens/ForceUpdateAllWarehouseScreens')
+      .subscribe(res => {
+        console.log(res);
+      })
   }
 
   // Some actions before loading data
@@ -105,6 +126,7 @@ export class InfoScreensWarehouseComponent implements OnInit {
       .subscribe((data: []) => 
       { 
         this.dataStorage = data; 
+        this._ui.stopProgressBarLoading();
         // Count pages 
         this.pageCount = Math.trunc(this.dataStorage.length / this.maxResultsPerPage);
         if (this.dataStorage.length % this.maxResultsPerPage != 0)
