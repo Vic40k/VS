@@ -59,7 +59,7 @@ namespace VS_CRM
                 .AddIdentityServerJwt();
             services.AddControllersWithViews();
             services.AddRazorPages();
-            //services.AddDatabaseDeveloperPageExceptionFilter();
+            services.AddDatabaseDeveloperPageExceptionFilter();
             services.AddSignalR();
             /*
             services.AddCors(options =>
@@ -85,7 +85,7 @@ namespace VS_CRM
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
-                app.UseDatabaseErrorPage();
+                app.UseMigrationsEndPoint();
             }
             else
             {

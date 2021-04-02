@@ -75,7 +75,7 @@ export class InfoScreensWarehouseComponent implements OnInit {
   // Brodcast listening
   brodcastListening() {
     this.signalRService.startConnection();
-    this.signalRService.addTransferChartDataListener();
+    this.signalRService.addTransferChartDataListener(); 
     this.startHttpRequest();
   }
   private startHttpRequest = () => {

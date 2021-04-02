@@ -55,7 +55,7 @@ namespace VS_CRM.Model
             modelBuilder.Entity<AspNetRoles>(entity =>
             {
                 entity.HasIndex(e => e.NormalizedName)
-                    .HasName("RoleNameIndex")
+                    .HasDatabaseName("RoleNameIndex")
                     .IsUnique()
                     .HasFilter("([NormalizedName] IS NOT NULL)");
 
@@ -123,10 +123,10 @@ namespace VS_CRM.Model
             modelBuilder.Entity<AspNetUsers>(entity =>
             {
                 entity.HasIndex(e => e.NormalizedEmail)
-                    .HasName("EmailIndex");
+                    .HasDatabaseName("EmailIndex");
 
                 entity.HasIndex(e => e.NormalizedUserName)
-                    .HasName("UserNameIndex")
+                    .HasDatabaseName("UserNameIndex")
                     .IsUnique()
                     .HasFilter("([NormalizedUserName] IS NOT NULL)");
 
