@@ -8,10 +8,13 @@ import { HttpClient } from '@angular/common/http';
 })
 export class AppComponent implements OnInit {
   constructor(public signalRService: SignalRService, private http: HttpClient) { }
+  public isListen: boolean = false;
   ngOnInit() {
-    this.signalRService.startConnection();
-    this.signalRService.addTransferChartDataListener();   
-    this.startHttpRequest();
+    if (this.isListen) {
+      this.signalRService.startConnection();
+      this.signalRService.addTransferChartDataListener();   
+      this.startHttpRequest();
+    }
   }
   private startHttpRequest = () => {
     this.http.get('https://localhost:44328/api/info-screens/ForceUpdateAllWarehouseScreens')
