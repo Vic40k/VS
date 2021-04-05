@@ -25,7 +25,7 @@
   <tbody>
     <tr *ngFor="let screen of screensList">
       <th scope="row">
-        <fa-icon class="monitor_ctrl_icon" (click)="goToWarehouseScreen(0)" [icon]="faDesktop"></fa-icon>
+        <fa-icon class="monitor_ctrl_icon" (click)="goToWarehouseScreen(screen.id)" [icon]="faDesktop"></fa-icon>
       </th>
       <th scope="row">{{screen.name}}</th>
       <td>{{screen.autoScroll ? 'Да':'Нет'}}</td>

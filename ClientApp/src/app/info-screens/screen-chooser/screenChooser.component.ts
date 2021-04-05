@@ -62,13 +62,17 @@ export class ScreenChooserComponent {
     console.log(id);
   }
 
-  goToWarehouseScreen(warehouseMonitorId: number = 0) {
-    if (warehouseMonitorId === 0)
-      this.router.navigateByUrl('/sklad/0?autoScroll=true&pageToShow=0&pageToShowFrom=0&pageToShowTo=0&scrolInterval=5&updatePeriod=60&resultQty=0');  
-    else if (warehouseMonitorId === 1)
-      this.router.navigateByUrl('/sklad/0?autoScroll=false&pageToShow=1&pageToShowFrom=0&pageToShowTo=0&scrolInterval=5&updatePeriod=60&resultQty=0');  
-    else if (warehouseMonitorId === 2)
-      this.router.navigateByUrl('/sklad/0?autoScroll=true&pageToShow=0&pageToShowFrom=2&pageToShowTo=0&scrolInterval=10&updatePeriod=60&resultQty=0');  
+  goToWarehouseScreen(id: number = 0) {
+    let url: string = '/sklad/0';
+    if (this.screensList[id]) {
+      url += '?autoScroll=' + this.screensList[id].autoScroll.toString();
+      url += '&pageToShowFrom=' + this.screensList[id].pageToShowFrom.toString();
+      url += '&pageToShowTo=' + this.screensList[id].pageToShowTo.toString();
+      url += '&scrolInterval=' + this.screensList[id].scrollInterval.toString();
+      url += '&updatePeriod=' + this.screensList[id].updatePeriod.toString();
+
+      this.router.navigateByUrl(url);  
+    }
   }
 }
 
