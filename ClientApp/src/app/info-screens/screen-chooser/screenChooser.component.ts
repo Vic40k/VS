@@ -1,18 +1,32 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { faDesktop } from '@fortawesome/free-solid-svg-icons';
+import { DataWarehouseService } from 'src/app/services/dataWarehouse.service';
 
 @Component({
   selector: 'app-counter-component',
   templateUrl: './screenChooser.component.html',
   styleUrls: ['./screenChooser.component.css'],
+  providers: [DataWarehouseService],
 })
 export class ScreenChooserComponent {
-  constructor(private router: Router) {}
+  constructor(private router: Router, private dataService: DataWarehouseService ) {}
+  screensList: any[];
+
   faDesktop = faDesktop;
 
   ngOnInit(): void {
+    this.loadinfoScreensPreferences();
+  }
 
+  // получаем данные через сервис
+  loadinfoScreensPreferences() {
+    this.dataService.getWarehouseScreensPreferences()
+      .subscribe((data: []) => 
+      { 
+        this.screensList = data; 
+        console.log(data);
+      });
   }
 
   goToWarehouseScreen(warehouseMonitorId: number = 0) {

@@ -1,4 +1,3 @@
-//import { ChangeDetectionStrategy } from '@angular/compiler/src/core';
 import { ChangeDetectorRef, ViewChild } from '@angular/core';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
@@ -18,7 +17,6 @@ import { DataWarehouseService } from 'src/app/services/dataWarehouse.service';
   templateUrl: './infoScreensWarehouse.component.html',
   styleUrls: ['./infoScreensWarehouse.component.css'],
   providers: [DataWarehouseService],
-  //changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class InfoScreensWarehouseComponent implements OnInit {
   constructor(

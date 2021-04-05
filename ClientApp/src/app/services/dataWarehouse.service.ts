@@ -9,7 +9,7 @@ export class DataWarehouseService {
 
   // Information screens controller
   private readonly warehouseScreensDataURL = "/api/info-screens/GetWarehouseInfo";
-  private readonly infoSreensPref = "/api/info-screens/GetWarehouseInfo";
+  private readonly infoSreensPref = "/api/info-screens/GetScreensPreferences";
 
   constructor(private http: HttpClient) {
   }
