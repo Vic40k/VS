@@ -8,13 +8,13 @@ using Microsoft.EntityFrameworkCore.Metadata;
 
 namespace VS_CRM.Models.TestDB_DB_Models
 {
-    public partial class TestDBContext : DbContext
+    public partial class testDBContext : DbContext
     {
-        public TestDBContext()
+        public testDBContext()
         {
         }
 
-        public TestDBContext(DbContextOptions<TestDBContext> options)
+        public testDBContext(DbContextOptions<testDBContext> options)
             : base(options)
         {
         }
@@ -377,6 +377,10 @@ namespace VS_CRM.Models.TestDB_DB_Models
             modelBuilder.Entity<VideoScreenScreensPreferences>(entity =>
             {
                 entity.ToTable("VideoScreen_ScreensPreferences");
+
+                entity.Property(e => e.Name)
+                    .IsRequired()
+                    .HasMaxLength(256);
             });
 
             OnModelCreatingPartial(modelBuilder);
