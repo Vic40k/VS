@@ -167,29 +167,8 @@ namespace VS_CRM.Controllers
             return procedureList;
         }
 
-        [HttpGet]
-        public IActionResult ForceUpdateAllWarehouseScreens()
-        {
-            /* TODO send comands to update or anything
-            InformationScreensWarehouseNotification notification = new()
-            {
-                IsNeedForceUpdateWindow = true
-            };
-            */
-            var timerManager = new TimerManager(() => _hubContext.Clients.All.SendAsync("transferchartdata", DataManager.GetData()));
-            return Ok(new { Message = "Request Completed" });
-        }
-
-        public class BroadcastModel
-        {
-            public List<int> Data { get; set; }
-            public string Label { get; set; }
-
-            public BroadcastModel()
-            {
-                Data = new List<int>();
-            }
-        }
+        #region Broadcast section
+        // For test purpose only
         public static class DataManager
         {
             public static List<BroadcastModel> GetData()
@@ -204,5 +183,19 @@ namespace VS_CRM.Controllers
                 };
             }
         }
+        [HttpGet]
+        public IActionResult ForceUpdateAllWarehouseScreens()
+        {
+            /* TODO send comands to update or anything
+            InformationScreensWarehouseNotification notification = new()
+            {
+                IsNeedForceUpdateWindow = true
+            };
+            */
+            var timerManager = new TimerManager(() => _hubContext.Clients.All.SendAsync("transferchartdata", DataManager.GetData()));
+            return Ok(new { Message = "Request Completed" });
+        }
+        #endregion
+
     }
 }

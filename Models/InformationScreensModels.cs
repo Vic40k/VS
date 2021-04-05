@@ -36,4 +36,14 @@ namespace VS_CRM.Models
 		public bool IsNeedForceUpdateWindow { get; set; }
 		public bool IsNeedForceUpdateData { get; set; }
     }
+
+	public class BroadcastModel
+	{
+		public List<int> Data { get; set; }
+		public string Label { get; set; }
+		public BroadcastModel()
+		{
+			Data = new List<int>();
+		}
+	}
 }
