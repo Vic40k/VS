@@ -8,7 +8,8 @@ export class DataWarehouseService {
   private url = "/api/factoryComponents";
 
   // Information screens controller
-  private infoScreenURL = "/api/info-screens/GetWarehouseInfo";
+  private readonly warehouseScreensDataURL = "/api/info-screens/GetWarehouseInfo";
+  private readonly infoSreensPref = "/api/info-screens/GetWarehouseInfo";
 
   constructor(private http: HttpClient) {
   }
@@ -19,7 +20,11 @@ export class DataWarehouseService {
     .set('factoryId', '44')
     .set('productGroupId', '0')
     .set('productSubGroupId', '99');
-    return this.http.get(this.infoScreenURL, {params});
+    return this.http.get(this.warehouseScreensDataURL, {params});
+  }
+
+  getWarehouseScreensPreferences() {
+    return this.http.get(this.infoSreensPref);
   }
 
 
