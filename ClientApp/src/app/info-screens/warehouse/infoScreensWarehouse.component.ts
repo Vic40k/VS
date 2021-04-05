@@ -42,8 +42,6 @@ export class InfoScreensWarehouseComponent implements OnInit {
   interval: NodeJS.Timeout;
 
   id: number; // Screen id
-  resultQty: number; // Max results on screen
-  isUIoff: boolean = false;
 
   isScrol = true;
   scrolInterval = 5; // seconds, must be less than 60 
@@ -97,7 +95,6 @@ export class InfoScreensWarehouseComponent implements OnInit {
       this.routeSubscription = this.activateRoute.params.subscribe(params => this.id = params['id']);
       this.querySubscription = this.activateRoute.queryParams.subscribe(
         (queryParam: any) => {
-            this.resultQty = queryParam['resultQty'];
             let isScrollparam:string = queryParam['autoScroll']; 
             if (isScrollparam && typeof isScrollparam === 'string'){
               this.isScrol = isScrollparam.toLowerCase() === 'true';
@@ -110,14 +107,11 @@ export class InfoScreensWarehouseComponent implements OnInit {
             let updatePeriodParam:number = +queryParam['updatePeriod']; 
             if (updatePeriodParam && typeof updatePeriodParam === 'number' && updatePeriodParam >= 60 && updatePeriodParam < 43200) // from minute to 12 hours
               this.updatePeriod = Math.trunc(updatePeriodParam);              
-            let pageToShowParam:number = +queryParam['pageToShow']; 
-            if (pageToShowParam && typeof pageToShowParam === 'number' && pageToShowParam > 0)
-              this.pageToShow = Math.ceil(pageToShowParam);
             let pageToShowFromParam:number = +queryParam['pageToShowFrom']; 
             if (pageToShowFromParam && typeof pageToShowFromParam === 'number' && pageToShowFromParam > 0)
               this.pageToShowFrom = Math.ceil(pageToShowFromParam);
             let pageToShowToParam:number = +queryParam['pageToShowTo']; 
-            if (pageToShowToParam && typeof pageToShowToParam === 'number' && pageToShowToParam > 0 && pageToShowParam != this.pageToShowFrom)
+            if (pageToShowToParam && typeof pageToShowToParam === 'number' && pageToShowToParam > 0)
               this.pageToShowTo = Math.ceil(pageToShowToParam);
         }
       );
@@ -137,22 +131,15 @@ export class InfoScreensWarehouseComponent implements OnInit {
         if (this.dataStorage.length % this.maxResultsPerPage != 0)
           this.pageCount++;
         // AutoScrolling
-        if (this.isScrol) {
-          // ignore pageToShow param
-          if (this.pageToShowFrom != 0 && this.pageToShowFrom <= this.pageCount)
-            this.goToPage(this.pageToShowFrom);
-          else
-            this.goToPage(1);
-        } else {
+        if (!this.isScrol) {
           // Fill array to show in first time
           this.dataShow = Object.assign([], this.dataStorage);
-          if (this.pageToShow !== 0 && this.pageToShow <= this.pageCount)
-            this.goToPage(this.pageToShow);
-          /*
-          else
-            this.goToPage(1);
-          */
         }
+        // Show firt page
+        if (this.pageToShowFrom != 0 && this.pageToShowFrom <= this.pageCount)
+          this.goToPage(this.pageToShowFrom);
+        else
+          this.goToPage(1);
         // On first load complete
         if (!this.isLoadComplete){
           // Go timer! 
