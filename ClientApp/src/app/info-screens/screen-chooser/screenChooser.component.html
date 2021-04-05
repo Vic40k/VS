@@ -2,7 +2,7 @@
   <thead>
     <tr>
       <th scope="col" class="zone_col">Склад</th>
-      <th scope="col" class="screen_col hint_col" colspan="4">Выберите экран для отображения или настройте новый</th>
+      <th scope="col" class="screen_col hint_col" colspan="5">Выберите экран для отображения или настройте новый</th>
       <th scope="col" class="screen_col"></th>
       <th scope="col" class="screen_col"><button mat-button disabled color="primary"> + Добавить</button></th>
     </tr>
@@ -19,6 +19,7 @@
       <th scope="col">Скорость перемотки</th>
       <th scope="col">Страницы</th>
       <th scope="col">Интервал обновления данных</th>
+      <th scope="col"></th>
     </tr>
   </thead>
   <tbody>
@@ -31,6 +32,10 @@
       <td>{{screen.scrollInterval}} секунд</td>
       <td>{{showPagesPreferences(screen.pageToShowFrom, screen.pageToShowTo)}}</td>
       <td>{{screen.updatePeriod}} секунд</td>
+      <td>
+        <fa-icon class="edit_ctrl_icon" (click)="editScreen(screen.id)" [icon]="faPencilAlt"></fa-icon>
+        <fa-icon class="trash_ctrl_icon" (click)="removeScreen(screen.id)" [icon]="faTrash"></fa-icon>
+      </td>
     </tr>
 
     </tbody>

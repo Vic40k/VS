@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { faDesktop } from '@fortawesome/free-solid-svg-icons';
+import { faPencilAlt } from '@fortawesome/free-solid-svg-icons';
+import { faTrash } from '@fortawesome/free-solid-svg-icons';
 import { DataWarehouseService } from 'src/app/services/dataWarehouse.service';
 
 @Component({
@@ -14,6 +16,8 @@ export class ScreenChooserComponent {
   screensList: any[];
 
   faDesktop = faDesktop;
+  faPencilAlt = faPencilAlt;
+  faTrash = faTrash;
 
   ngOnInit(): void {
     this.loadScreensPreferences();
@@ -46,6 +50,16 @@ export class ScreenChooserComponent {
       return pageToShowTo.toString();
     else 
       return showFromString + '-' + showToString;
+  }
+
+  // - Edit screen preferences
+  editScreen(id: number) {
+    console.log(id);
+  }
+
+  // - Remove screen preference set
+  removeScreen(id: number) {
+    console.log(id);
   }
 
   goToWarehouseScreen(warehouseMonitorId: number = 0) {

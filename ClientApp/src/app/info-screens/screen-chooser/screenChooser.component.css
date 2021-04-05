@@ -3,6 +3,17 @@
     height: 276px;
     cursor: pointer;
 }
+.edit_ctrl_icon{
+    width: 313px;
+    height: 276px;
+    margin-right: 20px;
+    cursor: pointer;
+}
+.trash_ctrl_icon{
+    width: 313px;
+    height: 276px;
+    cursor: pointer;
+}
 .zone_col {
     padding-left: 3%;
     font-size: 24px;
