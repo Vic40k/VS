@@ -15,6 +15,7 @@ using VS_CRM.Data;
 using VS_CRM.Models;
 using VS_CRM.Models.DATA_DB_Model;
 using NET5SignalR.Models;
+using VS_CRM.Models.TestDB_DB_Models;
 
 namespace VS_CRM.Controllers
 {
@@ -23,10 +24,12 @@ namespace VS_CRM.Controllers
     public class InformationScreensController : Controller
     {
         private readonly DATAContext dbDATA;
+        private readonly testDBContext dbDefault;
         private readonly IHubContext<BroadcastHub> _hubContext;
-        public InformationScreensController(DATAContext context, IHubContext<BroadcastHub> hubContext)
+        public InformationScreensController(DATAContext context, testDBContext defaultDbContext, IHubContext<BroadcastHub> hubContext)
         {
             dbDATA = context;
+            dbDefault = defaultDbContext;
             _hubContext = hubContext;
         }
 
@@ -91,6 +94,7 @@ namespace VS_CRM.Controllers
         }
 
         [HttpGet]
+        // Gather data to show for warehouse screens
         public async Task<List<InformationScreenViewModel>> GetWarehouseInfo(int factoryId, int productGroupId, int productSubGroupId)
         {
             const int delayRiskDays = 3;
@@ -165,6 +169,26 @@ namespace VS_CRM.Controllers
             }
 
             return procedureList;
+        }
+
+        [HttpGet]
+        // Get screens preferences
+        public async Task<List<VideoScreenScreensPreferences>> GetScreensPreferences()
+        {
+            var result = new List<VideoScreenScreensPreferences>();
+
+            result = await (from pref in dbDefault.VideoScreenScreensPreferences
+                            select new VideoScreenScreensPreferences
+                            {
+                                Id = pref.Id,
+                                Name = pref.Name,
+                                AutoScroll = pref.AutoScroll,
+                                PageToShowFrom = pref.PageToShowFrom,
+                                PageToShowTo = pref.PageToShowTo,
+                                ScrollInterval = pref.ScrollInterval,
+                                UpdatePeriod = pref.UpdatePeriod
+                            }).ToListAsync();
+            return result;
         }
 
         #region Broadcast section
