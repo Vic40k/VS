@@ -13,6 +13,7 @@ using NET5SignalR.Models;
 using VS_CRM.Data;
 using VS_CRM.Models;
 using VS_CRM.Models.DATA_DB_Model;
+using VS_CRM.Models.TestDB_DB_Models;
 
 namespace VS_CRM
 {
@@ -38,11 +39,15 @@ namespace VS_CRM
             services.AddDbContext<DefaultDbContext>(options =>
                 options.UseSqlServer(
                     Configuration.GetConnectionString("DefaultConnection")));
-            
+
+            services.AddDbContext<testDBContext>(options =>
+                options.UseSqlServer(
+                    Configuration.GetConnectionString("DefaultConnection")));
+
             services.AddDbContext<DATAContext>(options =>
                 options.UseSqlServer(
                     Configuration.GetConnectionString("DATAConnection")));
-            
+
             services.AddDbContext<ASUPSQLContext>(options =>
                 options.UseSqlServer(
                     Configuration.GetConnectionString("ASUPSQLConnection")));
