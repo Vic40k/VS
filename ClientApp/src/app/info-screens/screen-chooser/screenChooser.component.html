@@ -29,7 +29,7 @@
       <th scope="row">{{screen.name}}</th>
       <td>{{screen.autoScroll ? 'Да':'Нет'}}</td>
       <td>{{screen.scrollInterval}} секунд</td>
-      <td>Все</td>
+      <td>{{showPagesPreferences(screen.pageToShowFrom, screen.pageToShowTo)}}</td>
       <td>{{screen.updatePeriod}} секунд</td>
     </tr>
 

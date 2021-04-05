@@ -16,17 +16,36 @@ export class ScreenChooserComponent {
   faDesktop = faDesktop;
 
   ngOnInit(): void {
-    this.loadinfoScreensPreferences();
+    this.loadScreensPreferences();
   }
 
-  // получаем данные через сервис
-  loadinfoScreensPreferences() {
+  // - Gathering data from service
+  loadScreensPreferences() {
     this.dataService.getWarehouseScreensPreferences()
       .subscribe((data: []) => 
       { 
         this.screensList = data; 
-        console.log(data);
       });
+  }
+
+  // - Return string to show for pageg range
+  showPagesPreferences(pageToShowFrom : number, pageToShowTo: number) {
+    const all = 'Все';
+    let showFromString: string, showToString: string;
+    if (pageToShowFrom === 0)
+       showFromString = all;
+    else 
+      showFromString = pageToShowFrom.toString();
+    if (pageToShowTo === 0 || pageToShowTo < pageToShowFrom)
+      showToString = all;
+    else
+      showToString = pageToShowTo.toString();
+    if (showToString === all && showFromString === all)
+      return all;
+    else if (pageToShowTo === pageToShowFrom)
+      return pageToShowTo.toString();
+    else 
+      return showFromString + '-' + showToString;
   }
 
   goToWarehouseScreen(warehouseMonitorId: number = 0) {
