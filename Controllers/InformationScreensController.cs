@@ -191,6 +191,17 @@ namespace VS_CRM.Controllers
             return result;
         }
 
+        [HttpDelete]
+        // Delete screen preferences set
+        public async void DeleteScreensPreference(int id)
+        {
+            var pref = await dbDefault.VideoScreenScreensPreferences.FindAsync(id);
+            if (pref == null)
+                throw new Exception();
+            dbDefault.Entry(pref).State = EntityState.Deleted;
+            await dbDefault.SaveChangesAsync();            
+        }
+
         #region Broadcast section
         // For test purpose only
         public static class DataManager
