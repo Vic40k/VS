@@ -5,10 +5,11 @@ using System.Collections.Generic;
 // If you have enabled NRTs for your project, then un-comment the following line:
 // #nullable disable
 
-namespace VS_CRM.Model
+namespace VS_CRM.Models.TestDB_DB_Models
 {
     public partial class FactoryComponents
     {
+        public int Id { get; set; }
         public string Articul { get; set; }
         public decimal? AsCh { get; set; }
         public decimal? AsVvod { get; set; }
@@ -56,8 +57,7 @@ namespace VS_CRM.Model
         public int? Idspec { get; set; }
         public decimal? Price { get; set; }
         public string MaterialAjur { get; set; }
-        public bool? Unit39 { get; set; }
-        public bool? Unit44 { get; set; }
-        public int Id { get; set; }
+        public bool Unit39 { get; set; }
+        public bool Unit44 { get; set; }
     }
 }

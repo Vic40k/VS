@@ -15,7 +15,6 @@ export class ScreenChooserComponent {
 
   }
 
-
   goToWarehouseScreen(warehouseMonitorId: number = 0) {
     if (warehouseMonitorId === 0)
       this.router.navigateByUrl('/sklad/0?autoScroll=true&pageToShow=0&pageToShowFrom=0&pageToShowTo=0&scrolInterval=5&updatePeriod=60&resultQty=0');  

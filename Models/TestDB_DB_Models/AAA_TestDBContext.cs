@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore.Metadata;
 // If you have enabled NRTs for your project, then un-comment the following line:
 // #nullable disable
 
-namespace VS_CRM.Model
+namespace VS_CRM.Models.TestDB_DB_Models
 {
     public partial class TestDBContext : DbContext
     {
@@ -29,13 +29,14 @@ namespace VS_CRM.Model
         public virtual DbSet<DeviceCodes> DeviceCodes { get; set; }
         public virtual DbSet<FactoryComponents> FactoryComponents { get; set; }
         public virtual DbSet<PersistedGrants> PersistedGrants { get; set; }
+        public virtual DbSet<VideoScreenScreensPreferences> VideoScreenScreensPreferences { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             if (!optionsBuilder.IsConfigured)
             {
 #warning To protect potentially sensitive information in your connection string, you should move it out of source code. See http://go.microsoft.com/fwlink/?LinkId=723263 for guidance on storing connection strings.
-                optionsBuilder.UseSqlServer("Data Source=prosrvna.prometad.ru;Initial Catalog=TestDB;Persist Security Info=True;User ID=datasa;Password=KoSt55RoMa;Connection Timeout=0");
+                optionsBuilder.UseSqlServer("Data Source=prosrvna.prometad.ru;Initial Catalog=testDB;Persist Security Info=True;User ID=datasa;Password=KoSt55RoMa;Connection Timeout=0");
             }
         }
 
@@ -297,8 +298,7 @@ namespace VS_CRM.Model
                 entity.Property(e => e.MaterialAjur)
                     .HasColumnName("MaterialAJUR")
                     .HasMaxLength(50)
-                    .IsUnicode(false)
-                    .HasComment("Артикул материала в базе данных программы АЖУР");
+                    .IsUnicode(false);
 
                 entity.Property(e => e.Me)
                     .HasColumnName("ME")
@@ -348,14 +348,6 @@ namespace VS_CRM.Model
                     .HasColumnName("TIME_LINE")
                     .HasColumnType("decimal(4, 0)");
 
-                entity.Property(e => e.Unit39)
-                    .HasDefaultValueSql("((0))")
-                    .HasComment("Изготавливается на ЗМК, Москва");
-
-                entity.Property(e => e.Unit44)
-                    .HasDefaultValueSql("((0))")
-                    .HasComment("Изготавливается на УЗМК, Узловая");
-
                 entity.Property(e => e.Zag).HasColumnName("ZAG");
             });
 
@@ -380,6 +372,11 @@ namespace VS_CRM.Model
                 entity.Property(e => e.Type)
                     .IsRequired()
                     .HasMaxLength(50);
+            });
+
+            modelBuilder.Entity<VideoScreenScreensPreferences>(entity =>
+            {
+                entity.ToTable("VideoScreen_ScreensPreferences");
             });
 
             OnModelCreatingPartial(modelBuilder);

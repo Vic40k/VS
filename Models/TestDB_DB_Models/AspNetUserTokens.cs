@@ -5,7 +5,7 @@ using System.Collections.Generic;
 // If you have enabled NRTs for your project, then un-comment the following line:
 // #nullable disable
 
-namespace VS_CRM.Model
+namespace VS_CRM.Models.TestDB_DB_Models
 {
     public partial class AspNetUserTokens
     {

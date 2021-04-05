@@ -12,7 +12,6 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Web.Administration;
 using Microsoft.AspNetCore.SignalR;
 using VS_CRM.Data;
-using VS_CRM.Model;
 using VS_CRM.Models;
 using VS_CRM.Models.DATA_DB_Model;
 using NET5SignalR.Models;

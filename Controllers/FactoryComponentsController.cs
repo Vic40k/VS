@@ -2,7 +2,6 @@
 using System.Linq;
 using Microsoft.AspNetCore.Mvc;
 using VS_CRM.Data;
-using VS_CRM.Model;
 using VS_CRM.Models;
 using VS_CRM.Models.DATA_DB_Model;
 
@@ -12,18 +11,12 @@ namespace VS_CRM.Controllers
     [Route("api/factoryComponents")]
     public class FactoryComponentsController : Controller
     {
+        /*
         TestDBContext dbTestDB;
         //DATAContext dbDATA;
         public FactoryComponentsController(TestDBContext context)
         {
             dbTestDB = context;
-            /*
-            if (!dbTestDB.Det1.Any())
-            {
-                //dbTestDB.Det1.Add(new Det1 { Name = "X", Company = "A", Price = 79900 });
-                //dbTestDB.SaveChanges();
-            }
-            */
 
         }
         [HttpGet]
@@ -75,5 +68,6 @@ namespace VS_CRM.Controllers
             }
             return Ok(factoryComponent);
         }
+    */
     }
 }

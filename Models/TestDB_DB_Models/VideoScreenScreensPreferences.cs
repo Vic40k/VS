@@ -7,13 +7,14 @@ using System.Collections.Generic;
 
 namespace VS_CRM.Models.TestDB_DB_Models
 {
-    public partial class AspNetUserClaims
+    public partial class VideoScreenScreensPreferences
     {
         public int Id { get; set; }
-        public string UserId { get; set; }
-        public string ClaimType { get; set; }
-        public string ClaimValue { get; set; }
-
-        public virtual AspNetUsers User { get; set; }
+        public bool AutoScroll { get; set; }
+        public int PageToShow { get; set; }
+        public int PageToShowFrom { get; set; }
+        public int PageToShowTo { get; set; }
+        public int ScrollInterval { get; set; }
+        public int UpdatePeriod { get; set; }
     }
 }
