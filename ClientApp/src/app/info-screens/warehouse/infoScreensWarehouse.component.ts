@@ -51,8 +51,6 @@ export class InfoScreensWarehouseComponent implements OnInit {
   pageToShowFrom: number = 1;
   pageToShowTo: number = 0;  // 0 or nothing - All
 
-  pageToShow: number = 0; // 0 or nothing - All
-
   isTableVisible = true;
   updateTime: Date = new Date();
 

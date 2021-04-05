@@ -62,14 +62,19 @@ export class ScreenChooserComponent {
     console.log(id);
   }
 
-  goToWarehouseScreen(id: number = 0) {
+  goToWarehouseScreen(id: number) {
     let url: string = '/sklad/0';
-    if (this.screensList[id]) {
-      url += '?autoScroll=' + this.screensList[id].autoScroll.toString();
-      url += '&pageToShowFrom=' + this.screensList[id].pageToShowFrom.toString();
-      url += '&pageToShowTo=' + this.screensList[id].pageToShowTo.toString();
-      url += '&scrolInterval=' + this.screensList[id].scrollInterval.toString();
-      url += '&updatePeriod=' + this.screensList[id].updatePeriod.toString();
+    let pref: any = null;
+    this.screensList.forEach(function(item){
+      if (item.id === id)
+        pref = item;
+    });
+    if (pref !== null) {
+      url += '?autoScroll=' + pref.autoScroll.toString();
+      url += '&pageToShowFrom=' + pref.pageToShowFrom.toString();
+      url += '&pageToShowTo=' + pref.pageToShowTo.toString();
+      url += '&scrolInterval=' + pref.scrollInterval.toString();
+      url += '&updatePeriod=' + pref.updatePeriod.toString();
 
       this.router.navigateByUrl(url);  
     }
