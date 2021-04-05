@@ -1,4 +1,4 @@
-<div class="warehouse_table_container">
+<div class="warehouse_table_container" #fullScreen>
   <table class="table warehouse_table" *ngIf = "isTableVisible"> 
     <thead class="warehouse_table_header">
         <tr>
@@ -10,6 +10,9 @@
             <td>Комментарий</td>
             <td>Сделано&nbsp;всего
               <fa-icon matTooltip="Возврат к выбору экрана" matTooltipPosition="above" class="screen_chooser_icon" (click)="goToScreenChooser()" [icon]="faDesktop"></fa-icon>
+              <!--
+              <fa-icon matTooltip="Развернуть на весь экран" matTooltipPosition="above" class="screen_chooser_icon" (click)="openFullscreen()" [icon]="faWindowMaximize"></fa-icon>
+              -->
             </td>
         </tr>
     </thead>

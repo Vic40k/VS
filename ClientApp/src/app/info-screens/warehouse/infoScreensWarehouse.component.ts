@@ -1,10 +1,12 @@
 //import { ChangeDetectionStrategy } from '@angular/compiler/src/core';
-import { ChangeDetectorRef } from '@angular/core';
+import { ChangeDetectorRef, ViewChild } from '@angular/core';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Router } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { faDesktop } from '@fortawesome/free-solid-svg-icons';
+import { faWindowMaximize } from '@fortawesome/free-solid-svg-icons';
+import { faWindowMinimize } from '@fortawesome/free-solid-svg-icons';
 import { UserIntarfaceService } from 'src/app/services/userInterface.service';
 import * as signalR from '@microsoft/signalr'; 
 import { SignalRService } from 'src/app/services/broadcastService';
@@ -29,6 +31,8 @@ export class InfoScreensWarehouseComponent implements OnInit {
     private http: HttpClient
   ) { }
   faDesktop = faDesktop;
+  faWindowMaximize = faWindowMaximize;
+  faWindowMinimize = faWindowMinimize;
 
   dataStorage: any[];
   dataShow: any[];
@@ -56,7 +60,10 @@ export class InfoScreensWarehouseComponent implements OnInit {
   isTableVisible = true;
   updateTime: Date = new Date();
 
+  @ViewChild('fullScreen') divRef;
+
   ngOnInit(): void {
+    this.divRef = document.documentElement; 
     // Disable navbar
     this._ui.setNavbarVisible(false); 
     // Show loading anim while waiting query
@@ -227,6 +234,21 @@ export class InfoScreensWarehouseComponent implements OnInit {
 
   goToScreenChooser() {
     this.router.navigateByUrl('/screenChooser');  
+  }
+
+  openFullscreen() {
+    console.log(this.divRef);
+    const elem = this.divRef.nativeElement;
+
+    if (elem.requestFullscreen) {
+      elem.requestFullscreen();
+    } else if (elem.msRequestFullscreen) {
+      elem.msRequestFullscreen();
+    } else if (elem.mozRequestFullScreen) {
+      elem.mozRequestFullScreen();
+    } else if (elem.webkitRequestFullscreen) {
+      elem.webkitRequestFullscreen();
+    }
   }
   /*
   // сохранение данных
