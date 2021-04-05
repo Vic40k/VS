@@ -216,6 +216,7 @@ export class InfoScreensWarehouseComponent implements OnInit {
   }
 
   goToScreenChooser() {
+    this._ui.stopProgressBarLoading();
     this.router.navigateByUrl('/screenChooser');  
   }
 
