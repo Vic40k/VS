@@ -11,46 +11,27 @@
 
 
 <table class="table align-middle">
-    <thead>
-      <tr>
-        <th scope="col"></th>
-        <th scope="col">Имя</th>
-        <th scope="col">Перемотка</th>
-        <th scope="col">Скорость перемотки</th>
-        <th scope="col">Страницы</th>
-        <th scope="col">Интервал обновления данных</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <th scope="row">
-          <fa-icon class="monitor_ctrl_icon" (click)="goToWarehouseScreen(0)" [icon]="faDesktop"></fa-icon>
-        </th>
-        <th scope="row">Основной</th>
-        <td>Да</td>
-        <td>5 секунд</td>
-        <td>Все</td>
-        <td>60 секунд</td>
-      </tr>
-      <tr>
-        <th scope="row">
-          <fa-icon class="monitor_ctrl_icon" (click)="goToWarehouseScreen(1)" [icon]="faDesktop"></fa-icon>
-        </th>
-        <th scope="row">Первый складской</th>
-        <td>Да</td>
-        <td>5 секунд</td>
-        <td>1</td>
-        <td>60 секунд</td>
-      </tr>
-      <tr>
-        <th scope="row">
-          <fa-icon class="monitor_ctrl_icon" (click)="goToWarehouseScreen(2)" [icon]="faDesktop"></fa-icon>
-        </th>
-        <th scope="row">Последний складской</th>
-        <td>Да</td>
-        <td>10 секунд</td>
-        <td>2-Все</td>
-        <td>60 секунд</td>
-      </tr>
+  <thead>
+    <tr>
+      <th scope="col"></th>
+      <th scope="col">Имя</th>
+      <th scope="col">Перемотка</th>
+      <th scope="col">Скорость перемотки</th>
+      <th scope="col">Страницы</th>
+      <th scope="col">Интервал обновления данных</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let screen of screensList">
+      <th scope="row">
+        <fa-icon class="monitor_ctrl_icon" (click)="goToWarehouseScreen(0)" [icon]="faDesktop"></fa-icon>
+      </th>
+      <th scope="row">{{screen.name}}</th>
+      <td>{{screen.autoScroll ? 'Да':'Нет'}}</td>
+      <td>{{screen.scrollInterval}} секунд</td>
+      <td>Все</td>
+      <td>{{screen.updatePeriod}} секунд</td>
+    </tr>
+
     </tbody>
   </table>
