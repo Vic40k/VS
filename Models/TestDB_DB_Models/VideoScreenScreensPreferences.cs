@@ -12,7 +12,6 @@ namespace VS_CRM.Models.TestDB_DB_Models
         public int Id { get; set; }
         public string Name { get; set; }
         public bool AutoScroll { get; set; }
-        public int PageToShow { get; set; }
         public int PageToShowFrom { get; set; }
         public int PageToShowTo { get; set; }
         public int ScrollInterval { get; set; }
