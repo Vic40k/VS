@@ -1,9 +1,9 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpParams } from '@angular/common/http';
-import { FactoryComponent } from './factoryComponent';
+import { FactoryComponent } from '../factoryComponent';
 
 @Injectable()
-export class DataService {
+export class DataWarehouseService {
 
   private url = "/api/factoryComponents";
 

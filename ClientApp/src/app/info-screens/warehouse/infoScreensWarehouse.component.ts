@@ -11,19 +11,19 @@ import { UserIntarfaceService } from 'src/app/services/userInterface.service';
 import * as signalR from '@microsoft/signalr'; 
 import { SignalRService } from 'src/app/services/broadcastService';
 import { HttpClient } from '@angular/common/http';
-import { DataService } from '../../data.service';
+import { DataWarehouseService } from 'src/app/services/dataWarehouse.service';
 
 @Component({
   selector: 'app-info-screens',
   templateUrl: './infoScreensWarehouse.component.html',
   styleUrls: ['./infoScreensWarehouse.component.css'],
-  providers: [DataService],
+  providers: [DataWarehouseService],
   //changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class InfoScreensWarehouseComponent implements OnInit {
   constructor(
     private ref: ChangeDetectorRef, 
-    private dataService: DataService, 
+    private dataService: DataWarehouseService, 
     private activateRoute: ActivatedRoute,
     private router: Router,
     private _ui: UserIntarfaceService,

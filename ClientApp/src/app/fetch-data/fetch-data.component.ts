@@ -2,18 +2,18 @@ import { Component, Inject } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 
 import { FactoryComponent } from '../factoryComponent';
-import { DataService } from '../data.service';
+import { DataWarehouseService } from 'src/app/services/dataWarehouse.service';
 
 @Component({
   selector: 'app-fetch-data',
   templateUrl: './fetch-data.component.html',
-  providers: [DataService]
+  providers: [DataWarehouseService]
 })
 export class FetchDataComponent {
   public forecasts: WeatherForecast[];
   public factoryComponent: FactoryComponent[];
 
-  constructor(http: HttpClient, private dataService: DataService, @Inject('BASE_URL') baseUrl: string) {
+  constructor(http: HttpClient, private dataService: DataWarehouseService, @Inject('BASE_URL') baseUrl: string) {
     http.get<WeatherForecast[]>(baseUrl + 'weatherforecast').subscribe(result => {
       this.forecasts = result;
 
