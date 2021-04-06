@@ -77,7 +77,61 @@
             </mat-form-field>
           </form>
         </td>
-        <td>{{showPagesPreferences(screen.pageToShowFrom, screen.pageToShowTo)}}</td>
+        <td>
+          <mat-form-field >
+            <mat-label>Будет показано: {{showPagesPreferences(screen.pageToShowFrom, screen.pageToShowTo)}}</mat-label>
+            <select matNativeControl
+              [(ngModel)]="screen.pageToShowFrom"
+              required>
+              <option value="0">Все</option>
+              <option value="1">1</option>
+              <option value="2">2</option>
+              <option value="3">3</option>
+              <option value="4">4</option>
+              <option value="5">5</option>
+              <option value="6">6</option>
+              <option value="7">7</option>
+              <option value="8">8</option>
+              <option value="9">9</option>
+              <option value="10">10</option>
+            </select>
+          </mat-form-field>
+          <mat-form-field >
+            <select matNativeControl
+            [(ngModel)]="screen.pageToShowTo"
+            required>
+            <option value="0">Все</option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+            <option value="6">6</option>
+            <option value="7">7</option>
+            <option value="8">8</option>
+            <option value="9">9</option>
+            <option value="10">10</option>
+          </select>
+          </mat-form-field>
+          <!--
+          <mat-label>0 - значит "Все"</mat-label>
+          <input matInput id="pafe_show_from" name="pafe_show_from"
+          type="number"
+          [(ngModel)]="screen.pageToShowFrom"
+          placeholder="0 - значит quotesВсе"
+          min="0"
+          autocomplete="off"
+        >
+        -
+        <input matInput id="pafe_show_to" name="pafe_show_to"
+          type="number"
+          [(ngModel)]="screen.pageToShowTo"
+          placeholder="От 60 до 43200 секунд (12ч)"
+          min="6"
+          autocomplete="off"
+        >
+        -->
+        </td>
         <td>
           <form>
             <mat-form-field>
