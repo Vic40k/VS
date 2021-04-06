@@ -24,7 +24,7 @@
   </thead>
   <tbody>
     <tr *ngFor="let screen of screensList">
-      <ng-template [ngIf]="screen.autoScroll" [ngIfElse]="edit">
+      <ng-template [ngIf]="!screen.isEdit" [ngIfElse]="edit">
         <th scope="row">
           <fa-icon class="monitor_ctrl_icon" (click)="goToWarehouseScreen(screen.id)" [icon]="faDesktop"></fa-icon>
         </th>
@@ -34,7 +34,7 @@
         <td>{{showPagesPreferences(screen.pageToShowFrom, screen.pageToShowTo)}}</td>
         <td>{{screen.updatePeriod}} секунд</td>
         <td>
-          <fa-icon class="edit_ctrl_icon" (click)="editScreen(screen.id)" [icon]="faPencilAlt"></fa-icon>
+          <fa-icon class="edit_ctrl_icon" (click)="editScreen(screen)" [icon]="faPencilAlt"></fa-icon>
           <fa-icon class="trash_ctrl_icon" (click)="removeScreen(screen.id)" [icon]="faTrash"></fa-icon>
         </td>
       </ng-template>
@@ -46,8 +46,8 @@
         <td>{{showPagesPreferences(screen.pageToShowFrom, screen.pageToShowTo)}}</td>
         <td>{{screen.updatePeriod}} секунд</td>
         <td>
-          <fa-icon class="check_ctrl_icon" (click)="saveScreen(screen.id)" [icon]="faCheck"></fa-icon>
-          <fa-icon class="cancel_ctrl_icon" (click)="cancelScreen()" [icon]="faTimesCircle"></fa-icon>
+          <fa-icon class="check_ctrl_icon" (click)="saveScreenEdit(screen.id)" [icon]="faCheck"></fa-icon>
+          <fa-icon class="cancel_ctrl_icon" (click)="cancelScreenEdit(screen)" [icon]="faTimesCircle"></fa-icon>
         </td>
       </ng-template>
     </tr>

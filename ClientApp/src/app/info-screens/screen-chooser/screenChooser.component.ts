@@ -76,16 +76,24 @@ export class ScreenChooserComponent {
   }
 
   // - Edit screen preferences
-  editScreen(id: number) {
-    console.log(id);
+  editScreen(screen: any) {
+    screen.isEdit = true;
   }
 
   // - Remove screen preference set
   removeScreen(id: number) {
     this.dataService.delWarehouseScreensPreferences(id)
-    .subscribe((data: []) => 
+    .subscribe(() => 
     { 
       this.loadScreensPreferences();
+    });
+  }
+
+  // - Cancel screen preference edit
+  cancelScreenEdit() {
+    this.screensList.forEach(function(item){
+      if (item.isEdit)
+        item.isEdit = false;
     });
   }
 }
