@@ -193,14 +193,32 @@ namespace VS_CRM.Controllers
 
         [HttpDelete]
         // Delete screen preferences set
-        public async void DeleteScreensPreference(int id)
+        public async Task<IActionResult> DeleteScreensPreference(int id)
         {
             var pref = await dbDefault.VideoScreenScreensPreferences.FindAsync(id);
             if (pref == null)
-                throw new Exception();
+                return BadRequest(ModelState);
+
             dbDefault.Entry(pref).State = EntityState.Deleted;
-            await dbDefault.SaveChangesAsync();            
+            await dbDefault.SaveChangesAsync();
+            return Ok();
         }
+
+        [HttpPut]
+        public IActionResult UpdateScreenPreferences(VideoScreenScreensPreferences pref)
+        {
+            if (pref.Id == 0)
+            {
+                // Assume it`s new set, add
+            }
+            else
+            {
+                // Update existing
+            }
+            return Ok(pref);
+            //return BadRequest(ModelState);
+        }
+
 
         #region Broadcast section
         // For test purpose only
