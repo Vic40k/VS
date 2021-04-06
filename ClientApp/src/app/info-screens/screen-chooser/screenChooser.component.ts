@@ -24,6 +24,8 @@ export class ScreenChooserComponent {
   faCheck = faCheck;
   faTimesCircle = faTimesCircle;
 
+  //TODO
+  // Validation input, required or form control need
   ngOnInit(): void {
     this.loadScreensPreferences();
   }

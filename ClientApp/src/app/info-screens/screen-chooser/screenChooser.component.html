@@ -78,7 +78,20 @@
           </form>
         </td>
         <td>{{showPagesPreferences(screen.pageToShowFrom, screen.pageToShowTo)}}</td>
-        <td>{{screen.updatePeriod}} секунд</td>
+        <td>
+          <form>
+            <mat-form-field>
+              <input matInput id="update_period" name="update_period"
+                type="number"
+                [(ngModel)]="screen.updatePeriod"
+                placeholder="От 60 до 43200 секунд (12ч)"
+                min="60"
+                max="43200"
+                autocomplete="off"
+              >
+            </mat-form-field>
+          </form>
+        </td>
         <td>
           <fa-icon class="check_ctrl_icon" (click)="saveScreenEdit(screen)" [icon]="faCheck"></fa-icon>
           <fa-icon class="cancel_ctrl_icon" (click)="cancelScreenEdit(screen)" [icon]="faTimesCircle"></fa-icon>
