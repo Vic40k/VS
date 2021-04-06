@@ -53,7 +53,17 @@
           </form>
           
         </th>
-        <td>{{screen.autoScroll ? 'Да':'Нет'}}</td>
+        <td>{{screen.autoScroll ? 'Да':'Нет'}}
+          <mat-form-field >
+            <mat-label>Перематывать страницы?</mat-label>
+            <select matNativeControl
+              [(ngModel)]="screen.autoScroll"
+              required>
+              <option value="true">Да</option>
+              <option value="false">Нет</option>
+            </select>
+          </mat-form-field>
+        </td>
         <td>{{screen.scrollInterval}} секунд</td>
         <td>{{showPagesPreferences(screen.pageToShowFrom, screen.pageToShowTo)}}</td>
         <td>{{screen.updatePeriod}} секунд</td>

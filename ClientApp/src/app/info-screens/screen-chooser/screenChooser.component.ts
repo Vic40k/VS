@@ -91,12 +91,12 @@ export class ScreenChooserComponent {
       this.loadScreensPreferences();
     });
   }
-
   
   // - Save screen preference edit
   saveScreenEdit(screen: any) {
     // TODO
-    this.resetAllEditFlags();
+    console.log(screen);
+    //this.resetAllEditFlags();
   }
 
   // - Cancel screen preference edit
