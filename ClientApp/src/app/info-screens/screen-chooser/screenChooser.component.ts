@@ -89,6 +89,12 @@ export class ScreenChooserComponent {
     });
   }
 
+  
+  // - Save screen preference edit
+  saveScreenEdit(screen: any) {
+    console.log(screen);
+  }
+
   // - Cancel screen preference edit
   cancelScreenEdit() {
     this.screensList.forEach(function(item){

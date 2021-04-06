@@ -40,13 +40,20 @@
       </ng-template>
       <ng-template #edit>
         <th scope="row" class="new_pref">{{screen.id == 0? 'Новый!':''}}</th>
-        <th scope="row">{{screen.name}}</th>
+        <th scope="row">
+          <form>
+            <mat-form-field>
+              <input matInput name="screen_name" [(ngModel)]="screen.name" placeholder="Введите название экрана" autocomplete="off">
+            </mat-form-field>
+          </form>
+          
+        </th>
         <td>{{screen.autoScroll ? 'Да':'Нет'}}</td>
         <td>{{screen.scrollInterval}} секунд</td>
         <td>{{showPagesPreferences(screen.pageToShowFrom, screen.pageToShowTo)}}</td>
         <td>{{screen.updatePeriod}} секунд</td>
         <td>
-          <fa-icon class="check_ctrl_icon" (click)="saveScreenEdit(screen.id)" [icon]="faCheck"></fa-icon>
+          <fa-icon class="check_ctrl_icon" (click)="saveScreenEdit(screen)" [icon]="faCheck"></fa-icon>
           <fa-icon class="cancel_ctrl_icon" (click)="cancelScreenEdit(screen)" [icon]="faTimesCircle"></fa-icon>
         </td>
       </ng-template>
