@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpParams } from '@angular/common/http';
+
 import { FactoryComponent } from '../factoryComponent';
 
 @Injectable()
@@ -29,10 +30,16 @@ export class DataWarehouseService {
     return this.http.get(this.getInfoSreensPref);
   }
 
-  deleteWarehouseInfo(id: number) {
+  updWarehouseScreensPreferences(id: number) {
     const params = new HttpParams()
     .set('id', id.toString())
-    return this.http.get(this.delInfoSreensPref, {params});
+    return this.http.put(this.updInfoSreensPref, {params});
+  }
+
+  delWarehouseScreensPreferences(id: number) {
+    const params = new HttpParams()
+    .set('id', id.toString())
+    return this.http.delete(this.delInfoSreensPref, {params});
   }
 
 
@@ -48,8 +55,8 @@ export class DataWarehouseService {
   createFactoryComponent(FactoryComponent: FactoryComponent) {
     return this.http.post(this.url, FactoryComponent);
   }
-  updateFactoryComponent(FactoryComponent: FactoryComponent) {
 
+  updateFactoryComponent(FactoryComponent: FactoryComponent) {
     return this.http.put(this.url, FactoryComponent);
   }
   deleteFactoryComponent(articul: string) {

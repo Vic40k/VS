@@ -52,16 +52,7 @@ export class ScreenChooserComponent {
       return showFromString + '-' + showToString;
   }
 
-  // - Edit screen preferences
-  editScreen(id: number) {
-    console.log(id);
-  }
-
-  // - Remove screen preference set
-  removeScreen(id: number) {
-    console.log(id);
-  }
-
+  // Create url with needed preferences and go to
   goToWarehouseScreen(id: number) {
     let url: string = '/sklad';
     let pref: any = null;
@@ -78,6 +69,20 @@ export class ScreenChooserComponent {
 
       this.router.navigateByUrl(url);  
     }
+  }
+
+  // - Edit screen preferences
+  editScreen(id: number) {
+    console.log(id);
+  }
+
+  // - Remove screen preference set
+  removeScreen(id: number) {
+    this.dataService.delWarehouseScreensPreferences(id)
+    .subscribe((data: []) => 
+    { 
+      this.loadScreensPreferences();
+    });
   }
 }
 
