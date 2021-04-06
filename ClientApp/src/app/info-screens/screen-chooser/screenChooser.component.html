@@ -51,9 +51,8 @@
               >
             </mat-form-field>
           </form>
-          
         </th>
-        <td>{{screen.autoScroll ? 'Да':'Нет'}}
+        <td>
           <mat-form-field >
             <mat-label>Перематывать страницы?</mat-label>
             <select matNativeControl
@@ -64,7 +63,20 @@
             </select>
           </mat-form-field>
         </td>
-        <td>{{screen.scrollInterval}} секунд</td>
+        <td>
+          <form>
+            <mat-form-field>
+              <input matInput id="scroll_interval" name="scroll_interval"
+                type="number"
+                [(ngModel)]="screen.scrollInterval"
+                placeholder="От 2 до 60 секунд"
+                min="2"
+                max="60"
+                autocomplete="off"
+              >
+            </mat-form-field>
+          </form>
+        </td>
         <td>{{showPagesPreferences(screen.pageToShowFrom, screen.pageToShowTo)}}</td>
         <td>{{screen.updatePeriod}} секунд</td>
         <td>
