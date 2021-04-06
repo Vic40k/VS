@@ -63,7 +63,7 @@ export class ScreenChooserComponent {
   }
 
   goToWarehouseScreen(id: number) {
-    let url: string = '/sklad/0';
+    let url: string = '/sklad';
     let pref: any = null;
     this.screensList.forEach(function(item){
       if (item.id === id)

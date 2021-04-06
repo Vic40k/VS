@@ -59,9 +59,9 @@ registerLocaleData(localeRu);
       { path: 'screens', component: ScreenChooserComponent }, // pseudonym
       { path: 'экраны', component: ScreenChooserComponent }, // pseudonym ru
       //Warehouse routes
-      { path: 'infoScreensWarehouse/:id', component: InfoScreensWarehouseComponent }, // full route
-      { path: 'sklad/:id', component: InfoScreensWarehouseComponent }, // pseudonym
-      { path: 'склад/:id', component: InfoScreensWarehouseComponent }, // pseudonym ru
+      { path: 'infoScreensWarehouse', component: InfoScreensWarehouseComponent }, // full route
+      { path: 'sklad', component: InfoScreensWarehouseComponent }, // pseudonym
+      { path: 'склад', component: InfoScreensWarehouseComponent }, // pseudonym ru
 
       // debug garbage
       { path: 'counter', component: CounterComponent },
