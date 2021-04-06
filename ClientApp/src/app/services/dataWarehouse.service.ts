@@ -9,7 +9,9 @@ export class DataWarehouseService {
 
   // Information screens controller
   private readonly warehouseScreensDataURL = "/api/info-screens/GetWarehouseInfo";
-  private readonly infoSreensPref = "/api/info-screens/GetScreensPreferences";
+  private readonly getInfoSreensPref = "/api/info-screens/GetScreensPreferences";
+  private readonly updInfoSreensPref = "/api/info-screens/UpdateScreenPreferences";
+  private readonly delInfoSreensPref = "/api/info-screens/DeleteScreensPreference";
 
   constructor(private http: HttpClient) {
   }
@@ -24,7 +26,13 @@ export class DataWarehouseService {
   }
 
   getWarehouseScreensPreferences() {
-    return this.http.get(this.infoSreensPref);
+    return this.http.get(this.getInfoSreensPref);
+  }
+
+  deleteWarehouseInfo(id: number) {
+    const params = new HttpParams()
+    .set('id', id.toString())
+    return this.http.get(this.delInfoSreensPref, {params});
   }
 
 
