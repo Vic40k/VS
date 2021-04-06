@@ -3,6 +3,8 @@ import { Router } from '@angular/router';
 import { faDesktop } from '@fortawesome/free-solid-svg-icons';
 import { faPencilAlt } from '@fortawesome/free-solid-svg-icons';
 import { faTrash } from '@fortawesome/free-solid-svg-icons';
+import { faCheck } from '@fortawesome/free-solid-svg-icons';
+import { faTimesCircle } from '@fortawesome/free-solid-svg-icons';
 import { DataWarehouseService } from 'src/app/services/dataWarehouse.service';
 
 @Component({
@@ -18,6 +20,8 @@ export class ScreenChooserComponent {
   faDesktop = faDesktop;
   faPencilAlt = faPencilAlt;
   faTrash = faTrash;
+  faCheck = faCheck;
+  faTimesCircle = faTimesCircle;
 
   ngOnInit(): void {
     this.loadScreensPreferences();

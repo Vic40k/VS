@@ -24,19 +24,32 @@
   </thead>
   <tbody>
     <tr *ngFor="let screen of screensList">
-      <th scope="row">
-        <fa-icon class="monitor_ctrl_icon" (click)="goToWarehouseScreen(screen.id)" [icon]="faDesktop"></fa-icon>
-      </th>
-      <th scope="row">{{screen.name}}</th>
-      <td>{{screen.autoScroll ? 'Да':'Нет'}}</td>
-      <td>{{screen.scrollInterval}} секунд</td>
-      <td>{{showPagesPreferences(screen.pageToShowFrom, screen.pageToShowTo)}}</td>
-      <td>{{screen.updatePeriod}} секунд</td>
-      <td>
-        <fa-icon class="edit_ctrl_icon" (click)="editScreen(screen.id)" [icon]="faPencilAlt"></fa-icon>
-        <fa-icon class="trash_ctrl_icon" (click)="removeScreen(screen.id)" [icon]="faTrash"></fa-icon>
-      </td>
+      <ng-template [ngIf]="screen.autoScroll" [ngIfElse]="edit">
+        <th scope="row">
+          <fa-icon class="monitor_ctrl_icon" (click)="goToWarehouseScreen(screen.id)" [icon]="faDesktop"></fa-icon>
+        </th>
+        <th scope="row">{{screen.name}}</th>
+        <td>{{screen.autoScroll ? 'Да':'Нет'}}</td>
+        <td>{{screen.scrollInterval}} секунд</td>
+        <td>{{showPagesPreferences(screen.pageToShowFrom, screen.pageToShowTo)}}</td>
+        <td>{{screen.updatePeriod}} секунд</td>
+        <td>
+          <fa-icon class="edit_ctrl_icon" (click)="editScreen(screen.id)" [icon]="faPencilAlt"></fa-icon>
+          <fa-icon class="trash_ctrl_icon" (click)="removeScreen(screen.id)" [icon]="faTrash"></fa-icon>
+        </td>
+      </ng-template>
+      <ng-template #edit>
+        <th scope="row" class="new_pref">{{screen.id == 0? 'Новый!':''}}</th>
+        <th scope="row">{{screen.name}}</th>
+        <td>{{screen.autoScroll ? 'Да':'Нет'}}</td>
+        <td>{{screen.scrollInterval}} секунд</td>
+        <td>{{showPagesPreferences(screen.pageToShowFrom, screen.pageToShowTo)}}</td>
+        <td>{{screen.updatePeriod}} секунд</td>
+        <td>
+          <fa-icon class="check_ctrl_icon" (click)="saveScreen(screen.id)" [icon]="faCheck"></fa-icon>
+          <fa-icon class="cancel_ctrl_icon" (click)="cancelScreen()" [icon]="faTimesCircle"></fa-icon>
+        </td>
+      </ng-template>
     </tr>
-
-    </tbody>
-  </table>
+  </tbody>
+</table>
