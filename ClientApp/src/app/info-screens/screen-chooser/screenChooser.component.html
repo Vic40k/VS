@@ -43,7 +43,12 @@
         <th scope="row">
           <form>
             <mat-form-field>
-              <input matInput name="screen_name" [(ngModel)]="screen.name" placeholder="Введите название экрана" autocomplete="off">
+              <input matInput id="screen_name" name="screen_name" 
+                [(ngModel)]="screen.name" 
+                placeholder="Введите название экрана"
+                required minlength="1" 
+                autocomplete="off"
+              >
             </mat-form-field>
           </form>
           
