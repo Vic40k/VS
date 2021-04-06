@@ -23,13 +23,13 @@ namespace VS_CRM.Controllers
     [Route("api/info-screens/{action}")]
     public class InformationScreensController : Controller
     {
-        private readonly DATAContext dbDATA;
-        private readonly testDBContext dbDefault;
+        private readonly DATAContext _dbDATA;
+        private readonly testDBContext _dbDefault;
         private readonly IHubContext<BroadcastHub> _hubContext;
         public InformationScreensController(DATAContext context, testDBContext defaultDbContext, IHubContext<BroadcastHub> hubContext)
         {
-            dbDATA = context;
-            dbDefault = defaultDbContext;
+            _dbDATA = context;
+            _dbDefault = defaultDbContext;
             _hubContext = hubContext;
         }
 
@@ -43,10 +43,10 @@ namespace VS_CRM.Controllers
             var procedureList = new List<InformationScreenViewModel>();
             var startDate = DateTime.Now.AddMonths(-3).Date.Add(new TimeSpan(0, 0, 0));
 
-            orderList = (from zak in dbDATA.ЗаказыРегион
-                         join reg in dbDATA.ТоварВЗаказеРегион on new { CustomerNumber = zak.Номер, Region = zak.Регион } equals new { CustomerNumber = reg.НомерПокупателя, Region = reg.Регион }
-                         join nom in dbDATA.НоменклатураТоваров on reg.IdТовара equals nom.IdТовара
-                         join grp in dbDATA.СписокПодгрупп on nom.IdПодгруппы equals grp.IdПодгруппы
+            orderList = (from zak in _dbDATA.ЗаказыРегион
+                         join reg in _dbDATA.ТоварВЗаказеРегион on new { CustomerNumber = zak.Номер, Region = zak.Регион } equals new { CustomerNumber = reg.НомерПокупателя, Region = reg.Регион }
+                         join nom in _dbDATA.НоменклатураТоваров on reg.IdТовара equals nom.IdТовара
+                         join grp in _dbDATA.СписокПодгрупп on nom.IdПодгруппы equals grp.IdПодгруппы
                          where zak.Дата > startDate
                          && zak.Завод == 44
                          && zak.NSub != null
@@ -79,7 +79,7 @@ namespace VS_CRM.Controllers
                          }).ToList();
 
             arrivalList = (from zak in orderList
-                           join arr in dbDATA.ПриходТовараРегион on zak.Order equals arr.НомерЗаказа
+                           join arr in _dbDATA.ПриходТовараРегион on zak.Order equals arr.НомерЗаказа
                            select new InformationScreenViewModel
                            {
                                Order = zak.Order,
@@ -102,7 +102,7 @@ namespace VS_CRM.Controllers
 
             var procedureList = new List<InformationScreenViewModel>();
 
-            using (SqlConnection DBConection = (SqlConnection)dbDATA.Database.GetDbConnection())
+            using (SqlConnection DBConection = (SqlConnection)_dbDATA.Database.GetDbConnection())
             {
                 SqlCommand sqcmd = new SqlCommand("ASUPSQL.dbo.[sp_ASUPTablo]", DBConection);
                 sqcmd.CommandType = CommandType.StoredProcedure;
@@ -177,7 +177,7 @@ namespace VS_CRM.Controllers
         {
             var result = new List<VideoScreenScreensPreferences>();
 
-            result = await (from pref in dbDefault.VideoScreenScreensPreferences
+            result = await (from pref in _dbDefault.VideoScreenScreensPreferences
                             select new VideoScreenScreensPreferences
                             {
                                 Id = pref.Id,
@@ -195,28 +195,27 @@ namespace VS_CRM.Controllers
         // Delete screen preferences set
         public async Task<IActionResult> DeleteScreensPreference(int id)
         {
-            var pref = await dbDefault.VideoScreenScreensPreferences.FindAsync(id);
+            var pref = await _dbDefault.VideoScreenScreensPreferences.FindAsync(id);
             if (pref == null)
                 return BadRequest(ModelState);
 
-            dbDefault.Entry(pref).State = EntityState.Deleted;
-            await dbDefault.SaveChangesAsync();
+            _dbDefault.Entry(pref).State = EntityState.Deleted;
+            await _dbDefault.SaveChangesAsync();
             return Ok();
         }
 
         [HttpPut]
-        public IActionResult UpdateScreenPreferences(VideoScreenScreensPreferences pref)
+        public async Task<IActionResult> UpdateScreenPreferences(VideoScreenScreensPreferences pref)
         {
+            // Assume it`s new set, add
             if (pref.Id == 0)
-            {
-                // Assume it`s new set, add
-            }
+                _dbDefault.VideoScreenScreensPreferences.Add(pref);
+            // Update existing
             else
-            {
-                // Update existing
-            }
+                _dbDefault.Entry(pref).State = EntityState.Modified;
+
+            await _dbDefault.SaveChangesAsync();
             return Ok(pref);
-            //return BadRequest(ModelState);
         }
 
 
