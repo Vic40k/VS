@@ -16,6 +16,7 @@ import { DataWarehouseService } from 'src/app/services/dataWarehouse.service';
 export class ScreenChooserComponent {
   constructor(private router: Router, private dataService: DataWarehouseService ) {}
   screensList: any[];
+  screenPrefStamp: any = {};
 
   faDesktop = faDesktop;
   faPencilAlt = faPencilAlt;
@@ -77,6 +78,8 @@ export class ScreenChooserComponent {
 
   // - Edit screen preferences
   editScreen(screen: any) {
+    this.screenPrefStamp = Object.assign({}, screen);
+    this.resetAllEditFlags();
     screen.isEdit = true;
   }
 
@@ -92,11 +95,20 @@ export class ScreenChooserComponent {
   
   // - Save screen preference edit
   saveScreenEdit(screen: any) {
-    console.log(screen);
+    // TODO
+    this.resetAllEditFlags();
   }
 
   // - Cancel screen preference edit
-  cancelScreenEdit() {
+  cancelScreenEdit(screen: any) {
+    // Back all values
+    screen.name = this.screenPrefStamp.name;
+    this.screenPrefStamp = {};
+    this.resetAllEditFlags();
+  }
+
+  // - Prevent of opening several preferences for edit
+  private resetAllEditFlags() {
     this.screensList.forEach(function(item){
       if (item.isEdit)
         item.isEdit = false;
