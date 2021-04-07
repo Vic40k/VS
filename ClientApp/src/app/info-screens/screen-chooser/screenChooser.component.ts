@@ -35,7 +35,7 @@ export class ScreenChooserComponent {
     this.dataService.getWarehouseScreensPreferences()
       .subscribe((data: []) => 
       { 
-        this.screensList = data; 
+        this.screensList = data; console.log(data);
       });
   }
 
@@ -104,6 +104,20 @@ export class ScreenChooserComponent {
     });
   }
   
+  // - Add new screen preferences set
+  addNewScreen() {
+    this.screensList.push({
+      isEdit: true,
+      id: 0,
+      autoScroll: true,
+      name: "",
+      pageToShowFrom: 0,
+      pageToShowTo: 0,
+      scrollInterval: 20,
+      updatePeriod: 1
+    });
+  }
+  
   // - Save screen preference edit
   saveScreenEdit(screen: any) {
     this.dataService.updWarehouseScreensPreferences(screen)
@@ -124,10 +138,21 @@ export class ScreenChooserComponent {
 
   // - Prevent of opening several preferences for edit
   private resetAllEditFlags() {
-    this.screensList.forEach(function(item){
+    let indexToDel: number = 0;
+    let isDelNeed: boolean = false;
+
+    // Close all preferences for edit
+    this.screensList.forEach(function(item, index){
       if (item.isEdit)
         item.isEdit = false;
+      if (item.id === 0){
+        indexToDel = index;
+        isDelNeed = true;
+      }
     });
+    if (isDelNeed){
+      // Delete new record
+    }
   }
 }
 
