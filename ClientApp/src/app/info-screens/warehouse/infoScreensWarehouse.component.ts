@@ -37,8 +37,8 @@ export class InfoScreensWarehouseComponent implements OnInit {
   private routeSubscription: Subscription;
   private querySubscription: Subscription;
   isLoadComplete: boolean = false;
-  updatePeriod: number = 60; // seconds
-  timeLeft: number = this.updatePeriod;
+  updatePeriod: number = 1; // minutes
+  timeLeft: number = this.updatePeriod * 60; // seconds
   interval: NodeJS.Timeout;
 
   id: number; // Screen id
@@ -103,7 +103,7 @@ export class InfoScreensWarehouseComponent implements OnInit {
             if (scrolIntervalParam && typeof scrolIntervalParam === 'number' && scrolIntervalParam > 1 && scrolIntervalParam < 60)
               this.scrolInterval = Math.trunc(scrolIntervalParam);              
             let updatePeriodParam:number = +queryParam['updatePeriod']; 
-            if (updatePeriodParam && typeof updatePeriodParam === 'number' && updatePeriodParam >= 60 && updatePeriodParam < 43200) // from minute to 12 hours
+            if (updatePeriodParam && typeof updatePeriodParam === 'number' && updatePeriodParam >= 1 && updatePeriodParam < 720) // from minute to 12 hours
               this.updatePeriod = Math.trunc(updatePeriodParam);              
             let pageToShowFromParam:number = +queryParam['pageToShowFrom']; 
             if (pageToShowFromParam && typeof pageToShowFromParam === 'number' && pageToShowFromParam > 0)
@@ -184,7 +184,7 @@ export class InfoScreensWarehouseComponent implements OnInit {
           }
         }
       } else {
-        this.timeLeft = this.updatePeriod;
+        this.timeLeft = this.updatePeriod * 60;
         this.loadinfoScreensWarehouse();
         this.updateTime = new Date();
       }
