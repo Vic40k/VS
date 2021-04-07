@@ -30,10 +30,8 @@ export class DataWarehouseService {
     return this.http.get(this.getInfoSreensPref);
   }
 
-  updWarehouseScreensPreferences(id: number) {
-    const params = new HttpParams()
-    .set('id', id.toString())
-    return this.http.put(this.updInfoSreensPref, {params});
+  updWarehouseScreensPreferences(screen: any) {
+    return this.http.put(this.updInfoSreensPref, screen);
   }
 
   delWarehouseScreensPreferences(id: number) {
