@@ -32,7 +32,7 @@
         <td>{{screen.autoScroll ? 'Да':'Нет'}}</td>
         <td>{{screen.scrollInterval}} секунд</td>
         <td>{{showPagesPreferences(screen.pageToShowFrom, screen.pageToShowTo)}}</td>
-        <td>{{screen.updatePeriod}} секунд</td>
+        <td>{{screen.updatePeriod}}&nbsp;{{getMinutesString(screen.updatePeriod)}}</td>
         <td>
           <fa-icon class="edit_ctrl_icon" (click)="editScreen(screen)" [icon]="faPencilAlt"></fa-icon>
           <fa-icon class="trash_ctrl_icon" (click)="removeScreen(screen.id)" [icon]="faTrash"></fa-icon>

@@ -59,6 +59,16 @@ export class ScreenChooserComponent {
       return showFromString + '-' + showToString;
   }
 
+  // Return string depends on minutes count
+  getMinutesString(minutes: number) {
+    if (minutes == 1)
+      return "минута";
+    else if (minutes >= 2 && minutes < 5)
+      return "минуты";
+    else
+      return "минут";
+  }
+
   // Create url with needed preferences and go to
   goToWarehouseScreen(id: number) {
     let url: string = '/sklad';
